@@ -1,0 +1,20 @@
+--cpu Cortex-M0
+".\startup_stm32f0xx.o"
+".\system_stm32f0xx.o"
+".\stm32f0xx_it.o"
+".\main.o"
+".\exit.o"
+".\gpio.o"
+".\systick.o"
+".\time.o"
+".\stm32f0xx_syscfg.o"
+".\stm32f0xx_exti.o"
+".\stm32f0xx_gpio.o"
+".\stm32f0xx_misc.o"
+".\stm32f0xx_rcc.o"
+".\stm32f0xx_usart.o"
+".\stm32f0xx_tim.o"
+--library_type=microlib --strict --scatter ".\key.sct"
+--summary_stderr --info summarysizes --map --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list ".\key.map" -o .\key.axf

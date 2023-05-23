@@ -1,0 +1,2 @@
+F:\CreatCar\Outdoor autonomous vehicles\参考资料\十轴IMU资料\10轴IMU惯导模块\2.上位机使用教程\2.连接上位机\维特智能标准上位机(V6.2.60)\temp\MiniIMU.exe,F:\CreatCar\Outdoor autonomous vehicles\参考资料\十轴IMU资料\10轴IMU惯导模块\2.上位机使用教程\2.连接上位机\维特智能标准上位机(V6.2.60)\MiniIMU.exe
+F:\CreatCar\Outdoor autonomous vehicles\参考资料\十轴IMU资料\10轴IMU惯导模块\2.上位机使用教程\2.连接上位机\维特智能标准上位机(V6.2.60)\temp\xml\ProductModel.xml,F:\CreatCar\Outdoor autonomous vehicles\参考资料\十轴IMU资料\10轴IMU惯导模块\2.上位机使用教程\2.连接上位机\维特智能标准上位机(V6.2.60)\xml\ProductModel.xml

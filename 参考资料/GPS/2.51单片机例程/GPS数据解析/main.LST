@@ -1,0 +1,174 @@
+C51 COMPILER V9.54   MAIN                                                                  05/19/2022 15:55:21 PAGE 1   
+
+
+C51 COMPILER V9.54, COMPILATION OF MODULE MAIN
+OBJECT MODULE PLACED IN main.OBJ
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE main.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND TABS(2)
+
+line level    source
+
+   1          #include "main.h"
+   2          #include "uart.h"
+   3          
+   4          #include <stdio.h>
+   5          #include <stdlib.h>
+   6          #include <string.h>
+   7          
+   8          
+   9          //定义变量
+  10          
+  11          
+  12          //****************************************************
+  13          //主函数
+  14          //****************************************************
+  15          void main()
+  16          {
+  17   1        unsigned char i = 0;
+  18   1        Uart_Init();
+  19   1        Delay_ms(10);
+  20   1      
+  21   1        UartPrintf("Welcome to use!");
+  22   1      
+  23   1        clrStruct();  //清空缓存数组
+  24   1      
+  25   1      
+  26   1        while(1)
+  27   1        {
+  28   2          parseGpsBuffer();
+  29   2          printGpsBuffer();
+  30   2        }
+  31   1      }
+  32          
+  33          
+  34          void errorLog(int num)
+  35          {
+  36   1        
+  37   1        while (1)
+  38   1        {
+  39   2            UartPrintf("ERROR");
+  40   2          UartPrintASCII(num+0x30);
+  41   2          UartPrintf("\r\n");
+  42   2        }
+  43   1      }
+  44          
+  45          void parseGpsBuffer()
+  46          {
+  47   1        char *subString;
+  48   1        char *subStringNext;
+  49   1        char i = 0;
+  50   1        if (Save_Data.isGetData)
+  51   1        {
+  52   2          Save_Data.isGetData = false;
+  53   2          UartPrintf("**************\r\n");
+  54   2          UartPrintf(Save_Data.GPS_Buffer);
+  55   2      
+C51 COMPILER V9.54   MAIN                                                                  05/19/2022 15:55:21 PAGE 2   
+
+  56   2          
+  57   2          for (i = 0 ; i <= 6 ; i++)
+  58   2          {
+  59   3            if (i == 0)
+  60   3            {
+  61   4              if ((subString = strstr(Save_Data.GPS_Buffer, ",")) == NULL)
+  62   4                errorLog(1);  //解析错误
+  63   4            }
+  64   3            else
+  65   3            {
+  66   4              subString++;
+  67   4              if ((subStringNext = strstr(subString, ",")) != NULL)
+  68   4              {
+  69   5                char usefullBuffer[2]; 
+  70   5                switch(i)
+  71   5                {
+  72   6                  case 1:memcpy(Save_Data.UTCTime, subString, subStringNext - subString);break; //获取UTC时间
+  73   6                  case 2:memcpy(usefullBuffer, subString, subStringNext - subString);break; //获取UTC时间
+  74   6                  case 3:memcpy(Save_Data.latitude, subString, subStringNext - subString);break;  //获取纬度信息
+  75   6                  case 4:memcpy(Save_Data.N_S, subString, subStringNext - subString);break; //获取N/S
+  76   6                  case 5:memcpy(Save_Data.longitude, subString, subStringNext - subString);break; //获取经度信息
+  77   6                  case 6:memcpy(Save_Data.E_W, subString, subStringNext - subString);break; //获取E/W
+  78   6      
+  79   6                  default:break;
+  80   6                }
+  81   5      
+  82   5                subString = subStringNext;
+  83   5                Save_Data.isParseData = true;
+  84   5                if(usefullBuffer[0] == 'A')
+  85   5                  Save_Data.isUsefull = true;
+  86   5                else if(usefullBuffer[0] == 'V')
+  87   5                  Save_Data.isUsefull = false;
+  88   5      
+  89   5              }
+  90   4              else
+  91   4              {
+  92   5                errorLog(2);  //解析错误
+  93   5              }
+  94   4            }
+  95   3      
+  96   3      
+  97   3          }
+  98   2        }
+  99   1      }
+ 100          
+ 101          void printGpsBuffer()
+ 102          {
+ 103   1        if (Save_Data.isParseData)
+ 104   1        {
+ 105   2          Save_Data.isParseData = false;
+ 106   2          
+ 107   2          UartPrintf("Save_Data.UTCTime = ");
+ 108   2          UartPrintf(Save_Data.UTCTime);
+ 109   2          UartPrintf("\r\n");
+ 110   2      
+ 111   2          if(Save_Data.isUsefull)
+ 112   2          {
+ 113   3            Save_Data.isUsefull = false;
+ 114   3            UartPrintf("Save_Data.latitude = ");
+ 115   3            UartPrintf(Save_Data.latitude);
+ 116   3            UartPrintf("\r\n");
+ 117   3      
+C51 COMPILER V9.54   MAIN                                                                  05/19/2022 15:55:21 PAGE 3   
+
+ 118   3      
+ 119   3            UartPrintf("Save_Data.N_S = ");
+ 120   3            UartPrintf(Save_Data.N_S);
+ 121   3            UartPrintf("\r\n");
+ 122   3      
+ 123   3            UartPrintf("Save_Data.longitude = ");
+ 124   3            UartPrintf(Save_Data.longitude);
+ 125   3            UartPrintf("\r\n");
+ 126   3      
+ 127   3            UartPrintf("Save_Data.E_W = ");
+ 128   3            UartPrintf(Save_Data.E_W);
+ 129   3            UartPrintf("\r\n");
+ 130   3          }
+ 131   2          else
+ 132   2          {
+ 133   3            UartPrintf("GPS DATA is not usefull!\r\n");
+ 134   3          }
+ 135   2          
+ 136   2        }
+ 137   1      }
+ 138          
+ 139          //****************************************************
+ 140          //MS延时函数
+ 141          //****************************************************
+ 142          void Delay_ms(unsigned int n)
+ 143          {
+ 144   1        unsigned int  i,j;
+ 145   1        for(i=0;i<n;i++)
+ 146   1          for(j=0;j<123;j++);
+ 147   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    582    ----
+   CONSTANT SIZE    =    171    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----      12
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)
