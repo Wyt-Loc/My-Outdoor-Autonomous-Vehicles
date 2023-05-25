@@ -4,12 +4,13 @@ from multiprocessing import Process
 import numpy as np
 import cv2
 import threading
-import tcptest
 
+# import tcptest
 
+# 图像部分     先打开 服务器 再打开树莓派 再打开PC
+# TCP部分      先打开PC 再打开树莓派
 
 # UDP创建
-
 
 udpClient = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)  # 创建socket对象，走udp通道
 host = '8.130.115.65'
@@ -40,10 +41,11 @@ isconn = 0
 
 
 def img_recv():
-    global flag, js, serverAddr, isconn
+    global flag, js, serverAddr, isconn, num
     while True:
         if flag == 0:
-            data = input("输入要的内容")
+            # data = input("输入要的内容")
+            data = 'pcpc'
             udpClient.sendto(str(data).encode(), serverAddr)  # 发送数据给服务端 打通连接
             flag = 1
 
@@ -55,10 +57,8 @@ def img_recv():
         if js >= 3:
             try:
                 receive_data = np.frombuffer(serverData, dtype='uint8')
-                r_img = cv2.imdecode(receive_data, 1)
-                # cv2.putText(r_img, "server", (50, 50), cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 0, 0), 2)
-                r_img = cv2.imdecode(receive_data, 1)
-                cv2.imshow('server', r_img)
+                frame = cv2.imdecode(receive_data, 1)
+                cv2.imshow('server', frame)
                 key = cv2.waitKey(1)  # 致命伤
                 if key == ord("q"):
                     break
@@ -84,9 +84,8 @@ def main1():
     t1.start()
     p1 = Process(target=conn_sent)
     # p2 = Process(target=tcptest.TcpControl)
-    if js == 0:
-        p1.start()
-        # p2.start()
+    p1.start()
+    # p2.start()
 
 
 if __name__ == "__main__":

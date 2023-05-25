@@ -17,4 +17,23 @@
 
 void TIM3_Int_Init(u16 arr,u16 psc);
 void TIM3_PWM_Init(u16 arr,u16 psc);
+void MYDMA_Init();
+void MYDMA_Enable(DMA_Channel_TypeDef*DMA_CHx);
+
+
+
+typedef struct
+{
+	int angle;				   /* 目标角度  */
+	uint32_t pulsesNum;  /* 脉冲个数  */
+	float subdivision;	 /* 细分数    */
+	float	stepAngle;		 /* 电机步距角*/
+	uint8_t	en;				   /* 使能      */
+	uint8_t dir;			   /* 方向		  */
+	
+	
+}Motor;
+
+
+
 #endif

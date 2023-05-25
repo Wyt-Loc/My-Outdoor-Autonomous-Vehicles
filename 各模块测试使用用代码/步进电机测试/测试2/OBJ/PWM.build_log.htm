@@ -22,15 +22,25 @@ Dialog DLL:      TARMSTM.DLL V1.66.0.0
  
 <h2>Project:</h2>
 F:\CreatCar\Outdoor autonomous vehicles\各模块测试使用用代码\步进电机测试\测试2\USER\PWM.uvprojx
-Project File Date:  05/23/2023
+Project File Date:  05/25/2023
 
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 7 (build 960)', folder: 'F:\MDK\ARM\ARMCC\Bin'
 Build target 'PWM'
+compiling main.c...
+..\HARDWARE\TIMER\timer.h(20): warning:  #1295-D: Deprecated declaration MYDMA_Init - give arg types
+  void MYDMA_Init();
+main.c(15): warning:  #177-D: variable "i"  was declared but never referenced
+  	int i;
+main.c: 2 warnings, 0 errors
+compiling dma.c...
+..\HARDWARE\TIMER\timer.h(20): warning:  #1295-D: Deprecated declaration MYDMA_Init - give arg types
+  void MYDMA_Init();
+..\HARDWARE\DMA\dma.c: 1 warning, 0 errors
 linking...
-Program Size: Code=8452 RO-data=336 RW-data=56 ZI-data=1832  
+Program Size: Code=10536 RO-data=336 RW-data=60 ZI-data=1900  
 FromELF: creating hex file...
-"..\OBJ\PWM.axf" - 0 Error(s), 0 Warning(s).
+"..\OBJ\PWM.axf" - 0 Error(s), 3 Warning(s).
 
 <h2>Software Packages used:</h2>
 

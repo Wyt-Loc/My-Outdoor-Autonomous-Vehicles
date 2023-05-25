@@ -3,7 +3,13 @@
 # @Author  : Wyt
 # @File    : tcptest.py
 
+
+# 图像部分     先打开 服务器 再打开树莓派 再打开PC
+# TCP部分      先打开PC 再打开树莓派
+
+
 import socket
+import time
 
 # 1.创建socket
 tcp_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -28,7 +34,7 @@ def TcpControl():
                 print("tcp链接出现错误")
             flag = 1
 
-        send_data = input("请输入要发送的数据：")
+        send_data = input("输入要发送的数据：")
         try:
             tcp_socket.send(send_data.encode("gbk"))
         except:

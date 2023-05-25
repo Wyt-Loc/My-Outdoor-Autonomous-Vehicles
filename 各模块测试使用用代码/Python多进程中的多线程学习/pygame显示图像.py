@@ -1,48 +1,50 @@
-# -*- coding: utf-8 -*-
-# @Time    : 2023/5/24 18:36
-# @Author  : Wyt
-# @File    : pygame显示图像.py
-
 import pygame
 from pygame.locals import *
-import numpy as np
 import cv2
-import math
 import sys
-import os
+import time
+
+video_path = r'C:\Users\dell\Videos\Captures\aaa.mp4'
+video = cv2.VideoCapture(video_path)
+
+FPS = int(round(video.get(cv2.CAP_PROP_FPS)))
+
+FramePerSec = pygame.time.Clock()
+
+Width = 640
+Height = 480
 
 pygame.init()
-dir = os.path.dirname(sys.argv[0])  # 获取当前运行路径
-# 路径
-# music = os.path.join(dir, 'src/demo.mp3')
-movie = os.path.join(dir, 'C:\\Users\\dell\\Videos\\Captures\\aaa.mp4')
-# 窗口
-# os.environ['SDL_VIDEO_WINDOW_POS'] = "%d,%d" % (0, 0)
-size = width, height = 0, 0
-screen = pygame.display.set_mode(size, flags=pygame.FULLSCREEN)
-# 加载资源
-videoCapture = cv2.VideoCapture(movie)
-# pygame.mixer.music.load(music)
-# 提前放一下，有时候第一遍会放不出来（不解）
-# pygame.mixer.music.play()
-pygame.mixer.music.pause()
-# 帧率
-FPS = 60
-# Start Video
-# pygame.mixer.music.play()
-while 1:
-    pygame.time.Clock().tick(FPS)
-    ret, frame = videoCapture.read()
-    if ret == True:  # 判断视频是否播放完毕
-        frame = np.rot90(frame, k=-1)
+pygame.display.set_caption('OpenCV Video Player on Pygame')
+
+screen = pygame.display.set_mode((Width, Height), 0, 32)
+screen.fill([0, 0, 0])
+num = 0
+
+while True:
+
+    if num == 0:
+        T0 = time.time()
+
+    if time.time() - T0 > num * (1. / FPS):
+
+        ret, frame = video.read()
+        TimeStamp = video.get(cv2.CAP_PROP_POS_MSEC)
+
+        if ret == False:
+            print('Total Time:', time.time() - T0)
+            pygame.quit()
+            sys.exit()
+
+        frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+
+        frame = cv2.transpose(frame)  # 矩阵转换
         frame = pygame.surfarray.make_surface(frame)
-        frame = pygame.transform.flip(frame, False, True)
         screen.blit(frame, (0, 0))
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                sys.exit()
-        pygame.display.flip()
-    else:
-        break
+        pygame.display.update()
 
+        num += 1
 
+    for event in pygame.event.get():
+        if event.type == QUIT:
+            sys.exit()
