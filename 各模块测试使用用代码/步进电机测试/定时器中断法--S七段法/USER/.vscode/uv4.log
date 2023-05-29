@@ -1,0 +1,19 @@
+*** Using Compiler 'V5.06 update 7 (build 960)', folder: 'F:\MDK\ARM\ARMCC\Bin'
+Build target 'SPI'
+compiling s_curve.c...
+..\STEPMOTOR\motor.h(30): warning:  #1-D: last line of file ends without a newline
+  #endif
+..\STEPMOTOR\s_curve.c(74): warning:  #177-D: variable "freq_pre"  was declared but never referenced
+  	float freq,freq_pre;
+..\STEPMOTOR\s_curve.c(75): warning:  #177-D: variable "acc_pre"  was declared but never referenced
+  	float acc,acc_pre;
+..\STEPMOTOR\s_curve.c(122): warning:  #550-D: variable "f1"  was set but never used
+  	float f1,f2,f3,f4,f5;
+..\STEPMOTOR\s_curve.c(122): warning:  #550-D: variable "f2"  was set but never used
+  	float f1,f2,f3,f4,f5;
+..\STEPMOTOR\s_curve.c: 5 warnings, 0 errors
+linking...
+Program Size: Code=9724 RO-data=336 RW-data=76 ZI-data=3436  
+FromELF: creating hex file...
+"..\OBJ\SPI.axf" - 0 Error(s), 5 Warning(s).
+Build Time Elapsed:  00:00:02
