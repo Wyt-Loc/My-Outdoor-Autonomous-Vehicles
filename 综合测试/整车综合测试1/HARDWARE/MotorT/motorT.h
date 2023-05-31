@@ -24,16 +24,13 @@ typedef struct
 
 
 
-
-
 /******************************************************************************************/
-
-#define TIM_FREQ            168000000U                      /* 定时器主频 */
+#define TIM_FREQ            72000000U                      /* 定时器主频 */
 #define MAX_STEP_ANGLE      0.225                           /* 最小步距(1.8/MICRO_STEP) */
 #define PAI                 3.1415926                       /* 圆周率*/
 #define FSPR                200                             /* 步进电机单圈步数 */
 #define MICRO_STEP          8                               /* 步进电机驱动器细分数 */
-#define T1_FREQ             (TIM_FREQ/84)                   /* 频率ft值 */
+#define T1_FREQ             (TIM_FREQ/72)                   /* 频率ft值 */
 #define SPR                 (FSPR*MICRO_STEP)               /* 旋转一圈需要的脉冲数 */
 
 /* 数学常数 */
@@ -77,26 +74,6 @@ enum EN
 
 
 void create_t_ctrl_param(int32_t step, uint32_t accel, uint32_t decel, uint32_t speed); /* 梯形加减速控制函数 */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

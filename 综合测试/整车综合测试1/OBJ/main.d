@@ -33,8 +33,7 @@
 ..\obj\main.o: ..\HARDWARE\KEY\key.h
 ..\obj\main.o: ..\SYSTEM\usart\usart.h
 ..\obj\main.o: F:\MDK\ARM\ARMCC\Bin\..\include\stdio.h
-..\obj\main.o: ..\HARDWARE\DMA\dma.h
-..\obj\main.o: ..\HARDWARE\DMA\dma.h
 ..\obj\main.o: ..\HARDWARE\TIMER\timer.h
 ..\obj\main.o: ..\HARDWARE\LED\led.h
 ..\obj\main.o: ..\HARDWARE\MotorT\motorT.h
+..\obj\main.o: ..\HARDWARE\ServosT\Servos.h

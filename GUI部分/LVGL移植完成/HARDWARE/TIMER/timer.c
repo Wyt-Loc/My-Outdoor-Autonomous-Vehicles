@@ -21,7 +21,7 @@
 //这里使用的是定时器3!
 void TIM3_Int_Init(u16 arr,u16 psc)
 {
-    TIM_TimeBaseInitTypeDef  TIM_TimeBaseStructure;
+   TIM_TimeBaseInitTypeDef  TIM_TimeBaseStructure;
 	NVIC_InitTypeDef NVIC_InitStructure;
 
 	RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM3, ENABLE); //时钟使能
@@ -42,9 +42,9 @@ void TIM3_Int_Init(u16 arr,u16 psc)
 	NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE; //IRQ通道被使能
 	NVIC_Init(&NVIC_InitStructure);  //初始化NVIC寄存器
 
-
 	TIM_Cmd(TIM3, ENABLE);  //使能TIMx					 
 }
+
 //定时器3中断服务程序
 void TIM3_IRQHandler(void)   //TIM3中断
 {

@@ -8,6 +8,8 @@
 #include "w25qxx.h"
 #include "touch.h"
 #include "timer.h"
+
+
 #include "lvgl.h"
 #include "lv_port_disp.h"
 #include "lv_port_indev.h"
@@ -21,11 +23,11 @@ int main(void)
   NVIC_PriorityGroupConfig(NVIC_PriorityGroup_2);//设置中断优先级分组为组2：2位抢占优先级，2位响应优先级
 	uart_init(115200);	 	//串口初始化为115200
 	LED_Init();			     //LED端口初始化
-	lv_init();
+	
 	Drive_io_init();
+	lv_init();
 	lv_port_disp_init();  // lvgl显示接口初始化,放在lv_init()的后面
 	lv_port_indev_init(); // lvgl输入接口初始化,放在lv_init()的后面
-	//KEY_Init();	 	
 	TIM3_Int_Init(1,7199);   //提供lvgl的心跳
 	TIM4_PWM_Init(899, 0); //驱动风扇
 	

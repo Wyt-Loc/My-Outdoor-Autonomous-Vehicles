@@ -44,7 +44,7 @@ def img_recv():
         if flag == 0:
             # data = input("输入要的内容")
             data = 'pcpc'
-            udpClient.sendto(str(data).encode(), serverAddr)  # 发送数据给服务端 打通连接
+            udpClient.sendto(data.encode(), serverAddr)  # 发送数据给服务端 打通连接
             flag = 1
 
         serverData, serverAddr = udpClient.recvfrom(921600)  # 接收来自服务端的数据

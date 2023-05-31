@@ -53,7 +53,7 @@ int main(void)
 	NVIC_PriorityGroupConfig(NVIC_PriorityGroup_2);
 	uart_init(115200);
 	KEY_Init();
-	TIM3_PWM_Init(ARR_5000-1, PSC-1);  	// 50hz   0.02s周期
+	TIM4_PWM_Init(ARR_5000-1, PSC-1);  	// 50hz   0.02s周期
 	
 	while (1)
 	{
@@ -91,7 +91,7 @@ int main(void)
 		if (key == 1 ){    //1，KEY0按下   回到舵机角度最大位置
 			 
 			duty = ServoAngleMAXLeft;
-			TIM_SetCompare2(TIM3,ServoAngleMAXLeft);	
+			TIM_SetCompare1(TIM4,ServoAngleMAXLeft);	
 			printf("arr = %d",duty);
 			
 		}
@@ -99,7 +99,7 @@ int main(void)
 		if (key == 2 ){	  //2，KEY1按下		 回到舵机角度最小位置
 			
 			duty = ServoAngleMINRight;
-			TIM_SetCompare2(TIM3,ServoAngleMINRight);	
+			TIM_SetCompare1(TIM4,ServoAngleMINRight);	
 			printf("arr = %d",duty);
 			
 		}
@@ -107,11 +107,10 @@ int main(void)
 		if(key == 3 ){																	//3. KEY3按下    回到舵机中心位置
 			
 			duty = ServoMedianRight;
-			TIM_SetCompare2(TIM3,ServoMedianRight);	
+			TIM_SetCompare1(TIM4,ServoMedianRight);	
 			printf("arr = %d",duty);
 			
 		}
-		
 		
 #endif
 		

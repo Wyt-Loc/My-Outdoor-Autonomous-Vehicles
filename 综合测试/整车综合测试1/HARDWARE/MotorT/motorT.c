@@ -4,6 +4,8 @@
 #include "dma.h"
 #include "key.h"
 
+
+/*
 Motor m;
 
 u16 T;
@@ -92,6 +94,18 @@ u8 step_pulseNum(int pulsenum){
 	return 0;
 }
 
+*/
+
+void motorStop(void){
+	
+	GPIO_SetBits(GPIOA,GPIO_Pin_1);
+
+}
+
+
+void motorStart(){
+	GPIO_ResetBits(GPIOA,GPIO_Pin_1);
+}
 
 
 /********************************************梯形加减速***********************************************/
@@ -137,7 +151,7 @@ void create_t_ctrl_param(int32_t step, uint32_t accel, uint32_t decel, uint32_t 
         g_srd.run_state = DECEL;    /* 减速状态. */
         g_srd.step_delay = 1000;    /* 默认速度 */
     }
-		
+
     else if(step != 0)              /* 如果目标运动步数不为0*/
     {
         /*设置最大速度极限, 计算得到min_delay用于定时器的计数器的值 min_delay = (alpha / t)/ w*/
@@ -146,7 +160,7 @@ void create_t_ctrl_param(int32_t step, uint32_t accel, uint32_t decel, uint32_t 
         /* 通过计算第一个(c0) 的步进延时来设定加速度，其中accel单位为0.1rad/sec^2
          step_delay = 1/tt * sqrt(2*alpha/accel)
          step_delay = ( tfreq*0.69/10 )*10 * sqrt( (2*alpha*100000) / (accel*10) )/100 */
-        
+
         g_srd.step_delay = (int32_t)((T1_FREQ_148 * sqrt(A_SQ / accel))/10); /* c0 */
 
         max_s_lim = (uint32_t)(speed*speed / (A_x200*accel/10));/* 计算多少步之后达到最大速度的限制 max_s_lim = speed^2 / (2*alpha*accel) */
@@ -187,24 +201,22 @@ void create_t_ctrl_param(int32_t step, uint32_t accel, uint32_t decel, uint32_t 
         g_srd.accel_count = 0;                                  /* 复位加减速计数值 */
     }
 		
-		
     g_motion_sta = 1;                                           /* 电机为运动状态 */
     //ST3_EN(EN_ON);
+		motorStart();
 		TIM_Cmd(TIM3, ENABLE);  /* 使能TIM3 */
-    tim_count = TIM3->CNT;//TIM_GetCounter(TIM3);//TIM_GetCapture1(TIM3); //__HAL_TIM_GET_COUNTER(&g_atimx_handle);
-		TIM3->CCR1 = tim_count+g_srd.step_delay/2;
+   // tim_count = TIM3->CNT;//TIM_GetCounter(TIM3);//TIM_GetCapture1(TIM3); //__HAL_TIM_GET_COUNTER(&g_atimx_handle);
+	//	TIM3->CCR1 = tim_count+g_srd.step_delay/2;
+		TIM3->CCR1 = TIM3->CNT + g_srd.step_delay/2;
     //TIM_SetCompare1(TIM3, tim_count+g_srd.step_delay/2);//__HAL_TIM_SET_COMPARE(&g_atimx_handle,ATIM_TIMX_PWM_CH3,tim_count+g_srd.step_delay/2);  /* 设置定时器比较值 */
 		
-		TIM_ITConfig(TIM3,TIM_IT_Update,ENABLE);  //使能定时器的更新中断（更新中断属于中断种类的一种）
+		TIM_ITConfig(TIM3,TIM_IT_CC1,ENABLE);  //使能定时器的更新中断（更新中断属于中断种类的一种）
 		//TIM_Cmd(TIM3,ENABLE);
     //HAL_TIM_OC_Start_IT(&g_atimx_handle,ATIM_TIMX_PWM_CH3);                                 /* 使能定时器通道 */
-
+		
 }
 
 
-void TIM3_IRQHandler(void)
-{
-	
 		__IO uint32_t tim_count = 0;
     __IO uint32_t tmp = 0;
     uint16_t new_step_delay = 0;                            /* 保存新（下）一个延时周期 */
@@ -212,18 +224,20 @@ void TIM3_IRQHandler(void)
     __IO static uint32_t step_count = 0;                    /* 总移动步数计数器*/
     __IO static int32_t rest = 0;                           /* 记录new_step_delay中的余数，提高下一步计算的精度 */
     __IO static uint8_t i = 0;                              /* 定时器使用翻转模式，需要进入两次中断才输出一个完整脉冲 */
-	
-	
+		__IO static u8 flag = 0;
+
+void TIM3_IRQHandler(void)
+{
+	 
 	if(TIM_GetITStatus(TIM3,TIM_IT_CC1)!=RESET){
 		
-		TIM_ClearITPendingBit(TIM3,TIM_IT_CC1);
+		//tim_count = TIM3->CNT;  //TIM_GetCounter(TIM3);//tim_count = __HAL_TIM_GET_COUNTER(&g_atimx_handle);
+    //tmp = TIM3->CNT + g_srd.step_delay/2;               /* 整个C值里边是需要翻转两次的所以需要除以2 */
+		//TIM3->CCR1 = tmp;
 		
-		tim_count = TIM3->CNT;  //TIM_GetCounter(TIM3);//tim_count = __HAL_TIM_GET_COUNTER(&g_atimx_handle);
-    tmp = tim_count + g_srd.step_delay/2;               /* 整个C值里边是需要翻转两次的所以需要除以2 */
-		TIM3->CCR1 = tmp;
-	
-	//TIM_SetCompare1(TIM3,tmp);  //__HAL_TIM_SET_COMPARE(&g_atimx_handle,ATIM_TIMX_PWM_CH3,tmp);
-		    i++;                                                /* 定时器中断次数计数值 */
+				TIM3->CCR1 = TIM3->CNT + g_srd.step_delay / 2;
+		    i++;                		/* 定时器中断次数计数值 */
+		
         if(i == 2)                                          /* 2次，说明已经输出一个完整脉冲 */
         {
             i = 0;                                          /* 清零定时器中断次数计数值 */
@@ -233,10 +247,13 @@ void TIM3_IRQHandler(void)
                 step_count = 0;                             /* 清零步数计数器 */
                 rest = 0;                                   /* 清零余值 */
                 /* 关闭通道*/
-                TIM_ITConfig(TIM3,TIM_IT_Update,DISABLE);  //使能定时器的更新中断（更新中断属于中断种类的一种）//HAL_TIM_OC_Stop_IT(&g_atimx_handle, ATIM_TIMX_PWM_CH3);
+                TIM_ITConfig(TIM3,TIM_IT_CC1,DISABLE);  //使能定时器的更新中断（更新中断属于中断种类的一种）//HAL_TIM_OC_Stop_IT(&g_atimx_handle, ATIM_TIMX_PWM_CH3);
                 //ST3_EN(EN_OFF);
+								motorStop();
 								TIM_Cmd(TIM3, DISABLE);  /* 使能TIM3 */
                 g_motion_sta = 0;                           /* 电机为停止状态  */
+								motorStop();	
+								motorStop();
                 break;
 
             case ACCEL:
@@ -251,6 +268,7 @@ void TIM3_IRQHandler(void)
                     g_step_position--;                      /* 绝对位置减1*/
                 }
                 g_srd.accel_count++;                        /* 加速计数值加1*/
+								
                 new_step_delay = g_srd.step_delay - (((2 *g_srd.step_delay) + rest)/(4 * g_srd.accel_count + 1));/* 计算新(下)一步脉冲周期(时间间隔) */
                 rest = ((2 * g_srd.step_delay)+rest)%(4 * g_srd.accel_count + 1);                                /* 计算余数，下次计算补上余数，减少误差 */
                 if(step_count >= g_srd.decel_start)         /* 检查是否到了需要减速的步数 */
@@ -268,65 +286,54 @@ void TIM3_IRQHandler(void)
                 break;
 
             case RUN:
-										
-								
-						
+							
                 g_add_pulse_count++;
-                step_count++;                               /* 步数加1 */
+                step_count++;                               // 步数加1 
                 if(g_srd.dir == CW)
                 {
-                    g_step_position++;                      /* 绝对位置加1 */
+                    g_step_position++;                      // 绝对位置加1 
                 }
                 else
                 {
-                    g_step_position--;                      /* 绝对位置减1*/
+                    g_step_position--;                      // 绝对位置减1/
                 }
-                new_step_delay = g_srd.min_delay;           /* 使用min_delay（对应最大速度speed）*/
-                if(step_count >= g_srd.decel_start)         /* 需要开始减速 */
+                new_step_delay = g_srd.min_delay;           // 使用min_delay（对应最大速度speed）
+                if(step_count >= g_srd.decel_start)         // 需要开始减速 
                 {
-                    g_srd.accel_count = g_srd.decel_val;    /* 减速步数做为加速计数值 */
-                    new_step_delay = last_accel_delay;      /* 加阶段最后的延时做为减速阶段的起始延时(脉冲周期) */
-                    g_srd.run_state = DECEL;                /* 状态改变为减速 */
+                    g_srd.accel_count = g_srd.decel_val;    // 减速步数做为加速计数值 
+                    new_step_delay = last_accel_delay;      // 加阶段最后的延时做为减速阶段的起始延时(脉冲周期) 
+                    g_srd.run_state = DECEL;                // 状态改变为减速 
                 }
                 break;
 
             case DECEL:
-                step_count++;                               /* 步数加1 */
+                step_count++;                               // 步数加1 
                 g_add_pulse_count++;
                 if(g_srd.dir == CW)
                 {
-                    g_step_position++;                      /* 绝对位置加1 */
+                    g_step_position++;                      // 绝对位置加1 
                 }
                 else
                 {
-                    g_step_position--;                      /* 绝对位置减1 */
+                    g_step_position--;                      // 绝对位置减1 
                 }
                 g_srd.accel_count++;
-                new_step_delay = g_srd.step_delay - (((2 * g_srd.step_delay) + rest)/(4 * g_srd.accel_count + 1));  /* 计算新(下)一步脉冲周期(时间间隔) */
-                rest = ((2 * g_srd.step_delay)+rest)%(4 * g_srd.accel_count + 1);                                   /* 计算余数，下次计算补上余数，减少误差 */
+                new_step_delay = g_srd.step_delay - (((2 * g_srd.step_delay) + rest)/(4 * g_srd.accel_count + 1));  // 计算新(下)一步脉冲周期(时间间隔) 
+                rest = ((2 * g_srd.step_delay)+rest)%(4 * g_srd.accel_count + 1);                                   // 计算余数，下次计算补上余数，减少误差 
 
-                /* 检查是否为最后一步 */
-                if(g_srd.accel_count >= 0)                  /* 判断减速步数是否从负值加到0是的话 减速完成 */
+                // 检查是否为最后一步 
+                if(g_srd.accel_count >= 0)                  /// 判断减速步数是否从负值加到0是的话 减速完成 
                 {
                     g_srd.run_state = STOP;
                 }
                 break;
             }
-            g_srd.step_delay = new_step_delay;              /* 为下个(新的)延时(脉冲周期)赋值 */
+						
+            g_srd.step_delay = new_step_delay;              //为下个(新的)延时(脉冲周期)赋值 
+				
         }
-		
-	/*
-			++i;
-			if(i % 2 == 0){
-				m.pulsesNum++;	//每进两次中断 脉冲数+1
-				i = 0;
-				//printf("num===%u",m.pulsesNum);
-			}
-			//printf("num = %d", m.pulsesNum);
-			//if(m.pulsesNum == )
-	
-	*/
-			}
+				TIM_ClearITPendingBit(TIM3, TIM_IT_CC1 ); //清除 TIM3 更新中断标志
+			} 
 }
 
 

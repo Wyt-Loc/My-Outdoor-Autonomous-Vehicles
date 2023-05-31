@@ -1,11 +1,4 @@
 #include "timer.h"
-#include "led.h"
-#include "usart.h"
-
-u16 oc1crr1=4915;
-u16 oc1crr2=3271;
-_Bool oc1_sta=0;
-
 
 void time3_initer(u16 arr,u16 psc)
 {
@@ -37,7 +30,7 @@ void time3_initer(u16 arr,u16 psc)
 	 TIM_OCInitTypeSTU.TIM_OCMode=TIM_OCMode_Toggle;
 	 TIM_OCInitTypeSTU.TIM_OCPolarity=TIM_OCPolarity_Low;
 	 TIM_OCInitTypeSTU.TIM_OutputState=TIM_OutputState_Enable;
-	 TIM_OCInitTypeSTU.TIM_Pulse=oc1crr1;
+	 TIM_OCInitTypeSTU.TIM_Pulse=0;
 	 TIM_OC1Init(TIM3,&TIM_OCInitTypeSTU);
 	 TIM_OC1PreloadConfig(TIM3,TIM_OCPreload_Disable);
 

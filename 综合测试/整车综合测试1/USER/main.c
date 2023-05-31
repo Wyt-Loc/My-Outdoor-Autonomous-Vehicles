@@ -2,23 +2,23 @@
 #include "key.h"
 #include "sys.h"
 #include "usart.h"
-#include "dma.h"
 #include "timer.h"
 #include "led.h"
 #include "motorT.h"
-
+#include "Servos.h"
 
 #define size 1
 extern u16 DMA1_MEM_LEN;
 extern DMA_InitTypeDef DMA_InitStructure;  
 u16 send_buf[size];
 
+
 #define radtor  0.01591549
 
 
-__IO uint32_t g_set_speed  = 600;//* radtor;    //圈/s    //600 * 5.729578;   /* 最大速度 单位为 0.1rad/sec */   //0.1弧度每秒  1rad = 5.729578
-__IO uint32_t g_step_accel = 150;//* radtor;               /* 加速度 单位为 0.1rad/sec^2 */  //0.1弧度每2次方秒
-__IO uint32_t g_step_decel = 150;//* radtor;               /* 减速度 单位为 0.1rad/sec^2 */  //0.1弧度每2次方秒
+__IO uint32_t g_set_speed  = 400;//* radtor;    //圈/s    //600 * 5.729578;   /* 最大速度 单位为 0.1rad/sec */   //0.1弧度每秒  1rad = 5.729578
+__IO uint32_t g_step_accel = 20;//* radtor;               /* 加速度 单位为 0.1rad/sec^2 */  //0.1弧度每2次方秒
+__IO uint32_t g_step_decel = 20;//* radtor;               /* 减速度 单位为 0.1rad/sec^2 */  //0.1弧度每2次方秒
 __IO uint16_t g_step_angle = 50;             /* 设置的步数*/   //对应圈数 8细分下
 
 
@@ -27,18 +27,31 @@ extern __IO uint32_t g_add_pulse_count;     /* 脉冲个数累计*/
 
 int main(void)
 {
+	
 	u8 len,t;
 	delay_init();
 	LED_Init();
 	uart_init(115200);
-	uart2_init(115200);
+	uart2_init(115200);  //串口接收
 	KEY_Init();
-	time3_initer(0xffff, 71);
+	time3_initer(0xffff, 35); //步进电机定时器
+	//Servos_PWM_Init(ARR_5000-1, PSC-1); //舵机定时器初始化
+	
 	delay_ms(20);
-
+	
 	while(1)
 	{
-		//Control_rece();
+		
+		if(KEY_Scan(1) == 1){
+				create_t_ctrl_param(SPR*g_step_angle, g_step_accel, g_step_decel, g_set_speed);
+				g_add_pulse_count=0;
+		}
+		if(KEY_Scan(1) == 2){
+			LED0 = 1;
+		}
+		if(KEY_Scan(1) == 3){
+				LED0 = 0;
+		}
 		
 		if(USART_RX_STA2&0x8000)
 			{

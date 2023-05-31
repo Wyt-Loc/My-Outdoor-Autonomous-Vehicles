@@ -565,9 +565,10 @@ ARM Macro Assembler    Page 9
               00000000 
 Command Line: --debug --xref --diag_suppress=9931 --cpu=Cortex-M3 --apcs=interw
 ork --depend=..\obj\startup_stm32f10x_hd.d -o..\obj\startup_stm32f10x_hd.o -I.\
-RTE\_PWM -IF:\MDK\packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include -IF:\MDK\ARM\CM
-SIS\Include --predefine="__UVISION_VERSION SETA 525" --predefine="STM32F10X_HD 
-SETA 1" --list=.\startup_stm32f10x_hd.lst ..\CORE\startup_stm32f10x_hd.s
+RTE\_OutdoorAutonomousVehicles -IF:\MDK\packs\Keil\STM32F1xx_DFP\2.3.0\Device\I
+nclude -IF:\MDK\ARM\CMSIS\Include --predefine="__UVISION_VERSION SETA 525" --pr
+edefine="STM32F10X_HD SETA 1" --list=.\startup_stm32f10x_hd.lst ..\CORE\startup
+_stm32f10x_hd.s
 
 
 

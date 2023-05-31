@@ -7,6 +7,8 @@
 "..\obj\timer.o"
 "..\obj\dma.o"
 "..\obj\motort.o"
+"..\obj\servos.o"
+"..\obj\servospid.o"
 "..\obj\delay.o"
 "..\obj\sys.o"
 "..\obj\usart.o"

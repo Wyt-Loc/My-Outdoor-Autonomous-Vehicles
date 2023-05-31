@@ -3,7 +3,7 @@
 <title>Static Call Graph - [..\OBJ\TOUCH.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image ..\OBJ\TOUCH.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060960: Last Updated: Wed May 17 19:33:16 2023
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060960: Last Updated: Wed May 31 19:14:07 2023
 <BR><P>
 <H3>Maximum Stack Usage =       1104 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -488,14 +488,14 @@ Global Symbols
 <LI><a href="#[135]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_timer_handler
 <LI><a href="#[12c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_port_indev_init
 <LI><a href="#[12b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_port_disp_init
-<LI><a href="#[129]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_init
+<LI><a href="#[12a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_init
 <LI><a href="#[134]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_ms
 <LI><a href="#[125]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_init
 <LI><a href="#[12e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM4_PWM_Init
 <LI><a href="#[12d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM3_Int_Init
 <LI><a href="#[126]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;NVIC_PriorityGroupConfig
 <LI><a href="#[128]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LED_Init
-<LI><a href="#[12a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Drive_io_init
+<LI><a href="#[129]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Drive_io_init
 </UL>
 <BR>[Called By]<UL><LI><a href="#[11e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_entry_main
 </UL>
@@ -1400,7 +1400,7 @@ Global Symbols
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f10x_hd.o(RESET)
 </UL>
-<P><STRONG><a name="[12a]"></a>Drive_io_init</STRONG> (Thumb, 46 bytes, Stack size 8 bytes, timer.o(.text))
+<P><STRONG><a name="[129]"></a>Drive_io_init</STRONG> (Thumb, 46 bytes, Stack size 8 bytes, timer.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = Drive_io_init &rArr; GPIO_Init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[19d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_ResetBits
@@ -1757,7 +1757,7 @@ Global Symbols
 <LI><a href="#[127]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uart_init
 <LI><a href="#[12e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM4_PWM_Init
 <LI><a href="#[128]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LED_Init
-<LI><a href="#[12a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Drive_io_init
+<LI><a href="#[129]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Drive_io_init
 </UL>
 
 <P><STRONG><a name="[7de]"></a>GPIO_StructInit</STRONG> (Thumb, 16 bytes, Stack size 0 bytes, stm32f10x_gpio.o(.text), UNUSED)
@@ -1783,7 +1783,7 @@ Global Symbols
 
 <P><STRONG><a name="[19d]"></a>GPIO_ResetBits</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, stm32f10x_gpio.o(.text))
 <BR><BR>[Called By]<UL><LI><a href="#[187]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GT9147_Init
-<LI><a href="#[12a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Drive_io_init
+<LI><a href="#[129]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Drive_io_init
 <LI><a href="#[774]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Stop_it
 <LI><a href="#[772]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Forward_rotation
 </UL>
@@ -1869,7 +1869,7 @@ Global Symbols
 <LI><a href="#[127]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uart_init
 <LI><a href="#[12e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM4_PWM_Init
 <LI><a href="#[128]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LED_Init
-<LI><a href="#[12a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Drive_io_init
+<LI><a href="#[129]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Drive_io_init
 </UL>
 
 <P><STRONG><a name="[19f]"></a>RCC_APB1PeriphClockCmd</STRONG> (Thumb, 26 bytes, Stack size 0 bytes, stm32f10x_rcc.o(.text))
@@ -2753,7 +2753,7 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[20e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_lv_ll_init
 </UL>
-<BR>[Called By]<UL><LI><a href="#[129]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_init
+<BR>[Called By]<UL><LI><a href="#[12a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_init
 </UL>
 
 <P><STRONG><a name="[20f]"></a>lv_group_create</STRONG> (Thumb, 90 bytes, Stack size 8 bytes, lv_group.o(.text), UNUSED)
@@ -3141,7 +3141,7 @@ Global Symbols
 
 <P><STRONG><a name="[86a]"></a>lv_is_initialized</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, lv_obj.o(.text), UNUSED)
 
-<P><STRONG><a name="[129]"></a>lv_init</STRONG> (Thumb, 150 bytes, Stack size 24 bytes, lv_obj.o(.text))
+<P><STRONG><a name="[12a]"></a>lv_init</STRONG> (Thumb, 150 bytes, Stack size 24 bytes, lv_obj.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 288<LI>Call Chain = lv_init &rArr; lv_extra_init &rArr; lv_grid_init &rArr; lv_layout_register &rArr; lv_mem_realloc &rArr; lv_tlsf_realloc &rArr; lv_tlsf_malloc &rArr; block_prepare_used &rArr; block_trim_free &rArr; block_split &rArr; block_mark_as_free &rArr; block_link_next &rArr; block_next &rArr; block_is_last
 </UL>
 <BR>[Calls]<UL><LI><a href="#[20e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_lv_ll_init
@@ -5141,7 +5141,7 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[20e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_lv_ll_init
 </UL>
-<BR>[Called By]<UL><LI><a href="#[129]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_init
+<BR>[Called By]<UL><LI><a href="#[12a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_init
 </UL>
 
 <P><STRONG><a name="[27b]"></a>lv_obj_refresh_style</STRONG> (Thumb, 238 bytes, Stack size 32 bytes, lv_obj_style.o(.text))
@@ -6101,7 +6101,7 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[396]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;perf_monitor_init
 </UL>
-<BR>[Called By]<UL><LI><a href="#[129]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_init
+<BR>[Called By]<UL><LI><a href="#[12a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_init
 </UL>
 
 <P><STRONG><a name="[3a1]"></a>lv_refr_obj</STRONG> (Thumb, 232 bytes, Stack size 64 bytes, lv_refr.o(.text))
@@ -6255,7 +6255,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[262]"></a>lv_draw_init</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, lv_draw.o(.text))
-<BR><BR>[Called By]<UL><LI><a href="#[129]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_init
+<BR><BR>[Called By]<UL><LI><a href="#[12a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_init
 </UL>
 
 <P><STRONG><a name="[3c1]"></a>lv_draw_arc_dsc_init</STRONG> (Thumb, 88 bytes, Stack size 24 bytes, lv_draw_arc.o(.text))
@@ -6871,7 +6871,7 @@ Global Symbols
 <LI><a href="#[416]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_img_decoder_set_read_line_cb
 <LI><a href="#[417]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_img_decoder_set_close_cb
 </UL>
-<BR>[Called By]<UL><LI><a href="#[129]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_init
+<BR>[Called By]<UL><LI><a href="#[12a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_init
 </UL>
 
 <P><STRONG><a name="[3a5]"></a>lv_img_decoder_get_info</STRONG> (Thumb, 104 bytes, Stack size 24 bytes, lv_img_decoder.o(.text))
@@ -8180,7 +8180,7 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[481]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_grid_init
 <LI><a href="#[460]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_flex_init
 </UL>
-<BR>[Called By]<UL><LI><a href="#[129]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_init
+<BR>[Called By]<UL><LI><a href="#[12a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_init
 </UL>
 
 <P><STRONG><a name="[443]"></a>lv_font_get_glyph_bitmap</STRONG> (Thumb, 30 bytes, Stack size 16 bytes, lv_font.o(.text))
@@ -8561,7 +8561,7 @@ Global Symbols
 <LI><a href="#[5cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;anim_mark_list_change
 <LI><a href="#[5b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_timer_create
 </UL>
-<BR>[Called By]<UL><LI><a href="#[129]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_init
+<BR>[Called By]<UL><LI><a href="#[12a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_init
 </UL>
 
 <P><STRONG><a name="[89]"></a>lv_anim_path_linear</STRONG> (Thumb, 44 bytes, Stack size 24 bytes, lv_anim.o(.text))
@@ -8971,7 +8971,7 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[20e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_lv_ll_init
 </UL>
-<BR>[Called By]<UL><LI><a href="#[129]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_init
+<BR>[Called By]<UL><LI><a href="#[12a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_init
 </UL>
 
 <P><STRONG><a name="[5e1]"></a>lv_fs_get_drv</STRONG> (Thumb, 44 bytes, Stack size 16 bytes, lv_fs.o(.text))
@@ -9082,7 +9082,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[20e]"></a>_lv_ll_init</STRONG> (Thumb, 16 bytes, Stack size 0 bytes, lv_ll.o(.text))
-<BR><BR>[Called By]<UL><LI><a href="#[129]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_init
+<BR><BR>[Called By]<UL><LI><a href="#[12a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_init
 <LI><a href="#[20f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_group_create
 <LI><a href="#[20d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_lv_group_init
 <LI><a href="#[25f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_lv_timer_core_init
@@ -9393,7 +9393,7 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[5f1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_tlsf_create_with_pool
 </UL>
-<BR>[Called By]<UL><LI><a href="#[129]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_init
+<BR>[Called By]<UL><LI><a href="#[12a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_init
 <LI><a href="#[26a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_mem_deinit
 </UL>
 
@@ -10546,7 +10546,7 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[20e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_lv_ll_init
 <LI><a href="#[635]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_timer_enable
 </UL>
-<BR>[Called By]<UL><LI><a href="#[129]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_init
+<BR>[Called By]<UL><LI><a href="#[12a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_init
 </UL>
 
 <P><STRONG><a name="[5bf]"></a>lv_timer_del</STRONG> (Thumb, 26 bytes, Stack size 8 bytes, lv_timer.o(.text))
