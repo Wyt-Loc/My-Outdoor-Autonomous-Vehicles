@@ -1,5 +1,5 @@
 #include "Servos.h"
-
+#include "timer.h"
 
 /***************************************************************
 【函数名】 void Servos_PWM_Init(u16 arr,u16 psc)
@@ -41,53 +41,27 @@ void Servos_PWM_Init(u16 arr,u16 psc)
 }
 
 
-u16 duty = 130;
+u16 duty = 405;
 
 
 
-/***************************************************************
-【函数名】 void ServosControl(int angle)
-【功  能】 舵机控制    按一次转一次
-【参数值】 角度 默认为0   负数左转，  正数右转   ServoMedianLeft舵机中值
-【返回值】 无		 
-****************************************************************/
-void ServosControl(int angle){
-	
-	u16 Servoserror = ServoAngleMAXLeft - ServoMedianLeft;
-	
-	duty = ServoMedianLeft + angle * (Servoserror / 150);
-	
-	if (angle == 0){
-		TIM_SetCompare1(TIM4,ServoMedianLeft);
-		TIM_SetCompare2(TIM4,ServoMedianLeft);
-	}
-	
-	if(angle > 0 && angle < 150){ //向左打角
-		TIM_SetCompare1(TIM4,(u16)duty);	
-	}
-	
-	if(angle < 0 && angle > -150){ //向右打角
-		TIM_SetCompare1(TIM4,(u16)duty);	
-	}
-	
-}
 
 
 /***************************************************************
 【函数名】 void ServosLeftRight(u8 leftorright)
-【功  能】 控制舵机向左还是向右打角
+【功  能】 控制舵机向左还是向右打角 点按的函数
 【参数值】 左还是右  1左   2右   
 【返回值】 无
 ****************************************************************/
-void ServosLeftRight(u8 leftorright){
+void ServosLeftRightClick(u8 leftorright){
 	
 	if (leftorright == 1 && duty < ServoAngleMAXLeft){		//舵机执行
-			duty += 1;
+			duty += 7;
 			TIM_SetCompare1(TIM4,duty);
 	}
 	
 	if (leftorright == 2 && duty > ServoAngleMINLeft){    //舵机执行
-			duty -= 1;
+			duty -= 7;
 			TIM_SetCompare1(TIM4,duty);
 	}
 	
@@ -95,7 +69,39 @@ void ServosLeftRight(u8 leftorright){
 
 
 
+//这个东西放定时器执行 防止卡死主程序
+u8 clickorlong = 0;
+short t = 0;
+
+//改为一次函数，进行一个转向加速
+// duty = a x + b
+void ServosLeftRightLong(void){  //每秒执行33次
+	
+	if(clickorlong != 0){
+	
+		if (clickorlong == 1 && duty < ServoAngleMAXLeft){		//舵机执行
+				t++;
+				duty += 2 * t;
+				TIM_SetCompare1(TIM4,duty);
+		}
+	
+		if (clickorlong == 2 && duty > ServoAngleMINLeft){    //舵机执行
+				t--;
+				duty -= 2 * t;
+				TIM_SetCompare1(TIM4,duty);
+		}
+	
+	}
+}
 
 
-
+//定时器轮询舵机执行
+void BASIC_TIM_IRQHandler (void)
+{
+    if ( TIM_GetITStatus( BASIC_TIM, TIM_IT_Update) != RESET )
+    {
+			  ServosLeftRightLong();
+        TIM_ClearITPendingBit(BASIC_TIM, TIM_FLAG_Update);
+    }
+}
 

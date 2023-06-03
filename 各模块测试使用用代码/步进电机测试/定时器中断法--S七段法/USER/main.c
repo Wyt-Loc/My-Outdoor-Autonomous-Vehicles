@@ -7,14 +7,12 @@
 int main(void)
 {
 
-	delay_init();								
-	NVIC_PriorityGroupConfig(NVIC_PriorityGroup_2); 
+	delay_init();
+	NVIC_PriorityGroupConfig(NVIC_PriorityGroup_2);
 	Motor_Init();
 	TIM5_Int_Init(499, 119);
 
 	while (1)
 	{
-		
 	}
-	
 }

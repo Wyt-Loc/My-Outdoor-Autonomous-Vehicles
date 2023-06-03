@@ -10,7 +10,6 @@
 #include "timer.h"
 #include "motorT.h"
 #include "Servos.h"
-
 #include "lvgl.h"
 #include "lv_port_disp.h"
 #include "lv_port_indev.h"
@@ -43,15 +42,15 @@ int main(void)
 	lvgl_button2();
 	/* 加载按钮 */
 	lvgl_button_test();
-	
+
 	while(1){
-		
+
 		delay_ms(5);
 		lv_timer_handler(); // lvgl的事务处理
+
 		usartReceData(); //串口接收数据
 
 	}
 }
-
 
 

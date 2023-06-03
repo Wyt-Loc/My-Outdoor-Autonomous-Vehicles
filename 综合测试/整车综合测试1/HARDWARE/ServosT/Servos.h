@@ -40,7 +40,8 @@
 
 
 void Servos_PWM_Init(u16 arr,u16 psc);
-void ServosLeftRight(u8 leftorright);
+void ServosLeftRightClick(u8 leftorright);
+void ServosLeftRightLong(void);
 
 #endif
 

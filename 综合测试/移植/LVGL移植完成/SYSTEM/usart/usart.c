@@ -206,8 +206,6 @@ void USART2_IRQHandler(void)                	//´®¿Ú2ÖĞ¶Ï·şÎñ³ÌĞò
 }
 
 
-
-
 #define radtor  0.01591549
 
 
@@ -218,7 +216,6 @@ __IO uint16_t g_step_angle = 50;             /* ÉèÖÃµÄ²½Êı*/   //¶ÔÓ¦È¦Êı 8Ï¸·ÖÏ
 
 
 extern __IO uint32_t g_add_pulse_count;     /* Âö³å¸öÊıÀÛ¼Æ*/
-
 
 
 
@@ -244,6 +241,7 @@ void usartReceData(void){
 				g_add_pulse_count=0;
 				printf("ºóÍË");
 			}
+			
 			if(USART_RX_BUF2[0] == 'l' && USART_RX_BUF2[1] == 'e' && USART_RX_BUF2[2] == 'f' && USART_RX_BUF2[3] == 't'){
 				LED0 =~ LED0;
 				create_t_ctrl_param(SPR*g_step_angle*3, g_step_accel*1.3, g_step_decel*1.3, g_set_speed*1.6);
@@ -256,8 +254,9 @@ void usartReceData(void){
 				g_add_pulse_count=0;
 				printf("ÏòÓÒ");
 			}
+			
 			USART_RX_STA2=0;
-		}	
+		}
 }
 
 

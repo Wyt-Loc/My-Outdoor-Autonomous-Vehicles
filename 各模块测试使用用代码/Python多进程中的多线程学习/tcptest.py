@@ -48,6 +48,7 @@ def TcpControl():
 
 # 数据格式规定
 
+# WASD 长按事件，   上下左右点按事件
 
 # 数据格式规定：  帧头+校验位+数据+帧尾
 #              帧头 0xff
@@ -61,27 +62,56 @@ def TcpControl():
 #              右转 ———— oxff + 5 + right + 0xaa
 
 
-def go():
+# 按键处理方面  上下控制步进电机， 左右控制舵机 加速暂时不考虑
+# 主要就是按键的模式 点按 还是 长按， 这个效果在接收端不好处理，所以转到发送端处理
+# 如果是长按，则在原来的基础上加标记  “long” 标记这个命令是长按，在松手的时候我们有一个捕获过程，捕捉到之后
+# 在此发送一个对应的松手命令，来结束Stm32执行的动作.
+
+def gos():
     global send_data
-    send_data = 'go\r\n'
+    send_data = 'advancess\r\n'
     print("1")
 
 
-def back():
+def backs():
     global send_data
-    send_data = 'back\r\n'
+    send_data = 'backs\r\n'
     print("2")
 
 
-def left():
+def lefts():
     global send_data
-    send_data = 'left\r\n'
+    send_data = 'lefts\r\n'
     print("3")
 
 
-def right():
+def rights():
     global send_data
-    send_data = 'right\r\n'
+    send_data = 'rights\r\n'
+    print(4)
+
+
+def gol():
+    global send_data
+    send_data = 'advancesl\r\n'
+    print("1")
+
+
+def backl():
+    global send_data
+    send_data = 'backl\r\n'
+    print("2")
+
+
+def leftl():
+    global send_data
+    send_data = 'leftl\r\n'
+    print("3")
+
+
+def rightl():
+    global send_data
+    send_data = 'rightl\r\n'
     print(4)
 
 
@@ -103,16 +133,28 @@ def key_Con():
                 exit()
             elif event.type == pygame.KEYDOWN and send_data == "" and send_flag == 0:
                 if event.key == pygame.K_UP:
-                    go()
+                    gos()
                     send_flag = 1
                 elif event.key == pygame.K_DOWN:
-                    back()
+                    backs()
                     send_flag = 1
                 elif event.key == pygame.K_LEFT:
-                    left()
+                    lefts()
                     send_flag = 1
                 elif event.key == pygame.K_RIGHT:
-                    right()
+                    rights()
+                    send_flag = 1
+                elif event.key == pygame.K_w:
+                    gol()
+                    send_flag = 1
+                elif event.key == pygame.K_s:
+                    backl()
+                    send_flag = 1
+                elif event.key == pygame.K_a:
+                    leftl()
+                    send_flag = 1
+                elif event.key == pygame.K_d:
+                    rightl()
                     send_flag = 1
 
 
