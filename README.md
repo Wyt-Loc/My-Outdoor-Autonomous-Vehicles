@@ -14,7 +14,7 @@
 
 ## 项目目录现在如下所示:  (以后应该会不断的进行补充)
 
-![image-20230520213906536](image-20230520213906536.png)
+![image](https://github.com/Wyt-Loc/My-Outdoor-Autonomous-Vehicles/assets/93720498/0d8a24d8-b76f-4c65-b92f-71b2da8c637b)
 
 ## 理一下思路：
 
