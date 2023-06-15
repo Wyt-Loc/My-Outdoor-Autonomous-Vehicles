@@ -7,14 +7,11 @@
 #include "motorT.h"
 #include "Servos.h"
 
+
 #define size 1
 extern u16 DMA1_MEM_LEN;
 extern DMA_InitTypeDef DMA_InitStructure;  
 u16 send_buf[size];
-
-
-#define radtor  0.01591549
-
 
 
 int main(void)
@@ -28,19 +25,24 @@ int main(void)
 	KEY_Init();
 	time3_initer(0xffff, 35); //步进电机定时器
 	Servos_PWM_Init(ARR_5000-1, PSC-1); //舵机定时器初始化
-	BASIC_TIM_Config();
+	BaseTimer_Init();
 	delay_ms(20);
-	
+	TIM_SetCompare1(TIM4,559);
 	while(1)
 	{
 		
 		Control(usartRecvData());
 		
 		if(KEY_Scan(1) == 2){
+			//ServosLeftRightClick(1);
+			Control(7);
 			LED0 = 1;
 		}
+		
 		if(KEY_Scan(1) == 3){
-				LED0 = 0;
+			//ServosLeftRightClick(2);
+			Control(7);
+			LED0 = 0;
 		}
 		
 	}

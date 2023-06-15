@@ -32,6 +32,9 @@ void uart2_init(u32 bound);
 #define ADVANCESL   "advancesl"  // 前进长按
 #define BACKL				"backl"			 // 后退长按
 
+#define STOPSERVOS   "stopservos"  //停止舵机长按动作
+#define STOPMOTOR		 "stopmotor"   //停止电机长按动作
+
 
 
 u8 usartRecvData(void);

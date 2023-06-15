@@ -70,7 +70,7 @@ def img_recv():
 # 最终发现是由于UDP协议自身的特性 ，2分钟没有消息自动断开，所以我们在2分钟以内要发送一次心跳来维持连接
 def conn_sent():
     while True:
-        time.sleep(10)
+        time.sleep(40)
         udpClient.sendto("1".encode(), serverAddr)
 
 

@@ -32,5 +32,6 @@
 ..\obj\usart.o: ..\SYSTEM\usart\usart.h
 ..\obj\usart.o: F:\MDK\ARM\ARMCC\Bin\..\include\stdio.h
 ..\obj\usart.o: ..\HARDWARE\LED\led.h
-..\obj\usart.o: ..\MotorT\motorT.h
 ..\obj\usart.o: ..\ServosT\Servos.h
+..\obj\usart.o: ..\MotorT\motorT.h
+..\obj\usart.o: F:\MDK\ARM\ARMCC\Bin\..\include\string.h

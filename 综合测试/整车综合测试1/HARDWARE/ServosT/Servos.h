@@ -26,13 +26,11 @@
 
 #define PSC 288
 
-#define ServoAngleMAXLeft 680   	//舵机打角最大值   ---左舵机
-#define ServoAngleMINLeft 135			//舵机打角最小值
-#define ServoMedianLeft  405			//舵机中值
+#define ServoAngleMAX 660   	//舵机打角最大值   ---左舵机
+#define ServoAngleMIN 410			//舵机打角最小值
+#define ServoMedian  563			//舵机中值
 
-#define ServoAngleMAXRight 680   	//舵机打角最大值   ---右舵机
-#define ServoAngleMINRight 135			//舵机打角最小值
-#define ServoMedianRight  405			//舵机中值
+
 
 #endif
 
@@ -42,6 +40,7 @@
 void Servos_PWM_Init(u16 arr,u16 psc);
 void ServosLeftRightClick(u8 leftorright);
 void ServosLeftRightLong(void);
+void servosStop(u8 *clickorlong);
 
 #endif
 

@@ -40,6 +40,14 @@ int main(void)
 	{
 		//Control_rece();
 		
+		if(KEY_Scan(1) == 1){
+					create_t_ctrl_param(SPR*g_step_angle, g_step_accel, g_step_decel, g_set_speed);
+					g_add_pulse_count=0;
+			
+		}
+		
+		
+		
 		if(USART_RX_STA2&0x8000)
 			{
 				len=USART_RX_STA2&0x3fff;//得到此次接收到的数据长度

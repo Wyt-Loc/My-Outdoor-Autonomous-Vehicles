@@ -298,8 +298,18 @@ u8 usartRecvData(void){
 				memset(USART_RX_BUF2,0,sizeof(USART_RX_BUF2));
 				return  8;
 			}
+			if(!strcmp(STOPMOTOR,(const char*)USART_RX_BUF2)){  //停止电机长按
+				memset(USART_RX_BUF2,0,sizeof(USART_RX_BUF2));
+				return  10;
+			}
 			break;
-
+			
+		case 10:
+				if(!strcmp(STOPSERVOS,(const char*)USART_RX_BUF2)){  //停止舵机长按
+				memset(USART_RX_BUF2,0,sizeof(USART_RX_BUF2));
+				return  9;
+			}
+			break;
 	}
 		USART_RX_STA2=0;
 	}
@@ -308,20 +318,20 @@ u8 usartRecvData(void){
 }
 
 
-
-__IO uint32_t g_set_speed  = 400;//* radtor;    //圈/s    //600 * 5.729578;   /* 最大速度 单位为 0.1rad/sec */   //0.1弧度每秒  1rad = 5.729578
+__IO uint32_t g_set_speed  = 80;//* radtor;    //圈/s    //600 * 5.729578;   /* 最大速度 单位为 0.1rad/sec */   //0.1弧度每秒  1rad = 5.729578
 __IO uint32_t g_step_accel = 20;//* radtor;               /* 加速度 单位为 0.1rad/sec^2 */  //0.1弧度每2次方秒
 __IO uint32_t g_step_decel = 20;//* radtor;               /* 减速度 单位为 0.1rad/sec^2 */  //0.1弧度每2次方秒
-__IO uint16_t g_step_angle = 50;             /* 设置的步数*/   //对应圈数 8细分下
+__IO uint16_t g_step_angle = 5;             /* 设置的步数*/   //对应圈数 8细分下
+
 
 extern __IO uint32_t g_add_pulse_count;     /* 脉冲个数累计*/
 
-extern u8 clickorlong;
+extern u8 clickorlongservos;
+extern u8 clickorlongmotor;
 
 void Control(u8 value){
 		
 	switch(value){
-		
 		case 1:
 			ServosLeftRightClick(1);  //左转点按
 			printf("左转点按");
@@ -330,40 +340,47 @@ void Control(u8 value){
 			ServosLeftRightClick(2);  //右转点按
 			printf("右转点按");
 			break;
+		case 6:
+			clickorlongservos = 2;
+			printf("右转长按");
+			break;
+		case 2:
+			clickorlongservos = 1;
+			printf("左转长按");
+			break;
 		case 7:
 			create_t_ctrl_param(SPR*g_step_angle, g_step_accel, g_step_decel, g_set_speed);
 			g_add_pulse_count=0;
 			printf("前进点按");
 			break;
 		case 3:
-			create_t_ctrl_param(SPR*g_step_angle, g_step_accel, g_step_decel, g_set_speed);
+			create_t_ctrl_param(-SPR*g_step_angle, g_step_accel, g_step_decel, g_set_speed);
 			g_add_pulse_count=0;
 			printf("后退点按");
 			break;
-
 		case 4:
-			
+			clickorlongmotor = 1;
+			create_t_ctrl_param(-SPR*g_step_angle*3, g_step_accel, g_step_decel, g_set_speed);
+			g_add_pulse_count=0;
+			printf("后退长按");
 			break;
-
-		case 6:
-			clickorlong = 1;
-			printf("右转长按");
-			break;
-
-		case 2:
-			clickorlong = 2;
-			printf("左转长按");
-			break;
-
 		case 8:
+			clickorlongmotor = 1;
+			create_t_ctrl_param(SPR*g_step_angle*3, g_step_accel, g_step_decel, g_set_speed);
+			g_add_pulse_count=0;
+			printf("前进长按");
 			break;
-
+		case 9:
+			servosStop(&clickorlongservos);
+			printf("舵机停止");
+			break;
+		case 10:
+			motorStopLong(&clickorlongmotor);
+			printf("电机停止");
+			break;
 	}
+	
 }
-
-
-
-
 
 
 

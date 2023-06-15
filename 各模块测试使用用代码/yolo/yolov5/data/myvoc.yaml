@@ -1,0 +1,12 @@
+#训练集
+train: F:\CreatCar\wyt_data\Python\yolo\yolov5\My_VOCData\dataSet_path\train.txt
+
+#验证集
+val: F:\CreatCar\wyt_data\Python\yolo\yolov5\My_VOCData\dataSet_path\val.txt
+
+# number of classes 类别数量
+nc: 2
+
+# class names  类别名
+names: ["one", "two"]
+

@@ -20,6 +20,7 @@
 #define A_SQ                ((float)(2*100000*ALPHA))
 #define A_x200              ((float)(200*ALPHA))            /* 2*10*10*a/10 */
 
+
 typedef struct
 {
     __IO uint8_t  run_state;                                /* 电机旋转状态 */
@@ -54,9 +55,13 @@ enum EN
 
 void create_t_ctrl_param(int32_t step, uint32_t accel, uint32_t decel, uint32_t speed); /* 梯形加减速控制函数 */
 
+void motorStopLong(u8 *clickorlongmotor);
 
 
-
+void motorStop(void);
+void motorStart(void);
+void motorGo(void);
+void motorBack(void);
 
 
 

@@ -5,19 +5,56 @@
 #include "led.h"
 #include "timer.h"
 
+/***************************************************************
+【函数名】 void motorStop(void)
+【功  能】 控制电机驱动器ENA引脚失能
+【参数值】 无
+【返回值】 无
+****************************************************************/
 void motorStop(void){
 	
 	GPIO_SetBits(GPIOA,GPIO_Pin_1);
 
 }
 
-
-void motorStart(){
+/***************************************************************
+【函数名】 void motorStart()
+【功  能】 控制电机驱动器ENA引脚使能
+【参数值】 无
+【返回值】 无
+****************************************************************/
+void motorStart(void){
+	
 	GPIO_ResetBits(GPIOA,GPIO_Pin_1);
+	
 }
 
+///***************************************************************
+//【函数名】 void motorGo(void)
+//【功  能】 控制电机电机前进方向
+//【参数值】 无
+//【返回值】 无
+//****************************************************************/
+//void motorGo(void){
+//	
+//	GPIO_ResetBits(GPIOA,GPIO_Pin_2);
+//	
+//}
 
-/********************************************梯形加减速***********************************************/
+///***************************************************************
+//【函数名】 void motorBack(void) 
+//【功  能】 控制电机电机前进方向
+//【参数值】 无
+//【返回值】 无
+//****************************************************************/
+//void motorBack(void){
+//	
+//	GPIO_SetBits(GPIOA,GPIO_Pin_2);
+//	
+//}
+
+
+/********************************************梯形加减速参数初始化***********************************************/
 speedRampData g_srd               = {STOP,CW,0,0,0,0,0};  /* 加减速变量 */
 __IO int32_t  g_step_position     = 0;                    /* 当前位置 */
 __IO uint8_t  g_motion_sta        = 0;                    /* 是否在运动？0：停止，1：运动 */
@@ -32,7 +69,6 @@ __IO uint32_t g_add_pulse_count   = 0;                    /* 脉冲个数累计 */
  * @param       speed  最大速度,实际值为speed*0.1*rad/sec
  * @retval      无
  */
-
 void create_t_ctrl_param(int32_t step, uint32_t accel, uint32_t decel, uint32_t speed)
 {
 	
@@ -44,14 +80,14 @@ void create_t_ctrl_param(int32_t step, uint32_t accel, uint32_t decel, uint32_t 
 		
     if(step < 0)                    /* 步数为负数 */
     {
-        g_srd.dir = CCW;            /* 逆时针方向旋转 */
-        //ST3_DIR(CCW);								//设置dir正转
+        g_srd.dir = CCW;            /* 前进方向 枚举变量 0 和 1*/
+				//motorGo();
         step = -step;               /* 获取步数绝对值 */
     }
     else
     {
-        g_srd.dir = CW;             /* 顺时针方向旋转 */
-        //ST3_DIR(CW);								//设置dir反转
+        g_srd.dir = CW;             /* 后退  枚举变量 0 和 1*/
+        //motorBack();
     }
 
     if(step == 1)                   /* 步数为1 */
@@ -137,6 +173,16 @@ void create_t_ctrl_param(int32_t step, uint32_t accel, uint32_t decel, uint32_t 
 		__IO static u8 flag = 0;
 
 
+//电机长短按控制
+u8 clickorlongmotor = 0;
+
+
+/***************************************************************
+【函数名】 void TIM3_IRQHandler(void)
+【功  能】 控制步进电机加减速波形为 梯形
+【参数值】 无
+【返回值】 无
+****************************************************************/
 void TIM3_IRQHandler(void)
 {
 	 
@@ -197,6 +243,10 @@ void TIM3_IRQHandler(void)
                 break;
 
             case RUN:
+							if(clickorlongmotor == 1){  //如果为 1 那么直接退出这一次中断，脉冲数不增加所以不会到达减速阶段
+									TIM_ClearITPendingBit(TIM3, TIM_IT_CC1 ); //清除 TIM3 更新中断标志
+									break;						//双重保险确保能够直接退出   实际石懒得测 break 究竟有没有用了。
+							}
 							
                 g_add_pulse_count++;
                 step_count++;                               // 步数加1 
@@ -244,14 +294,20 @@ void TIM3_IRQHandler(void)
 				
         }
 				TIM_ClearITPendingBit(TIM3, TIM_IT_CC1 ); //清除 TIM3 更新中断标志
-			}
+			} 
 }
 
-
-
-
-
-
+/***************************************************************
+【函数名】 void motorStopLong(u8 *clickorlongmotor)
+【功  能】 使步进电机长按失效  大白话就是  从一直跑减速到停止
+【参数值】 u8 *clickorlongmotor  使中断函数跳出
+【返回值】 无
+****************************************************************/
+void motorStopLong(u8 *clickorlongmotor){
+	
+	*clickorlongmotor = 0;
+	
+}
 
 
 

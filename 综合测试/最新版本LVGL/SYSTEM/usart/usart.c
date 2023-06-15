@@ -1,8 +1,10 @@
 #include "sys.h"
 #include "usart.h"	  
 #include "led.h"
-#include "motorT.h"
 #include "Servos.h"
+#include "motorT.h"
+#include <stdio.h>
+#include <string.h>
 ////////////////////////////////////////////////////////////////////////////////// 	 
 //如果使用ucos,则包括下面的头文件即可.
 #if SYSTEM_SUPPORT_OS
@@ -33,7 +35,23 @@ int fputc(int ch, FILE *f)
 }
 #endif 
 
+/*使用microLib的方法*/
+ /* 
+int fputc(int ch, FILE *f)
+{
+	USART_SendData(USART1, (uint8_t) ch);
 
+	while (USART_GetFlagStatus(USART1, USART_FLAG_TC) == RESET) {}	
+   
+    return ch;
+}
+int GetKey (void)  { 
+
+    while (!(USART1->SR & USART_FLAG_RXNE));
+
+    return ((int)(USART1->DR & 0x1FF));
+}
+*/
  
 #if EN_USART1_RX   //如果使能了接收
 //串口1中断服务程序
@@ -125,6 +143,8 @@ void USART1_IRQHandler(void)                	//串口1中断服务程序
 
 
 
+
+
 void uart2_init(u32 bound){
 	 //GPIO端口设置
 	GPIO_InitTypeDef GPIO_InitStructure;
@@ -160,7 +180,7 @@ void uart2_init(u32 bound){
 	//Usart1 NVIC 配置
 	NVIC_InitStructure.NVIC_IRQChannel = USART2_IRQn;
 	NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority=3 ;//抢占优先级3
-	NVIC_InitStructure.NVIC_IRQChannelSubPriority = 3;		//子优先级3
+	NVIC_InitStructure.NVIC_IRQChannelSubPriority = 0;		//子优先级3
 	NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;			//IRQ通道使能
 	NVIC_Init(&NVIC_InitStructure);	//根据指定的参数初始化VIC寄存器
  
@@ -170,7 +190,7 @@ void uart2_init(u32 bound){
  
 }
 
- 
+
 void USART2_IRQHandler(void)                	//串口2中断服务程序
 {
 	u8 Res;
@@ -211,60 +231,158 @@ void USART2_IRQHandler(void)                	//串口2中断服务程序
 #define radtor  0.01591549
 
 
-__IO uint32_t g_set_speed  = 400;//* radtor;    //圈/s    //600 * 5.729578;   /* 最大速度 单位为 0.1rad/sec */   //0.1弧度每秒  1rad = 5.729578
+__IO uint32_t g_set_speed  = 100;//* radtor;    //圈/s    //600 * 5.729578;   /* 最大速度 单位为 0.1rad/sec */   //0.1弧度每秒  1rad = 5.729578
 __IO uint32_t g_step_accel = 20;//* radtor;               /* 加速度 单位为 0.1rad/sec^2 */  //0.1弧度每2次方秒
 __IO uint32_t g_step_decel = 20;//* radtor;               /* 减速度 单位为 0.1rad/sec^2 */  //0.1弧度每2次方秒
-__IO uint16_t g_step_angle = 50;             /* 设置的步数*/   //对应圈数 8细分下
+__IO uint16_t g_step_angle = 100;             /* 设置的步数*/   //对应圈数 8细分下
 
 
 extern __IO uint32_t g_add_pulse_count;     /* 脉冲个数累计*/
 
 
-
-
-void usartReceData(void){
-	u8 len=0; int t;
-	if(USART_RX_STA2&0x8000)
-		{
-			len=USART_RX_STA2&0x3fff;//得到此次接收到的数据长度
-			for(t=0;t<len;t++)
-			{
-				USART_SendData(USART1, USART_RX_BUF2[t]);//向串口1发送数据
-				while(USART_GetFlagStatus(USART1,USART_FLAG_TC)!=SET);//等待发送结束
+/***************************************************************
+【函数名】 u8 usartRecvData(void)
+【功  能】 判断接收的数是什么
+【参数值】 无
+【返回值】 对应电机和舵机的动作
+****************************************************************/
+u8 usartRecvData(void){
+	
+	u8 len,t;
+	
+	if(USART_RX_STA2&0x8000)   // 对接收数据进行判断
+	{
+	
+	 len=USART_RX_STA2&0x3fff;//得到此次接收到的数据长度
+		printf("%d",len);
+	
+	for(t=0;t<len;t++)
+	{
+		USART_SendData(USART1, USART_RX_BUF2[t]);//向串口1发送数据
+		while(USART_GetFlagStatus(USART1,USART_FLAG_TC)!=SET);//等待发送结束
+	}
+			
+	switch(len){
+		
+		case 5:
+			if( !strcmp(LEFTS,(const char*)USART_RX_BUF2)){  //左转点按
+				memset(USART_RX_BUF2,0,sizeof(USART_RX_BUF2));
+				return  1;
 			}
-			if(USART_RX_BUF2[0] == 'g' && USART_RX_BUF2[1] == 'o'){
-				LED1 =~ LED1;
-				create_t_ctrl_param(SPR*g_step_angle, g_step_accel, g_step_decel, g_set_speed);
-				g_add_pulse_count=0;
-				printf("前进");
+			if(!strcmp(LEFTL,(const char*)USART_RX_BUF2)){  // 左转长按
+				memset(USART_RX_BUF2,0,sizeof(USART_RX_BUF2));
+				return 2;
 			}
-			if(USART_RX_BUF2[0] == 'b' && USART_RX_BUF2[1] == 'a' && USART_RX_BUF2[2] == 'c' && USART_RX_BUF2[3] == 'k'){
-				LED1 =~ LED1;
-				create_t_ctrl_param(SPR*g_step_angle*2, g_step_accel*1.2, g_step_decel*1.2, g_set_speed*1.3);
-				g_add_pulse_count=0;
-				printf("后退");
+			if(!strcmp(BACKS,(const char*)USART_RX_BUF2)){   //后退点按
+				memset(USART_RX_BUF2,0,sizeof(USART_RX_BUF2));
+				return 3; 
 			}
-			if(USART_RX_BUF2[0] == 'l' && USART_RX_BUF2[1] == 'e' && USART_RX_BUF2[2] == 'f' && USART_RX_BUF2[3] == 't'){
-				LED0 =~ LED0;
-				create_t_ctrl_param(SPR*g_step_angle*3, g_step_accel*1.3, g_step_decel*1.3, g_set_speed*1.6);
-				g_add_pulse_count=0;
-				printf("向左");
+			if(!strcmp(BACKL,(const char*)USART_RX_BUF2)){   //后退长按
+				memset(USART_RX_BUF2,0,sizeof(USART_RX_BUF2));
+				return 4; 
 			}
-			if(USART_RX_BUF2[0] == 'r' && USART_RX_BUF2[1] == 'i' && USART_RX_BUF2[2] == 'g' && USART_RX_BUF2[3] == 'h' && USART_RX_BUF2[4] == 't'){
-				LED0 =~ LED0;
-				create_t_ctrl_param(SPR*g_step_angle*4, g_step_accel*1.4, g_step_decel*1.4, g_set_speed*1.9);
-				g_add_pulse_count=0;
-				printf("向右");
+			break;
+		
+		case 6:
+			if(!strcmp(RIGHTS,(const char*)USART_RX_BUF2)){  //右转点按
+				memset(USART_RX_BUF2,0,sizeof(USART_RX_BUF2));
+				return  5;
 			}
-			USART_RX_STA2=0;
-		}	
+			if(!strcmp(RIGHTL,(const char*)USART_RX_BUF2)){  //右转长按
+				memset(USART_RX_BUF2,0,sizeof(USART_RX_BUF2));
+				return  6;
+			}
+			break;
+		
+		case 9:
+			if(!strcmp(ADVANCESS,(const char*)USART_RX_BUF2)){  //前进点按
+				memset(USART_RX_BUF2,0,sizeof(USART_RX_BUF2));
+				return  7;
+			}
+			if(!strcmp(ADVANCESL,(const char*)USART_RX_BUF2)){  //前进长按
+				memset(USART_RX_BUF2,0,sizeof(USART_RX_BUF2));
+				return  8;
+			}
+			if(!strcmp(STOPMOTOR,(const char*)USART_RX_BUF2)){  //停止电机长按
+				memset(USART_RX_BUF2,0,sizeof(USART_RX_BUF2));
+				return  10;
+			}
+			break;
+		
+		case 10:
+				if(!strcmp(STOPSERVOS,(const char*)USART_RX_BUF2)){  //停止舵机长按
+				memset(USART_RX_BUF2,0,sizeof(USART_RX_BUF2));
+				return  9;
+			}
+			break;
+	}
+		USART_RX_STA2=0;
+	}
+	return 0;
+	
 }
 
+extern u8 clickorlongservos;
+extern u8 clickorlongmotor;
 
-
-
-
-
+/***************************************************************
+【函数名】 void usartReceData(void)
+【功  能】 串口接收指令
+【参数值】 无
+【返回值】 对应的电机和舵机的动作
+****************************************************************/
+void Control(u8 value){
+		
+	switch(value){
+		case 1:
+			ServosLeftRightClick(1);  //左转点按
+			printf("左转点按");
+			break;
+		case 5:
+			ServosLeftRightClick(2);  //右转点按
+			printf("右转点按");
+			break;
+		case 6:
+			clickorlongservos = 2;
+			printf("右转长按");
+			break;
+		case 2:
+			clickorlongservos = 1;
+			printf("左转长按");
+			break;
+		case 7:
+			create_t_ctrl_param(SPR*g_step_angle, g_step_accel, g_step_decel, g_set_speed);
+			g_add_pulse_count=0;
+			printf("前进点按");
+			break;
+		case 3:
+			create_t_ctrl_param(-SPR*g_step_angle, g_step_accel, g_step_decel, g_set_speed);
+			g_add_pulse_count=0;
+			printf("后退点按");
+			break;
+		case 4:
+			clickorlongmotor = 1;
+			create_t_ctrl_param(-SPR*g_step_angle*3, g_step_accel, g_step_decel, g_set_speed);
+			g_add_pulse_count=0;
+			printf("后退长按");
+			break;
+		case 8:
+			clickorlongmotor = 1;
+			create_t_ctrl_param(SPR*g_step_angle*3, g_step_accel, g_step_decel, g_set_speed);
+			g_add_pulse_count=0;
+			printf("前进长按");
+			break;
+		case 9:
+			servosStop(&clickorlongservos);
+			printf("舵机停止");
+			break;
+		case 10:
+			motorStopLong(&clickorlongmotor);
+			printf("电机停止");
+			break;
+	}
+	
+}
 
 
 

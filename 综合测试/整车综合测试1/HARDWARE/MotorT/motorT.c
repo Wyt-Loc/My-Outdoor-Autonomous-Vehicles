@@ -98,14 +98,17 @@ u8 step_pulseNum(int pulsenum){
 
 void motorStop(void){
 	
-	GPIO_SetBits(GPIOA,GPIO_Pin_1);
+	GPIO_ResetBits(GPIOA,GPIO_Pin_1);
 
 }
 
 
 void motorStart(){
-	GPIO_ResetBits(GPIOA,GPIO_Pin_1);
+	GPIO_SetBits(GPIOA,GPIO_Pin_1);
+	
 }
+
+
 
 
 /********************************************梯形加减速***********************************************/
@@ -113,6 +116,10 @@ speedRampData g_srd               = {STOP,CW,0,0,0,0,0};  /* 加减速变量 */
 __IO int32_t  g_step_position     = 0;                    /* 当前位置 */
 __IO uint8_t  g_motion_sta        = 0;                    /* 是否在运动？0：停止，1：运动 */
 __IO uint32_t g_add_pulse_count   = 0;                    /* 脉冲个数累计 */
+
+
+//电机长短按控制
+u8 clickorlongmotor = 0;
 
 
 /*
@@ -226,6 +233,8 @@ void create_t_ctrl_param(int32_t step, uint32_t accel, uint32_t decel, uint32_t 
     __IO static uint8_t i = 0;                              /* 定时器使用翻转模式，需要进入两次中断才输出一个完整脉冲 */
 		__IO static u8 flag = 0;
 
+
+
 void TIM3_IRQHandler(void)
 {
 	 
@@ -287,6 +296,11 @@ void TIM3_IRQHandler(void)
 
             case RUN:
 							
+							if(clickorlongmotor == 1){  //如果为 1 那么直接退出这一次中断，脉冲数不增加所以不会到达减速阶段
+									TIM_ClearITPendingBit(TIM3, TIM_IT_CC1 ); //清除 TIM3 更新中断标志
+									break;
+							}
+							
                 g_add_pulse_count++;
                 step_count++;                               // 步数加1 
                 if(g_srd.dir == CW)
@@ -336,10 +350,12 @@ void TIM3_IRQHandler(void)
 			} 
 }
 
-
-
-
-
+//控制电机停止转动
+void motorStopLong(u8 *clickorlongmotor){
+	
+	*clickorlongmotor = 0;
+	
+}
 
 
 

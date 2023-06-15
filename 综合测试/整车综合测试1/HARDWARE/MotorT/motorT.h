@@ -74,7 +74,7 @@ enum EN
 
 
 void create_t_ctrl_param(int32_t step, uint32_t accel, uint32_t decel, uint32_t speed); /* 梯形加减速控制函数 */
-
+void motorStopLong(u8 *clickorlongmotor);
 
 
 

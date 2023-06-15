@@ -1,6 +1,9 @@
 #include "timer.h"
 #include "led.h"
 #include "lvgl.h"
+#include "timer.h"
+
+
 
 
 void TIM5_Int_Init(u16 arr,u16 psc)
@@ -60,13 +63,15 @@ void time3_initer(u16 arr,u16 psc)
 	 TIM_TimeBaseInitTypestu.TIM_Period=arr;
 	 TIM_TimeBaseInitTypestu.TIM_Prescaler=psc;
 	 TIM_TimeBaseInit(TIM3,&TIM_TimeBaseInitTypestu);
-
+	
 	 NVIC_InitTypeDST.NVIC_IRQChannel=TIM3_IRQn;
 	 NVIC_InitTypeDST.NVIC_IRQChannelCmd=ENABLE;
-	 NVIC_InitTypeDST.NVIC_IRQChannelPreemptionPriority=1;
+	 
+	 NVIC_InitTypeDST.NVIC_IRQChannelPreemptionPriority=3;
 	 NVIC_InitTypeDST.NVIC_IRQChannelSubPriority=1;
+	  
 	 NVIC_Init(&NVIC_InitTypeDST);
-
+	 
 	 TIM_OCInitTypeSTU.TIM_OCMode=TIM_OCMode_Toggle;
 	 TIM_OCInitTypeSTU.TIM_OCPolarity=TIM_OCPolarity_Low;
 	 TIM_OCInitTypeSTU.TIM_OutputState=TIM_OutputState_Enable;
@@ -75,10 +80,53 @@ void time3_initer(u16 arr,u16 psc)
 	 TIM_OC1PreloadConfig(TIM3,TIM_OCPreload_Disable);
 
 	 TIM_Cmd(TIM3,ENABLE);
-	 
+
 	 TIM_ITConfig(TIM3,TIM_IT_CC1,ENABLE);
 }
 
+
+
+
+void BASETimer_NVIC_Config(void)
+{
+	NVIC_InitTypeDef NVIC_InitStruct;
+	
+	NVIC_PriorityGroupConfig(NVIC_PriorityGroup_1);
+	
+	NVIC_InitStruct.NVIC_IRQChannel = TIM6_IRQn;
+	NVIC_InitStruct.NVIC_IRQChannelCmd = ENABLE;
+	NVIC_InitStruct.NVIC_IRQChannelPreemptionPriority = 1; //只有一个中断，随意配
+	NVIC_InitStruct.NVIC_IRQChannelSubPriority = 1;
+	
+	NVIC_Init(&NVIC_InitStruct);
+}
+void BaseTimer_Config(void)
+{
+	TIM_TimeBaseInitTypeDef TIM_TimeBaseInitStruct;
+	
+	RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM6, ENABLE );
+	
+	TIM_TimeBaseInitStruct.TIM_Period = (3000-1);
+	TIM_TimeBaseInitStruct.TIM_Prescaler = (720-1);  //中断一次 1ms
+//	不配置也可
+//	TIM_TimeBaseInitStruct.TIM_ClockDivision = TIM_CKD_DIV1;
+//	TIM_TimeBaseInitStruct.TIM_CounterMode = TIM_CounterMode_Up;  //默认向上
+//	TIM_TimeBaseInitStruct.TIM_RepetitionCounter = 0x01;
+	TIM_TimeBaseInit(TIM6,&TIM_TimeBaseInitStruct);
+	
+	//配置中断
+	TIM_ITConfig(TIM6,TIM_IT_Update,ENABLE);
+	TIM_ClearFlag(TIM6,TIM_FLAG_Update);
+	//使能计数
+	TIM_Cmd(TIM6,ENABLE);
+}
+
+void BaseTimer_Init(void)
+{
+	
+	BASETimer_NVIC_Config();
+	BaseTimer_Config();
+}
 
 
 

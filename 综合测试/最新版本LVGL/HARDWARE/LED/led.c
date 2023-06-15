@@ -30,13 +30,21 @@ void LED_Init(void)
 
  GPIO_InitStructure.GPIO_Pin = GPIO_Pin_5;	    		 //LED1-->PE.5 端口配置, 推挽输出
  GPIO_Init(GPIOE, &GPIO_InitStructure);	  				 //推挽输出 ，IO口速度为50MHz
- GPIO_SetBits(GPIOE,GPIO_Pin_5); 						 //PE.5 输出高 
+ GPIO_SetBits(GPIOE,GPIO_Pin_5); 						 //PE.5 输出高
 	
- GPIO_InitStructure.GPIO_Pin = GPIO_Pin_1;	    		 //LED1-->PE.5 端口配置, 推挽输出
+	//负责电机使能
+ GPIO_InitStructure.GPIO_Pin = GPIO_Pin_1;	    		 //MotorDir-->PA.1 端口配置, 推挽输出
  GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP; 		 //推挽输出
  GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;		 //IO口速度为50MHz
  GPIO_Init(GPIOA, &GPIO_InitStructure);	  				 //推挽输出 ，IO口速度为50MHz
- GPIO_SetBits(GPIOA,GPIO_Pin_1); 						 //PE.5 输出高 
+ GPIO_SetBits(GPIOA,GPIO_Pin_1); 						 //PA.1 输出高 
+	
+	//负责电机方向控制
+// GPIO_InitStructure.GPIO_Pin = GPIO_Pin_2;	    		 //MotorDir-->PA.2 端口配置, 推挽输出
+// GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP; 		 //推挽输出
+// GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;		 //IO口速度为50MHz
+// GPIO_Init(GPIOA, &GPIO_InitStructure);	  				 //推挽输出 ，IO口速度为50MHz
+// GPIO_SetBits(GPIOA,GPIO_Pin_2); 						 //PA.2 输出高 
 	
 }
  

@@ -1,5 +1,5 @@
 Dependencies for Project 'TOUCH', Target 'TOUCH': (DO NOT MODIFY !)
-F (.\main.c)(0x64773F4E)(--c99 -c --cpu Cortex-M3 -g -O3 --apcs=interwork -I ..\HARDWARE\LED -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\USER -I ..\STM32F10x_FWLib\inc -I ..\CORE -I ..\HARDWARE\KEY -I ..\HARDWARE\LCD -I ..\HARDWARE\RTC -I ..\HARDWARE\RTC -I ..\HARDWARE\WKUP -I ..\HARDWARE\ADC -I ..\HARDWARE\DAC -I ..\HARDWARE\DMA -I ..\HARDWARE\IIC -I ..\HARDWARE\24CXX -I ..\HARDWARE\SPI -I ..\HARDWARE\TOUCH -I ..\HARDWARE\W25QXX -I ..\HARDWARE\TIMER -I ..\LVGL -I ..\LVGL\keypad_encoder -I ..\LVGL\porting -I ..\LVGL\src -I ..\APP\examples\keypad_encoder -I "..\..\LVGLyizhi - 副本" -I ..\FreeRTOS\include -I ..\FreeRTOS\portable\RVDS\ARM_CM3 -I ..\MotorT -I ..\ServosT-I.\RTE\_TOUCH-IF:\MDK\packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include-IF:\MDK\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\main.o --omf_browse ..\obj\main.crf --depend ..\obj\main.d)
+F (.\main.c)(0x64887420)(--c99 -c --cpu Cortex-M3 -g -O3 --apcs=interwork -I ..\HARDWARE\LED -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\USER -I ..\STM32F10x_FWLib\inc -I ..\CORE -I ..\HARDWARE\KEY -I ..\HARDWARE\LCD -I ..\HARDWARE\RTC -I ..\HARDWARE\RTC -I ..\HARDWARE\WKUP -I ..\HARDWARE\ADC -I ..\HARDWARE\DAC -I ..\HARDWARE\DMA -I ..\HARDWARE\IIC -I ..\HARDWARE\24CXX -I ..\HARDWARE\SPI -I ..\HARDWARE\TOUCH -I ..\HARDWARE\W25QXX -I ..\HARDWARE\TIMER -I ..\LVGL -I ..\LVGL\keypad_encoder -I ..\LVGL\porting -I ..\LVGL\src -I ..\APP\examples\keypad_encoder -I "..\..\LVGLyizhi - 副本" -I ..\FreeRTOS\include -I ..\FreeRTOS\portable\RVDS\ARM_CM3 -I ..\MotorT -I ..\ServosT-I.\RTE\_TOUCH-IF:\MDK\packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include-IF:\MDK\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\main.o --omf_browse ..\obj\main.crf --depend ..\obj\main.d)
 I (..\HARDWARE\LED\led.h)(0x5510227D)
 I (..\SYSTEM\sys\sys.h)(0x550F951A)
 I (..\USER\stm32f10x.h)(0x4D783CB5)
@@ -34,7 +34,7 @@ I (..\SYSTEM\delay\delay.h)(0x555AC82A)
 I (..\HARDWARE\KEY\key.h)(0x55102792)
 I (..\HARDWARE\LCD\lcd.h)(0x6463548E)
 I (F:\MDK\ARM\ARMCC\include\stdlib.h)(0x60252374)
-I (..\SYSTEM\usart\usart.h)(0x64773EB9)
+I (..\SYSTEM\usart\usart.h)(0x647BF97F)
 I (F:\MDK\ARM\ARMCC\include\stdio.h)(0x60252374)
 I (..\HARDWARE\24CXX\24cxx.h)(0x503A1B31)
 I (..\HARDWARE\IIC\myiic.h)(0x55028152)
@@ -43,9 +43,9 @@ I (..\HARDWARE\TOUCH\touch.h)(0x54FBCB5B)
 I (..\HARDWARE\TOUCH\ott2001a.h)(0x54B7AE0D)
 I (..\HARDWARE\TOUCH\gt9147.h)(0x5510EA76)
 I (..\HARDWARE\TOUCH\ft5206.h)(0x54B7ACCD)
-I (..\HARDWARE\TIMER\timer.h)(0x6477363C)
-I (..\MotorT\motorT.h)(0x64773455)
-I (..\ServosT\Servos.h)(0x647487CF)
+I (..\HARDWARE\TIMER\timer.h)(0x647BFABB)
+I (..\MotorT\motorT.h)(0x64887008)
+I (..\ServosT\Servos.h)(0x64886C49)
 I (..\LVGL\lvgl.h)(0x61F7D6C5)
 I (..\LVGL\src/misc/lv_log.h)(0x61F7D6C5)
 I (..\LVGL\src/misc/../lv_conf_internal.h)(0x64634EB1)
@@ -231,7 +231,7 @@ I (..\STM32F10x_FWLib\inc\stm32f10x_tim.h)(0x4D783BB4)
 I (..\STM32F10x_FWLib\inc\stm32f10x_usart.h)(0x4D783BB4)
 I (..\STM32F10x_FWLib\inc\stm32f10x_wwdg.h)(0x4D783BB4)
 I (..\STM32F10x_FWLib\inc\misc.h)(0x4D783BB4)
-F (..\HARDWARE\LED\led.c)(0x64773D68)(--c99 -c --cpu Cortex-M3 -g -O3 --apcs=interwork -I ..\HARDWARE\LED -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\USER -I ..\STM32F10x_FWLib\inc -I ..\CORE -I ..\HARDWARE\KEY -I ..\HARDWARE\LCD -I ..\HARDWARE\RTC -I ..\HARDWARE\RTC -I ..\HARDWARE\WKUP -I ..\HARDWARE\ADC -I ..\HARDWARE\DAC -I ..\HARDWARE\DMA -I ..\HARDWARE\IIC -I ..\HARDWARE\24CXX -I ..\HARDWARE\SPI -I ..\HARDWARE\TOUCH -I ..\HARDWARE\W25QXX -I ..\HARDWARE\TIMER -I ..\LVGL -I ..\LVGL\keypad_encoder -I ..\LVGL\porting -I ..\LVGL\src -I ..\APP\examples\keypad_encoder -I "..\..\LVGLyizhi - 副本" -I ..\FreeRTOS\include -I ..\FreeRTOS\portable\RVDS\ARM_CM3 -I ..\MotorT -I ..\ServosT-I.\RTE\_TOUCH-IF:\MDK\packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include-IF:\MDK\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\led.o --omf_browse ..\obj\led.crf --depend ..\obj\led.d)
+F (..\HARDWARE\LED\led.c)(0x64886C47)(--c99 -c --cpu Cortex-M3 -g -O3 --apcs=interwork -I ..\HARDWARE\LED -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\USER -I ..\STM32F10x_FWLib\inc -I ..\CORE -I ..\HARDWARE\KEY -I ..\HARDWARE\LCD -I ..\HARDWARE\RTC -I ..\HARDWARE\RTC -I ..\HARDWARE\WKUP -I ..\HARDWARE\ADC -I ..\HARDWARE\DAC -I ..\HARDWARE\DMA -I ..\HARDWARE\IIC -I ..\HARDWARE\24CXX -I ..\HARDWARE\SPI -I ..\HARDWARE\TOUCH -I ..\HARDWARE\W25QXX -I ..\HARDWARE\TIMER -I ..\LVGL -I ..\LVGL\keypad_encoder -I ..\LVGL\porting -I ..\LVGL\src -I ..\APP\examples\keypad_encoder -I "..\..\LVGLyizhi - 副本" -I ..\FreeRTOS\include -I ..\FreeRTOS\portable\RVDS\ARM_CM3 -I ..\MotorT -I ..\ServosT-I.\RTE\_TOUCH-IF:\MDK\packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include-IF:\MDK\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\led.o --omf_browse ..\obj\led.crf --depend ..\obj\led.d)
 I (..\HARDWARE\LED\led.h)(0x5510227D)
 I (..\SYSTEM\sys\sys.h)(0x550F951A)
 I (..\USER\stm32f10x.h)(0x4D783CB5)
@@ -262,7 +262,7 @@ I (..\STM32F10x_FWLib\inc\stm32f10x_tim.h)(0x4D783BB4)
 I (..\STM32F10x_FWLib\inc\stm32f10x_usart.h)(0x4D783BB4)
 I (..\STM32F10x_FWLib\inc\stm32f10x_wwdg.h)(0x4D783BB4)
 I (..\STM32F10x_FWLib\inc\misc.h)(0x4D783BB4)
-F (..\HARDWARE\KEY\key.c)(0x551B701C)(--c99 -c --cpu Cortex-M3 -g -O3 --apcs=interwork -I ..\HARDWARE\LED -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\USER -I ..\STM32F10x_FWLib\inc -I ..\CORE -I ..\HARDWARE\KEY -I ..\HARDWARE\LCD -I ..\HARDWARE\RTC -I ..\HARDWARE\RTC -I ..\HARDWARE\WKUP -I ..\HARDWARE\ADC -I ..\HARDWARE\DAC -I ..\HARDWARE\DMA -I ..\HARDWARE\IIC -I ..\HARDWARE\24CXX -I ..\HARDWARE\SPI -I ..\HARDWARE\TOUCH -I ..\HARDWARE\W25QXX -I ..\HARDWARE\TIMER -I ..\LVGL -I ..\LVGL\keypad_encoder -I ..\LVGL\porting -I ..\LVGL\src -I ..\APP\examples\keypad_encoder -I "..\..\LVGLyizhi - 副本" -I ..\FreeRTOS\include -I ..\FreeRTOS\portable\RVDS\ARM_CM3 -I ..\MotorT -I ..\ServosT-I.\RTE\_TOUCH-IF:\MDK\packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include-IF:\MDK\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\key.o --omf_browse ..\obj\key.crf --depend ..\obj\key.d)
+F (..\HARDWARE\KEY\key.c)(0x64887013)(--c99 -c --cpu Cortex-M3 -g -O3 --apcs=interwork -I ..\HARDWARE\LED -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\USER -I ..\STM32F10x_FWLib\inc -I ..\CORE -I ..\HARDWARE\KEY -I ..\HARDWARE\LCD -I ..\HARDWARE\RTC -I ..\HARDWARE\RTC -I ..\HARDWARE\WKUP -I ..\HARDWARE\ADC -I ..\HARDWARE\DAC -I ..\HARDWARE\DMA -I ..\HARDWARE\IIC -I ..\HARDWARE\24CXX -I ..\HARDWARE\SPI -I ..\HARDWARE\TOUCH -I ..\HARDWARE\W25QXX -I ..\HARDWARE\TIMER -I ..\LVGL -I ..\LVGL\keypad_encoder -I ..\LVGL\porting -I ..\LVGL\src -I ..\APP\examples\keypad_encoder -I "..\..\LVGLyizhi - 副本" -I ..\FreeRTOS\include -I ..\FreeRTOS\portable\RVDS\ARM_CM3 -I ..\MotorT -I ..\ServosT-I.\RTE\_TOUCH-IF:\MDK\packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include-IF:\MDK\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\key.o --omf_browse ..\obj\key.crf --depend ..\obj\key.d)
 I (..\USER\stm32f10x.h)(0x4D783CB5)
 I (..\CORE\core_cm3.h)(0x4D523B58)
 I (F:\MDK\ARM\ARMCC\include\stdint.h)(0x6025237E)
@@ -327,7 +327,7 @@ I (..\STM32F10x_FWLib\inc\stm32f10x_wwdg.h)(0x4D783BB4)
 I (..\STM32F10x_FWLib\inc\misc.h)(0x4D783BB4)
 I (F:\MDK\ARM\ARMCC\include\stdlib.h)(0x60252374)
 I (..\HARDWARE\LCD\font.h)(0x550289B6)
-I (..\SYSTEM\usart\usart.h)(0x64773EB9)
+I (..\SYSTEM\usart\usart.h)(0x647BF97F)
 I (F:\MDK\ARM\ARMCC\include\stdio.h)(0x60252374)
 I (..\SYSTEM\delay\delay.h)(0x555AC82A)
 F (..\HARDWARE\IIC\myiic.c)(0x551B97B9)(--c99 -c --cpu Cortex-M3 -g -O3 --apcs=interwork -I ..\HARDWARE\LED -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\USER -I ..\STM32F10x_FWLib\inc -I ..\CORE -I ..\HARDWARE\KEY -I ..\HARDWARE\LCD -I ..\HARDWARE\RTC -I ..\HARDWARE\RTC -I ..\HARDWARE\WKUP -I ..\HARDWARE\ADC -I ..\HARDWARE\DAC -I ..\HARDWARE\DMA -I ..\HARDWARE\IIC -I ..\HARDWARE\24CXX -I ..\HARDWARE\SPI -I ..\HARDWARE\TOUCH -I ..\HARDWARE\W25QXX -I ..\HARDWARE\TIMER -I ..\LVGL -I ..\LVGL\keypad_encoder -I ..\LVGL\porting -I ..\LVGL\src -I ..\APP\examples\keypad_encoder -I "..\..\LVGLyizhi - 副本" -I ..\FreeRTOS\include -I ..\FreeRTOS\portable\RVDS\ARM_CM3 -I ..\MotorT -I ..\ServosT-I.\RTE\_TOUCH-IF:\MDK\packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include-IF:\MDK\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\myiic.o --omf_browse ..\obj\myiic.crf --depend ..\obj\myiic.d)
@@ -426,7 +426,7 @@ I (..\STM32F10x_FWLib\inc\stm32f10x_tim.h)(0x4D783BB4)
 I (..\STM32F10x_FWLib\inc\stm32f10x_usart.h)(0x4D783BB4)
 I (..\STM32F10x_FWLib\inc\stm32f10x_wwdg.h)(0x4D783BB4)
 I (..\STM32F10x_FWLib\inc\misc.h)(0x4D783BB4)
-I (..\SYSTEM\usart\usart.h)(0x64773EB9)
+I (..\SYSTEM\usart\usart.h)(0x647BF97F)
 I (F:\MDK\ARM\ARMCC\include\stdio.h)(0x60252374)
 F (..\HARDWARE\W25QXX\w25qxx.c)(0x551B97BC)(--c99 -c --cpu Cortex-M3 -g -O3 --apcs=interwork -I ..\HARDWARE\LED -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\USER -I ..\STM32F10x_FWLib\inc -I ..\CORE -I ..\HARDWARE\KEY -I ..\HARDWARE\LCD -I ..\HARDWARE\RTC -I ..\HARDWARE\RTC -I ..\HARDWARE\WKUP -I ..\HARDWARE\ADC -I ..\HARDWARE\DAC -I ..\HARDWARE\DMA -I ..\HARDWARE\IIC -I ..\HARDWARE\24CXX -I ..\HARDWARE\SPI -I ..\HARDWARE\TOUCH -I ..\HARDWARE\W25QXX -I ..\HARDWARE\TIMER -I ..\LVGL -I ..\LVGL\keypad_encoder -I ..\LVGL\porting -I ..\LVGL\src -I ..\APP\examples\keypad_encoder -I "..\..\LVGLyizhi - 副本" -I ..\FreeRTOS\include -I ..\FreeRTOS\portable\RVDS\ARM_CM3 -I ..\MotorT -I ..\ServosT-I.\RTE\_TOUCH-IF:\MDK\packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include-IF:\MDK\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\w25qxx.o --omf_browse ..\obj\w25qxx.crf --depend ..\obj\w25qxx.d)
 I (..\HARDWARE\W25QXX\w25qxx.h)(0x5F9B92BD)
@@ -461,7 +461,7 @@ I (..\STM32F10x_FWLib\inc\stm32f10x_wwdg.h)(0x4D783BB4)
 I (..\STM32F10x_FWLib\inc\misc.h)(0x4D783BB4)
 I (..\HARDWARE\SPI\spi.h)(0x503C7E39)
 I (..\SYSTEM\delay\delay.h)(0x555AC82A)
-I (..\SYSTEM\usart\usart.h)(0x64773EB9)
+I (..\SYSTEM\usart\usart.h)(0x647BF97F)
 I (F:\MDK\ARM\ARMCC\include\stdio.h)(0x60252374)
 F (..\HARDWARE\TOUCH\touch.c)(0x55028F13)(--c99 -c --cpu Cortex-M3 -g -O3 --apcs=interwork -I ..\HARDWARE\LED -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\USER -I ..\STM32F10x_FWLib\inc -I ..\CORE -I ..\HARDWARE\KEY -I ..\HARDWARE\LCD -I ..\HARDWARE\RTC -I ..\HARDWARE\RTC -I ..\HARDWARE\WKUP -I ..\HARDWARE\ADC -I ..\HARDWARE\DAC -I ..\HARDWARE\DMA -I ..\HARDWARE\IIC -I ..\HARDWARE\24CXX -I ..\HARDWARE\SPI -I ..\HARDWARE\TOUCH -I ..\HARDWARE\W25QXX -I ..\HARDWARE\TIMER -I ..\LVGL -I ..\LVGL\keypad_encoder -I ..\LVGL\porting -I ..\LVGL\src -I ..\APP\examples\keypad_encoder -I "..\..\LVGLyizhi - 副本" -I ..\FreeRTOS\include -I ..\FreeRTOS\portable\RVDS\ARM_CM3 -I ..\MotorT -I ..\ServosT-I.\RTE\_TOUCH-IF:\MDK\packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include-IF:\MDK\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\touch.o --omf_browse ..\obj\touch.crf --depend ..\obj\touch.d)
 I (..\HARDWARE\TOUCH\touch.h)(0x54FBCB5B)
@@ -570,7 +570,7 @@ I (..\HARDWARE\TOUCH\touch.h)(0x54FBCB5B)
 I (..\HARDWARE\TOUCH\gt9147.h)(0x5510EA76)
 I (..\HARDWARE\TOUCH\ft5206.h)(0x54B7ACCD)
 I (..\HARDWARE\TOUCH\ctiic.h)(0x54B7ACCC)
-I (..\SYSTEM\usart\usart.h)(0x64773EB9)
+I (..\SYSTEM\usart\usart.h)(0x647BF97F)
 I (F:\MDK\ARM\ARMCC\include\stdio.h)(0x60252374)
 I (..\SYSTEM\delay\delay.h)(0x555AC82A)
 F (..\HARDWARE\TOUCH\ft5206.c)(0x55029112)(--c99 -c --cpu Cortex-M3 -g -O3 --apcs=interwork -I ..\HARDWARE\LED -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\USER -I ..\STM32F10x_FWLib\inc -I ..\CORE -I ..\HARDWARE\KEY -I ..\HARDWARE\LCD -I ..\HARDWARE\RTC -I ..\HARDWARE\RTC -I ..\HARDWARE\WKUP -I ..\HARDWARE\ADC -I ..\HARDWARE\DAC -I ..\HARDWARE\DMA -I ..\HARDWARE\IIC -I ..\HARDWARE\24CXX -I ..\HARDWARE\SPI -I ..\HARDWARE\TOUCH -I ..\HARDWARE\W25QXX -I ..\HARDWARE\TIMER -I ..\LVGL -I ..\LVGL\keypad_encoder -I ..\LVGL\porting -I ..\LVGL\src -I ..\APP\examples\keypad_encoder -I "..\..\LVGLyizhi - 副本" -I ..\FreeRTOS\include -I ..\FreeRTOS\portable\RVDS\ARM_CM3 -I ..\MotorT -I ..\ServosT-I.\RTE\_TOUCH-IF:\MDK\packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include-IF:\MDK\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\ft5206.o --omf_browse ..\obj\ft5206.crf --depend ..\obj\ft5206.d)
@@ -608,7 +608,7 @@ I (..\HARDWARE\TOUCH\touch.h)(0x54FBCB5B)
 I (..\HARDWARE\TOUCH\ott2001a.h)(0x54B7AE0D)
 I (..\HARDWARE\TOUCH\gt9147.h)(0x5510EA76)
 I (..\HARDWARE\TOUCH\ctiic.h)(0x54B7ACCC)
-I (..\SYSTEM\usart\usart.h)(0x64773EB9)
+I (..\SYSTEM\usart\usart.h)(0x647BF97F)
 I (F:\MDK\ARM\ARMCC\include\stdio.h)(0x60252374)
 I (..\SYSTEM\delay\delay.h)(0x555AC82A)
 I (F:\MDK\ARM\ARMCC\include\string.h)(0x6025237E)
@@ -647,14 +647,14 @@ I (..\HARDWARE\TOUCH\touch.h)(0x54FBCB5B)
 I (..\HARDWARE\TOUCH\ott2001a.h)(0x54B7AE0D)
 I (..\HARDWARE\TOUCH\ft5206.h)(0x54B7ACCD)
 I (..\HARDWARE\TOUCH\ctiic.h)(0x54B7ACCC)
-I (..\SYSTEM\usart\usart.h)(0x64773EB9)
+I (..\SYSTEM\usart\usart.h)(0x647BF97F)
 I (F:\MDK\ARM\ARMCC\include\stdio.h)(0x60252374)
 I (..\SYSTEM\delay\delay.h)(0x555AC82A)
 I (F:\MDK\ARM\ARMCC\include\string.h)(0x6025237E)
 I (..\HARDWARE\LCD\lcd.h)(0x6463548E)
 I (F:\MDK\ARM\ARMCC\include\stdlib.h)(0x60252374)
-F (..\HARDWARE\TIMER\timer.c)(0x647738CE)(--c99 -c --cpu Cortex-M3 -g -O3 --apcs=interwork -I ..\HARDWARE\LED -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\USER -I ..\STM32F10x_FWLib\inc -I ..\CORE -I ..\HARDWARE\KEY -I ..\HARDWARE\LCD -I ..\HARDWARE\RTC -I ..\HARDWARE\RTC -I ..\HARDWARE\WKUP -I ..\HARDWARE\ADC -I ..\HARDWARE\DAC -I ..\HARDWARE\DMA -I ..\HARDWARE\IIC -I ..\HARDWARE\24CXX -I ..\HARDWARE\SPI -I ..\HARDWARE\TOUCH -I ..\HARDWARE\W25QXX -I ..\HARDWARE\TIMER -I ..\LVGL -I ..\LVGL\keypad_encoder -I ..\LVGL\porting -I ..\LVGL\src -I ..\APP\examples\keypad_encoder -I "..\..\LVGLyizhi - 副本" -I ..\FreeRTOS\include -I ..\FreeRTOS\portable\RVDS\ARM_CM3 -I ..\MotorT -I ..\ServosT-I.\RTE\_TOUCH-IF:\MDK\packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include-IF:\MDK\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\timer.o --omf_browse ..\obj\timer.crf --depend ..\obj\timer.d)
-I (..\HARDWARE\TIMER\timer.h)(0x6477363C)
+F (..\HARDWARE\TIMER\timer.c)(0x648873E4)(--c99 -c --cpu Cortex-M3 -g -O3 --apcs=interwork -I ..\HARDWARE\LED -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\USER -I ..\STM32F10x_FWLib\inc -I ..\CORE -I ..\HARDWARE\KEY -I ..\HARDWARE\LCD -I ..\HARDWARE\RTC -I ..\HARDWARE\RTC -I ..\HARDWARE\WKUP -I ..\HARDWARE\ADC -I ..\HARDWARE\DAC -I ..\HARDWARE\DMA -I ..\HARDWARE\IIC -I ..\HARDWARE\24CXX -I ..\HARDWARE\SPI -I ..\HARDWARE\TOUCH -I ..\HARDWARE\W25QXX -I ..\HARDWARE\TIMER -I ..\LVGL -I ..\LVGL\keypad_encoder -I ..\LVGL\porting -I ..\LVGL\src -I ..\APP\examples\keypad_encoder -I "..\..\LVGLyizhi - 副本" -I ..\FreeRTOS\include -I ..\FreeRTOS\portable\RVDS\ARM_CM3 -I ..\MotorT -I ..\ServosT-I.\RTE\_TOUCH-IF:\MDK\packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include-IF:\MDK\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\timer.o --omf_browse ..\obj\timer.crf --depend ..\obj\timer.d)
+I (..\HARDWARE\TIMER\timer.h)(0x647BFABB)
 I (..\SYSTEM\sys\sys.h)(0x550F951A)
 I (..\USER\stm32f10x.h)(0x4D783CB5)
 I (..\CORE\core_cm3.h)(0x4D523B58)
@@ -806,8 +806,8 @@ I (..\LVGL\src/extra/libs/sjpg/lv_sjpg.h)(0x61F7D6C5)
 I (..\LVGL\src/extra/libs/freetype/lv_freetype.h)(0x61F7D6C5)
 I (..\LVGL\src/extra/libs/rlottie/lv_rlottie.h)(0x61F7D6C5)
 I (..\LVGL\src/extra/libs/ffmpeg/lv_ffmpeg.h)(0x61F7D6C5)
-F (..\MotorT\motorT.c)(0x64773C45)(--c99 -c --cpu Cortex-M3 -g -O3 --apcs=interwork -I ..\HARDWARE\LED -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\USER -I ..\STM32F10x_FWLib\inc -I ..\CORE -I ..\HARDWARE\KEY -I ..\HARDWARE\LCD -I ..\HARDWARE\RTC -I ..\HARDWARE\RTC -I ..\HARDWARE\WKUP -I ..\HARDWARE\ADC -I ..\HARDWARE\DAC -I ..\HARDWARE\DMA -I ..\HARDWARE\IIC -I ..\HARDWARE\24CXX -I ..\HARDWARE\SPI -I ..\HARDWARE\TOUCH -I ..\HARDWARE\W25QXX -I ..\HARDWARE\TIMER -I ..\LVGL -I ..\LVGL\keypad_encoder -I ..\LVGL\porting -I ..\LVGL\src -I ..\APP\examples\keypad_encoder -I "..\..\LVGLyizhi - 副本" -I ..\FreeRTOS\include -I ..\FreeRTOS\portable\RVDS\ARM_CM3 -I ..\MotorT -I ..\ServosT-I.\RTE\_TOUCH-IF:\MDK\packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include-IF:\MDK\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\motort.o --omf_browse ..\obj\motort.crf --depend ..\obj\motort.d)
-I (..\MotorT\motorT.h)(0x64773455)
+F (..\MotorT\motorT.c)(0x648875B8)(--c99 -c --cpu Cortex-M3 -g -O3 --apcs=interwork -I ..\HARDWARE\LED -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\USER -I ..\STM32F10x_FWLib\inc -I ..\CORE -I ..\HARDWARE\KEY -I ..\HARDWARE\LCD -I ..\HARDWARE\RTC -I ..\HARDWARE\RTC -I ..\HARDWARE\WKUP -I ..\HARDWARE\ADC -I ..\HARDWARE\DAC -I ..\HARDWARE\DMA -I ..\HARDWARE\IIC -I ..\HARDWARE\24CXX -I ..\HARDWARE\SPI -I ..\HARDWARE\TOUCH -I ..\HARDWARE\W25QXX -I ..\HARDWARE\TIMER -I ..\LVGL -I ..\LVGL\keypad_encoder -I ..\LVGL\porting -I ..\LVGL\src -I ..\APP\examples\keypad_encoder -I "..\..\LVGLyizhi - 副本" -I ..\FreeRTOS\include -I ..\FreeRTOS\portable\RVDS\ARM_CM3 -I ..\MotorT -I ..\ServosT-I.\RTE\_TOUCH-IF:\MDK\packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include-IF:\MDK\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\motort.o --omf_browse ..\obj\motort.crf --depend ..\obj\motort.d)
+I (..\MotorT\motorT.h)(0x64887008)
 I (..\SYSTEM\sys\sys.h)(0x550F951A)
 I (..\USER\stm32f10x.h)(0x4D783CB5)
 I (..\CORE\core_cm3.h)(0x4D523B58)
@@ -841,9 +841,9 @@ I (F:\MDK\ARM\ARMCC\include\math.h)(0x60252378)
 I (F:\MDK\ARM\ARMCC\include\stdio.h)(0x60252374)
 I (..\HARDWARE\KEY\key.h)(0x55102792)
 I (..\HARDWARE\LED\led.h)(0x5510227D)
-I (..\HARDWARE\TIMER\timer.h)(0x6477363C)
-F (..\ServosT\Servos.c)(0x6475C551)(--c99 -c --cpu Cortex-M3 -g -O3 --apcs=interwork -I ..\HARDWARE\LED -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\USER -I ..\STM32F10x_FWLib\inc -I ..\CORE -I ..\HARDWARE\KEY -I ..\HARDWARE\LCD -I ..\HARDWARE\RTC -I ..\HARDWARE\RTC -I ..\HARDWARE\WKUP -I ..\HARDWARE\ADC -I ..\HARDWARE\DAC -I ..\HARDWARE\DMA -I ..\HARDWARE\IIC -I ..\HARDWARE\24CXX -I ..\HARDWARE\SPI -I ..\HARDWARE\TOUCH -I ..\HARDWARE\W25QXX -I ..\HARDWARE\TIMER -I ..\LVGL -I ..\LVGL\keypad_encoder -I ..\LVGL\porting -I ..\LVGL\src -I ..\APP\examples\keypad_encoder -I "..\..\LVGLyizhi - 副本" -I ..\FreeRTOS\include -I ..\FreeRTOS\portable\RVDS\ARM_CM3 -I ..\MotorT -I ..\ServosT-I.\RTE\_TOUCH-IF:\MDK\packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include-IF:\MDK\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\servos.o --omf_browse ..\obj\servos.crf --depend ..\obj\servos.d)
-I (..\ServosT\Servos.h)(0x647487CF)
+I (..\HARDWARE\TIMER\timer.h)(0x647BFABB)
+F (..\ServosT\Servos.c)(0x64886C4A)(--c99 -c --cpu Cortex-M3 -g -O3 --apcs=interwork -I ..\HARDWARE\LED -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\USER -I ..\STM32F10x_FWLib\inc -I ..\CORE -I ..\HARDWARE\KEY -I ..\HARDWARE\LCD -I ..\HARDWARE\RTC -I ..\HARDWARE\RTC -I ..\HARDWARE\WKUP -I ..\HARDWARE\ADC -I ..\HARDWARE\DAC -I ..\HARDWARE\DMA -I ..\HARDWARE\IIC -I ..\HARDWARE\24CXX -I ..\HARDWARE\SPI -I ..\HARDWARE\TOUCH -I ..\HARDWARE\W25QXX -I ..\HARDWARE\TIMER -I ..\LVGL -I ..\LVGL\keypad_encoder -I ..\LVGL\porting -I ..\LVGL\src -I ..\APP\examples\keypad_encoder -I "..\..\LVGLyizhi - 副本" -I ..\FreeRTOS\include -I ..\FreeRTOS\portable\RVDS\ARM_CM3 -I ..\MotorT -I ..\ServosT-I.\RTE\_TOUCH-IF:\MDK\packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include-IF:\MDK\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\servos.o --omf_browse ..\obj\servos.crf --depend ..\obj\servos.d)
+I (..\ServosT\Servos.h)(0x64886C49)
 I (..\SYSTEM\sys\sys.h)(0x550F951A)
 I (..\USER\stm32f10x.h)(0x4D783CB5)
 I (..\CORE\core_cm3.h)(0x4D523B58)
@@ -873,6 +873,8 @@ I (..\STM32F10x_FWLib\inc\stm32f10x_tim.h)(0x4D783BB4)
 I (..\STM32F10x_FWLib\inc\stm32f10x_usart.h)(0x4D783BB4)
 I (..\STM32F10x_FWLib\inc\stm32f10x_wwdg.h)(0x4D783BB4)
 I (..\STM32F10x_FWLib\inc\misc.h)(0x4D783BB4)
+I (..\HARDWARE\TIMER\timer.h)(0x647BFABB)
+I (F:\MDK\ARM\ARMCC\include\stdio.h)(0x60252374)
 F (..\ServosT\ServosPid.c)(0x64748A71)(--c99 -c --cpu Cortex-M3 -g -O3 --apcs=interwork -I ..\HARDWARE\LED -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\USER -I ..\STM32F10x_FWLib\inc -I ..\CORE -I ..\HARDWARE\KEY -I ..\HARDWARE\LCD -I ..\HARDWARE\RTC -I ..\HARDWARE\RTC -I ..\HARDWARE\WKUP -I ..\HARDWARE\ADC -I ..\HARDWARE\DAC -I ..\HARDWARE\DMA -I ..\HARDWARE\IIC -I ..\HARDWARE\24CXX -I ..\HARDWARE\SPI -I ..\HARDWARE\TOUCH -I ..\HARDWARE\W25QXX -I ..\HARDWARE\TIMER -I ..\LVGL -I ..\LVGL\keypad_encoder -I ..\LVGL\porting -I ..\LVGL\src -I ..\APP\examples\keypad_encoder -I "..\..\LVGLyizhi - 副本" -I ..\FreeRTOS\include -I ..\FreeRTOS\portable\RVDS\ARM_CM3 -I ..\MotorT -I ..\ServosT-I.\RTE\_TOUCH-IF:\MDK\packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include-IF:\MDK\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\servospid.o --omf_browse ..\obj\servospid.crf --depend ..\obj\servospid.d)
 I (..\ServosT\ServosPid.h)(0x6475A5E4)
 F (..\SYSTEM\delay\delay.c)(0x555AC82A)(--c99 -c --cpu Cortex-M3 -g -O3 --apcs=interwork -I ..\HARDWARE\LED -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\USER -I ..\STM32F10x_FWLib\inc -I ..\CORE -I ..\HARDWARE\KEY -I ..\HARDWARE\LCD -I ..\HARDWARE\RTC -I ..\HARDWARE\RTC -I ..\HARDWARE\WKUP -I ..\HARDWARE\ADC -I ..\HARDWARE\DAC -I ..\HARDWARE\DMA -I ..\HARDWARE\IIC -I ..\HARDWARE\24CXX -I ..\HARDWARE\SPI -I ..\HARDWARE\TOUCH -I ..\HARDWARE\W25QXX -I ..\HARDWARE\TIMER -I ..\LVGL -I ..\LVGL\keypad_encoder -I ..\LVGL\porting -I ..\LVGL\src -I ..\APP\examples\keypad_encoder -I "..\..\LVGLyizhi - 副本" -I ..\FreeRTOS\include -I ..\FreeRTOS\portable\RVDS\ARM_CM3 -I ..\MotorT -I ..\ServosT-I.\RTE\_TOUCH-IF:\MDK\packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include-IF:\MDK\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\delay.o --omf_browse ..\obj\delay.crf --depend ..\obj\delay.d)
@@ -936,7 +938,7 @@ I (..\STM32F10x_FWLib\inc\stm32f10x_tim.h)(0x4D783BB4)
 I (..\STM32F10x_FWLib\inc\stm32f10x_usart.h)(0x4D783BB4)
 I (..\STM32F10x_FWLib\inc\stm32f10x_wwdg.h)(0x4D783BB4)
 I (..\STM32F10x_FWLib\inc\misc.h)(0x4D783BB4)
-F (..\SYSTEM\usart\usart.c)(0x64773EC1)(--c99 -c --cpu Cortex-M3 -g -O3 --apcs=interwork -I ..\HARDWARE\LED -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\USER -I ..\STM32F10x_FWLib\inc -I ..\CORE -I ..\HARDWARE\KEY -I ..\HARDWARE\LCD -I ..\HARDWARE\RTC -I ..\HARDWARE\RTC -I ..\HARDWARE\WKUP -I ..\HARDWARE\ADC -I ..\HARDWARE\DAC -I ..\HARDWARE\DMA -I ..\HARDWARE\IIC -I ..\HARDWARE\24CXX -I ..\HARDWARE\SPI -I ..\HARDWARE\TOUCH -I ..\HARDWARE\W25QXX -I ..\HARDWARE\TIMER -I ..\LVGL -I ..\LVGL\keypad_encoder -I ..\LVGL\porting -I ..\LVGL\src -I ..\APP\examples\keypad_encoder -I "..\..\LVGLyizhi - 副本" -I ..\FreeRTOS\include -I ..\FreeRTOS\portable\RVDS\ARM_CM3 -I ..\MotorT -I ..\ServosT-I.\RTE\_TOUCH-IF:\MDK\packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include-IF:\MDK\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\usart.o --omf_browse ..\obj\usart.crf --depend ..\obj\usart.d)
+F (..\SYSTEM\usart\usart.c)(0x64887508)(--c99 -c --cpu Cortex-M3 -g -O3 --apcs=interwork -I ..\HARDWARE\LED -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\USER -I ..\STM32F10x_FWLib\inc -I ..\CORE -I ..\HARDWARE\KEY -I ..\HARDWARE\LCD -I ..\HARDWARE\RTC -I ..\HARDWARE\RTC -I ..\HARDWARE\WKUP -I ..\HARDWARE\ADC -I ..\HARDWARE\DAC -I ..\HARDWARE\DMA -I ..\HARDWARE\IIC -I ..\HARDWARE\24CXX -I ..\HARDWARE\SPI -I ..\HARDWARE\TOUCH -I ..\HARDWARE\W25QXX -I ..\HARDWARE\TIMER -I ..\LVGL -I ..\LVGL\keypad_encoder -I ..\LVGL\porting -I ..\LVGL\src -I ..\APP\examples\keypad_encoder -I "..\..\LVGLyizhi - 副本" -I ..\FreeRTOS\include -I ..\FreeRTOS\portable\RVDS\ARM_CM3 -I ..\MotorT -I ..\ServosT-I.\RTE\_TOUCH-IF:\MDK\packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include-IF:\MDK\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\usart.o --omf_browse ..\obj\usart.crf --depend ..\obj\usart.d)
 I (..\SYSTEM\sys\sys.h)(0x550F951A)
 I (..\USER\stm32f10x.h)(0x4D783CB5)
 I (..\CORE\core_cm3.h)(0x4D523B58)
@@ -966,11 +968,12 @@ I (..\STM32F10x_FWLib\inc\stm32f10x_tim.h)(0x4D783BB4)
 I (..\STM32F10x_FWLib\inc\stm32f10x_usart.h)(0x4D783BB4)
 I (..\STM32F10x_FWLib\inc\stm32f10x_wwdg.h)(0x4D783BB4)
 I (..\STM32F10x_FWLib\inc\misc.h)(0x4D783BB4)
-I (..\SYSTEM\usart\usart.h)(0x64773EB9)
+I (..\SYSTEM\usart\usart.h)(0x647BF97F)
 I (F:\MDK\ARM\ARMCC\include\stdio.h)(0x60252374)
 I (..\HARDWARE\LED\led.h)(0x5510227D)
-I (..\MotorT\motorT.h)(0x64773455)
-I (..\ServosT\Servos.h)(0x647487CF)
+I (..\ServosT\Servos.h)(0x64886C49)
+I (..\MotorT\motorT.h)(0x64887008)
+I (F:\MDK\ARM\ARMCC\include\string.h)(0x6025237E)
 F (..\LVGL\porting\lv_port_disp.h)(0x64634D20)()
 F (..\LVGL\porting\lv_port_fs.h)(0x64634994)()
 F (..\LVGL\porting\lv_port_indev.h)(0x64643BF7)()
@@ -13011,7 +13014,7 @@ I (..\HARDWARE\TOUCH\touch.h)(0x54FBCB5B)
 I (..\HARDWARE\TOUCH\ott2001a.h)(0x54B7AE0D)
 I (..\HARDWARE\TOUCH\gt9147.h)(0x5510EA76)
 I (..\HARDWARE\TOUCH\ft5206.h)(0x54B7ACCD)
-I (..\HARDWARE\TIMER\timer.h)(0x6477363C)
+I (..\HARDWARE\TIMER\timer.h)(0x647BFABB)
 F (.\my_gui.h)(0x64773F49)()
 F (..\Font30.c)(0x6464A301)(--c99 -c --cpu Cortex-M3 -g -O3 --apcs=interwork -I ..\HARDWARE\LED -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\USER -I ..\STM32F10x_FWLib\inc -I ..\CORE -I ..\HARDWARE\KEY -I ..\HARDWARE\LCD -I ..\HARDWARE\RTC -I ..\HARDWARE\RTC -I ..\HARDWARE\WKUP -I ..\HARDWARE\ADC -I ..\HARDWARE\DAC -I ..\HARDWARE\DMA -I ..\HARDWARE\IIC -I ..\HARDWARE\24CXX -I ..\HARDWARE\SPI -I ..\HARDWARE\TOUCH -I ..\HARDWARE\W25QXX -I ..\HARDWARE\TIMER -I ..\LVGL -I ..\LVGL\keypad_encoder -I ..\LVGL\porting -I ..\LVGL\src -I ..\APP\examples\keypad_encoder -I "..\..\LVGLyizhi - 副本" -I ..\FreeRTOS\include -I ..\FreeRTOS\portable\RVDS\ARM_CM3 -I ..\MotorT -I ..\ServosT-I.\RTE\_TOUCH-IF:\MDK\packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include-IF:\MDK\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\font30.o --omf_browse ..\obj\font30.crf --depend ..\obj\font30.d)
 I (..\LVGL\lvgl.h)(0x61F7D6C5)

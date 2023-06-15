@@ -3,7 +3,6 @@
 # @Author  : Wyt
 # @File    : tcptest.py
 import socket
-import time
 import pygame
 import threading
 
@@ -70,56 +69,69 @@ def TcpControl():
 def gos():
     global send_data
     send_data = 'advancess\r\n'
-    print("1")
+    print("前进")
 
 
 def backs():
     global send_data
     send_data = 'backs\r\n'
-    print("2")
+    print("后退")
 
 
 def lefts():
     global send_data
     send_data = 'lefts\r\n'
-    print("3")
+    print("左转")
 
 
 def rights():
     global send_data
     send_data = 'rights\r\n'
-    print(4)
+    print("右转")
 
 
 def gol():
     global send_data
     send_data = 'advancesl\r\n'
-    print("1")
+    print("前进长")
 
 
 def backl():
     global send_data
     send_data = 'backl\r\n'
-    print("2")
+    print("后退长")
 
 
 def leftl():
     global send_data
     send_data = 'leftl\r\n'
-    print("3")
+    print("左转长")
 
 
 def rightl():
     global send_data
     send_data = 'rightl\r\n'
-    print(4)
+    print("右转长按")
+
+
+def stopServos():
+    global send_data
+    send_data = 'stopservos\r\n'
+    print("舵机停止")
+
+
+def stopMotor():
+    global send_data
+    send_data = 'stopmotor\r\n'
+    print('电机停止')
+
+
+WIDTH = 500
+HEIGHT = 500
 
 
 def key_Con():
     global send_data, send_flag
-
-    WIDTH = 500
-    HEIGHT = 500
 
     # 创建游戏窗口
     pygame.display.set_mode((WIDTH, HEIGHT))
@@ -156,10 +168,16 @@ def key_Con():
                 elif event.key == pygame.K_d:
                     rightl()
                     send_flag = 1
+                elif event.key == pygame.K_1:
+                    stopServos()
+                    send_flag = 1
+                elif event.key == pygame.K_2:
+                    stopMotor()
+                    send_flag = 1
 
 
 # 图像部分     先打开 服务器 再打开树莓派 再打开PC
-# TCP部分      先打开PC 再打开树莓派
+# TCP部分     先打开PC 再打开树莓派
 
 
 if __name__ == '__main__':

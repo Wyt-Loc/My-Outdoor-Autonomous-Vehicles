@@ -1,5 +1,6 @@
 #include "Servos.h"
-
+#include "timer.h"
+#include "stdio.h"
 
 /***************************************************************
 【函数名】 void Servos_PWM_Init(u16 arr,u16 psc)
@@ -41,61 +42,94 @@ void Servos_PWM_Init(u16 arr,u16 psc)
 }
 
 
-u16 duty = 130;
 
 
+__IO u16 duty = 539;
+//中值 489
+//右最小 440
+//左最大 625
 
-/***************************************************************
-【函数名】 void ServosControl(int angle)
-【功  能】 舵机控制    按一次转一次
-【参数值】 角度 默认为0   负数左转，  正数右转   ServoMedianLeft舵机中值
-【返回值】 无		 
-****************************************************************/
-void ServosControl(int angle){
-	
-	u16 Servoserror = ServoAngleMAXLeft - ServoMedianLeft;
-	
-	duty = ServoMedianLeft + angle * (Servoserror / 150);
-	
-	if (angle == 0){
-		TIM_SetCompare1(TIM4,ServoMedianLeft);
-		TIM_SetCompare2(TIM4,ServoMedianLeft);
-	}
-	
-	if(angle > 0 && angle < 150){ //向左打角
-		TIM_SetCompare1(TIM4,(u16)duty);	
-	}
-	
-	if(angle < 0 && angle > -150){ //向右打角
-		TIM_SetCompare1(TIM4,(u16)duty);	
-	}
-	
-}
+
 
 
 /***************************************************************
 【函数名】 void ServosLeftRight(u8 leftorright)
-【功  能】 控制舵机向左还是向右打角
+【功  能】 控制舵机向左还是向右打角 点按的函数
 【参数值】 左还是右  1左   2右   
 【返回值】 无
 ****************************************************************/
-void ServosLeftRight(u8 leftorright){
+void ServosLeftRightClick(u8 leftorright){
 	
-	if (leftorright == 1 && duty < ServoAngleMAXLeft){		//舵机执行
+	if (leftorright == 1 && duty < ServoAngleMAX){		//舵机执行
 			duty += 1;
 			TIM_SetCompare1(TIM4,duty);
+			printf("%d",duty);
 	}
 	
-	if (leftorright == 2 && duty > ServoAngleMINLeft){    //舵机执行
+	if (leftorright == 2 && duty > ServoAngleMIN){    //舵机执行
 			duty -= 1;
 			TIM_SetCompare1(TIM4,duty);
+			printf("%d",duty);
+	}
+	
+	if (leftorright == 3 && duty > ServoAngleMIN && duty < ServoAngleMAX){    //舵机执行
+			duty = 563;
+			TIM_SetCompare1(TIM4,duty);
+			printf("%d",duty);
 	}
 	
 }
 
 
 
+//这个东西放定时器执行 防止卡死主程序
+//电机长短按控制
+__IO u8 clickorlongservos = 0;
+
+short t = 0;
+
+//改为一次函数，进行一个转向加速
+// duty = a x + b
+void ServosLeftRightLong(void){  //每秒执行33次
+	
+	if(clickorlongservos != 0){
+	
+		if (clickorlongservos == 1 && duty < ServoAngleMAX){		//舵机执行
+				t++;
+				duty += 1;
+				TIM_SetCompare1(TIM4,duty);
+		}
+	
+		if (clickorlongservos == 2 && duty > ServoAngleMIN){    //舵机执行
+				t--;
+				duty -= 1;
+				TIM_SetCompare1(TIM4,duty);
+		}
+	
+	}
+}
 
 
+//控制舵机停止长按动作
+void servosStop(u8 *clickorlongservos){
+		
+		*clickorlongservos = 0;
+	
+}
+
+
+extern u8 clickorlongmotor;
+
+//反复执行舵机变向函数 达到长按的效果
+//之后引入一个
+void TIM6_IRQHandler(void)
+{
+	if(TIM_GetITStatus(TIM6,TIM_IT_Update))
+	{
+			 ServosLeftRightLong();
+			 //printf("%d\r\n",clickorlongmotor);
+	}
+	TIM_ClearITPendingBit(TIM6,TIM_IT_Update);
+}
 
 
