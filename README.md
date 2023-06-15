@@ -4,6 +4,8 @@
   项目迭代版本以及自己的一些记录。
   ## 版本1.0
 ​			——   选材及硬件配置如下所示：
+![image](https://github.com/Wyt-Loc/My-Outdoor-Autonomous-Vehicles/assets/93720498/ee367d3e-31df-4119-b1bd-20e9d24e52b4)
+
 ![image-20230520213401061](image-20230520213401061.png)
 
 操作系统的话，基本上都是Linux或者是RTOS了，给自己上点强度。不过也确实是好使。和win10比也算是轻量级的操作系统了。
