@@ -3,21 +3,18 @@
 # @Author  : Wyt
 # @File    : 雷达图.py
 
-
-import numpy as np
 import matplotlib.pyplot as plt
+import numpy as np
 
-# r = np.arange(0, 1, 0.01)
-# r = [3.0, 6.0, 9.0]
-# r = np.array(r)
-# theta = 2 * 2 * np.pi * r
-#
-# ax = plt.subplot(111, projection='polar')
-#
-# ax.plot(theta, r, linewidth=1, color='red')
-# # 第一个参数为角度，第二个参数为极径
-#
-# ax.grid(True)  # 是否有网格
-#
-# plt.show()
+plt.figure(figsize=(10.8, 9.6), dpi=100)  # 设置画布大小 1080 * 960 的画布
+ax = plt.gca(projection='polar')
+ax.set_thetagrids(np.arange(0.0, 360.0, 15.0))
+ax.set_thetamin(0.0)  # 设置极坐标图开始角度为0°
+ax.set_thetamax(360.0)  # 设置极坐标结束角度为360°
 
+r = 140.0
+jiaodu = 120.0
+
+plt.clf()  # 清图。
+plt.polar(jiaodu * (np.pi / 180), r, marker='o', markersize=5, color='b')  # 画雷达图
+plt.show()  # 显示

@@ -3,33 +3,13 @@
 # @Author  : Wyt
 # @File    : 激光雷达数据解析.py
 
-# import math
 import socket
-
+import matplotlib.pyplot as plt
 import numpy as np
-from matplotlib import pyplot as plt
 
-
-# import struct
-# import time
 
 # 地址 192.168.0.100
 # 端口 8487
-
-
-# data = b't\x00\x0b\xb4s\x7f\x0b\xb9\x03\x7f\x0b\xbdS~K\xc2c\x7f\x0b\xc5t\x00\x0b\xc9' \
-#        b'\x14\x00K\xce\x04\x00K\xd2\x14\x00K\xd6\x14\x00K\xda4\x01\x0b\xdf\x14\x02\x0b\xe3'
-
-
-# 转为2进制
-# bin_data = ''.join(format(byte, '08b') for byte in data)
-# print(type(bin_data), bin_data)
-
-
-# 得到原始数据串 数据为4个字节一个包， 但是不能每次只读取4个字节
-# 读取多个数据进行删选， 一般来说找到第一个对的，之后都是连续的了
-# 速度上不会差很多
-
 
 class Lidar:
     """
@@ -47,13 +27,13 @@ class Lidar:
         return ((data1 & 0x1) << 14) + ((data2 & 0x7F) << 7) + (data3 & 0x7F)
 
     @staticmethod  # 没有使用self 设为静态函数即可
-    def getCrcPackage4Byte(A, B, C, D) -> bool:
+    def getCrcPackage4Byte(a, b, c, d) -> bool:
         """
         数据帧校验
-        :param A: A
-        :param B: B
-        :param C: C
-        :param D: D
+        :param a: a
+        :param b: b
+        :param c: c
+        :param d: d
         :return: true or false
         """
         # cbit 为对应 0~255 的 1 的个数表
@@ -67,8 +47,8 @@ class Lidar:
             2, 3, 3, 4, 3, 4, 4, 5, 3, 4, 4, 5, 4, 5, 5, 6, 3, 4, 4, 5, 4, 5, 5, 6, 4, 5, 5, 6, 5, 6, 6, 7,
             3, 4, 4, 5, 4, 5, 5, 6, 4, 5, 5, 6, 5, 6, 6, 7, 4, 5, 5, 6, 5, 6, 6, 7, 5, 6, 6, 7, 6, 7, 7, 8]
 
-        numone = (cbit[B] + cbit[C] + cbit[D]) & 0x07
-        if numone == ((A & 0x70) >> 4):
+        numone = (cbit[b] + cbit[c] + cbit[d]) & 0x07
+        if numone == ((a & 0x70) >> 4):
             return True
         else:
             return False
@@ -76,9 +56,17 @@ class Lidar:
 
 distance = [0]
 angle = [0]
-distancef = [0]
+distancef = 0
+anglef = 0
 
 if __name__ == '__main__':
+
+    plt.figure(figsize=(10.8, 9.6), dpi=100)  # 设置画布大小 1080 * 960 的画布
+    ax = plt.gca(projection='polar')
+    ax.set_thetagrids(np.arange(0.0, 360.0, 30.0))
+    ax.set_thetamin(0.0)  # 设置极坐标图开始角度为0°
+    ax.set_thetamax(360.0)  # 设置极坐标结束角度为360°
+
     lidar = Lidar
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     try:
@@ -87,11 +75,10 @@ if __name__ == '__main__':
     except ValueError:
         print("激光雷达连接失败")
 
-    azim = -90
-    elev = 90
     while True:
-        data = s.recv(1024)
-
+        data = s.recv(4096)
+        distance = []
+        angle = []
         for i, val in enumerate(data):
             # 对应4个字节 防止越界
             if i <= (len(data) - 4) \
@@ -103,19 +90,30 @@ if __name__ == '__main__':
                 if lidar.getCrcPackage4Byte(data[i], data[i + 1], data[i + 2], data[i + 3]):
                     # ABC 计算距离
                     # distance.append(lidar.getDistance(data[i], data[i + 1], data[i + 2]))
-                    # distance[0] = lidar.getDistance(data[i], data[i + 1], data[i + 2])
-                    distance[0] = data[i] & 0x0F
-                    distance[0] <<= 7
-                    distance[0] += data[i + 1] & 0x7F
-                    distance[0] <<= 1
+                    distancef = data[i] & 0x0F
+                    distancef <<= 7
+                    distancef += data[i + 1] & 0x7F
+                    distancef <<= 1
+                    if distancef > 1500 or distancef < 100:
+                        continue
+                    distance.append(distancef)
                     if data[i + 2] & 0x40:
                         distance[0] += 1
-                    print("距离 = ", distance, "cm")
+                    # print("距离 = ", distance, "cm")
                     # angle.append(((data[i] & 0x0f) << 7) | ((data[i + 1] & 0x7f) << 1) | ((data[i + 2] & 0x40) >> 6))
-                    angle[0] = (data[i + 2] & 0x3F)
-                    angle[0] <<= 7
-                    angle[0] += data[i + 3] & 0x7F
-                    angle[0] = angle[0] / 16
-                    print("角度 = ", angle)
+                    anglef = (data[i + 2] & 0x3F)
+                    anglef <<= 7
+                    anglef += data[i + 3] & 0x7F
+                    anglef = anglef / 16
+                    angle.append(anglef)
+                    # print("角度 = ", angle)
                     # print("角度 = ", angle)
                     # print("%%%")
+
+        for i in range(len(angle)):
+            angle[i] = angle[i] * (np.pi / 180)
+        plt.clf()  # 清图
+        plt.polar(angle, distance, marker='o', ls='none', markersize=2, color='b')  # 画雷达图
+        plt.pause(0.01)  # 暂停一段时间，不然画的太快会卡住显示不出来
+plt.ioff()  # 关闭画图窗口
+plt.show()  # 显示
