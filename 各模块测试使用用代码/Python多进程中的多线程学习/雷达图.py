@@ -3,18 +3,21 @@
 # @Author  : Wyt
 # @File    : 雷达图.py
 
+
 import numpy as np
 import matplotlib.pyplot as plt
 
-r = np.arange(0, 2, 0.01)
-theta = 2 * np.pi * r
+# r = np.arange(0, 1, 0.01)
+# r = [3.0, 6.0, 9.0]
+# r = np.array(r)
+# theta = 2 * 2 * np.pi * r
+#
+# ax = plt.subplot(111, projection='polar')
+#
+# ax.plot(theta, r, linewidth=1, color='red')
+# # 第一个参数为角度，第二个参数为极径
+#
+# ax.grid(True)  # 是否有网格
+#
+# plt.show()
 
-fig, ax = plt.subplots(subplot_kw={'projection': 'polar'})
-ax.plot(theta, r)
-ax.set_rmax(2)
-ax.set_rticks([0.5, 1, 1.5, 2])  # Less radial ticks
-ax.set_rlabel_position(-22.5)  # Move radial labels away from plotted line
-ax.grid(True)
-
-ax.set_title("A line plot on a polar axis", va='bottom')
-plt.show()

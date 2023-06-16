@@ -47,13 +47,14 @@ class Lidar:
         return ((data1 & 0x1) << 14) + ((data2 & 0x7F) << 7) + (data3 & 0x7F)
 
     @staticmethod  # 没有使用self 设为静态函数即可
-    def getCrcPackage4Byte(data1: int, data2: int, data3: int) -> int:
+    def getCrcPackage4Byte(A, B, C, D) -> bool:
         """
         数据帧校验
-        :param data1: B
-        :param data2: C
-        :param data3: D
-        :return: BCD 三个字节的 1 的个数和的低三位
+        :param A: A
+        :param B: B
+        :param C: C
+        :param D: D
+        :return: true or false
         """
         # cbit 为对应 0~255 的 1 的个数表
         cbit = [
@@ -66,7 +67,11 @@ class Lidar:
             2, 3, 3, 4, 3, 4, 4, 5, 3, 4, 4, 5, 4, 5, 5, 6, 3, 4, 4, 5, 4, 5, 5, 6, 4, 5, 5, 6, 5, 6, 6, 7,
             3, 4, 4, 5, 4, 5, 5, 6, 4, 5, 5, 6, 5, 6, 6, 7, 4, 5, 5, 6, 5, 6, 6, 7, 5, 6, 6, 7, 6, 7, 7, 8]
 
-        return (cbit[data1] + cbit[data2] + cbit[data3]) & 0x07
+        numone = (cbit[B] + cbit[C] + cbit[D]) & 0x07
+        if numone == ((A & 0x70) >> 4):
+            return True
+        else:
+            return False
 
 
 distance = [0]
@@ -95,20 +100,22 @@ if __name__ == '__main__':
                     and data[i + 2] & 0x80 == 0 \
                     and data[i + 3] & 0x80 == 0x80:
                 # 校验 BCD
-                print(lidar.getCrcPackage4Byte(data[i + 1], data[i + 2], data[i + 3]))
-                # ABC 计算距离
-                distance.append(lidar.getDistance(data[i], data[i + 1], data[i + 2]))
-                # distance[0] = lidar.getDistance(data[i], data[i + 1], data[i + 2])
-                print("距离 = ", distance)
-                angle.append(((data[i] & 0x0f) << 7) | ((data[i + 1] & 0x7f) << 1) | ((data[i + 2] & 0x40) >> 6))
-                # angle[0] = ((data[i] & 0x0f) << 7) | ((data[i + 1] & 0x7f) << 1) | ((data[i + 2] & 0x40) >> 6)
-                print("角度 = ", angle)
-
-                plt.ion()
-                plt.clf()  # 清除之前画的图
-                import matplotlib.pyplot as plt
-
-                plt.show()
-                plt.pause(0.002)  # 暂停一段时间，不然画的太快会卡住显示不出来
-                # print("角度 = ", angle)
-                # print("%%%")
+                if lidar.getCrcPackage4Byte(data[i], data[i + 1], data[i + 2], data[i + 3]):
+                    # ABC 计算距离
+                    # distance.append(lidar.getDistance(data[i], data[i + 1], data[i + 2]))
+                    # distance[0] = lidar.getDistance(data[i], data[i + 1], data[i + 2])
+                    distance[0] = data[i] & 0x0F
+                    distance[0] <<= 7
+                    distance[0] += data[i + 1] & 0x7F
+                    distance[0] <<= 1
+                    if data[i + 2] & 0x40:
+                        distance[0] += 1
+                    print("距离 = ", distance, "cm")
+                    # angle.append(((data[i] & 0x0f) << 7) | ((data[i + 1] & 0x7f) << 1) | ((data[i + 2] & 0x40) >> 6))
+                    angle[0] = (data[i + 2] & 0x3F)
+                    angle[0] <<= 7
+                    angle[0] += data[i + 3] & 0x7F
+                    angle[0] = angle[0] / 16
+                    print("角度 = ", angle)
+                    # print("角度 = ", angle)
+                    # print("%%%")

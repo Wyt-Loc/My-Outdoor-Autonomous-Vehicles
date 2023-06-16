@@ -38,7 +38,7 @@ while True:
     x = []
     y = []
     z = []
-    data = s.recv(4)
+    data = s.recv(1024)
     print(type(data))
 
     for id, i in enumerate(data):
