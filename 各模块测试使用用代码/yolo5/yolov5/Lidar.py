@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
 # @Time    : 2023/6/15 11:32
 # @Author  : Wyt
-# @File    : 激光雷达数据解析.py
-
+# @File    : Lidar.py
+import multiprocessing
 import socket
+import subprocess
 import time
-
 import matplotlib.pyplot as plt
 import numpy as np
 
@@ -13,7 +13,7 @@ import numpy as np
 # 地址 192.168.0.100
 # 端口 8487
 
-class Lidar:
+class Lidar1:
     """
     雷达类，封装雷达基本函数
     """
@@ -56,6 +56,12 @@ class Lidar:
             return False
 
 
+def main1():
+    p1 = multiprocessing.Process(target=main1, )
+    p1.start()
+    p1.join()
+
+
 distance = [0]
 angle = [0]
 distancef = 0
@@ -64,12 +70,12 @@ anglef = 0
 if __name__ == '__main__':
 
     plt.figure(figsize=(10.8, 9.6), dpi=100)  # 设置画布大小 1080 * 960 的画布
-    ax = plt.gca(projection='polar')
+    ax = plt.subplot(projection='polar')
     ax.set_thetagrids(np.arange(0.0, 360.0, 30.0))
     ax.set_thetamin(0.0)  # 设置极坐标图开始角度为0°
     ax.set_thetamax(360.0)  # 设置极坐标结束角度为360°
 
-    lidar = Lidar
+    lidar = Lidar1
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     RECV_BUF_SIZE = 4096
     s.setsockopt(  # 加入 此配置 解决TCP数据延迟问题，在因为默认缓冲区大小维65535 那么第一次可能是要接满
@@ -126,6 +132,6 @@ if __name__ == '__main__':
         plt.polar(angle, distance, marker='o', ls='none', markersize=2, color='b')  # 画雷达图
         plt.pause(0.01)  # 暂停一段时间，不然画的太快会卡住显示不出来
         time_end = time.time()
-        print(time_end - time_start)
+        # print(time_end - time_start)
 plt.ioff()  # 关闭画图窗口
 plt.show()  # 显示
