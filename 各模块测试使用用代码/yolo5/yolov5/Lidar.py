@@ -20,24 +20,10 @@ class Lidar1:
 
     @staticmethod
     def getDistance(data1: int, data2: int, data3: int) -> int:
-        """
-        :param data1: A
-        :param data2: B
-        :param data3: C
-        :return: 距离值（m）
-        """
         return ((data1 & 0x1) << 14) + ((data2 & 0x7F) << 7) + (data3 & 0x7F)
 
     @staticmethod  # 没有使用self 设为静态函数即可
     def getCrcPackage4Byte(a, b, c, d) -> bool:
-        """
-        数据帧校验
-        :param a: a
-        :param b: b
-        :param c: c
-        :param d: d
-        :return: true or false
-        """
         # cbit 为对应 0~255 的 1 的个数表
         cbit = [
             0, 1, 1, 2, 1, 2, 2, 3, 1, 2, 2, 3, 2, 3, 3, 4, 1, 2, 2, 3, 2, 3, 3, 4, 2, 3, 3, 4, 3, 4, 4, 5,
@@ -54,12 +40,6 @@ class Lidar1:
             return True
         else:
             return False
-
-
-def main1():
-    p1 = multiprocessing.Process(target=main1, )
-    p1.start()
-    p1.join()
 
 
 distance = [0]
@@ -126,8 +106,9 @@ if __name__ == '__main__':
                     # print("角度 = ", angle)
                     # print("%%%")
 
-        for i in range(len(angle)):
+        for i in range(len(angle)):  # 转为浮点数
             angle[i] = angle[i] * (np.pi / 180)
+
         plt.clf()  # 清图
         plt.polar(angle, distance, marker='o', ls='none', markersize=2, color='b')  # 画雷达图
         plt.pause(0.01)  # 暂停一段时间，不然画的太快会卡住显示不出来

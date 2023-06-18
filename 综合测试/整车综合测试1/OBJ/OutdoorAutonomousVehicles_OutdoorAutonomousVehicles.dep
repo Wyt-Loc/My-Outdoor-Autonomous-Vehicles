@@ -1,5 +1,5 @@
 Dependencies for Project 'OutdoorAutonomousVehicles', Target 'OutdoorAutonomousVehicles': (DO NOT MODIFY !)
-F (.\main.c)(0x648871DB)(-c --cpu Cortex-M3 -g -O1 --apcs=interwork -I ..\HARDWARE\LED -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\USER -I ..\STM32F10x_FWLib\inc -I ..\CORE -I ..\HARDWARE\KEY -I ..\HARDWARE\TIMER -I ..\HARDWARE\DMA -I ..\HARDWARE\DMA -I ..\HARDWARE\MotorT -I ..\HARDWARE\ServosT-I.\RTE\_OutdoorAutonomousVehicles-IF:\MDK\packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include-IF:\MDK\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\main.o --omf_browse ..\obj\main.crf --depend ..\obj\main.d)
+F (.\main.c)(0x6488731B)(-c --cpu Cortex-M3 -g -O1 --apcs=interwork -I ..\HARDWARE\LED -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\USER -I ..\STM32F10x_FWLib\inc -I ..\CORE -I ..\HARDWARE\KEY -I ..\HARDWARE\TIMER -I ..\HARDWARE\DMA -I ..\HARDWARE\DMA -I ..\HARDWARE\MotorT -I ..\HARDWARE\ServosT-I.\RTE\_OutdoorAutonomousVehicles-IF:\MDK\packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include-IF:\MDK\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\main.o --omf_browse ..\obj\main.crf --depend ..\obj\main.d)
 I (..\SYSTEM\delay\delay.h)(0x555AC82A)
 I (..\SYSTEM\sys\sys.h)(0x550F951A)
 I (..\USER\stm32f10x.h)(0x6474123E)
@@ -227,7 +227,7 @@ I (..\SYSTEM\delay\delay.h)(0x555AC82A)
 I (..\HARDWARE\TIMER\timer.h)(0x647BEC67)
 I (..\SYSTEM\usart\usart.h)(0x647BF68A)
 I (F:\MDK\ARM\ARMCC\include\stdio.h)(0x60252374)
-F (..\HARDWARE\MotorT\motorT.c)(0x64886D51)(-c --cpu Cortex-M3 -g -O1 --apcs=interwork -I ..\HARDWARE\LED -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\USER -I ..\STM32F10x_FWLib\inc -I ..\CORE -I ..\HARDWARE\KEY -I ..\HARDWARE\TIMER -I ..\HARDWARE\DMA -I ..\HARDWARE\DMA -I ..\HARDWARE\MotorT -I ..\HARDWARE\ServosT-I.\RTE\_OutdoorAutonomousVehicles-IF:\MDK\packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include-IF:\MDK\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\motort.o --omf_browse ..\obj\motort.crf --depend ..\obj\motort.d)
+F (..\HARDWARE\MotorT\motorT.c)(0x648E6BF0)(-c --cpu Cortex-M3 -g -O1 --apcs=interwork -I ..\HARDWARE\LED -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\USER -I ..\STM32F10x_FWLib\inc -I ..\CORE -I ..\HARDWARE\KEY -I ..\HARDWARE\TIMER -I ..\HARDWARE\DMA -I ..\HARDWARE\DMA -I ..\HARDWARE\MotorT -I ..\HARDWARE\ServosT-I.\RTE\_OutdoorAutonomousVehicles-IF:\MDK\packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include-IF:\MDK\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\motort.o --omf_browse ..\obj\motort.crf --depend ..\obj\motort.d)
 I (..\HARDWARE\MotorT\motorT.h)(0x647BF20F)
 I (..\SYSTEM\sys\sys.h)(0x550F951A)
 I (..\USER\stm32f10x.h)(0x6474123E)

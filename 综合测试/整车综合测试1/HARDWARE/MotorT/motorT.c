@@ -13,9 +13,6 @@ u8 i = 0;
 extern u16 send_buf[1];
 
 
-
-
-
 int num  = 0;
 
 
