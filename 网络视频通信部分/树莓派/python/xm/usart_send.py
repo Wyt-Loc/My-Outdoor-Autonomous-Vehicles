@@ -58,7 +58,7 @@ def main_tcp():
     while True:
         # 3. 发送数据
         if flag == 1:
-            send_data =  "smpsmp"  # input("请输入要发送的数据：")
+            send_data = "smpsmp"  # input("请输入要发送的数据：")
             tcp_socket.send(send_data.encode("utf-8"))
             flag = 0
 

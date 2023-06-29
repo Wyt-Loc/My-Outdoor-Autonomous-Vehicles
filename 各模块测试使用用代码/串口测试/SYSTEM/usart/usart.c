@@ -227,7 +227,7 @@ void uart2_init(u32 bound){
  
 }
 
- 
+
 void USART2_IRQHandler(void)                	//串口2中断服务程序
 {
 	u8 Res;

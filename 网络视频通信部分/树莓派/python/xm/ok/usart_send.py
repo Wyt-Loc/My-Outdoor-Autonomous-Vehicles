@@ -2,14 +2,13 @@ import serial
 import time
 import threading
 
-
-ser = serial.Serial("/dev/ttyAMA0",115200)
+ser = serial.Serial("/dev/ttyAMA0", 115200)
 
 str1 = "123123\r\n"
 
 if ser.isOpen == False:
-    ser.open() # 打开串口
-ser.write(b'raspberry pi is connected') # 连接成功
+    ser.open()  # 打开串口
+ser.write(b'raspberry pi is connected')  # 连接成功
 
 
 # 串口发送
@@ -21,6 +20,7 @@ def usat_send():
             time.sleep(0.05)
     except KeyboardInterrupt:
         ser.close()
+
 
 # 串口接收
 def usat_tend():
@@ -35,13 +35,12 @@ def usat_tend():
         ser.close()
 
 
-
 def main1():
     print("串口收发开始")
     threads = []
-    thing1 = threading.Thread(target=usat_send,)
+    thing1 = threading.Thread(target=usat_send, )
     threads.append(thing1)
-    thing2 = threading.Thread(target=usat_tend,)
+    thing2 = threading.Thread(target=usat_tend, )
     threads.append(thing2)
     for thing in threads:
         thing.setDaemon(True)
@@ -50,10 +49,7 @@ def main1():
     thing1.join()
     thing2.join()
 
+
 # 函数入口
 if __name__ == '__main__':
     main1()
-
-
-
-
