@@ -38,7 +38,6 @@ class TcpServer:
     def Myprint(self):
         # 保存数据
         print("接收到" + self.addr[0] + "的数据：" + self.receData.decode())
-
         curtime = str(datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S.%f'))
         with open("data.txt", 'a', encoding="utf-8") as f:
             f.writelines(

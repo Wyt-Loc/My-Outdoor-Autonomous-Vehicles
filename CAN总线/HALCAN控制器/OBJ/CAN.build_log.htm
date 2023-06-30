@@ -22,16 +22,20 @@ Dialog DLL:      TARMSTM.DLL V1.66.0.0
  
 <h2>Project:</h2>
 F:\CreatCar\Outdoor autonomous vehicles\CAN×ÜÏß\HALCAN¿ØÖÆÆ÷\USER\CAN.uvprojx
-Project File Date:  06/29/2023
+Project File Date:  06/30/2023
 
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 7 (build 960)', folder: 'F:\MDK\ARM\ARMCC\Bin'
 Build target 'CAN'
 compiling main.c...
+compiling MatchingCommands.c...
+compiling atk_u2e.c...
+..\UART2ETH\ATK-UART2ETH\atk_u2e.c(185): warning:  #177-D: function "u2e_enter_transfermode"  was declared but never referenced
+  static int u2e_enter_transfermode(void)
+..\UART2ETH\ATK-UART2ETH\atk_u2e.c: 1 warning, 0 errors
 linking...
-Program Size: Code=16864 RO-data=3076 RW-data=400 ZI-data=3216  
-FromELF: creating hex file...
-"..\OBJ\CAN.axf" - 0 Error(s), 0 Warning(s).
+Program Size: Code=11100 RO-data=2868 RW-data=96 ZI-data=2896  
+"..\OBJ\CAN.axf" - 0 Error(s), 1 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -45,7 +49,7 @@ Package Vendor: Keil
   F:\MDK\packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include
 
 <h2>Collection of Component Files used:</h2>
-Build Time Elapsed:  00:00:01
+Build Time Elapsed:  00:00:02
 </pre>
 </body>
 </html>

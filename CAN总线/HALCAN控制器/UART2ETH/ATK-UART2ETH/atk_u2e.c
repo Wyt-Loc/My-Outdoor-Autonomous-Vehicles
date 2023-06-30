@@ -1,26 +1,4 @@
-/**
- * ****************************************************************************
- * @file            u2e.c
- * @author          正点原子团队（ALIENTEK）
- * @version         V1.0
- * @data            2020-04-14
- * @brief           模块驱动代码
- * @copyright       Copyright (c) 2020-2032, 广州市星翼电子科技有限公司
- * ****************************************************************************
- * @attention       
- * 
- * 实验平台：正点原子STM32F103开发板
- * 在线视频: www.yuanzige.com
- * 技术论坛: www.openedv.com
- * 公司网址: www.alientek.com
- * 购买地址: openedv.taobao.com
- * 
- * 修改说明
- * V1.0 20200414
- * 第一次发布
- * ****************************************************************************
-*/
-
+/*			以太网接收信息				*/
 #include "atk_u2e.h"
 #include "RingBuffer.h"
 #include "sys.h"
@@ -45,8 +23,6 @@ static uint8_t u2e_rxcmdbuf[U2E_RX_CMD_BUF_SIZE]; /*处理模块相关数据缓存*/
  * @return      无
  * 
 */
-
-
 
 char key[18] = "FF-FF-FF-FF-FF-FF";         /* 模块设定为以MAC地址作识别码 */
 char * GetsearchKey(char* Src,int valnum) {

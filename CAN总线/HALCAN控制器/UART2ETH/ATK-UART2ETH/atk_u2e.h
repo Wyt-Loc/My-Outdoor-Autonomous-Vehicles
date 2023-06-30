@@ -68,6 +68,8 @@ void u2e_get_urc_info(uint8_t ch);
 
 void send_data_to_u2e(uint8_t *data, uint32_t size);
 
+static int u2e_enter_transfermode(void);
+
 int u2e_config_init(_u2e_work_mode_eu work_mode);
 
 #endif
