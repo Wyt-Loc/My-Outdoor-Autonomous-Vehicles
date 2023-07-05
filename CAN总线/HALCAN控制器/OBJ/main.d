@@ -71,3 +71,4 @@
 ..\obj\main.o: ..\CANCONTROL\canControl.h
 ..\obj\main.o: F:\MDK\ARM\ARMCC\Bin\..\include\string.h
 ..\obj\main.o: ..\UART2ETH\ATK-UART2ETH\atk_u2e.h
+..\obj\main.o: ..\CANCONTROL\MatchingCommands.h

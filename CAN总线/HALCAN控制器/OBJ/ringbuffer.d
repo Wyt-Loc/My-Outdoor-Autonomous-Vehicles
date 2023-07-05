@@ -57,3 +57,4 @@
 ..\obj\ringbuffer.o: ..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_pcd_ex.h
 ..\obj\ringbuffer.o: ..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_hcd.h
 ..\obj\ringbuffer.o: ..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_mmc.h
+..\obj\ringbuffer.o: ..\SYSTEM\delay\delay.h

@@ -187,7 +187,7 @@
             <hadIRAM2>0</hadIRAM2>
             <hadIROM2>0</hadIROM2>
             <StupSel>8</StupSel>
-            <useUlib>0</useUlib>
+            <useUlib>1</useUlib>
             <EndSel>0</EndSel>
             <uLtcg>0</uLtcg>
             <nSecure>0</nSecure>
@@ -337,7 +337,7 @@
               <MiscControls></MiscControls>
               <Define>USE_HAL_DRIVER,STM32F103xE</Define>
               <Undefine></Undefine>
-              <IncludePath>..\CORE;..\USER;..\SYSTEM\delay;..\SYSTEM\sys;..\SYSTEM\usart;..\USMART;..\HALLIB\STM32F1xx_HAL_Driver\Inc;..\HARDWARE\LED;..\HARDWARE\LCD;..\HARDWARE\KEY;..\HARDWARE\CAN;..\CANCONTROL;..\HARDWARE\TIMER;..\UART2ETH\ATK-UART2ETH;..\UART2ETH\RINGBUFFER;..\UART2ETH\USART3</IncludePath>
+              <IncludePath>..\CORE;..\USER;..\SYSTEM\delay;..\SYSTEM\sys;..\SYSTEM\usart;..\USMART;..\HALLIB\STM32F1xx_HAL_Driver\Inc;..\HARDWARE\LED;..\HARDWARE\LCD;..\HARDWARE\KEY;..\HARDWARE\CAN;..\CANCONTROL;..\HARDWARE\TIMER;..\UART2ETH\ATK-UART2ETH;..\UART2ETH\RINGBUFFER;..\UART2ETH\USART3;..\HARDWARE\MyQueue</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>

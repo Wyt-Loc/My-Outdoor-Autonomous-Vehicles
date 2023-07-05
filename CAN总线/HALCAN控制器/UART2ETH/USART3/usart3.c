@@ -52,6 +52,7 @@ uint8_t res_usart3_revdata()
    return !(ringbuffer_isEmpty(&uart3RxFifo));
 }
 
+
 /**
  * @brief       串口接收中断处理函数
  * @param       无

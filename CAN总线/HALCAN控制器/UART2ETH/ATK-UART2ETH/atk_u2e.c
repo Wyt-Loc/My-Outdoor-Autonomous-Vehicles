@@ -148,13 +148,13 @@ static int u2e_enter_configmode(void)
     char* pos=0;
     uint8_t atkey[]="AT+AT_INTO=\"FF-FF-FF-FF-01-02\"\r\n";
 
+
     /* 1。准备进入配置状态 */
     res = send_cmd_to_u2e("AT+SEARCH?\r\n", "\r\nOK\r\n", 5);       /* 如果用恢复模块出厂设置的方法来设置模块，则需要等待模块恢复参数成功，这里用死循环查询 */
-    if(res != 0)
+	if(res != 0)
     {
         return -1;
     }
-    
     /* 收到识别串，提取设备识别码 */
     pos = GetsearchKey((char*)u2e_rxcmdbuf,2);
     if(pos != 0)
@@ -433,7 +433,11 @@ static int u2e_config_work_param(_u2e_atcmd_st *work_param, uint8_t num)
 
 int u2e_config_init(_u2e_work_mode_eu work_mode)
 {
-    int res;
+	
+	int res;
+	
+		
+    
     GPIO_InitTypeDef gpio_initure;    /*GPIO端口设置参数存放位置*/
     U2E_MODULE_DF_CLK_ENABLE();
     U2E_MODULE_ST_CLK_ENABLE();
@@ -454,6 +458,7 @@ int u2e_config_init(_u2e_work_mode_eu work_mode)
 
     usart3_init(115200);                                /* 串口3初始化为115200 */
 
+
 //    /* 1.复位模块进入出厂设置参数：默认，串口参数为：115200，8数据位，无校验(选用) */
 //    U2E_MODULE_DF(0);
 //    delay_ms(1000);
@@ -463,6 +468,7 @@ int u2e_config_init(_u2e_work_mode_eu work_mode)
 
     /*2.模块进入配置状态*/
     while ( u2e_enter_configmode() != 0 );
+
 
     /*3.配置模块的工作参数*/
     switch (work_mode)

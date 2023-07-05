@@ -72,4 +72,5 @@ static int u2e_enter_transfermode(void);
 
 int u2e_config_init(_u2e_work_mode_eu work_mode);
 
+
 #endif

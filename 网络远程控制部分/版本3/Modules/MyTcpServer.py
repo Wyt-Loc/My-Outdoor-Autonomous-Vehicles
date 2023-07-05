@@ -4,6 +4,7 @@
 # @File    : MyTcpServer.py
 
 import socket
+
 import MyprintLog
 
 
@@ -16,7 +17,8 @@ class TcpServer(MyprintLog.PrintLog):
     receData = b''
     addr = None
     conn = None
-    flag = 0
+
+    # flag = 0
 
     def __init__(self) -> None:
         # 1. 创建Tcp服务，等待连接
@@ -43,17 +45,13 @@ class TcpServer(MyprintLog.PrintLog):
 
     def receMessages(self):
         # 循环接收TCP客户端数据
-        while True:
-            while self.flag == 0:
-                self.receData = self.conn.recv(1024)
-                self.printReceData(self.receData.decode(), (self.conn, self.addr))
-                self.flag = 1
+        self.receData = self.conn.recv(1024)
+        self.printReceData(self.receData.decode(), (self.conn, self.addr))
+        if self.receData.decode() == "ok":
+            return 1
 
     def sendMessages(self, data: str):
-        while True:
-            while self.flag == 1:
-                # 向客户端发送data
-                self.sendData = data
-                self.conn.send(data.encode())  # 发送消息
-                self.printSendData(self.sendData, (self.conn, self.addr))
-                self.flag = 0
+        # 向客户端发送data
+        self.sendData = data
+        self.conn.send(data.encode())  # 发送消息
+        self.printSendData(self.sendData, (self.conn, self.addr))

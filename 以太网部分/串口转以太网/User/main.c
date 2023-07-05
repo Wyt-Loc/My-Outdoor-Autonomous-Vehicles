@@ -46,6 +46,20 @@ void usart1_send_data(uint8_t* buf,uint32_t len)
 
 
 
+
+
+
+
+int key = 42;
+void decrypt_data(char *data, int length, int key)
+{
+    for (int i = 0; i < length; i++)
+    {
+        data[i] = data[i] ^ key;
+    }
+}
+
+
 int main(void)
 {
     uint8_t key;
