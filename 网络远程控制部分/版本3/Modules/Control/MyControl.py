@@ -2,7 +2,6 @@
 # @Time    : 2023/7/3 21:17
 # @Author  : Wyt
 # @File    : MyControl.py
-import time
 import MyTcpServer
 import keyboard
 
@@ -23,7 +22,7 @@ class Mykey(MyTcpServer.TcpServer):
     # 功能帧1
     fun1 = "m"  # 电机参数  # 13
     # 数据帧1
-    a = "013141314"  # 对应方向  距离  速度  # 9
+    a = "003140314"  # 对应方向  距离  速度  # 9
     # 功能帧2
     fun2 = "s"  # 舵机参数  # 1
     # 数据帧2
@@ -49,9 +48,11 @@ class Mykey(MyTcpServer.TcpServer):
         if keyval.event_type == 'down' and keyval.name == self.rightd.name:
             print("短按right键")
             self.sendMessages(self.dataFrame())  # 发送数据帧
-            while True:
-                if self.receMessages():
-                    break
+            # while True:
+            #     time.sleep(1)
+            #     self.sendMessages(self.dataFrame())
+            #     if self.receMessages():
+            #         break
 
     def getKeyValue(self):
         # 得到键值执行对应的函数

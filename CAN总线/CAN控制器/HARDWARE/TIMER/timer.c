@@ -55,7 +55,7 @@ void BaseTimer_Config(uint16_t arr, uint16_t psc)
 void BaseTimer_Init(void)
 {
 	BASETimer_NVIC_Config();
-	BaseTimer_Config(100, 720);
+	BaseTimer_Config(10, 72);
 }
 
 

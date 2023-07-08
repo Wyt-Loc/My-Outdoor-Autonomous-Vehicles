@@ -1,12 +1,24 @@
-def encrypt_data(data, key):
-    encrypted_data = ""
-    for char in data:
-        encrypted_char = chr(ord(char) ^ key)
-        encrypted_data += encrypted_char
-    return encrypted_data
+def update_array(arr, row, col):
+    # 获取二维数组的行数和列数
+    num_rows = len(arr)
+    num_cols = len(arr[0])
+
+    # 将指定点周围的元素改为1
+    for i in range(max(0, row - 1), min(num_rows, row + 2)):
+        for j in range(max(0, col - 1), min(num_cols, col + 2)):
+            arr[i][j] = 1
+
+    return arr
 
 
-data = "Hello, world!"
-key = 42
-encrypted_data = encrypt_data(data, key)
-print("加密后的数据:", encrypted_data)
+# 创建一个全为0的二维数组
+rows = 10
+cols = 10
+arr = [[0] * cols for _ in range(rows)]
+
+# 将指定点(3, 4)周围的元素改为1
+updated_arr = update_array(arr, 3, 4)
+
+# 打印更新后的二维数组
+for row in updated_arr:
+    print(row)

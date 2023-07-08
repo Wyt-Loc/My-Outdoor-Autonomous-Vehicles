@@ -11,7 +11,7 @@
 /***************************************************************
 【函数名】 char motorValueVerify(u8 dir, float distance, float speed)
 【功  能】 校验参数是否正确  参数是否存在负数，或其他
-【参数值】 是否正确
+【参数值】 是否正确 0 < speed < 10   0 < distance < 50
 【返回值】 对返回 1，否则 返回 0
 ****************************************************************/
 char motorValueVerify(u8 dir, float distance, float speed){
@@ -124,8 +124,8 @@ u8 sendMotorCommand(u8 dir, float distance, float speed){
 	u8 timecnt = 0;
 	u8 *commandBuf = motorCommandGenerate(dir,distance,speed);
 	issucess = Can_Send_Msg(commandBuf,8);//发送8个字节
-	printf("12312 \r\n");
 	_q1:  //goto从这块重新执行
+	TIM3->CNT = 0;
 	startTimerInterrupt();		//定时器开始计数
 	
 	// 这块很占时间

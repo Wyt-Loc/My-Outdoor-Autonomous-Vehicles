@@ -106,6 +106,81 @@ int KMP(uint8_t S[],uint8_t T[])
     }
 }
 
+//解析方向
+u8 parsingDirData(uint8_t arr[]){
+	
+	u8 data = 2;
+	
+	if((arr[0] - '0') == 1)
+		return 1;
+	else if ((arr[0] - '0') == 0)
+		return 0;
+	
+	return data;
+}
+
+//解析距离
+float parsingDisData(uint8_t arr[]){
+	
+	float data;
+	float shiwei = 0; // 十位
+	float gewei = 0;  // 个位
+	float hou1 = 0; // 小数点后一位
+	float hou2 = 0;  // 小数点后两位
+	
+	// 距离数据为
+	if((arr[1] - '0') == 0){
+		gewei = arr[2] - '0';
+		hou1 = arr[3] - '0';
+		hou2 = arr[4] - '0';
+	}
+	
+	//最大一次不超过10.00
+	else if((arr[1] - '0') != 0){
+		shiwei = arr[1] - '0';
+		gewei = arr[2] - '0';
+		hou1 = arr[3] - '0';
+		hou2 = arr[4] - '0';
+	}
+	printf("shiwei = %f, gewei = %f, hou1 = %f,hou2 = %f", shiwei, gewei, hou1, hou2);
+	// 距离
+	data = shiwei*10 + gewei + (hou1 / 10.0f) + (hou2 / 100.0f);
+
+	return data;
+}
+
+//解析速度
+float parsingVData(uint8_t arr[]){
+	
+	float data;
+	float shiwei = 0; // 十位
+	float gewei = 0;  // 个位
+	float hou1 = 0; // 小数点后一位
+	float hou2 = 0;  // 小数点后两位
+	//0 < speed < 10   0 < distance < 50
+	
+	// 速度数据为
+	if((arr[5] - '0') == 0){
+		gewei = arr[6] - '0';
+		hou1 = arr[7] - '0';
+		hou2 = arr[8] - '0';
+	}
+	
+	//最大一次不超过10.00
+	else if((arr[5] - '0') != 0){
+		shiwei = arr[5] - '0';
+		gewei = arr[6] - '0';
+		hou1 = arr[7] - '0';
+		hou2 = arr[8] - '0';
+	}
+	
+	// 速度
+	data = shiwei*10 + gewei + (hou1 / 10.0f) + (hou2 / 100.0f);
+	
+	return data;
+	
+}
+
 
 int main(void)
 {
@@ -141,6 +216,7 @@ int main(void)
 			switch (key)
 			{
 					case KEY0_PRES:     /* KEY0按下 */
+						//sendMotorCommand(1, 13.14f, 9.99f);
 							usart3_send_data((uint8_t*)test_buf[U2E_TCP_CLIENT],strlen((const char*)test_buf[U2E_TCP_CLIENT]));      /* 发送数据到服务器 */
 							break;
 					default:break;
@@ -164,8 +240,6 @@ int main(void)
 				
 				for(i=0;i<8;i++){
 					one[i]=g_data_rxbuf[i];
-					//printf("one = %d",one[i]);
-					//printf("onecp = %d",onecp[i]);
 				}
 				
 				for(i=0;i<8;i++){
@@ -177,23 +251,29 @@ int main(void)
 					target=KMP(g_data_rxbuf,fun1);
 					target1=KMP(g_data_rxbuf,fun2);
 					
-					//printf("target = %d   %d ", target,target1);
+					printf("target = %d   %d ", target,target1);
 					
 					if(target == 8 && target1 == 18)
 					{
 						for(i=target+1;i<target1;i++)
 						{
 							two[i-9] = g_data_rxbuf[i];
+							
 						}
 					}
+					printf("电机数据 = %s\r\n", two);
 					for(i=target1+1;i<target1+5;i++){
 						three[i-target1-1] = g_data_rxbuf[i];
 					}
-					printf("电机数据 = %s\r\n", two);
 					for(i =0;i<4;i++)
 						three[i] = three[i];
 					
 					usart3_send_data((uint8_t*)ok,2);      /* 发送数据到服务器 */
+					
+					//ControlEntryFunction(1, 13.14f, 9.99f);
+					printf("dir = %d, dis = %f, V = %f", parsingDirData(two), parsingDisData(two), parsingVData(two) );
+					
+					ControlEntryFunction((u8)parsingDirData(two), parsingDisData(two), parsingVData(two));
 				}
 				
 				//usart1_send_data(g_data_rxbuf,rx_len);       /* 转发到串口1 */
@@ -202,15 +282,4 @@ int main(void)
 			}
 	}
 	
-	/*
-	while(1){
-		key = KEY_Scan(0);
-		if(key==KEY0_PRES)
-		{
-			ControlEntryFunction(1, 13.14f, 9.99f);
-			key = 0;
-		}
-	}
-	*/
-
 }
