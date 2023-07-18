@@ -121,7 +121,7 @@ void usart3_init(uint32_t baudrate)
  * @retval      无
  */
 void usart3_send_data(uint8_t *buf, uint8_t len)
-{
+{	printf("发送");
     HAL_UART_Transmit(&g_usart3_handler, buf, len, 1000); /* 串口3发送数据 */
 }
 

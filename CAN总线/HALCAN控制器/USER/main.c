@@ -190,7 +190,7 @@ int main(void)
 	short target1 = 0;
 	u8 i = 0;
 	int rx_len = 0;
-	uint8_t ok[2]={"ok"};
+	uint8_t ok[]={"ok\r\n"};
 	uint8_t one[8] = {0}; // 帧头 确认帧
 	uint8_t onecp[8] = "0xAAAAx0";
 	uint8_t fun1[1]={"m"};  
@@ -208,7 +208,7 @@ int main(void)
 	CAN_Config();
 	TIM3_Init(100-1,72-1);    // 每秒计数10000次 can消息计数用
 	u2e_config_init(U2E_TCP_CLIENT); /* 选择模式 */
-
+	
 	while (1)
 	{
 			u8 js=0;
@@ -232,53 +232,105 @@ int main(void)
 							rx_len = 0; /*接收应答数据超长，丢弃部分数据*/
 					}
 			}
+
 			
 			if(rx_len>0)
 			{
-					target=KMP(g_data_rxbuf,fun1);
-					target1=KMP(g_data_rxbuf,fun2);
 				
-				for(i=0;i<8;i++){
-					one[i]=g_data_rxbuf[i];
-				}
-				
-				for(i=0;i<8;i++){
-					if(one[i]==onecp[i])
-						js++;
-				}
-				if(js==8)
-				{
-					target=KMP(g_data_rxbuf,fun1);
-					target1=KMP(g_data_rxbuf,fun2);
+				if (rx_len == 13) {  // 舵机数据 --->  控制舵机
 					
-					printf("target = %d   %d ", target,target1);
+					for(i=0;i<8;i++){ 
+						if(onecp[i]==g_data_rxbuf[i])
+							js++;
+					}
 					
-					if(target == 8 && target1 == 18)
-					{
-						for(i=target+1;i<target1;i++)
-						{
-							two[i-9] = g_data_rxbuf[i];
-							
+					if (js == 8){ // 如果帧头匹配成功
+						// 开始解析舵机数据  匹配功能帧表示 “s”
+						if(g_data_rxbuf[8] == 's'){
+							for ( i = 0; i < 4; i++)
+								three[i] = g_data_rxbuf[i + 8];  // 得到舵机数据
 						}
+						js = 0;
 					}
-					printf("电机数据 = %s\r\n", two);
-					for(i=target1+1;i<target1+5;i++){
-						three[i-target1-1] = g_data_rxbuf[i];
+					if (js == 0){
+						// 发送到舵机
+						ControlEntryFunction((u8)parsingDirData(three), parsingDisData(three), parsingVData(three));
 					}
-					for(i =0;i<4;i++)
-						three[i] = three[i];
+				}
+
+				
+				else if (rx_len == 18){  // 电机数据  ----> 控制电机
+					for(i=0;i<8;i++){ 
+						if(onecp[i]==g_data_rxbuf[i])
+							js++;
+					}
 					
-					usart3_send_data((uint8_t*)ok,2);      /* 发送数据到服务器 */
-					
-					//ControlEntryFunction(1, 13.14f, 9.99f);
-					printf("dir = %d, dis = %f, V = %f", parsingDirData(two), parsingDisData(two), parsingVData(two) );
-					
-					ControlEntryFunction((u8)parsingDirData(two), parsingDisData(two), parsingVData(two));
+					if (js == 8){ // 如果帧头匹配成功
+						// 开始解析舵机数据  匹配功能帧表示 “s”
+						if(g_data_rxbuf[8] == 's'){
+							for ( i = 0; i < 9; i++)
+								two[i] = g_data_rxbuf[i + 8];  // 得到舵机数据
+						}
+						js = 0;
+					}
+					if (js == 0){
+						// 发送到舵机
+						ControlEntryFunction((u8)parsingDirData(two), parsingDisData(two), parsingVData(two));
+					}
 				}
 				
-				//usart1_send_data(g_data_rxbuf,rx_len);       /* 转发到串口1 */
-				//	printf("\r\n");
-					rx_len = 0;
+				
+				else if (rx_len == 23){ // 全部数据
+				
+					target=KMP(g_data_rxbuf,fun1);
+					target1=KMP(g_data_rxbuf,fun2);
+					
+					// 校验帧头
+					for(i=0;i<8;i++){ 
+						one[i]=g_data_rxbuf[i];
+					}
+					
+					for(i=0;i<8;i++){  
+						if(one[i]==onecp[i])
+							js++;
+					}
+					if(js==8)
+					{
+						target=KMP(g_data_rxbuf,fun1);
+						target1=KMP(g_data_rxbuf,fun2);
+						
+						printf("target = %d   %d ", target,target1);
+						
+						// 校验电机
+						if(target == 8 && target1 == 18)
+						{
+							for(i=target+1;i<target1;i++)
+							{
+								two[i-9] = g_data_rxbuf[i];
+							}
+						}
+						printf("电机数据 = %s\r\n", two);
+						// 校验舵机
+						for(i=target1+1;i<target1+5;i++){
+							three[i-target1-1] = g_data_rxbuf[i];
+						}
+						for(i =0;i<4;i++)
+							three[i] = three[i];
+						
+						//发送校验成功标记
+						usart3_send_data(ok,2);      /* 发送数据到服务器 */
+						//ControlEntryFunction(1, 13.14f, 9.99f);
+						printf("dir = %d, dis = %f, V = %f", parsingDirData(two), parsingDisData(two), parsingVData(two) );
+						
+						//CAN执行
+						ControlEntryFunction((u8)parsingDirData(two), parsingDisData(two), parsingVData(two));
+					}
+					
+					//usart1_send_data(g_data_rxbuf,rx_len);       /* 转发到串口1 */
+					//	printf("\r\n");
+						rx_len = 0;
+					
+				}
 			}
 	}
 	

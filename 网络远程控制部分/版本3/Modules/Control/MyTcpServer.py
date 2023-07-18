@@ -4,7 +4,6 @@
 # @File    : MyTcpServer.py
 
 import socket
-
 import MyprintLog
 
 
@@ -24,7 +23,7 @@ class TcpServer(MyprintLog.PrintLog):
         # 1. 创建Tcp服务，等待连接
         super().__init__()
         self.server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)  # 参数可以不加
-        self.server.bind(('192.168.1.101', 10006))  # 绑定要监听的端口
+        self.server.bind(('192.168.1.102', 10006))  # 绑定要监听的端口
         self.server.listen(5)  # 开始监听 表示可以使用五个链接排队
 
     def __del__(self) -> None:

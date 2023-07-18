@@ -30,3 +30,6 @@
 ..\obj\canmotor.o: ..\STM32F10x_FWLib\inc\stm32f10x_usart.h
 ..\obj\canmotor.o: ..\STM32F10x_FWLib\inc\stm32f10x_wwdg.h
 ..\obj\canmotor.o: ..\STM32F10x_FWLib\inc\misc.h
+..\obj\canmotor.o: ..\HARDWARE\MotorT\MotorT.h
+..\obj\canmotor.o: ..\HARDWARE\CAN\can.h
+..\obj\canmotor.o: F:\MDK\ARM\ARMCC\Bin\..\include\stdio.h

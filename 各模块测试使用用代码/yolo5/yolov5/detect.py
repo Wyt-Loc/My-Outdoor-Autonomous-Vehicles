@@ -246,7 +246,7 @@ def parse_opt():
     #                     help='model path or triton URL')
     parser.add_argument('--weights', nargs='+', type=str, default='yolov5s.pt',
                         help='model path or triton URL')
-    parser.add_argument('--source', type=str, default=1, help='source')
+    parser.add_argument('--source', type=str, default=0, help='source')
     parser.add_argument('--data', type=str, default=ROOT / 'data/coco128.yaml', help='(optional) dataset.yaml path')
     parser.add_argument('--imgsz', '--img', '--img-size', nargs='+', type=int, default=[1280, 480],
                         help='inference size h,w')

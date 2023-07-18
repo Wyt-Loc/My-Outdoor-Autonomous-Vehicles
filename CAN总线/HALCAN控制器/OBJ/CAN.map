@@ -23,13 +23,13 @@ Section Cross References
     main.o(i.main) refers to usart3.o(i.usart3_send_data) for usart3_send_data
     main.o(i.main) refers to usart3.o(i.usart3_getRxData) for usart3_getRxData
     main.o(i.main) refers to usart3.o(i.res_usart3_revdata) for res_usart3_revdata
-    main.o(i.main) refers to main.o(i.KMP) for KMP
-    main.o(i.main) refers to printfa.o(i.__0printf) for __2printf
     main.o(i.main) refers to main.o(i.parsingVData) for parsingVData
-    main.o(i.main) refers to f2d.o(.text) for __aeabi_f2d
     main.o(i.main) refers to main.o(i.parsingDisData) for parsingDisData
     main.o(i.main) refers to main.o(i.parsingDirData) for parsingDirData
     main.o(i.main) refers to cancontrol.o(i.ControlEntryFunction) for ControlEntryFunction
+    main.o(i.main) refers to main.o(i.KMP) for KMP
+    main.o(i.main) refers to printfa.o(i.__0printf) for __2printf
+    main.o(i.main) refers to f2d.o(.text) for __aeabi_f2d
     main.o(i.main) refers to main.o(.data) for test_buf
     main.o(i.main) refers to main.o(.bss) for g_data_rxbuf
     main.o(i.parsingDisData) refers to fflti.o(.text) for __aeabi_i2f
@@ -724,6 +724,7 @@ Section Cross References
     usart3.o(i.usart3_init) refers to stm32f1xx_hal_cortex.o(i.HAL_NVIC_SetPriority) for HAL_NVIC_SetPriority
     usart3.o(i.usart3_init) refers to usart3.o(i.RingBuffer_Reset) for RingBuffer_Reset
     usart3.o(i.usart3_init) refers to usart3.o(.bss) for g_usart3_handler
+    usart3.o(i.usart3_send_data) refers to printfa.o(i.__0printf) for __2printf
     usart3.o(i.usart3_send_data) refers to stm32f1xx_hal_uart.o(i.HAL_UART_Transmit) for HAL_UART_Transmit
     usart3.o(i.usart3_send_data) refers to usart3.o(.bss) for g_usart3_handler
     ringbuffer.o(i.ringbuffer_getRemainSize) refers to ringbuffer.o(i.ringbuffer_getUsedSize) for ringbuffer_getUsedSize
@@ -1937,45 +1938,45 @@ Image Symbol Table
     i.getTimerCountValue                     0x080038e0   Section        0  timer.o(i.getTimerCountValue)
     i.isReceived                             0x080038e8   Section        0  cancontrol.o(i.isReceived)
     i.main                                   0x08003968   Section        0  main.o(i.main)
-    i.motorCommandGenerate                   0x08003bd0   Section        0  cancontrol.o(i.motorCommandGenerate)
-    i.motorValueVerify                       0x08003c4c   Section        0  cancontrol.o(i.motorValueVerify)
-    i.parsingDirData                         0x08003dcc   Section        0  main.o(i.parsingDirData)
-    i.parsingDisData                         0x08003de8   Section        0  main.o(i.parsingDisData)
-    i.parsingVData                           0x08003f18   Section        0  main.o(i.parsingVData)
-    i.res_usart3_revdata                     0x08003fcc   Section        0  usart3.o(i.res_usart3_revdata)
-    i.ringbuffer_getRemainSize               0x08003fe4   Section        0  ringbuffer.o(i.ringbuffer_getRemainSize)
-    i.ringbuffer_getUsedSize                 0x08003ff8   Section        0  ringbuffer.o(i.ringbuffer_getUsedSize)
-    i.ringbuffer_in                          0x0800401a   Section        0  ringbuffer.o(i.ringbuffer_in)
-    i.ringbuffer_in_check                    0x08004044   Section        0  ringbuffer.o(i.ringbuffer_in_check)
-    i.ringbuffer_init                        0x0800406a   Section        0  ringbuffer.o(i.ringbuffer_init)
-    i.ringbuffer_isEmpty                     0x08004076   Section        0  ringbuffer.o(i.ringbuffer_isEmpty)
-    i.ringbuffer_out                         0x08004088   Section        0  ringbuffer.o(i.ringbuffer_out)
-    i.sendMotorCommand                       0x080040d4   Section        0  cancontrol.o(i.sendMotorCommand)
-    i.send_cmd_to_u2e                        0x080041fc   Section        0  atk_u2e.o(i.send_cmd_to_u2e)
-    send_cmd_to_u2e                          0x080041fd   Thumb Code   144  atk_u2e.o(i.send_cmd_to_u2e)
-    i.send_data_to_u2e                       0x0800429c   Section        0  atk_u2e.o(i.send_data_to_u2e)
-    i.startTimerInterrupt                    0x080042ac   Section        0  timer.o(i.startTimerInterrupt)
-    i.stopTimerInterrupt                     0x080042c4   Section        0  timer.o(i.stopTimerInterrupt)
-    i.u2e_config_init                        0x080042dc   Section        0  atk_u2e.o(i.u2e_config_init)
-    i.u2e_config_work_param                  0x08004424   Section        0  atk_u2e.o(i.u2e_config_work_param)
-    u2e_config_work_param                    0x08004425   Thumb Code   124  atk_u2e.o(i.u2e_config_work_param)
-    i.u2e_enter_configmode                   0x080044a8   Section        0  atk_u2e.o(i.u2e_enter_configmode)
-    u2e_enter_configmode                     0x080044a9   Thumb Code   112  atk_u2e.o(i.u2e_enter_configmode)
-    i.uart_init                              0x08004570   Section        0  usart.o(i.uart_init)
-    i.usart3_getRxData                       0x080045a8   Section        0  usart3.o(i.usart3_getRxData)
-    i.usart3_init                            0x080045c0   Section        0  usart3.o(i.usart3_init)
-    i.usart3_send_data                       0x080046b0   Section        0  usart3.o(i.usart3_send_data)
-    .constdata                               0x080046cc   Section       24  system_stm32f1xx.o(.constdata)
-    .constdata                               0x080046e4   Section      948  atk_u2e.o(.constdata)
-    u2e_udp_server_info                      0x080046e4   Data         144  atk_u2e.o(.constdata)
-    u2e_udp_client_info                      0x08004774   Data         156  atk_u2e.o(.constdata)
-    u2e_tcp_server_info                      0x08004810   Data         144  atk_u2e.o(.constdata)
-    u2e_tcp_client_info                      0x080048a0   Data         156  atk_u2e.o(.constdata)
-    u2e_atkcloud_info                        0x0800493c   Data         204  atk_u2e.o(.constdata)
-    u2e_udpmulticast_info                    0x08004a08   Data         144  atk_u2e.o(.constdata)
-    .conststring                             0x08004a98   Section      227  main.o(.conststring)
-    .conststring                             0x08004b7c   Section      159  cancontrol.o(.conststring)
-    .conststring                             0x08004c1c   Section     1330  atk_u2e.o(.conststring)
+    i.motorCommandGenerate                   0x08003cac   Section        0  cancontrol.o(i.motorCommandGenerate)
+    i.motorValueVerify                       0x08003d28   Section        0  cancontrol.o(i.motorValueVerify)
+    i.parsingDirData                         0x08003ea8   Section        0  main.o(i.parsingDirData)
+    i.parsingDisData                         0x08003ec4   Section        0  main.o(i.parsingDisData)
+    i.parsingVData                           0x08003ff4   Section        0  main.o(i.parsingVData)
+    i.res_usart3_revdata                     0x080040a8   Section        0  usart3.o(i.res_usart3_revdata)
+    i.ringbuffer_getRemainSize               0x080040c0   Section        0  ringbuffer.o(i.ringbuffer_getRemainSize)
+    i.ringbuffer_getUsedSize                 0x080040d4   Section        0  ringbuffer.o(i.ringbuffer_getUsedSize)
+    i.ringbuffer_in                          0x080040f6   Section        0  ringbuffer.o(i.ringbuffer_in)
+    i.ringbuffer_in_check                    0x08004120   Section        0  ringbuffer.o(i.ringbuffer_in_check)
+    i.ringbuffer_init                        0x08004146   Section        0  ringbuffer.o(i.ringbuffer_init)
+    i.ringbuffer_isEmpty                     0x08004152   Section        0  ringbuffer.o(i.ringbuffer_isEmpty)
+    i.ringbuffer_out                         0x08004164   Section        0  ringbuffer.o(i.ringbuffer_out)
+    i.sendMotorCommand                       0x080041b0   Section        0  cancontrol.o(i.sendMotorCommand)
+    i.send_cmd_to_u2e                        0x080042d8   Section        0  atk_u2e.o(i.send_cmd_to_u2e)
+    send_cmd_to_u2e                          0x080042d9   Thumb Code   144  atk_u2e.o(i.send_cmd_to_u2e)
+    i.send_data_to_u2e                       0x08004378   Section        0  atk_u2e.o(i.send_data_to_u2e)
+    i.startTimerInterrupt                    0x08004388   Section        0  timer.o(i.startTimerInterrupt)
+    i.stopTimerInterrupt                     0x080043a0   Section        0  timer.o(i.stopTimerInterrupt)
+    i.u2e_config_init                        0x080043b8   Section        0  atk_u2e.o(i.u2e_config_init)
+    i.u2e_config_work_param                  0x08004500   Section        0  atk_u2e.o(i.u2e_config_work_param)
+    u2e_config_work_param                    0x08004501   Thumb Code   124  atk_u2e.o(i.u2e_config_work_param)
+    i.u2e_enter_configmode                   0x08004584   Section        0  atk_u2e.o(i.u2e_enter_configmode)
+    u2e_enter_configmode                     0x08004585   Thumb Code   112  atk_u2e.o(i.u2e_enter_configmode)
+    i.uart_init                              0x0800464c   Section        0  usart.o(i.uart_init)
+    i.usart3_getRxData                       0x08004684   Section        0  usart3.o(i.usart3_getRxData)
+    i.usart3_init                            0x0800469c   Section        0  usart3.o(i.usart3_init)
+    i.usart3_send_data                       0x0800478c   Section        0  usart3.o(i.usart3_send_data)
+    .constdata                               0x080047b4   Section       24  system_stm32f1xx.o(.constdata)
+    .constdata                               0x080047cc   Section      948  atk_u2e.o(.constdata)
+    u2e_udp_server_info                      0x080047cc   Data         144  atk_u2e.o(.constdata)
+    u2e_udp_client_info                      0x0800485c   Data         156  atk_u2e.o(.constdata)
+    u2e_tcp_server_info                      0x080048f8   Data         144  atk_u2e.o(.constdata)
+    u2e_tcp_client_info                      0x08004988   Data         156  atk_u2e.o(.constdata)
+    u2e_atkcloud_info                        0x08004a24   Data         204  atk_u2e.o(.constdata)
+    u2e_udpmulticast_info                    0x08004af0   Data         144  atk_u2e.o(.constdata)
+    .conststring                             0x08004b80   Section      227  main.o(.conststring)
+    .conststring                             0x08004c64   Section      159  cancontrol.o(.conststring)
+    .conststring                             0x08004d04   Section     1330  atk_u2e.o(.conststring)
     .data                                    0x20000000   Section       48  main.o(.data)
     .data                                    0x20000030   Section        4  system_stm32f1xx.o(.data)
     .data                                    0x20000034   Section        9  stm32f1xx_hal.o(.data)
@@ -2274,33 +2275,33 @@ Image Symbol Table
     fputc                                    0x080038c5   Thumb Code    24  usart.o(i.fputc)
     getTimerCountValue                       0x080038e1   Thumb Code     8  timer.o(i.getTimerCountValue)
     isReceived                               0x080038e9   Thumb Code    74  cancontrol.o(i.isReceived)
-    main                                     0x08003969   Thumb Code   522  main.o(i.main)
-    motorCommandGenerate                     0x08003bd1   Thumb Code   116  cancontrol.o(i.motorCommandGenerate)
-    motorValueVerify                         0x08003c4d   Thumb Code   150  cancontrol.o(i.motorValueVerify)
-    parsingDirData                           0x08003dcd   Thumb Code    28  main.o(i.parsingDirData)
-    parsingDisData                           0x08003de9   Thumb Code   246  main.o(i.parsingDisData)
-    parsingVData                             0x08003f19   Thumb Code   172  main.o(i.parsingVData)
-    res_usart3_revdata                       0x08003fcd   Thumb Code    18  usart3.o(i.res_usart3_revdata)
-    ringbuffer_getRemainSize                 0x08003fe5   Thumb Code    20  ringbuffer.o(i.ringbuffer_getRemainSize)
-    ringbuffer_getUsedSize                   0x08003ff9   Thumb Code    34  ringbuffer.o(i.ringbuffer_getUsedSize)
-    ringbuffer_in                            0x0800401b   Thumb Code    42  ringbuffer.o(i.ringbuffer_in)
-    ringbuffer_in_check                      0x08004045   Thumb Code    38  ringbuffer.o(i.ringbuffer_in_check)
-    ringbuffer_init                          0x0800406b   Thumb Code    12  ringbuffer.o(i.ringbuffer_init)
-    ringbuffer_isEmpty                       0x08004077   Thumb Code    18  ringbuffer.o(i.ringbuffer_isEmpty)
-    ringbuffer_out                           0x08004089   Thumb Code    74  ringbuffer.o(i.ringbuffer_out)
-    sendMotorCommand                         0x080040d5   Thumb Code   216  cancontrol.o(i.sendMotorCommand)
-    send_data_to_u2e                         0x0800429d   Thumb Code    16  atk_u2e.o(i.send_data_to_u2e)
-    startTimerInterrupt                      0x080042ad   Thumb Code    16  timer.o(i.startTimerInterrupt)
-    stopTimerInterrupt                       0x080042c5   Thumb Code    16  timer.o(i.stopTimerInterrupt)
-    u2e_config_init                          0x080042dd   Thumb Code   292  atk_u2e.o(i.u2e_config_init)
-    uart_init                                0x08004571   Thumb Code    44  usart.o(i.uart_init)
-    usart3_getRxData                         0x080045a9   Thumb Code    18  usart3.o(i.usart3_getRxData)
-    usart3_init                              0x080045c1   Thumb Code   224  usart3.o(i.usart3_init)
-    usart3_send_data                         0x080046b1   Thumb Code    22  usart3.o(i.usart3_send_data)
-    AHBPrescTable                            0x080046cc   Data          16  system_stm32f1xx.o(.constdata)
-    APBPrescTable                            0x080046dc   Data           8  system_stm32f1xx.o(.constdata)
-    Region$$Table$$Base                      0x08005150   Number         0  anon$$obj.o(Region$$Table)
-    Region$$Table$$Limit                     0x08005170   Number         0  anon$$obj.o(Region$$Table)
+    main                                     0x08003969   Thumb Code   740  main.o(i.main)
+    motorCommandGenerate                     0x08003cad   Thumb Code   116  cancontrol.o(i.motorCommandGenerate)
+    motorValueVerify                         0x08003d29   Thumb Code   150  cancontrol.o(i.motorValueVerify)
+    parsingDirData                           0x08003ea9   Thumb Code    28  main.o(i.parsingDirData)
+    parsingDisData                           0x08003ec5   Thumb Code   246  main.o(i.parsingDisData)
+    parsingVData                             0x08003ff5   Thumb Code   172  main.o(i.parsingVData)
+    res_usart3_revdata                       0x080040a9   Thumb Code    18  usart3.o(i.res_usart3_revdata)
+    ringbuffer_getRemainSize                 0x080040c1   Thumb Code    20  ringbuffer.o(i.ringbuffer_getRemainSize)
+    ringbuffer_getUsedSize                   0x080040d5   Thumb Code    34  ringbuffer.o(i.ringbuffer_getUsedSize)
+    ringbuffer_in                            0x080040f7   Thumb Code    42  ringbuffer.o(i.ringbuffer_in)
+    ringbuffer_in_check                      0x08004121   Thumb Code    38  ringbuffer.o(i.ringbuffer_in_check)
+    ringbuffer_init                          0x08004147   Thumb Code    12  ringbuffer.o(i.ringbuffer_init)
+    ringbuffer_isEmpty                       0x08004153   Thumb Code    18  ringbuffer.o(i.ringbuffer_isEmpty)
+    ringbuffer_out                           0x08004165   Thumb Code    74  ringbuffer.o(i.ringbuffer_out)
+    sendMotorCommand                         0x080041b1   Thumb Code   216  cancontrol.o(i.sendMotorCommand)
+    send_data_to_u2e                         0x08004379   Thumb Code    16  atk_u2e.o(i.send_data_to_u2e)
+    startTimerInterrupt                      0x08004389   Thumb Code    16  timer.o(i.startTimerInterrupt)
+    stopTimerInterrupt                       0x080043a1   Thumb Code    16  timer.o(i.stopTimerInterrupt)
+    u2e_config_init                          0x080043b9   Thumb Code   292  atk_u2e.o(i.u2e_config_init)
+    uart_init                                0x0800464d   Thumb Code    44  usart.o(i.uart_init)
+    usart3_getRxData                         0x08004685   Thumb Code    18  usart3.o(i.usart3_getRxData)
+    usart3_init                              0x0800469d   Thumb Code   224  usart3.o(i.usart3_init)
+    usart3_send_data                         0x0800478d   Thumb Code    28  usart3.o(i.usart3_send_data)
+    AHBPrescTable                            0x080047b4   Data          16  system_stm32f1xx.o(.constdata)
+    APBPrescTable                            0x080047c4   Data           8  system_stm32f1xx.o(.constdata)
+    Region$$Table$$Base                      0x08005238   Number         0  anon$$obj.o(Region$$Table)
+    Region$$Table$$Limit                     0x08005258   Number         0  anon$$obj.o(Region$$Table)
     Modbuf                                   0x20000000   Data          24  main.o(.data)
     test_buf                                 0x20000018   Data          24  main.o(.data)
     SystemCoreClock                          0x20000030   Data           4  system_stm32f1xx.o(.data)
@@ -2331,9 +2332,9 @@ Memory Map of the image
 
   Image Entry point : 0x08000131
 
-  Load Region LR_IROM1 (Base: 0x08000000, Size: 0x000051d8, Max: 0x00080000, ABSOLUTE)
+  Load Region LR_IROM1 (Base: 0x08000000, Size: 0x000052c0, Max: 0x00080000, ABSOLUTE)
 
-    Execution Region ER_IROM1 (Exec base: 0x08000000, Load base: 0x08000000, Size: 0x00005170, Max: 0x00080000, ABSOLUTE)
+    Execution Region ER_IROM1 (Exec base: 0x08000000, Load base: 0x08000000, Size: 0x00005258, Max: 0x00080000, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
@@ -2490,58 +2491,58 @@ Memory Map of the image
     0x080038c4   0x080038c4   0x0000001c   Code   RO         3753    i.fputc             usart.o
     0x080038e0   0x080038e0   0x00000008   Code   RO         4230    i.getTimerCountValue  timer.o
     0x080038e8   0x080038e8   0x00000080   Code   RO         4142    i.isReceived        cancontrol.o
-    0x08003968   0x08003968   0x00000268   Code   RO            6    i.main              main.o
-    0x08003bd0   0x08003bd0   0x0000007c   Code   RO         4143    i.motorCommandGenerate  cancontrol.o
-    0x08003c4c   0x08003c4c   0x00000180   Code   RO         4144    i.motorValueVerify  cancontrol.o
-    0x08003dcc   0x08003dcc   0x0000001c   Code   RO            7    i.parsingDirData    main.o
-    0x08003de8   0x08003de8   0x00000130   Code   RO            8    i.parsingDisData    main.o
-    0x08003f18   0x08003f18   0x000000b4   Code   RO            9    i.parsingVData      main.o
-    0x08003fcc   0x08003fcc   0x00000018   Code   RO         4289    i.res_usart3_revdata  usart3.o
-    0x08003fe4   0x08003fe4   0x00000014   Code   RO         4347    i.ringbuffer_getRemainSize  ringbuffer.o
-    0x08003ff8   0x08003ff8   0x00000022   Code   RO         4348    i.ringbuffer_getUsedSize  ringbuffer.o
-    0x0800401a   0x0800401a   0x0000002a   Code   RO         4349    i.ringbuffer_in     ringbuffer.o
-    0x08004044   0x08004044   0x00000026   Code   RO         4350    i.ringbuffer_in_check  ringbuffer.o
-    0x0800406a   0x0800406a   0x0000000c   Code   RO         4351    i.ringbuffer_init   ringbuffer.o
-    0x08004076   0x08004076   0x00000012   Code   RO         4352    i.ringbuffer_isEmpty  ringbuffer.o
-    0x08004088   0x08004088   0x0000004a   Code   RO         4353    i.ringbuffer_out    ringbuffer.o
-    0x080040d2   0x080040d2   0x00000002   PAD
-    0x080040d4   0x080040d4   0x00000128   Code   RO         4145    i.sendMotorCommand  cancontrol.o
-    0x080041fc   0x080041fc   0x000000a0   Code   RO         4408    i.send_cmd_to_u2e   atk_u2e.o
-    0x0800429c   0x0800429c   0x00000010   Code   RO         4409    i.send_data_to_u2e  atk_u2e.o
-    0x080042ac   0x080042ac   0x00000018   Code   RO         4231    i.startTimerInterrupt  timer.o
-    0x080042c4   0x080042c4   0x00000018   Code   RO         4232    i.stopTimerInterrupt  timer.o
-    0x080042dc   0x080042dc   0x00000148   Code   RO         4410    i.u2e_config_init   atk_u2e.o
-    0x08004424   0x08004424   0x00000084   Code   RO         4411    i.u2e_config_work_param  atk_u2e.o
-    0x080044a8   0x080044a8   0x000000c8   Code   RO         4412    i.u2e_enter_configmode  atk_u2e.o
-    0x08004570   0x08004570   0x00000038   Code   RO         3754    i.uart_init         usart.o
-    0x080045a8   0x080045a8   0x00000018   Code   RO         4290    i.usart3_getRxData  usart3.o
-    0x080045c0   0x080045c0   0x000000f0   Code   RO         4291    i.usart3_init       usart3.o
-    0x080046b0   0x080046b0   0x0000001c   Code   RO         4292    i.usart3_send_data  usart3.o
-    0x080046cc   0x080046cc   0x00000018   Data   RO          401    .constdata          system_stm32f1xx.o
-    0x080046e4   0x080046e4   0x000003b4   Data   RO         4415    .constdata          atk_u2e.o
-    0x08004a98   0x08004a98   0x000000e3   Data   RO           11    .conststring        main.o
-    0x08004b7b   0x08004b7b   0x00000001   PAD
-    0x08004b7c   0x08004b7c   0x0000009f   Data   RO         4147    .conststring        cancontrol.o
-    0x08004c1b   0x08004c1b   0x00000001   PAD
-    0x08004c1c   0x08004c1c   0x00000532   Data   RO         4416    .conststring        atk_u2e.o
-    0x0800514e   0x0800514e   0x00000002   PAD
-    0x08005150   0x08005150   0x00000020   Data   RO         4839    Region$$Table       anon$$obj.o
+    0x08003968   0x08003968   0x00000344   Code   RO            6    i.main              main.o
+    0x08003cac   0x08003cac   0x0000007c   Code   RO         4143    i.motorCommandGenerate  cancontrol.o
+    0x08003d28   0x08003d28   0x00000180   Code   RO         4144    i.motorValueVerify  cancontrol.o
+    0x08003ea8   0x08003ea8   0x0000001c   Code   RO            7    i.parsingDirData    main.o
+    0x08003ec4   0x08003ec4   0x00000130   Code   RO            8    i.parsingDisData    main.o
+    0x08003ff4   0x08003ff4   0x000000b4   Code   RO            9    i.parsingVData      main.o
+    0x080040a8   0x080040a8   0x00000018   Code   RO         4289    i.res_usart3_revdata  usart3.o
+    0x080040c0   0x080040c0   0x00000014   Code   RO         4347    i.ringbuffer_getRemainSize  ringbuffer.o
+    0x080040d4   0x080040d4   0x00000022   Code   RO         4348    i.ringbuffer_getUsedSize  ringbuffer.o
+    0x080040f6   0x080040f6   0x0000002a   Code   RO         4349    i.ringbuffer_in     ringbuffer.o
+    0x08004120   0x08004120   0x00000026   Code   RO         4350    i.ringbuffer_in_check  ringbuffer.o
+    0x08004146   0x08004146   0x0000000c   Code   RO         4351    i.ringbuffer_init   ringbuffer.o
+    0x08004152   0x08004152   0x00000012   Code   RO         4352    i.ringbuffer_isEmpty  ringbuffer.o
+    0x08004164   0x08004164   0x0000004a   Code   RO         4353    i.ringbuffer_out    ringbuffer.o
+    0x080041ae   0x080041ae   0x00000002   PAD
+    0x080041b0   0x080041b0   0x00000128   Code   RO         4145    i.sendMotorCommand  cancontrol.o
+    0x080042d8   0x080042d8   0x000000a0   Code   RO         4408    i.send_cmd_to_u2e   atk_u2e.o
+    0x08004378   0x08004378   0x00000010   Code   RO         4409    i.send_data_to_u2e  atk_u2e.o
+    0x08004388   0x08004388   0x00000018   Code   RO         4231    i.startTimerInterrupt  timer.o
+    0x080043a0   0x080043a0   0x00000018   Code   RO         4232    i.stopTimerInterrupt  timer.o
+    0x080043b8   0x080043b8   0x00000148   Code   RO         4410    i.u2e_config_init   atk_u2e.o
+    0x08004500   0x08004500   0x00000084   Code   RO         4411    i.u2e_config_work_param  atk_u2e.o
+    0x08004584   0x08004584   0x000000c8   Code   RO         4412    i.u2e_enter_configmode  atk_u2e.o
+    0x0800464c   0x0800464c   0x00000038   Code   RO         3754    i.uart_init         usart.o
+    0x08004684   0x08004684   0x00000018   Code   RO         4290    i.usart3_getRxData  usart3.o
+    0x0800469c   0x0800469c   0x000000f0   Code   RO         4291    i.usart3_init       usart3.o
+    0x0800478c   0x0800478c   0x00000028   Code   RO         4292    i.usart3_send_data  usart3.o
+    0x080047b4   0x080047b4   0x00000018   Data   RO          401    .constdata          system_stm32f1xx.o
+    0x080047cc   0x080047cc   0x000003b4   Data   RO         4415    .constdata          atk_u2e.o
+    0x08004b80   0x08004b80   0x000000e3   Data   RO           11    .conststring        main.o
+    0x08004c63   0x08004c63   0x00000001   PAD
+    0x08004c64   0x08004c64   0x0000009f   Data   RO         4147    .conststring        cancontrol.o
+    0x08004d03   0x08004d03   0x00000001   PAD
+    0x08004d04   0x08004d04   0x00000532   Data   RO         4416    .conststring        atk_u2e.o
+    0x08005236   0x08005236   0x00000002   PAD
+    0x08005238   0x08005238   0x00000020   Data   RO         4839    Region$$Table       anon$$obj.o
 
 
-    Execution Region RW_IRAM1 (Exec base: 0x20000000, Load base: 0x08005170, Size: 0x00000a58, Max: 0x00010000, ABSOLUTE)
+    Execution Region RW_IRAM1 (Exec base: 0x20000000, Load base: 0x08005258, Size: 0x00000a58, Max: 0x00010000, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
-    0x20000000   0x08005170   0x00000030   Data   RW           12    .data               main.o
-    0x20000030   0x080051a0   0x00000004   Data   RW          402    .data               system_stm32f1xx.o
-    0x20000034   0x080051a4   0x00000009   Data   RW          550    .data               stm32f1xx_hal.o
-    0x2000003d   0x080051ad   0x00000003   PAD
-    0x20000040   0x080051b0   0x00000004   Data   RW         3668    .data               delay.o
-    0x20000044   0x080051b4   0x00000007   Data   RW         3756    .data               usart.o
-    0x2000004b   0x080051bb   0x00000001   Data   RW         4061    .data               key.o
-    0x2000004c   0x080051bc   0x00000008   Data   RW         4148    .data               cancontrol.o
-    0x20000054   0x080051c4   0x00000012   Data   RW         4417    .data               atk_u2e.o
-    0x20000066   0x080051d6   0x00000002   PAD
+    0x20000000   0x08005258   0x00000030   Data   RW           12    .data               main.o
+    0x20000030   0x08005288   0x00000004   Data   RW          402    .data               system_stm32f1xx.o
+    0x20000034   0x0800528c   0x00000009   Data   RW          550    .data               stm32f1xx_hal.o
+    0x2000003d   0x08005295   0x00000003   PAD
+    0x20000040   0x08005298   0x00000004   Data   RW         3668    .data               delay.o
+    0x20000044   0x0800529c   0x00000007   Data   RW         3756    .data               usart.o
+    0x2000004b   0x080052a3   0x00000001   Data   RW         4061    .data               key.o
+    0x2000004c   0x080052a4   0x00000008   Data   RW         4148    .data               cancontrol.o
+    0x20000054   0x080052ac   0x00000012   Data   RW         4417    .data               atk_u2e.o
+    0x20000066   0x080052be   0x00000002   PAD
     0x20000068        -       0x00000100   Zero   RW           10    .bss                main.o
     0x20000168        -       0x00000108   Zero   RW         3755    .bss                usart.o
     0x20000270        -       0x0000005c   Zero   RW         4095    .bss                can.o
@@ -2564,7 +2565,7 @@ Image component sizes
        116          8          0          4          0       1887   delay.o
        288         28          0          1          0       1594   key.o
        128         12          0          0          0        899   led.o
-      1344        194        227         48        256     499715   main.o
+      1564        196        227         48        256     499899   main.o
        238          0          0          0          0       4822   ringbuffer.o
         36          8        304          0       1024        796   startup_stm32f103xe.o
        152         32          0          9          0       5941   stm32f1xx_hal.o
@@ -2582,10 +2583,10 @@ Image component sizes
         88         18         24          4          0       1103   system_stm32f1xx.o
        180         42          0          0         64       3684   timer.o
        452         52          0          7        264       4849   usart.o
-       384         50          0          0        332       4575   usart3.o
+       396         56          0          0        332       4583   usart3.o
 
     ----------------------------------------------------------------------
-     13374       1234       3028        104       2544     616993   Object Totals
+     13606       1242       3028        104       2544     617185   Object Totals
          0          0         32          0          0          0   (incl. Generated)
         14          0          4          5          0          0   (incl. Padding)
 
@@ -2653,15 +2654,15 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-     17820       1346       3028        104       2544     612369   Grand Totals
-     17820       1346       3028        104       2544     612369   ELF Image Totals
-     17820       1346       3028        104          0          0   ROM Totals
+     18052       1354       3028        104       2544     612561   Grand Totals
+     18052       1354       3028        104       2544     612561   ELF Image Totals
+     18052       1354       3028        104          0          0   ROM Totals
 
 ==============================================================================
 
-    Total RO  Size (Code + RO Data)                20848 (  20.36kB)
+    Total RO  Size (Code + RO Data)                21080 (  20.59kB)
     Total RW  Size (RW Data + ZI Data)              2648 (   2.59kB)
-    Total ROM Size (Code + RO Data + RW Data)      20952 (  20.46kB)
+    Total ROM Size (Code + RO Data + RW Data)      21184 (  20.69kB)
 
 ==============================================================================
 

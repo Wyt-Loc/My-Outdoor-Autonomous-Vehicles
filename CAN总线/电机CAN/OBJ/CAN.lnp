@@ -5,7 +5,8 @@
 "..\obj\led.o"
 "..\obj\key.o"
 "..\obj\can.o"
-"..\obj\pstwo.o"
+"..\obj\timer.o"
+"..\obj\motort.o"
 "..\obj\canmotor.o"
 "..\obj\delay.o"
 "..\obj\sys.o"
@@ -18,6 +19,7 @@
 "..\obj\stm32f10x_rcc.o"
 "..\obj\stm32f10x_can.o"
 "..\obj\stm32f10x_usart.o"
+"..\obj\stm32f10x_tim.o"
 --strict --scatter "..\OBJ\CAN.sct"
 --summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
 --info sizes --info totals --info unused --info veneers

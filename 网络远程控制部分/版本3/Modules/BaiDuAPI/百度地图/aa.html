@@ -2,25 +2,25 @@
 <!DOCTYPE html>
 <html lang="en">
 
-	<head>
-		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>Document</title>
-		<style>
-			#container {
-				width: 1500px;
-				height: 700px;
-				border: 1px solid #999;
-			}
-		</style>
-		<script type="text/javascript" src="http://api.map.baidu.com/api?v=3.0&ak=TOZWy7kcCTDeR3MmNyjtUpLliyPTjASy">
-		</script>
-	</head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #container {
+            width: 1500px;
+            height: 700px;
+            border: 1px solid #999;
+        }
+    </style>
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=3.0&ak=TOZWy7kcCTDeR3MmNyjtUpLliyPTjASy">
+    </script>
+</head>
 
-	<body>
-		<div id="container"></div>
+<body>
+<div id="container"></div>
 
-		<script>
+<script>
 			//1.创建地图实例
 			var map = new BMap.Map("container");
 
@@ -50,8 +50,8 @@
 				type: BMAP_NAVIGATION_CONTROL_SMALL //类型
 			}
 			map.addControl(new BMap.NavigationControl(opts));
-		</script>
 
-	</body>
 
+</script>
+</body>
 </html>

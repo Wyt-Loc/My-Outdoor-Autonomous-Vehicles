@@ -2,8 +2,9 @@
 #define __TIMER_H
 #include "sys.h"
 
-void TIM5_Int_Init(u16 arr,u16 psc);
+
 void time3_initer(u16 arr,u16 psc);
+void BASIC_TIM_Config(void);
 void BaseTimer_Init(void);
 
 #endif

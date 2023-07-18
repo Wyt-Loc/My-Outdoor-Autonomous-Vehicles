@@ -36,4 +36,6 @@
 ..\obj\main.o: F:\MDK\ARM\ARMCC\Bin\..\include\stdlib.h
 ..\obj\main.o: ..\SYSTEM\usart\usart.h
 ..\obj\main.o: F:\MDK\ARM\ARMCC\Bin\..\include\stdio.h
+..\obj\main.o: ..\HARDWARE\TIMER\timer.h
+..\obj\main.o: ..\Motor\canMotor.h
 ..\obj\main.o: ..\HARDWARE\CAN\can.h

@@ -2,12 +2,8 @@
 # @Time    : 2023/7/8 18:17
 # @Author  : Wyt
 # @File    : gps.py
-# @Description : 这个文件是用来
-
-# coding: utf-8
-# last modified:20220824
-
 import time
+
 import serial
 import re
 
@@ -24,7 +20,7 @@ sog = ''
 kph = ''
 gps_t = 0
 
-ser = serial.Serial("COM11", 9600)
+ser = serial.Serial("COM8", 9600)
 
 if ser.isOpen():
     print("GPS Serial Opened! Baudrate=9600")
@@ -115,20 +111,20 @@ def GPS_read():
                                             # print(kph)
 
 
+gpsdata = [0]
+js = 0
+
 try:
     while True:
         if GPS_read():
-            print("*********************")
-            print('UTC Time:' + utctime)
-            print('Latitude:' + lat + ulat)
-            print('Longitude:' + lon + ulon)
-            print('Number of satellites:' + numSv)
-            print('Altitude:' + msl)
-            print('True north heading:' + cogt + '°')
-            print('Magnetic north heading:' + cogm + '°')
-            print('Ground speed:' + sog + 'Kn')
-            print('Ground speed:' + kph + 'Km/h')
-            print("*********************")
+            time.sleep(30)
+            js += 1
+            print(js)
+            gpsdata[0] = "utctime " + utctime + " latitude " + lat + ulat + " longitude " + lon + ulon \
+                         + " num " + numSv + " hangxiang " + cogt + " speed " + kph + "\n"
+            with open("gpsdata.txt", 'a') as f:
+                f.write(str(gpsdata[0]))
+
 except KeyboardInterrupt:
     ser.close()
     print("GPS serial Close!")
