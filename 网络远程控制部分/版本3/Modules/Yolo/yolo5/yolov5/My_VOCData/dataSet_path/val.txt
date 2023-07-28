@@ -1,0 +1,10 @@
+F:/CreatCar/wyt_data/Python/yolo/yolov5/My_VOCData/images/num_104.JPG
+F:/CreatCar/wyt_data/Python/yolo/yolov5/My_VOCData/images/num_22.JPG
+F:/CreatCar/wyt_data/Python/yolo/yolov5/My_VOCData/images/num_27.JPG
+F:/CreatCar/wyt_data/Python/yolo/yolov5/My_VOCData/images/num_36.JPG
+F:/CreatCar/wyt_data/Python/yolo/yolov5/My_VOCData/images/num_38.JPG
+F:/CreatCar/wyt_data/Python/yolo/yolov5/My_VOCData/images/num_6.JPG
+F:/CreatCar/wyt_data/Python/yolo/yolov5/My_VOCData/images/num_72.JPG
+F:/CreatCar/wyt_data/Python/yolo/yolov5/My_VOCData/images/num_76.JPG
+F:/CreatCar/wyt_data/Python/yolo/yolov5/My_VOCData/images/num_77.JPG
+F:/CreatCar/wyt_data/Python/yolo/yolov5/My_VOCData/images/num_87.JPG

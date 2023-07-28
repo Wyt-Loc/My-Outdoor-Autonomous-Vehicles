@@ -45,7 +45,7 @@ class TcpServer(MyprintLog.PrintLog):
     def receMessages(self):
         # 循环接收TCP客户端数据
         self.receData = self.conn.recv(1024)
-        self.printReceData(self.receData.decode(), (self.conn, self.addr))
+        self.printReceData(self.receData.decode(), str(self.addr))
         if self.receData.decode() == "ok":
             return 1
 
@@ -53,4 +53,4 @@ class TcpServer(MyprintLog.PrintLog):
         # 向客户端发送data
         self.sendData = data
         self.conn.send(data.encode())  # 发送消息
-        self.printSendData(self.sendData, (self.conn, self.addr))
+        self.printSendData(self.sendData, str(self.addr))

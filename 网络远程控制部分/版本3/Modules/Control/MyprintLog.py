@@ -56,14 +56,14 @@ class PrintLog(MyGetTime.GetTimeInfo):
             f.writelines("In DetailedTime " + self.getDetailedTime() + str(client) +
                          " Connection" + "\n")
 
-    def printReceData(self, data: str, client: tuple):
+    def printReceData(self, data: str, client: str):
         # 打印信息 -- 接收到客户端的数据 ：在什么时间接收到谁的什么数据
         with open("data.txt", "a", encoding="utf-8") as f:
-            f.writelines("In " + self.getDetailedTime() + "time " + "receiverd" + str(client) +
+            f.writelines("In " + self.getDetailedTime() + "time " + "receiverd" + client +
                          " data is " + data + "\n")
 
-    def printSendData(self, data: str, client: tuple):
+    def printSendData(self, data: str, client: str):
         # 打印信息 -- 接收到客户端的数据 ：在什么时间接收到谁的什么数据
         with open("data.txt", "a", encoding="utf-8") as f:
-            f.writelines("In " + self.getDetailedTime() + "time " + "send" + str(client) +
+            f.writelines("In " + self.getDetailedTime() + "time " + "send" + client +
                          " data is " + data + "\n")

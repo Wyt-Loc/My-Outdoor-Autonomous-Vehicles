@@ -233,10 +233,9 @@ int main(void)
 					}
 			}
 
-			
 			if(rx_len>0)
 			{
-				
+				//printf("len = %d",rx_len);
 				if (rx_len == 13) {  // 舵机数据 --->  控制舵机
 					
 					for(i=0;i<8;i++){ 
@@ -254,11 +253,10 @@ int main(void)
 					}
 					if (js == 0){
 						// 发送到舵机
-						ControlEntryFunction((u8)parsingDirData(three), parsingDisData(three), parsingVData(three));
+						//ControlEntryFunction((u8)parsingDirData(three), parsingDisData(three), parsingVData(three));
 					}
 				}
 
-				
 				else if (rx_len == 18){  // 电机数据  ----> 控制电机
 					for(i=0;i<8;i++){ 
 						if(onecp[i]==g_data_rxbuf[i])
@@ -275,10 +273,9 @@ int main(void)
 					}
 					if (js == 0){
 						// 发送到舵机
-						ControlEntryFunction((u8)parsingDirData(two), parsingDisData(two), parsingVData(two));
+						//ControlEntryFunction((u8)parsingDirData(two), parsingDisData(two), parsingVData(two));
 					}
 				}
-				
 				
 				else if (rx_len == 23){ // 全部数据
 				
@@ -289,7 +286,7 @@ int main(void)
 					for(i=0;i<8;i++){ 
 						one[i]=g_data_rxbuf[i];
 					}
-					
+
 					for(i=0;i<8;i++){  
 						if(one[i]==onecp[i])
 							js++;
@@ -323,14 +320,12 @@ int main(void)
 						printf("dir = %d, dis = %f, V = %f", parsingDirData(two), parsingDisData(two), parsingVData(two) );
 						
 						//CAN执行
-						ControlEntryFunction((u8)parsingDirData(two), parsingDisData(two), parsingVData(two));
+						//ControlEntryFunction((u8)parsingDirData(two), parsingDisData(two), parsingVData(two));
 					}
-					
-					//usart1_send_data(g_data_rxbuf,rx_len);       /* 转发到串口1 */
-					//	printf("\r\n");
 						rx_len = 0;
-					
 				}
+				usart1_send_data(g_data_rxbuf,rx_len);       /* 转发到串口1 */
+					printf("\r\n");
 			}
 	}
 	

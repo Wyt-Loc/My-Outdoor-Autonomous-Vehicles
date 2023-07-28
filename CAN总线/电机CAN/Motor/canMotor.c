@@ -22,16 +22,17 @@ u8 receData(void){
 		isRece = Can_Receive_Msg(ReceBuf); //接收主节点数据
 		if(isRece)
 		{
+			printf("接收到了");
+			for(i=0;i<isRece;i++)
+				{
+						printf(" %d ",ReceBuf[i]);
+				}
 			for(i = 0; i < isRece / 2; i++){
 				sum += ReceBuf[i] & 0xE0;  // 解密
 			}
 			ReceBuf[0] = sum;
 			while( isRece && !Can_Send_Msg(ReceBuf,8))
 			{
-				for(i=0;i<isRece;i++)
-				{
-						printf(" %d ",ReceBuf[i]);
-				}
 				isRece = 0;
 				printf("\r\n");
 			}
