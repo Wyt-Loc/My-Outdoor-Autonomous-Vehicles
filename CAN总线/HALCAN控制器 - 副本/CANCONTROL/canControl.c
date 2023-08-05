@@ -50,7 +50,6 @@ char motorValueVerify(u8 dir, float distance, float speed){
 【返回值】 命令数组, 这个使用方法，对bit位有浪费。
 ****************************************************************/
 u8* motorCommandGenerate(u8 dir, float distance, float speed){
-													//1     			9.32				8.21
 	// 格式为 方向buf[1]  距离和速度 buf[2] buf[3] buf[4].... 整数和小数后2为分别对应
 	static u8 buf[8] = {0};
 		if(dir == 1)
@@ -113,13 +112,13 @@ u8 isReceived(u8* buff){
 /***************************************************************
 【函数名】 u8 sendMotorCommand(u8 dir, float distance, float speed)
 【功  能】 发送控制信息，控制电机运动
-【参数值】 dir：方向；  distance：运动距离； speed：速度；
+【参数值】 dir：方向；  distance：运动距离； speed：速度； id：设备id号1.2.3.4.....
 【返回值】 是否发送成功，耗时多少,    如果发送失败，就一直尝试重发，直到成功为止。
 					 1.有一个弊端，可能一个非常不重要的数据发送失败，导致系统直接瘫痪。
 					 但是一直接收不到，也可能是线路真的出问题了，所以这种情况不好去解决。
 					 2.移植为HAL后有个bug, 将线断开后会不断尝试重新发送，但是不会printf打印。 暂时这样， 
 ****************************************************************/
-u8 sendMotorCommand(u8 dir, float distance, float speed){
+u8 sendMotorCommand(u8 dir, float distance, float speed, uint32_t id){
 	#define debug 0 // 是否打印发送的信息
 	u8 i = 0;
 	u8 errorFlag = 0;
@@ -131,7 +130,7 @@ u8 sendMotorCommand(u8 dir, float distance, float speed){
 //	for(i=0;i<8;i++)
 //	printf("数据为%d ",*commandBuf++);
 	
-	issucess = Can_Send_Msg(commandBuf,8);//发送8个字节
+	issucess = Can_Send_Msg(commandBuf,8,id);//发送8个字节
 	_q1:  //goto从这块重新执行
 	TIM3->CNT = 0;
 	startTimerInterrupt();		//定时器开始计数
@@ -172,7 +171,7 @@ u8 sendMotorCommand(u8 dir, float distance, float speed){
 					errorCnt++;
 					if(errorCnt < ERRORRANGE){  //错误计数
 						printf("The time is greater than 5ms or the data received is incorrect %dth time\r\n", errorCnt); //一直打log之后在主机那边写一个脚本检测log日志是否正常。
-						issucess = Can_Send_Msg(commandBuf,8);  //重新发送此次的数据
+						issucess = Can_Send_Msg(commandBuf,8,id);  //重新发送此次的数据
 						goto _q1;   //使用goto简化代码， 调试时注意这块是跳到了重新进行检测这次的事件，也就是跳到了开始计时的上一行代码。
 					}
 					else{
@@ -183,7 +182,7 @@ u8 sendMotorCommand(u8 dir, float distance, float speed){
 					while(errorFlag == 1){
 						//在这一直重复这个过程， 但是log等级变成了 ERROR 等级
 						printf("ERROR The time is greater than 2ms or the data received is incorrect %dth time\r\n", errorCnt); //一直打log之后在主机那边写一个脚本检测log日志是否正常。
-						issucess = Can_Send_Msg(commandBuf,8);  //重新发送此次的数据
+						issucess = Can_Send_Msg(commandBuf,8,id);  //重新发送此次的数据
 						goto _q1;
 					}
 				break;
@@ -192,34 +191,11 @@ u8 sendMotorCommand(u8 dir, float distance, float speed){
 	}
 	else
 	{
-		issucess = Can_Send_Msg(commandBuf,8); //发送失败重新尝试发送
+		issucess = Can_Send_Msg(commandBuf,8,id); //发送失败重新尝试发送
 		printf("Retry sending  \r\n");
 		goto _q2;
 	}
 	return timecnt;
-}
-
-
-
-u8 sendServoData(){
-	
-}
-
-/***************************************************************
-【函数名】
-【功  能】
-【参数值】
-【返回值】
-****************************************************************/
-void ControlEntryFunction(u8 dir, float distance, float speed)
-{
-	
-	if (motorValueVerify(dir, distance, speed)) { //参数值校验
-
-		sendMotorCommand(dir, distance, speed);
-
-	}
-
 }
 
 
@@ -237,8 +213,7 @@ void test(void){
 
 	if (motorValueVerify(dir, dis, speed)) { //参数值校验
 
-		sendMotorCommand(dir, dis, speed);
+		sendMotorCommand(dir, dis, speed, 0);
 
 	}
 }
-

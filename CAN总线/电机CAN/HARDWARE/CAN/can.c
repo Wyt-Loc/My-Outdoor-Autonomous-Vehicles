@@ -37,7 +37,7 @@ u8 CAN_Mode_Init(u8 tsjw,u8 tbs2,u8 tbs1,u16 brp,u8 mode)
     GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IPU;//上拉输入
     GPIO_Init(GPIOA, &GPIO_InitStructure);//初始化IO
 	  
- 	//CAN单元设置
+		//CAN单元设置
  	  CAN_InitStructure.CAN_TTCM=DISABLE;						 //非时间触发通信模式  //
  	  CAN_InitStructure.CAN_ABOM=DISABLE;						 //软件自动离线管理	 //
   	CAN_InitStructure.CAN_AWUM=DISABLE;						 //睡眠模式通过软件唤醒(清除CAN->MCR的SLEEP位)//
@@ -55,18 +55,20 @@ u8 CAN_Mode_Init(u8 tsjw,u8 tbs2,u8 tbs1,u16 brp,u8 mode)
  	  CAN_FilterInitStructure.CAN_FilterNumber=0;	  //过滤器0
    	CAN_FilterInitStructure.CAN_FilterMode=CAN_FilterMode_IdMask; 
   	CAN_FilterInitStructure.CAN_FilterScale=CAN_FilterScale_32bit; //32位 
-  	CAN_FilterInitStructure.CAN_FilterIdHigh=0x0000;////32位ID
-  	CAN_FilterInitStructure.CAN_FilterIdLow=0x0000;
-  	CAN_FilterInitStructure.CAN_FilterMaskIdHigh=0x0000;//32位MASK
-  	CAN_FilterInitStructure.CAN_FilterMaskIdLow=0x0000;
+		
+  	CAN_FilterInitStructure.CAN_FilterIdHigh=((((u32)0xEE00<<3)|CAN_ID_EXT|CAN_RTR_DATA)&0xFFFF0000)>>16;////32位ID
+  	CAN_FilterInitStructure.CAN_FilterIdLow= ((((u32)0xEE00<<3)|CAN_ID_EXT|CAN_RTR_DATA)&0xFFFF);
+  	CAN_FilterInitStructure.CAN_FilterMaskIdHigh=0xFFFF; //32位MASK
+  	CAN_FilterInitStructure.CAN_FilterMaskIdLow=0xFFFF;
+		
   	CAN_FilterInitStructure.CAN_FilterFIFOAssignment=CAN_Filter_FIFO0;//过滤器0关联到FIFO0
  	  CAN_FilterInitStructure.CAN_FilterActivation=ENABLE; //激活过滤器0
 
   	CAN_FilterInit(&CAN_FilterInitStructure);//滤波器初始化
 #if CAN_RX0_INT_ENABLE
-	
+
 	  CAN_ITConfig(CAN1,CAN_IT_FMP0,ENABLE);//FIFO0消息挂号中断允许.		    
-  
+
   	NVIC_InitStructure.NVIC_IRQChannel = USB_LP_CAN1_RX0_IRQn;
   	NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 1;     // 主优先级为1
   	NVIC_InitStructure.NVIC_IRQChannelSubPriority = 0;            // 次优先级为0
@@ -94,11 +96,11 @@ void USB_LP_CAN1_RX0_IRQHandler(void)
 //返回值:0,成功;
 //		 其他,失败;
 u8 Can_Send_Msg(u8* msg,u8 len)
-{	
+{
   u8 mbox;
   u16 i=0;
   CanTxMsg TxMessage;
-  TxMessage.StdId=0x12;					 // 标准标识符
+  //TxMessage.StdId=0x12;					 // 标准标识符
   TxMessage.ExtId=0x12;				   // 设置扩展标示符
   TxMessage.IDE=CAN_Id_Standard; // 标准帧
   TxMessage.RTR=CAN_RTR_Data;		 // 数据帧
@@ -123,7 +125,8 @@ u8 Can_Receive_Msg(u8 *buf)
     if( CAN_MessagePending(CAN1,CAN_FIFO0)==0)return 0;		//没有接收到数据,直接退出 
     CAN_Receive(CAN1, CAN_FIFO0, &RxMessage);//读取数据	
     for(i=0;i<8;i++)
-    buf[i]=RxMessage.Data[i];  
+    buf[i]=RxMessage.Data[i];
+	printf("拓展帧 = %x \r\n",RxMessage.StdId);
 	return RxMessage.DLC;	
 }
 

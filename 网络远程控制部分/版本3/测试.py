@@ -24,7 +24,7 @@ class GetTimeInfo:
     def __init__(self) -> None:
         # 得到服务开启时的时间
         self.startTime = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S.%f')
-        with open("data.txt", "a", encoding="utf-8") as f:
+        with open("Modules/Control/redme.txt", "a", encoding="utf-8") as f:
             f.writelines("In " + self.startTime + " TcpServer start Running\n")
 
     def __del__(self) -> None:
@@ -60,17 +60,17 @@ class PrintLog(GetTimeInfo):
     def __init__(self):
         # 记录什么时间开始运行
         super().__init__()  # 不加 提示警告， 加了 也没啥影响， 就是要 init 2次
-        with open("data.txt", "a", encoding="utf-8") as f:
+        with open("Modules/Control/redme.txt", "a", encoding="utf-8") as f:
             f.writelines("In " + self.getDetailedTime() + " start Runing" + "\n")
 
     def MyprintDetailedTime(self, level: str):
         # 打印日志 -- 详细时间
-        with open("data.txt", "a", encoding="utf-8") as f:
+        with open("Modules/Control/redme.txt", "a", encoding="utf-8") as f:
             f.writelines("level:" + level + " In DetailedTime " + self.getDetailedTime() + " start Runing" + "\n")
 
     def MyprintRunTime(self, level: str):
         # 打印日志 -- 运行时间
-        with open("data.txt", "a", encoding="utf-8") as f:
+        with open("Modules/Control/redme.txt", "a", encoding="utf-8") as f:
             f.writelines("level:" + level + " In RunningTime " + self.getRunningTime() + " start Runing" + "\n")
 
     def MyprintLogWarnings(self, timeyypes: str):
@@ -96,7 +96,7 @@ class PrintLog(GetTimeInfo):
 
     def MyprintLogClient(self, client: tuple):
         # 打印日志信息 -- 级别错误异常
-        with open("data.txt", "a", encoding="utf-8") as f:
+        with open("Modules/Control/redme.txt", "a", encoding="utf-8") as f:
             f.writelines("In DetailedTime " + self.getDetailedTime() + str(client)
                          + " Connection" + "\n")
 

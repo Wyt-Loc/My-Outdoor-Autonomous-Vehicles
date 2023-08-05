@@ -39,7 +39,7 @@ class TcpServer:
         # 保存数据
         print("接收到" + self.addr[0] + "的数据：" + self.receData.decode())
         curtime = str(datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S.%f'))
-        with open("data.txt", 'a', encoding="utf-8") as f:
+        with open("Modules/Control/redme.txt", 'a', encoding="utf-8") as f:
             f.writelines(
                 "In " + curtime + " received from " + self.addr[0]
                 + " the news: " + self.receData.decode() + "\n")

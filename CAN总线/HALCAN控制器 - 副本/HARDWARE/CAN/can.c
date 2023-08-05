@@ -1,19 +1,9 @@
+
 #include "can.h"
 #include "usart.h"
 #include "delay.h"
 #include "led.h"
-//////////////////////////////////////////////////////////////////////////////////	 
-//本程序只供学习使用，未经作者许可，不得用于其它任何用途
-//ALIENTEK STM32F103开发板
-//CAN驱动代码	   
-//正点原子@ALIENTEK
-//技术论坛:www.openedv.com
-//创建日期:2019/9/18
-//版本：V1.0
-//版权所有，盗版必究。
-//Copyright(C) 广州市星翼电子科技有限公司 2014-2024
-//All rights reserved									////////////////////////////////////////////////
-  
+
 ////////////////  //////////////////
 CAN_HandleTypeDef   CAN1_Handler;  //CAN1句柄
 CAN_TxHeaderTypeDef	TxHeader;      //发送
@@ -82,7 +72,7 @@ void CAN_Config(void)
 
   /*配置CAN过滤器*/
   sFilterConfig.FilterBank = 0;                     //过滤器0
-  sFilterConfig.FilterMode = CAN_FILTERMODE_IDMASK;
+  sFilterConfig.FilterMode = CAN_FILTERMODE_IDMASK;		//屏蔽位模式
   sFilterConfig.FilterScale = CAN_FILTERSCALE_32BIT;
   sFilterConfig.FilterIdHigh = 0x0000;              //32位ID
   sFilterConfig.FilterIdLow = 0x0000;
@@ -91,7 +81,7 @@ void CAN_Config(void)
   sFilterConfig.FilterFIFOAssignment = CAN_RX_FIFO0;//过滤器0关联到FIFO0
   sFilterConfig.FilterActivation = ENABLE;          //激活滤波器0
   sFilterConfig.SlaveStartFilterBank = 14;
-	
+
   //过滤器配置
   if (HAL_CAN_ConfigFilter(&CAN1_Handler, &sFilterConfig) != HAL_OK)
   {
@@ -111,8 +101,8 @@ void CAN_Config(void)
   }
   
   /*配置传输过程*/
-  TxHeader.StdId = 0x321;
-  TxHeader.ExtId = 0x01;
+  TxHeader.StdId = 0xFFE0>>5;
+  TxHeader.ExtId = 0xFFFF>>5; // 最小
   TxHeader.RTR = CAN_RTR_DATA;
   TxHeader.IDE = CAN_ID_STD;
   TxHeader.DLC = 2;
@@ -124,26 +114,26 @@ void CAN_Config(void)
 //msg:数据指针,最大为8个字节.
 //返回值:0,成功;
 //		 其他,失败;
-u8 CAN1_Send_Msg(u8* msg,u8 len)
-{	
+u8 CAN1_Send_Msg(u8* msg,u8 len,uint32_t id)
+{
     u8 i=0;
-	u32 TxMailbox;
-	u8 message[8];
-    TxHeader.StdId=0X12;        //标准标识符
-    TxHeader.ExtId=0x12;        //扩展标识符(29位)
-    TxHeader.IDE=CAN_ID_STD;    //使用标准帧
+		u32 TxMailbox;
+		u8 message[8];
+    TxHeader.StdId=0x00;        //标准标识符
+    TxHeader.ExtId=id;        //扩展标识符(29位)
+    TxHeader.IDE=CAN_ID_EXT;    //使用拓展帧  标准帧
     TxHeader.RTR=CAN_RTR_DATA;  //数据帧
     TxHeader.DLC=len;                
     for(i=0;i<len;i++)
     {
 		message[i]=msg[i];
-	}
+	  }
     if(HAL_CAN_AddTxMessage(&CAN1_Handler, &TxHeader, message, &TxMailbox) != HAL_OK)//发送
-	{
+		{
 		return 1;
-	}
-	while(HAL_CAN_GetTxMailboxesFreeLevel(&CAN1_Handler) != 3) {}
-    return 0;
+		}
+		while(HAL_CAN_GetTxMailboxesFreeLevel(&CAN1_Handler) != 3) {}
+		return 0;
 }
 
 //can口接收数据查询

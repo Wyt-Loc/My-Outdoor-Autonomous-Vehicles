@@ -17,18 +17,38 @@ class TcpServer(MyprintLog.PrintLog):
     addr = None
     conn = None
 
-    # flag = 0
+    us_flag = 0
+    info = b''
+    flag = 1
+    debug_dpj = 1  # 单片机调试模式 0   整体调试 1
 
     def __init__(self) -> None:
         # 1. 创建Tcp服务，等待连接
         super().__init__()
         self.server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)  # 参数可以不加
-        self.server.bind(('192.168.1.102', 10006))  # 绑定要监听的端口
+        self.server.bind(('192.168.1.102', 10006))  # 绑定要监听的端口  此IP为 串口转以太网接口IP
         self.server.listen(5)  # 开始监听 表示可以使用五个链接排队
+
+        if self.debug_dpj == 1:
+            # 1.创建socket
+            self.tcp_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+            # 2. 链接服务器
+            server_addr = ("8.130.115.65", 8887)
+            self.tcp_socket.connect(server_addr)
 
     def __del__(self) -> None:
         # 2. 关闭所有服务
         self.server.close()
+
+    def tcpConnSendFlag(self):
+        # 3. 发送连接数据
+        send_data = "smpsmp"  # 发送标志信息
+        self.tcp_socket.send(send_data.encode("utf-8"))
+
+    def tcpReceData(self):
+        self.info = self.tcp_socket.recv(1024)
+        if self.info:
+            print("得到数据", self.info.decode('gbk'))
 
     def getConnObj(self) -> bool:
         # 3. 得到连接对象
@@ -54,3 +74,8 @@ class TcpServer(MyprintLog.PrintLog):
         self.sendData = data
         self.conn.send(data.encode())  # 发送消息
         self.printSendData(self.sendData, str(self.addr))
+
+# if __name__ == '__main__':
+#     mytcp = TcpServer()
+#     mytcp.tcpConnSendFlag()
+#     mytcp.tcpReceData()

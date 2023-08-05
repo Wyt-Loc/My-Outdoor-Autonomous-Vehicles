@@ -1,3 +1,4 @@
+/*		循环队列解析数据			*/
 
 	#include "ringbuffer.h"
 	#include "delay.h"
@@ -124,8 +125,13 @@ uint8_t cmd[512]={0};
 ringbuffer_t cmdqueue;  // 消息队列初始化
 
 
-//队列初始化
-void queueinit(){
+/***************************************************************
+【函数名】 void queueinit(void)
+【功  能】 队列初始化
+【参数值】 无
+【返回值】 无
+****************************************************************/
+void queueinit(void){
 	
  	ringbuffer_init(&cmdqueue,cmd,512);  //队列初始化
 	
@@ -142,15 +148,20 @@ void ring_Queue_in(uint16_t cmd_len, uint8_t *data){
 
 
 const int CMDHEAD = 0xAA;
-#define DEBUG 0
+#define DEBUG 0   // 是否显示调试信息
 
 uint8_t cmd_falg = 0;
-uint8_t datam[9] = {0};  // 解析到的数据
-uint8_t datas[9] = {0};  // 解析到的数据
+uint8_t datam[9] = {0};  // 解析到的电机数据
+uint8_t datas[9] = {0};  // 解析到的舵机数据
 uint8_t datamflag = 0;
 uint8_t datasflag = 0;
 
-//发现一条指令 共分为3种指令 找到这三种指令 并进行解析
+/***************************************************************
+【函数名】 void find_cmd(ringbuffer_t *fifo)
+【功  能】 从循环队列中找到数据
+【参数值】 队列
+【返回值】 无
+****************************************************************/
 void find_cmd(ringbuffer_t *fifo){
 	u8 i = 0;
 	uint8_t  val[1];
@@ -214,12 +225,16 @@ void find_cmd(ringbuffer_t *fifo){
 					if(val[0] == 109) // m
 					{
 						cmd_falg = 4;
+						#if DEBUG
 						printf("发现电机功能帧 m \r\n");
+						#endif
 					}
 					else if(val[0] == 115) // s
 					{
 						cmd_falg = 5;
+						#if DEBUG
 						printf("发现舵机功能帧 m \r\n");
+						#endif
 					}
 					else if(val[0] == 112)
 					{
@@ -234,7 +249,9 @@ void find_cmd(ringbuffer_t *fifo){
 					ringbuffer_out(&cmdqueue,vall,9);
 					
 					for(i=0;i<9;i++){
+						#if DEBUG
 						printf("val5 =  %d \t",vall[i]);
+						#endif
 						datam[i] = vall[i]-48;
 					}
 					#if DEBUG
@@ -271,8 +288,8 @@ void find_cmd(ringbuffer_t *fifo){
 					{
 							printf("stop");
 					}
-					#endif
 					printf("\r\n");
+					#endif
 					cmd_falg = 0;
 				break;
 			}
@@ -283,32 +300,45 @@ volatile static u8 dir = 0;
 volatile static float dis = 0.0f;
 volatile static float V = 0.0f;
 
-
+/***************************************************************
+【函数名】 void control_CAN(void)
+【功  能】 根据结束到的命令发送CAN
+【参数值】 无
+【返回值】 无
+****************************************************************/
 void control_CAN(void){
+	
+	// 解析命令
 	find_cmd(&cmdqueue);
 	// CAN电机
 	if(datamflag == 1)
 	{
-		printf("CAN电机发送\r\n");
+
 		dir = datam[0];
 		dis = datam[1] * 10 + datam[2] + datam[3] * 0.1 + datam[4] * 0.01;
 		V   = datam[5] * 10 + datam[6] + datam[7] * 0.1 + datam[8] * 0.01;
+		
+		#if DEBUG
 		printf("dir = %d,dis = %f,V = %f \r\n",dir, dis, V);
-		sendMotorCommand(dir,dis,V);
-		//CAN1_Send_Msg(datam,8);
+		printf("CAN电机发送\r\n");
+		#endif
+		sendMotorCommand(dir,dis,V,0xEE00); // 电机
 		datamflag = 0;
 		memset(datam,0,sizeof(datam));
 	}
+
 	//CAN舵机
 	if(datasflag == 1)
 	{
-		printf("CAN舵机发送\r\n");
 		dis = datas[0] * 100 + datas[1] * 10 + datas[2];
 		dir = datas[3]; // 代表几个255了
 		V = 1.1;
+		#if DEBUG
+		printf("CAN舵机发送\r\n");
 		printf("dis = %f \r\n", dis);
 		printf("dir = %d\r\n",dir);
-		sendMotorCommand(dir,dis,V);
+		#endif
+		sendMotorCommand(dir,dis,V,0x1200);  // 舵机
 		datasflag = 0;
 		memset(datas,0,sizeof(datas));
 	}

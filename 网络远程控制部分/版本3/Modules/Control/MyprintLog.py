@@ -30,21 +30,21 @@ class PrintLog(MyGetTime.GetTimeInfo):
                          self.getRunningTime() + " start Runing" + "\n")
 
     def MyprintLogWarnings(self, timeyypes: str):
-        # 打印日志信息 -- 级别警告
+        # 打印日志信息 -- Warning级别警告
         if timeyypes == "DetailedTime":
             self.MyprintDetailedTime("Warning")
         elif timeyypes == "RunningTime":
             self.MyprintRunTime("Warning")
 
     def MyprintLogInfos(self, timeyypes: str):
-        # 打印日志信息 -- 级别日常信息
+        # 打印日志信息 -- Info级别日常信息
         if timeyypes == "DetailedTime":
             self.MyprintDetailedTime("Info")
         elif timeyypes == "RunningTime":
             self.MyprintRunTime("Info")
 
     def MyprintLogErrors(self, timeyypes: str):
-        # 打印日志信息 -- 级别错误异常
+        # 打印日志信息 -- Error级别错误异常
         if timeyypes == "DetailedTime":
             self.MyprintDetailedTime("Error")
         elif timeyypes == "RunningTime":

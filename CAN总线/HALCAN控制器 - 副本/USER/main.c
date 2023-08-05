@@ -102,7 +102,7 @@ int KMP(uint8_t S[],uint8_t T[])
 	{
 		printf("Match failed!\n");
 		return -1;
-    }
+  }
 }
 
 //解析方向
@@ -185,13 +185,13 @@ int main(void)
 {
 
 	int rx_len = 0;
-	uint8_t ok[]={"ok\r\n"};
+	uint8_t ok[]={"ok\r\n"}; 	// 应答信号
   HAL_Init();                    	 	//初始化HAL库
   Stm32_Clock_Init(RCC_PLL_MUL9);   	//设置时钟,72M
 	delay_init(72);               		//初始化延时函数
 	uart_init(115200);					//初始化串口
 	delay_ms(100);
-	LED_Init();							//初始化LED
+	//LED_Init();							//初始化LED
 	//KEY_Init();							//初始化按键
  	CAN1_Mode_Init(CAN_SJW_1TQ,CAN_BS2_8TQ,CAN_BS1_9TQ,4,CAN_MODE_NORMAL); //CAN初始化,波特率500Kbps      
 	CAN_Config();
@@ -209,7 +209,7 @@ int main(void)
 	while (1)
 	{
 	
-			/* 透传功能下，从队列中把所有数据提取出来，并转发到串口1 */
+			/* 透传功能下，从队列中把所有数据提取出来*/
 			while (res_usart3_revdata())
 			{
 					usart3_getRxData(&g_data_rxbuf[rx_len++], 1); /* 从串口缓存中读一个字节 */
@@ -219,18 +219,20 @@ int main(void)
 							rx_len = 0; /*接收应答数据超长，丢弃部分数据*/
 					}
 			}
-
+			
+//   第二代数据解析方法
 			if(rx_len>0)
 			{
 				usart1_send_data(g_data_rxbuf,rx_len);       /* 转发到串口1 */
 				printf("\r\n");
+				// 
 				ring_Queue_in(rx_len,g_data_rxbuf);
 				control_CAN();  // 主要逻辑都在这
+				// 清除标志位
 				rx_len = 0;
-				usart3_send_data(ok,2);      /* 发送数据到服务器 */
+				usart3_send_data(ok,2);      /* 发送ok数据到服务器 */
 			}
 
-//   第二代数据解析方法
 
 // 			最初的数据解析方法
 //			if(rx_len>0)

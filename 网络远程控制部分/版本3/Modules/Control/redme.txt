@@ -1,0 +1,93 @@
+
+以下按照类的继承关系写 越在下边类的等级越高，下边的继承上边的。
+
+Time 类构造: (最子类，最底层的那个类，之后的类都会继承它)
+    这个类 主要是对于时间的一些操作
+    // 格式是年-月-日 小时:分钟:秒.微妙
+    // '%Y-%m-%d %H:%M:%S.%f'
+
+    1. 构造函数  -- __init__()
+        在init时记录下当前时刻的时间。
+    2. 析构函数  -- __del__()
+        得到服务关闭时的时间，记录下关闭时的时间戳，并写入文件。
+    3. 打印日志详细时间 -- MyprintDetailedTime()
+        格式是年-月-日 小时:分钟:秒.微妙。
+    4. 得到当前时间 -- getRunningTime()
+        在程序中对应 得到的结果是调用这个方法时的时间。
+    5. 得到相对于开始时间的时间差 -- getTimeDiff()
+       当前时间与开始时间的差，单位为毫秒。
+    6. 功能测试函数 -- testLog()
+
+
+Log 类构造: (日志的打印就靠它了)
+    这个类主要时写了一些方法，用于之后的调用。
+
+    1. 构造函数  -- __init__()
+        记录什么时间开始运行，写入文件。在类被创建时调用，记下时间。
+    2. 析构函数  __del__()  *****
+        记录什么时间结束，写入文件，在类被销毁时，一般情况下就是程序结束时的时间了。
+    3. 打印日志-执行时间 -- MyprintRunTime(self, level: str): 参数：执行时间
+        程序从开始到现在执行了多长时间了
+    4. 警告级别日志    -- MyprintLogWarnings(self, timeyypes: str):
+        Warning级别警告
+    5.消息级别日志     -- MyprintLogInfos(self, timeyypes: str):
+        Info级别警告
+    6.错误级别日志     -- MyprintLogErrors(self, timeyypes: str):
+        Error级别警告
+    7.打印客户端信息   -- MyprintLogClient(self, client: tuple):
+        打印客户端信息
+    8. 打印接收到的消息 -- printReceData(self, data: str, client: str):
+        打印接收到的消息
+    9. 打印发送的消息 -- printReceData(self, data: str, client: str):
+        打印发送的消息
+
+
+tcp 类的构建
+        1.构造函数 -- __init__(self) -> None:
+            创建tcp服务 等待连接，最多限制5个
+        2.析构函数 -- __del__(self) -> None:
+            结束掉所有TCP服务，表明服务器关闭
+        3.发送连接数据 -- tcpConnSendFlag(self):
+            用于连接服务器使用，只调用一次
+        4.接收服务器数据 -- tcpReceData(self):
+            接收服务器数据
+        5.得到连接对象 -- getConnObj(self) -> bool:
+            等待以太网设备连接
+        6.得到数据 -- receMessages(self):
+            得到以太网设备的数据
+        7.向以太网设备发送数据 -- sendMessages(self, data: str):
+            向以太网设备发送数据
+
+Mykey 类的构建:
+    这个类目前是最顶层的类了
+       列举一些函数
+    1. getKeyValue(self):
+        得到键值执行对应的函数
+    2. keyfun(self, keyval):
+       执行键值对应的功能
+    3. dataToCommand(self):
+        将信息解析转换为单片机数据发送到单片机
+    4. isReceOk(self, data):
+        是否接收到确认帧
+
+之后便是雷达类：
+    1. 构造函数 -- __init__()
+        等待连接激光雷达
+    2. receLidarData(self):
+        接收TCP数据，激光雷达数据读取 每次4096字节
+    3. getDistance(data1: int, data2: int, data3: int) -> int:
+        得到距离
+    4. getCrcPackage4Byte(a, b, c, d) -> bool:
+        CRC校验
+    5.  astar(self, start, goal): 和 heuristic(a, b):
+        A* 寻路算法
+    6. polar_to_cartesian(r, theta):
+        极坐标系转为笛卡尔坐标系
+    7. parsingLidarData(self):
+        数据解析 得到角度和距离
+    8. generationMap(self):
+        生成地图数据 一张二维数组表
+    9. findRoad(self, start, goal):
+        寻路
+    10. displayImg(self):
+        寻路结果动态展示

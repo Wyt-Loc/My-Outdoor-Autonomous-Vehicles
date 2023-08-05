@@ -2,8 +2,6 @@ import socket
 import cv2
 import time
 import threading
-import sys
-import os
 
 t1flag = 0
 t2flag = 0

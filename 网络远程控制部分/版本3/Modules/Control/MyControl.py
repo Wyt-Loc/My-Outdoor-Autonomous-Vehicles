@@ -5,6 +5,7 @@
 import time
 import MyTcpServer
 import keyboard
+import threading
 
 
 class Mykey(MyTcpServer.TcpServer):
@@ -125,12 +126,61 @@ class Mykey(MyTcpServer.TcpServer):
         keyboard.hook(self.keyfun)
         keyboard.wait()
 
+    def dataToCommand(self):
+        while True:
+            self.tcpReceData()
+            self.info = self.info.decode('gbk')
+
+            # 接收到的信息转换为指令发送到单片机
+            if self.info == "advancess":
+                self.sendMessages(self.dataGo())  # 发送数据帧
+                if self.flag == 1:
+                    self.isReceOk(self.dataGo())
+                print("执行{}短按命令".format(self.info))
+
+            if self.info == "backs":
+                self.sendMessages(self.dataBack())  # 发送数据帧
+                if self.flag == 1:
+                    self.isReceOk(self.dataBack())
+                print("执行{}短按命令".format(self.info))
+
+            if self.info == "lefts":
+                self.sendMessages(self.dataLeft())  # 发送数据帧
+                if self.flag == 1:
+                    self.isReceOk(self.dataLeft())
+                print("执行{}短按命令".format(self.info))
+
+            if self.info == "rights":
+                self.sendMessages(self.dataRight())  # 发送数据帧
+                if self.flag == 1:
+                    self.isReceOk(self.dataRight())
+                print("执行{}短按命令".format(self.info))
+
+            if self.info == "advancesl":
+                print("执行{}短按命令".format(self.info))
+            if self.info == "backl":
+                print("执行{}短按命令".format(self.info))
+            if self.info == "leftl":
+                print("执行{}短按命令".format(self.info))
+            if self.info == "rightl":
+                print("执行{}短按命令".format(self.info))
+            self.info = b''
+
 
 if __name__ == '__main__':
     mykey = Mykey()
-    # 直到有一个客户端连接  暂不考虑多用户情况
-    while True:
-        if mykey.getConnObj():
-            break
+    if mykey.debug_dpj == 0:  # 单片机调试模式
+        # 直到有一个客户端连接  暂不考虑多用户情况
+        while True:
+            if mykey.getConnObj():
+                break
+        mykey.getKeyValue()
 
-    mykey.getKeyValue()
+    elif mykey.debug_dpj == 1:  # 整体测试
+        # 建立连接
+        mykey.tcpConnSendFlag()
+        while True:
+            if mykey.getConnObj():
+                break
+        # 接收数据 并 转发到单片机
+        mykey.dataToCommand()
