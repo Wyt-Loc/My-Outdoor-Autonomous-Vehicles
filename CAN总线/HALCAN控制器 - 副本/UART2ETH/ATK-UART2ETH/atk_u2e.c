@@ -303,15 +303,15 @@ static const _u2e_atcmd_st u2e_tcp_client_info[] = {
     /*1.选择工作模式为：TCP_CLIENT*/
     {5, "AT+ECHO?\r\n",       "AT+ECHO=\"ON\"\r\n"},
     {5, "AT+ETH_MOD?\r\n",    "AT+ETH_MOD=\"TCP_CLIENT\"\r\n"},
-    {5, "AT+REMOTEIP?\r\n",   "AT+REMOTEIP=\"192.168.1.102\"\r\n"},
+    {5, "AT+REMOTEIP?\r\n",   "AT+REMOTEIP=\"192.168.1.104\"\r\n"},
     {5, "AT+REMOTE_PORT?\r\n","AT+REMOTE_PORT=\"10006\"\r\n"},
 
     /*2.配置网络透传模式的工作参数*/
     {5, "AT+DHCP?\r\n",      "AT+DHCP=\"ON\"\r\n"},
 //    {5, "AT+MAC_ID?\r\n",    "AT+MAC_ID=\"04-78-63-01-02-F2\"\r\n"},
-    {5, "AT+STATICIP?\r\n",  "AT+STATICIP=\"192.168.1.102\"\r\n"},
+    {5, "AT+STATICIP?\r\n",  "AT+STATICIP=\"192.168.1.104\"\r\n"},
     {5, "AT+NETMASK?\r\n",   "AT+NETMASK=\"255.255.255.0\"\r\n"},
-    {5, "AT+GATEWAY?\r\n",   "AT+GATEWAY=\"192.168.1.102\"\r\n"},
+    {5, "AT+GATEWAY?\r\n",   "AT+GATEWAY=\"192.168.1.104\"\r\n"},
     {5, "AT+MODUNAME?\r\n",  "AT+MODUNAME=\"ATK-TCPCLI-MOD\"\r\n"},
 
     /*3.串口参数*/

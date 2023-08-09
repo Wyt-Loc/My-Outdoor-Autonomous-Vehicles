@@ -5,13 +5,6 @@
 import socket
 import threading
 
-# 1.创建socket
-tcp_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-
-# 2. 链接服务器
-server_addr = ("8.130.115.65", 8887)
-tcp_socket.connect(server_addr)
-
 us_flag = 0
 info = b''
 
@@ -19,6 +12,13 @@ info = b''
 def main_tcp():
     global us_flag, info
     flag = 1
+    # 1.创建socket
+    tcp_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+
+    # 2. 链接服务器
+    server_addr = ("8.130.115.65", 8887)
+    tcp_socket.connect(server_addr)
+
     print("开启")
     while True:
         # 3. 发送数据
@@ -31,6 +31,8 @@ def main_tcp():
         try:
             if info:
                 print(info.decode('gbk'))
+                with open("data.txt", 'a') as f:
+                    f.write(info.decode("gbk"))
                 # tcp_socket.close()
         except IOError:
             pass
@@ -42,6 +44,6 @@ def main_usart():
     thing2.join()
 
 
-# 函数入口
-if __name__ == '__main__':
-    main_usart()
+# # 函数入口
+# if __name__ == '__main__':
+#     main_usart()

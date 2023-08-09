@@ -38,7 +38,7 @@ def TcpControl():
                 tcp_socket.send(send_data.encode("gbk"))
                 send_data = ""
                 send_flag = 0
-        except:
+        except ValueError:
             print("tcp链接出现错误")
 
         # 4. 关闭套接字

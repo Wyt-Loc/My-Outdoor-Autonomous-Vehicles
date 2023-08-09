@@ -5,7 +5,6 @@
 import time
 import MyTcpServer
 import keyboard
-import threading
 
 
 class Mykey(MyTcpServer.TcpServer):

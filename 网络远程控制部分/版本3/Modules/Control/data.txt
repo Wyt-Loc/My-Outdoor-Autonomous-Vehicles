@@ -1,0 +1,19 @@
+In 2023-08-06 21:21:34.797437 TcpServer start Running
+In 2023-08-06 21:21:34.828354 start Runing
+In 2023-08-06 21:24:40.559155 TcpServer start Running
+In 2023-08-06 21:24:40.560153 start Runing
+In 2023-08-06 22:20:25.867000 TcpServer start Running
+In 2023-08-06 22:20:25.867997 start Runing
+In DetailedTime 2023-08-06 22:20:25.899912(<socket.socket fd=592, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('192.168.1.104', 10006), raddr=('192.168.1.100', 21019)>, ('192.168.1.100', 21019)) Connection
+In 2023-08-06 22:20:48.156882 TcpServer start Running
+In 2023-08-06 22:20:48.157880 start Runing
+In DetailedTime 2023-08-06 22:20:48.191790(<socket.socket fd=564, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('192.168.1.104', 10006), raddr=('192.168.1.100', 21019)>, ('192.168.1.100', 21019)) Connection
+In 2023-08-06 22:20:50.811929time send('192.168.1.100', 21019) data is 170m109320821
+In 2023-08-06 22:20:51.253740time send('192.168.1.100', 21019) data is 170m109320821
+In 2023-08-06 22:20:52.212710time send('192.168.1.100', 21019) data is 170m109320821
+In 2023-08-06 22:20:53.311563time send('192.168.1.100', 21019) data is 170m109320821
+In 2023-08-06 22:20:53.600398time send('192.168.1.100', 21019) data is 170m109320821
+In 2023-08-09 22:25:36.522029 TcpServer start Running
+In 2023-08-09 22:25:36.542002 start Runing
+In 2023-08-09 22:25:55.627836 TcpServer start Running
+In 2023-08-09 22:25:55.627836 start Runing
