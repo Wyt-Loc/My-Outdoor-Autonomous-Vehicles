@@ -4,10 +4,10 @@
 # @File    : MyTcpServer.py
 
 import socket
-import MyprintLog
+import Modules.Control.MyprintLog
 
 
-class TcpServer(MyprintLog.PrintLog):
+class TcpServer(Modules.Control.MyprintLog.PrintLog):
     """
     TCP服务端
     """

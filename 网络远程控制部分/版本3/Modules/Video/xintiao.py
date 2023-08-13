@@ -6,7 +6,7 @@ import threading
 t1flag = 0
 t2flag = 0
 
-cap = cv2.VideoCapture(1, cv2.CAP_DSHOW)
+cap = cv2.VideoCapture(0, cv2.CAP_DSHOW)
 
 # 设置镜头分辨率，默认是640x480
 cap.set(cv2.CAP_PROP_FRAME_WIDTH, 320)
@@ -83,7 +83,6 @@ def img_reconn():
 def main_sp():
     data = input("输入99开始传输视频")
     if data != None:
-
         udpClient.sendto(data.encode(), serverAddr)  # 发送数据给服务端
         if int(data) == 99:
             t1 = threading.Thread(target=img_send)  # 图片发送
@@ -92,12 +91,8 @@ def main_sp():
         t2 = threading.Thread(target=img_stop)  # 图片停止发送
         t2.start()
 
-
 #        t3.start()
-
-
-if __name__ == '__main__':
-    main_sp()
-
-    # udpClient.close()
-    # cv2.destroyAllWindows()
+# if __name__ == '__main__':
+#     main_sp()
+# udpClient.close()
+# cv2.destroyAllWindows()

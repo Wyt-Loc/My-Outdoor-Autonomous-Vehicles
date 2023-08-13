@@ -6,7 +6,8 @@
 import threading
 import time
 from socket import *
-import TcpControl
+import Modules.Video.xintiao
+import Modules.Control.MyControl
 
 
 # 远程启动客户端
@@ -88,7 +89,7 @@ class StartUP:
         recvData = self.recvTcpReturnData()
         print("recvData = ", recvData)
         if recvData == "tcpcontrol.pyosopem":
-            th1 = threading.Thread(target=TcpControl.main_usart)
+            th1 = threading.Thread(target=Modules.Control.MyControl.aaa)
             th1.start()  # 通过脚本开启TCP通讯子线程
             print("tcp通讯建立完成")
 
@@ -97,6 +98,9 @@ class StartUP:
         # 首先进行任务消息校验
         self.taskMessageValidation("task_2")
         # 开始启动
+        print("开始启动任务二")
+        th2 = threading.Thread(target=Modules.Video.xintiao.main_sp)
+        th2.start()
 
     def carStartUp(self):
         # 判断是否连接成功
@@ -104,7 +108,8 @@ class StartUP:
         # 校验用户
         self.validatingUser()
         # 执行代码部分  ****************************************
-        self.task_1()  # 启动任务_1
+        # self.task_1()  # 启动任务_1
+        # time.sleep(1)
         self.task_2()  # 启动任务_2
         # 执行代码部分结束 **************************************
         # 启动过程结束校验

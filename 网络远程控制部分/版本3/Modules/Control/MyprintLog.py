@@ -3,10 +3,10 @@
 # @Author  : Wyt
 # @File    : MyprintLog.py
 
-import MyGetTime
+import Modules.Control.MyGetTime
 
 
-class PrintLog(MyGetTime.GetTimeInfo):
+class PrintLog(Modules.Control.MyGetTime.GetTimeInfo):
     """
     打印Log信息类
     """
@@ -17,38 +17,38 @@ class PrintLog(MyGetTime.GetTimeInfo):
         with open("data.txt", "a", encoding="utf-8") as f:
             f.writelines("In " + self.getDetailedTime() + " start Runing" + "\n")
 
-    def MyprintDetailedTime(self, level: str):
+    def MyprintDetailedTime(self, level: str, data: str):
         # 打印日志 -- 详细时间
         with open("data.txt", "a", encoding="utf-8") as f:
             f.writelines("level:" + level + " In DetailedTime " +
-                         self.getDetailedTime() + " start Runing" + "\n")
+                         self.getDetailedTime() + " " + data + "\n")
 
-    def MyprintRunTime(self, level: str):
+    def MyprintRunTime(self, level: str, data: str):
         # 打印日志 -- 运行时间
         with open("data.txt", "a", encoding="utf-8") as f:
             f.writelines("level:" + level + " In RunningTime " +
-                         self.getRunningTime() + " start Runing" + "\n")
+                         self.getRunningTime() + " " + data + "\n")
 
-    def MyprintLogWarnings(self, timeyypes: str):
+    def MyprintLogWarnings(self, timeyypes: str, data):
         # 打印日志信息 -- Warning级别警告
         if timeyypes == "DetailedTime":
-            self.MyprintDetailedTime("Warning")
+            self.MyprintDetailedTime("Warning", data)
         elif timeyypes == "RunningTime":
-            self.MyprintRunTime("Warning")
+            self.MyprintRunTime("Warning", data)
 
-    def MyprintLogInfos(self, timeyypes: str):
+    def MyprintLogInfos(self, timeyypes: str, data: str):
         # 打印日志信息 -- Info级别日常信息
         if timeyypes == "DetailedTime":
-            self.MyprintDetailedTime("Info")
+            self.MyprintDetailedTime("Info", data)
         elif timeyypes == "RunningTime":
-            self.MyprintRunTime("Info")
+            self.MyprintRunTime("Info", data)
 
-    def MyprintLogErrors(self, timeyypes: str):
+    def MyprintLogErrors(self, timeyypes: str, data):
         # 打印日志信息 -- Error级别错误异常
         if timeyypes == "DetailedTime":
-            self.MyprintDetailedTime("Error")
+            self.MyprintDetailedTime("Error", data)
         elif timeyypes == "RunningTime":
-            self.MyprintRunTime("Error")
+            self.MyprintRunTime("Error", data)
 
     def MyprintLogClient(self, client: tuple):
         # 打印日志信息 -- 级别错误异常

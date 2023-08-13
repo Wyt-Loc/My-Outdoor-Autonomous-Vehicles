@@ -3,7 +3,6 @@
 import cv2
 import numpy as np
 import camera_configs
-import math
 
 cap = cv2.VideoCapture(1, cv2.CAP_DSHOW)
 cap.set(3, 1280)

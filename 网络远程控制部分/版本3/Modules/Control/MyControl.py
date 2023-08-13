@@ -3,11 +3,11 @@
 # @Author  : Wyt
 # @File    : MyControl.py
 import time
-import MyTcpServer
+import Modules.Control.MyTcpServer
 import keyboard
 
 
-class Mykey(MyTcpServer.TcpServer):
+class Mykey(Modules.Control.MyTcpServer.TcpServer):
     upd = keyboard.KeyboardEvent('upd', 28, 'up')
     downd = keyboard.KeyboardEvent('downd', 29, 'down')
     leftd = keyboard.KeyboardEvent('leftd', 30, 'left')
@@ -166,7 +166,7 @@ class Mykey(MyTcpServer.TcpServer):
             self.info = b''
 
 
-if __name__ == '__main__':
+def aaa():
     mykey = Mykey()
     if mykey.debug_dpj == 0:  # 单片机调试模式
         # 直到有一个客户端连接  暂不考虑多用户情况
@@ -183,3 +183,21 @@ if __name__ == '__main__':
                 break
         # 接收数据 并 转发到单片机
         mykey.dataToCommand()
+
+# if __name__ == '__main__':
+#     mykey = Mykey()
+#     if mykey.debug_dpj == 0:  # 单片机调试模式
+#         # 直到有一个客户端连接  暂不考虑多用户情况
+#         while True:
+#             if mykey.getConnObj():
+#                 break
+#         mykey.getKeyValue()
+#
+#     elif mykey.debug_dpj == 1:  # 整体测试
+#         # 建立连接
+#         mykey.tcpConnSendFlag()
+#         while True:
+#             if mykey.getConnObj():
+#                 break
+#         # 接收数据 并 转发到单片机
+#         mykey.dataToCommand()

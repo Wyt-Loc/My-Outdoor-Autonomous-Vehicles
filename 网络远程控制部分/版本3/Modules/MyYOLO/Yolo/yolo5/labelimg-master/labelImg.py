@@ -1297,7 +1297,7 @@ class MainWindow(QMainWindow, WindowMixin):
         if self.default_save_dir is not None:
             path = ustr(self.default_save_dir)
         else:
-            path = '.'
+            path = ''
 
         dir_path = ustr(QFileDialog.getExistingDirectory(self,
                                                          '%s - Save annotations to the directory' % __appname__, path,  QFileDialog.ShowDirsOnly
