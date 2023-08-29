@@ -1,5 +1,5 @@
 Dependencies for Project 'CAN', Target 'CAN_1': (DO NOT MODIFY !)
-F (.\main.c)(0x64CB9B5D)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I ..\HARDWARE\LED -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\USER -I ..\STM32F10x_FWLib\inc -I ..\CORE -I ..\HARDWARE\KEY -I ..\HARDWARE\LCD -I ..\HARDWARE\RTC -I ..\HARDWARE\WKUP -I ..\HARDWARE\CAN -I ..\Motor -I ..\HARDWARE\MotorT -I ..\HARDWARE\TIMER-I.\RTE\_CAN_1-IF:\MDK\packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include-IF:\MDK\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\main.o --omf_browse ..\obj\main.crf --depend ..\obj\main.d)
+F (.\main.c)(0x64EC2052)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I ..\HARDWARE\LED -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\USER -I ..\STM32F10x_FWLib\inc -I ..\CORE -I ..\HARDWARE\KEY -I ..\HARDWARE\LCD -I ..\HARDWARE\RTC -I ..\HARDWARE\WKUP -I ..\HARDWARE\CAN -I ..\Motor -I ..\HARDWARE\MotorT -I ..\HARDWARE\TIMER-I.\RTE\_CAN_1-IF:\MDK\packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include-IF:\MDK\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\main.o --omf_browse ..\obj\main.crf --depend ..\obj\main.d)
 I (..\HARDWARE\LED\led.h)(0x5510227D)
 I (..\SYSTEM\sys\sys.h)(0x550F951A)
 I (..\USER\stm32f10x.h)(0x4D783CB5)
@@ -31,13 +31,11 @@ I (..\STM32F10x_FWLib\inc\stm32f10x_usart.h)(0x4D783BB4)
 I (..\STM32F10x_FWLib\inc\stm32f10x_wwdg.h)(0x4D783BB4)
 I (..\STM32F10x_FWLib\inc\misc.h)(0x4D783BB4)
 I (..\SYSTEM\delay\delay.h)(0x555AC82A)
-I (..\HARDWARE\KEY\key.h)(0x55102792)
-I (..\HARDWARE\LCD\lcd.h)(0x551A71D2)
-I (F:\MDK\ARM\ARMCC\include\stdlib.h)(0x60252374)
+I (..\HARDWARE\KEY\key.h)(0x64EC119B)
 I (..\SYSTEM\usart\usart.h)(0x50517A83)
 I (F:\MDK\ARM\ARMCC\include\stdio.h)(0x60252374)
 I (..\HARDWARE\TIMER\timer.h)(0x648E6C0D)
-I (..\Motor\canMotor.h)(0x64AE6307)
+I (..\Motor\canMotor.h)(0x64EC046A)
 I (..\HARDWARE\CAN\can.h)(0x64A9633C)
 F (.\stm32f10x_it.c)(0x4EBEACB0)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I ..\HARDWARE\LED -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\USER -I ..\STM32F10x_FWLib\inc -I ..\CORE -I ..\HARDWARE\KEY -I ..\HARDWARE\LCD -I ..\HARDWARE\RTC -I ..\HARDWARE\WKUP -I ..\HARDWARE\CAN -I ..\Motor -I ..\HARDWARE\MotorT -I ..\HARDWARE\TIMER-I.\RTE\_CAN_1-IF:\MDK\packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include-IF:\MDK\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\stm32f10x_it.o --omf_browse ..\obj\stm32f10x_it.crf --depend ..\obj\stm32f10x_it.d)
 I (stm32f10x_it.h)(0x4D99A427)
@@ -131,7 +129,7 @@ I (..\STM32F10x_FWLib\inc\stm32f10x_tim.h)(0x4D783BB4)
 I (..\STM32F10x_FWLib\inc\stm32f10x_usart.h)(0x4D783BB4)
 I (..\STM32F10x_FWLib\inc\stm32f10x_wwdg.h)(0x4D783BB4)
 I (..\STM32F10x_FWLib\inc\misc.h)(0x4D783BB4)
-F (..\HARDWARE\KEY\key.c)(0x64A96346)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I ..\HARDWARE\LED -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\USER -I ..\STM32F10x_FWLib\inc -I ..\CORE -I ..\HARDWARE\KEY -I ..\HARDWARE\LCD -I ..\HARDWARE\RTC -I ..\HARDWARE\WKUP -I ..\HARDWARE\CAN -I ..\Motor -I ..\HARDWARE\MotorT -I ..\HARDWARE\TIMER-I.\RTE\_CAN_1-IF:\MDK\packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include-IF:\MDK\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\key.o --omf_browse ..\obj\key.crf --depend ..\obj\key.d)
+F (..\HARDWARE\KEY\key.c)(0x64EC7C0F)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I ..\HARDWARE\LED -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\USER -I ..\STM32F10x_FWLib\inc -I ..\CORE -I ..\HARDWARE\KEY -I ..\HARDWARE\LCD -I ..\HARDWARE\RTC -I ..\HARDWARE\WKUP -I ..\HARDWARE\CAN -I ..\Motor -I ..\HARDWARE\MotorT -I ..\HARDWARE\TIMER-I.\RTE\_CAN_1-IF:\MDK\packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include-IF:\MDK\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\key.o --omf_browse ..\obj\key.crf --depend ..\obj\key.d)
 I (..\USER\stm32f10x.h)(0x4D783CB5)
 I (..\CORE\core_cm3.h)(0x4D523B58)
 I (F:\MDK\ARM\ARMCC\include\stdint.h)(0x6025237E)
@@ -160,10 +158,10 @@ I (..\STM32F10x_FWLib\inc\stm32f10x_tim.h)(0x4D783BB4)
 I (..\STM32F10x_FWLib\inc\stm32f10x_usart.h)(0x4D783BB4)
 I (..\STM32F10x_FWLib\inc\stm32f10x_wwdg.h)(0x4D783BB4)
 I (..\STM32F10x_FWLib\inc\misc.h)(0x4D783BB4)
-I (..\HARDWARE\KEY\key.h)(0x55102792)
+I (..\HARDWARE\KEY\key.h)(0x64EC119B)
 I (..\SYSTEM\sys\sys.h)(0x550F951A)
 I (..\SYSTEM\delay\delay.h)(0x555AC82A)
-F (..\HARDWARE\CAN\can.c)(0x64CBAC4C)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I ..\HARDWARE\LED -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\USER -I ..\STM32F10x_FWLib\inc -I ..\CORE -I ..\HARDWARE\KEY -I ..\HARDWARE\LCD -I ..\HARDWARE\RTC -I ..\HARDWARE\WKUP -I ..\HARDWARE\CAN -I ..\Motor -I ..\HARDWARE\MotorT -I ..\HARDWARE\TIMER-I.\RTE\_CAN_1-IF:\MDK\packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include-IF:\MDK\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\can.o --omf_browse ..\obj\can.crf --depend ..\obj\can.d)
+F (..\HARDWARE\CAN\can.c)(0x64E96AE3)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I ..\HARDWARE\LED -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\USER -I ..\STM32F10x_FWLib\inc -I ..\CORE -I ..\HARDWARE\KEY -I ..\HARDWARE\LCD -I ..\HARDWARE\RTC -I ..\HARDWARE\WKUP -I ..\HARDWARE\CAN -I ..\Motor -I ..\HARDWARE\MotorT -I ..\HARDWARE\TIMER-I.\RTE\_CAN_1-IF:\MDK\packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include-IF:\MDK\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\can.o --omf_browse ..\obj\can.crf --depend ..\obj\can.d)
 I (..\HARDWARE\CAN\can.h)(0x64A9633C)
 I (..\SYSTEM\sys\sys.h)(0x550F951A)
 I (..\USER\stm32f10x.h)(0x4D783CB5)
@@ -198,7 +196,7 @@ I (..\HARDWARE\LED\led.h)(0x5510227D)
 I (..\SYSTEM\delay\delay.h)(0x555AC82A)
 I (..\SYSTEM\usart\usart.h)(0x50517A83)
 I (F:\MDK\ARM\ARMCC\include\stdio.h)(0x60252374)
-F (..\HARDWARE\TIMER\timer.c)(0x64A964CE)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I ..\HARDWARE\LED -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\USER -I ..\STM32F10x_FWLib\inc -I ..\CORE -I ..\HARDWARE\KEY -I ..\HARDWARE\LCD -I ..\HARDWARE\RTC -I ..\HARDWARE\WKUP -I ..\HARDWARE\CAN -I ..\Motor -I ..\HARDWARE\MotorT -I ..\HARDWARE\TIMER-I.\RTE\_CAN_1-IF:\MDK\packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include-IF:\MDK\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\timer.o --omf_browse ..\obj\timer.crf --depend ..\obj\timer.d)
+F (..\HARDWARE\TIMER\timer.c)(0x64E970EE)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I ..\HARDWARE\LED -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\USER -I ..\STM32F10x_FWLib\inc -I ..\CORE -I ..\HARDWARE\KEY -I ..\HARDWARE\LCD -I ..\HARDWARE\RTC -I ..\HARDWARE\WKUP -I ..\HARDWARE\CAN -I ..\Motor -I ..\HARDWARE\MotorT -I ..\HARDWARE\TIMER-I.\RTE\_CAN_1-IF:\MDK\packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include-IF:\MDK\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\timer.o --omf_browse ..\obj\timer.crf --depend ..\obj\timer.d)
 I (..\HARDWARE\TIMER\timer.h)(0x648E6C0D)
 I (..\SYSTEM\sys\sys.h)(0x550F951A)
 I (..\USER\stm32f10x.h)(0x4D783CB5)
@@ -229,8 +227,8 @@ I (..\STM32F10x_FWLib\inc\stm32f10x_tim.h)(0x4D783BB4)
 I (..\STM32F10x_FWLib\inc\stm32f10x_usart.h)(0x4D783BB4)
 I (..\STM32F10x_FWLib\inc\stm32f10x_wwdg.h)(0x4D783BB4)
 I (..\STM32F10x_FWLib\inc\misc.h)(0x4D783BB4)
-F (..\HARDWARE\MotorT\motorT.c)(0x64C674A9)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I ..\HARDWARE\LED -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\USER -I ..\STM32F10x_FWLib\inc -I ..\CORE -I ..\HARDWARE\KEY -I ..\HARDWARE\LCD -I ..\HARDWARE\RTC -I ..\HARDWARE\WKUP -I ..\HARDWARE\CAN -I ..\Motor -I ..\HARDWARE\MotorT -I ..\HARDWARE\TIMER-I.\RTE\_CAN_1-IF:\MDK\packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include-IF:\MDK\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\motort.o --omf_browse ..\obj\motort.crf --depend ..\obj\motort.d)
-I (..\HARDWARE\MotorT\motorT.h)(0x647BF20F)
+F (..\HARDWARE\MotorT\motorT.c)(0x64EC839C)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I ..\HARDWARE\LED -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\USER -I ..\STM32F10x_FWLib\inc -I ..\CORE -I ..\HARDWARE\KEY -I ..\HARDWARE\LCD -I ..\HARDWARE\RTC -I ..\HARDWARE\WKUP -I ..\HARDWARE\CAN -I ..\Motor -I ..\HARDWARE\MotorT -I ..\HARDWARE\TIMER-I.\RTE\_CAN_1-IF:\MDK\packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include-IF:\MDK\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\motort.o --omf_browse ..\obj\motort.crf --depend ..\obj\motort.d)
+I (..\HARDWARE\MotorT\motorT.h)(0x64EC046F)
 I (..\SYSTEM\sys\sys.h)(0x550F951A)
 I (..\USER\stm32f10x.h)(0x4D783CB5)
 I (..\CORE\core_cm3.h)(0x4D523B58)
@@ -262,9 +260,9 @@ I (..\STM32F10x_FWLib\inc\stm32f10x_wwdg.h)(0x4D783BB4)
 I (..\STM32F10x_FWLib\inc\misc.h)(0x4D783BB4)
 I (F:\MDK\ARM\ARMCC\include\math.h)(0x60252378)
 I (F:\MDK\ARM\ARMCC\include\stdio.h)(0x60252374)
-I (..\HARDWARE\KEY\key.h)(0x55102792)
-F (..\Motor\canMotor.c)(0x64C7BE66)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I ..\HARDWARE\LED -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\USER -I ..\STM32F10x_FWLib\inc -I ..\CORE -I ..\HARDWARE\KEY -I ..\HARDWARE\LCD -I ..\HARDWARE\RTC -I ..\HARDWARE\WKUP -I ..\HARDWARE\CAN -I ..\Motor -I ..\HARDWARE\MotorT -I ..\HARDWARE\TIMER-I.\RTE\_CAN_1-IF:\MDK\packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include-IF:\MDK\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\canmotor.o --omf_browse ..\obj\canmotor.crf --depend ..\obj\canmotor.d)
-I (..\Motor\canMotor.h)(0x64AE6307)
+I (..\HARDWARE\KEY\key.h)(0x64EC119B)
+F (..\Motor\canMotor.c)(0x64EC8DE9)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I ..\HARDWARE\LED -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\USER -I ..\STM32F10x_FWLib\inc -I ..\CORE -I ..\HARDWARE\KEY -I ..\HARDWARE\LCD -I ..\HARDWARE\RTC -I ..\HARDWARE\WKUP -I ..\HARDWARE\CAN -I ..\Motor -I ..\HARDWARE\MotorT -I ..\HARDWARE\TIMER-I.\RTE\_CAN_1-IF:\MDK\packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include-IF:\MDK\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\canmotor.o --omf_browse ..\obj\canmotor.crf --depend ..\obj\canmotor.d)
+I (..\Motor\canMotor.h)(0x64EC046A)
 I (..\SYSTEM\sys\sys.h)(0x550F951A)
 I (..\USER\stm32f10x.h)(0x4D783CB5)
 I (..\CORE\core_cm3.h)(0x4D523B58)
@@ -294,7 +292,7 @@ I (..\STM32F10x_FWLib\inc\stm32f10x_tim.h)(0x4D783BB4)
 I (..\STM32F10x_FWLib\inc\stm32f10x_usart.h)(0x4D783BB4)
 I (..\STM32F10x_FWLib\inc\stm32f10x_wwdg.h)(0x4D783BB4)
 I (..\STM32F10x_FWLib\inc\misc.h)(0x4D783BB4)
-I (..\HARDWARE\MotorT\MotorT.h)(0x647BF20F)
+I (..\HARDWARE\MotorT\MotorT.h)(0x64EC046F)
 I (..\HARDWARE\CAN\can.h)(0x64A9633C)
 I (F:\MDK\ARM\ARMCC\include\stdio.h)(0x60252374)
 F (..\SYSTEM\delay\delay.c)(0x555AC82A)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I ..\HARDWARE\LED -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\USER -I ..\STM32F10x_FWLib\inc -I ..\CORE -I ..\HARDWARE\KEY -I ..\HARDWARE\LCD -I ..\HARDWARE\RTC -I ..\HARDWARE\WKUP -I ..\HARDWARE\CAN -I ..\Motor -I ..\HARDWARE\MotorT -I ..\HARDWARE\TIMER-I.\RTE\_CAN_1-IF:\MDK\packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include-IF:\MDK\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\delay.o --omf_browse ..\obj\delay.crf --depend ..\obj\delay.d)

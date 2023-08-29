@@ -1,0 +1,8 @@
+E:\郝光明工作\工作\代码审核\7.3\第一个\wpf开发框架\DBUtility\bin\x86\Debug\TCMS.DBUtility.dll
+E:\郝光明工作\工作\代码审核\7.3\第一个\wpf开发框架\DBUtility\bin\x86\Debug\TCMS.DBUtility.pdb
+E:\郝光明工作\工作\代码审核\7.3\第一个\wpf开发框架\DBUtility\bin\x86\Debug\IBatisNet.Common.dll
+E:\郝光明工作\工作\代码审核\7.3\第一个\wpf开发框架\DBUtility\bin\x86\Debug\IBatisNet.DataMapper.dll
+E:\郝光明工作\工作\代码审核\7.3\第一个\wpf开发框架\DBUtility\bin\x86\Debug\MySql.Data.dll
+E:\郝光明工作\工作\代码审核\7.3\第一个\wpf开发框架\DBUtility\bin\x86\Debug\System.Data.SQLite.DLL
+E:\郝光明工作\工作\代码审核\7.3\第一个\wpf开发框架\DBUtility\obj\x86\Debug\TCMS.DBUtility.dll
+E:\郝光明工作\工作\代码审核\7.3\第一个\wpf开发框架\DBUtility\obj\x86\Debug\TCMS.DBUtility.pdb

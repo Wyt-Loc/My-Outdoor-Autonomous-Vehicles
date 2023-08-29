@@ -60,7 +60,6 @@ int main(void)
 
 		key = KEY_Scan(0);
 		
-		
 #ifdef MethodOne			   //测试方法一:
 		
 		if (key == 1 && duty < ServoAngleMAXLeft){    //1，KEY0按下   duty +5
@@ -88,29 +87,29 @@ int main(void)
 		
 #elif	 	MethodTwo			  //测试方法二:
 		
-		if (key == 1 ){    //1，KEY0按下   回到舵机角度最大位置
+		//if (key == 1 ){    //1，KEY0按下   回到舵机角度最大位置
 			 
 			duty = ServoAngleMAXLeft;
 			TIM_SetCompare1(TIM4,ServoAngleMAXLeft);	
 			printf("arr = %d",duty);
-			
-		}
+			delay_ms(1000);
+		//}
 
-		if (key == 2 ){	  //2，KEY1按下		 回到舵机角度最小位置
-			
+		//if (key == 2 ){	  //2，KEY1按下		 回到舵机角度最小位置
+
 			duty = ServoAngleMINRight;
 			TIM_SetCompare1(TIM4,ServoAngleMINRight);	
 			printf("arr = %d",duty);
-			
-		}
+			delay_ms(1000);
+	//	}
 		
-		if(key == 3 ){																	//3. KEY3按下    回到舵机中心位置
+	//	if(key == 3 ){																	//3. KEY3按下    回到舵机中心位置
 			
 			duty = ServoMedianRight;
 			TIM_SetCompare1(TIM4,ServoMedianRight);	
 			printf("arr = %d",duty);
-			
-		}
+			delay_ms(1000);
+	//	}
 		
 #endif
 		

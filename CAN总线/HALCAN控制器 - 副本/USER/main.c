@@ -2,10 +2,6 @@
 #include "delay.h"
 #include "usart.h"
 #include "usart3.h"
-#include "led.h"
-#include "key.h"
-#include "lcd.h"
-#include "usmart.h"
 #include "can.h"
 #include "timer.h"
 #include "canControl.h"
@@ -98,7 +94,7 @@ int KMP(uint8_t S[],uint8_t T[])
 	    printf("Match succeed!\n");
 	 	return i-j;
 	} 
-	else 
+	else
 	{
 		printf("Match failed!\n");
 		return -1;
@@ -201,6 +197,7 @@ int main(void)
 	printf("ok");
 	delay_ms(100);
 	queueinit();
+	printf("初始化完成");
 //	a = ringbuffer_getUsedSize(&cmdqueue);
 //	printf("指令存储控件大小使用了%d\t\t",a);
 //	a = ringbuffer_getRemainSize(&cmdqueue);
@@ -208,7 +205,7 @@ int main(void)
 
 	while (1)
 	{
-	
+		//delay_ms(1000);
 			/* 透传功能下，从队列中把所有数据提取出来*/
 			while (res_usart3_revdata())
 			{
@@ -219,7 +216,7 @@ int main(void)
 							rx_len = 0; /*接收应答数据超长，丢弃部分数据*/
 					}
 			}
-			
+
 //   第二代数据解析方法
 			if(rx_len>0)
 			{
@@ -232,7 +229,6 @@ int main(void)
 				rx_len = 0;
 				usart3_send_data(ok,2);      /* 发送ok数据到服务器 */
 			}
-
 
 // 			最初的数据解析方法
 //			if(rx_len>0)
@@ -330,5 +326,5 @@ int main(void)
 //						//printf("\r\n");
 //			}
 	}
-	
 }
+

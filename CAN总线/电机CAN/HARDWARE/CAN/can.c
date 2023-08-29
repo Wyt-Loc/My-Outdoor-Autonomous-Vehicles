@@ -56,10 +56,10 @@ u8 CAN_Mode_Init(u8 tsjw,u8 tbs2,u8 tbs1,u16 brp,u8 mode)
    	CAN_FilterInitStructure.CAN_FilterMode=CAN_FilterMode_IdMask; 
   	CAN_FilterInitStructure.CAN_FilterScale=CAN_FilterScale_32bit; //32位 
 		
-  	CAN_FilterInitStructure.CAN_FilterIdHigh=((((u32)0xEE00<<3)|CAN_ID_EXT|CAN_RTR_DATA)&0xFFFF0000)>>16;////32位ID
-  	CAN_FilterInitStructure.CAN_FilterIdLow= ((((u32)0xEE00<<3)|CAN_ID_EXT|CAN_RTR_DATA)&0xFFFF);
-  	CAN_FilterInitStructure.CAN_FilterMaskIdHigh=0xFFFF; //32位MASK
-  	CAN_FilterInitStructure.CAN_FilterMaskIdLow=0xFFFF;
+  	CAN_FilterInitStructure.CAN_FilterIdHigh= 0x0000;//((((u32)0xEE00<<3)|CAN_ID_EXT|CAN_RTR_DATA)&0xFFFF0000)>>16;////32位ID
+  	CAN_FilterInitStructure.CAN_FilterIdLow= 0x0000;//((((u32)0xEE00<<3)|CAN_ID_EXT|CAN_RTR_DATA)&0xFFFF);
+  	CAN_FilterInitStructure.CAN_FilterMaskIdHigh=0x0000;//0xFFFF; //32位MASK
+  	CAN_FilterInitStructure.CAN_FilterMaskIdLow=0x0000;//0xFFFF;
 		
   	CAN_FilterInitStructure.CAN_FilterFIFOAssignment=CAN_Filter_FIFO0;//过滤器0关联到FIFO0
  	  CAN_FilterInitStructure.CAN_FilterActivation=ENABLE; //激活过滤器0

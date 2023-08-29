@@ -1,0 +1,15 @@
+D:\工具\Wyt_GongJu\bin\Debug\Wyt_GongJu.exe.config
+D:\工具\Wyt_GongJu\bin\Debug\Wyt_GongJu.exe
+D:\工具\Wyt_GongJu\bin\Debug\Wyt_GongJu.pdb
+D:\工具\Wyt_GongJu\obj\Debug\Wyt_GongJu.csproj.AssemblyReference.cache
+D:\工具\Wyt_GongJu\obj\Debug\MainWindow.g.cs
+D:\工具\Wyt_GongJu\obj\Debug\App.g.cs
+D:\工具\Wyt_GongJu\obj\Debug\Wyt_GongJu_MarkupCompile.cache
+D:\工具\Wyt_GongJu\obj\Debug\Wyt_GongJu_MarkupCompile.lref
+D:\工具\Wyt_GongJu\obj\Debug\MainWindow.baml
+D:\工具\Wyt_GongJu\obj\Debug\Wyt_GongJu.g.resources
+D:\工具\Wyt_GongJu\obj\Debug\Wyt_GongJu.Properties.Resources.resources
+D:\工具\Wyt_GongJu\obj\Debug\Wyt_GongJu.csproj.GenerateResource.cache
+D:\工具\Wyt_GongJu\obj\Debug\Wyt_GongJu.csproj.CoreCompileInputs.cache
+D:\工具\Wyt_GongJu\obj\Debug\Wyt_GongJu.exe
+D:\工具\Wyt_GongJu\obj\Debug\Wyt_GongJu.pdb

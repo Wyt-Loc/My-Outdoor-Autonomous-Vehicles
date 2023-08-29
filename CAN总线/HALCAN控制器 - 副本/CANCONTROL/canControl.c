@@ -54,7 +54,7 @@ u8* motorCommandGenerate(u8 dir, float distance, float speed){
 	static u8 buf[8] = {0};
 		if(dir == 1)
 			buf[0] = 1;
-		else if (dir == 1)
+		else if (dir == 0)
 			buf[0] = 0;
 		else if(dir > 1)
 		{
@@ -72,7 +72,6 @@ u8* motorCommandGenerate(u8 dir, float distance, float speed){
 	
 		return buf;
 }
-
 
 // 是否接收到，接收到了，接收方传回一个应答，如果在0.1秒内没有应答信号，那么再次发送，累计次以上，
 // 直接报错，开始记录error类型log，且打入时间信息。
@@ -118,8 +117,8 @@ u8 isReceived(u8* buff){
 					 但是一直接收不到，也可能是线路真的出问题了，所以这种情况不好去解决。
 					 2.移植为HAL后有个bug, 将线断开后会不断尝试重新发送，但是不会printf打印。 暂时这样， 
 ****************************************************************/
+#define debug 0 // 是否打印发送的信息
 u8 sendMotorCommand(u8 dir, float distance, float speed, uint32_t id){
-	#define debug 0 // 是否打印发送的信息
 	u8 i = 0;
 	u8 errorFlag = 0;
 	u8 errorCnt = 0;
@@ -129,12 +128,12 @@ u8 sendMotorCommand(u8 dir, float distance, float speed, uint32_t id){
 //	printf("Can\r\n");
 //	for(i=0;i<8;i++)
 //	printf("数据为%d ",*commandBuf++);
-	
+	//printf("my\r\n");
+	_q1:
 	issucess = Can_Send_Msg(commandBuf,8,id);//发送8个字节
-	_q1:  //goto从这块重新执行
+	  //goto从这块重新执行
 	TIM3->CNT = 0;
-	startTimerInterrupt();		//定时器开始计数
-	
+	startTimerInterrupt();		//发送数据成功开始定时器计数
 	// 这块很占时间
 	#if debug
 	printf("This time the data is：");
@@ -142,36 +141,32 @@ u8 sendMotorCommand(u8 dir, float distance, float speed, uint32_t id){
 		 printf(" %d",commandBuf[i]);
 	}
 	printf("\r\n");
-	
-	if (!issucess)
-		printf("The control command was sent successfully ! \r\n"); 	//最后把所有的printf函数封装位以太网打Log
-	else
-		printf("The control command was sent fail ! \r\n"); //发送是否成功
 	#endif
 	
-	_q2:
 	if (!issucess){
+		printf("The control command was sent successfully ! \r\n"); 	//最后把所有的printf函数封装位以太网打Log
 		while(1){
-			// 成功了
-			i = getTimerCountValue(TIM3);  //不知道为啥换了HAL库之后这么慢了。
-			printf("value is %d \r\n", i);
-			if( isReceived(commandBuf) && i < 50)  // 如果得到了数据且时间小于5ms
+			// 收到了验证数据
+			if( isReceived(commandBuf) )  // 如果接收到了返回的数据，且通过加密验证
 			{
-				stopTimerInterrupt();
+				stopTimerInterrupt(); //停止定时器计数
 				timecnt = getTimerCountValue(TIM3);   // 得到时间计时，留作函数返回用
-				printf("This time, the data is sent \r\n");
-				errorFlag = 0; // 发送成功了，那么解开这个限制。
-				return timecnt;  //直接返回本次的事件
+				printf("timecnt is %d \r\n", timecnt);
+				if (timecnt < 200){
+					printf("This time, the data is sent \r\n");
+					errorFlag = 0; // 发送成功了，那么解开这个限制。
+					return timecnt;  //直接返回本次的事件
+				}
 			}
-			// 失败了
+			// 失败了， 没收到验证数据
 			else
 			{
 				// 还没到出错的等级
-					stopTimerInterrupt();
-					errorCnt++;
+					stopTimerInterrupt(); // 先关闭定时器
+					errorCnt++; // 错误计数
+					errorFlag = 0;
 					if(errorCnt < ERRORRANGE){  //错误计数
 						printf("The time is greater than 5ms or the data received is incorrect %dth time\r\n", errorCnt); //一直打log之后在主机那边写一个脚本检测log日志是否正常。
-						issucess = Can_Send_Msg(commandBuf,8,id);  //重新发送此次的数据
 						goto _q1;   //使用goto简化代码， 调试时注意这块是跳到了重新进行检测这次的事件，也就是跳到了开始计时的上一行代码。
 					}
 					else{
@@ -180,20 +175,24 @@ u8 sendMotorCommand(u8 dir, float distance, float speed, uint32_t id){
 				// 尝试了10次还是失败了，
 					// 仍然不断尝试重新发送，但是log也在一直打印
 					while(errorFlag == 1){
+						if(errorCnt > 50){
+							// 重启设备 错误次数太多 尝试重启解决问题
+							HAL_NVIC_SystemReset();          	/* 重启 */
+						}
 						//在这一直重复这个过程， 但是log等级变成了 ERROR 等级
-						printf("ERROR The time is greater than 2ms or the data received is incorrect %dth time\r\n", errorCnt); //一直打log之后在主机那边写一个脚本检测log日志是否正常。
-						issucess = Can_Send_Msg(commandBuf,8,id);  //重新发送此次的数据
+						printf("ERROR Restart the device %d times........\r\n", 50 - errorCnt); //一直打log之后在主机那边写一个脚本检测log日志是否正常。
 						goto _q1;
 					}
 				break;
 			}
 		}
 	}
+	// 发送失败 尝试重发
 	else
 	{
-		issucess = Can_Send_Msg(commandBuf,8,id); //发送失败重新尝试发送
+		printf("The control command was sent fail ! \r\n"); //发送是否成功
 		printf("Retry sending  \r\n");
-		goto _q2;
+		goto _q1;
 	}
 	return timecnt;
 }

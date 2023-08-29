@@ -100,7 +100,7 @@ void motorStop(void){
 }
 
 // 电机使能
-void motorStart(){
+void motorStart(void){
 	
 	GPIO_SetBits(GPIOA,GPIO_Pin_1);
 	
@@ -112,7 +112,6 @@ void motorStopLong(u8 *clickorlongmotor){
 	*clickorlongmotor = 0;
 	
 }
-
 
 
 /********************************************梯形加减速***********************************************/
@@ -129,15 +128,14 @@ u8 clickorlongmotor = 0;
 /*
  * @brief       生成梯形运动控制参数
  * @param       step：移动的步数 (正数为顺时针，负数为逆时针).
- * @param       accel  加速度,实际值为accel*0.1*rad/sec^2  10倍并且2个脉冲算一个完整的周期
- * @param       decel  减速度,实际值为decel*0.1*rad/sec^2
- * @param       speed  最大速度,实际值为speed*0.1*rad/sec  转换公式为  1 Rad/sec = 9.55 RPM
+ * @param       accel  加速度,实际值为   accel*0.1*rad/sec^2  10倍并且2个脉冲算一个完整的周期
+ * @param       decel  减速度,实际值为   decel*0.1*rad/sec^2
+ * @param       speed  最大速度,实际值为 speed*0.1*rad/sec  转换公式为  1 Rad/sec = 9.55 RPM
  * @retval      无
  */
 
 void create_t_ctrl_param(int32_t step, uint32_t accel, uint32_t decel, uint32_t speed)
 {
-	
     __IO uint16_t tim_count;        /* 达到最大速度时的步数*/
     __IO uint32_t max_s_lim;        /* 必须要开始减速的步数（如果加速没有达到最大速度）*/
     __IO uint32_t accel_lim;
@@ -147,13 +145,15 @@ void create_t_ctrl_param(int32_t step, uint32_t accel, uint32_t decel, uint32_t 
     if(step < 0)                    /* 步数为负数 */
     {
         g_srd.dir = CCW;            /* 逆时针方向旋转 */
-        //ST3_DIR(CCW);								//设置dir正转
+        GPIO_SetBits(GPIOA,GPIO_Pin_2);
+				//ST3_DIR(CCW);								//设置dir正转
         step = -step;               /* 获取步数绝对值 */
     }
     else
     {
         g_srd.dir = CW;             /* 顺时针方向旋转 */
-        //ST3_DIR(CW);								//设置dir反转
+				GPIO_ResetBits(GPIOA,GPIO_Pin_2);
+			//ST3_DIR(CW);								//设置dir反转
     }
 
     if(step == 1)                   /* 步数为1 */

@@ -54,7 +54,7 @@ void stopTimerInterrupt(void)
 	//TIM_ClearFlag(TIM6,TIM_FLAG_Update); //清除中断标志位
 	//TIM_Cmd(TIM6,DISABLE); //失能计数
 	TIM3->SR = 0;
-	HAL_TIM_Base_Stop(&TIM3_Handler);  //启动定时器
+	HAL_TIM_Base_Stop(&TIM3_Handler);  //关闭定时器
  
 }
 

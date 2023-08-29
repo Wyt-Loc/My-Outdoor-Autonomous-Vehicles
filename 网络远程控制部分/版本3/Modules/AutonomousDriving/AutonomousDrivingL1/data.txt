@@ -1,1 +1,33 @@
 
+In 2023-08-13 16:52:35.271845 TcpServer start Running
+In 2023-08-13 16:52:35.271845 start Runing
+level:Info In DetailedTime 2023-08-13 16:52:35.272844 ACC自动介入
+level:Info In DetailedTime 2023-08-13 16:52:35.272844 前方有车，开启跟车巡航
+In 2023-08-13 16:52:39.687696 TcpServer start Running
+In 2023-08-13 16:52:39.688692 start Runing
+level:Info In DetailedTime 2023-08-13 16:52:39.688692 ACC自动介入
+level:Info In DetailedTime 2023-08-13 16:52:39.688692 前方有车，开启跟车巡航
+In 2023-08-13 16:52:52.199150 TcpServer start Running
+In 2023-08-13 16:52:52.200148 start Runing
+level:Info In DetailedTime 2023-08-13 16:52:52.200148 ACC自动介入
+level:Info In DetailedTime 2023-08-13 16:52:52.200148 前方有车，开启跟车巡航
+In 2023-08-13 16:54:19.010751 TcpServer start Running
+In 2023-08-13 16:54:19.011748 start Runing
+level:Info In DetailedTime 2023-08-13 16:54:19.011748 ACC自动介入
+level:Info In DetailedTime 2023-08-13 16:54:19.011748 前方有车，开启跟车巡航
+In 2023-08-13 16:55:41.646803 TcpServer start Running
+In 2023-08-13 16:55:41.647803 start Runing
+level:Info In DetailedTime 2023-08-13 16:55:41.647803 ACC自动介入
+level:Info In DetailedTime 2023-08-13 16:55:41.647803 前方有车，开启跟车巡航
+In 2023-08-13 16:56:30.891264 TcpServer start Running
+In 2023-08-13 16:56:30.891264 start Runing
+level:Info In DetailedTime 2023-08-13 16:56:30.891264 ACC自动介入
+level:Info In DetailedTime 2023-08-13 16:56:30.891264 前方有车，开启跟车巡航
+In 2023-08-13 16:57:29.355574 TcpServer start Running
+In 2023-08-13 16:57:29.355574 start Runing
+level:Info In DetailedTime 2023-08-13 16:57:29.355574 ACC自动介入
+level:Info In DetailedTime 2023-08-13 16:57:29.356572 前方有车，开启跟车巡航
+In 2023-08-13 16:57:33.745493 TcpServer start Running
+In 2023-08-13 16:57:33.746492 start Runing
+level:Info In DetailedTime 2023-08-13 16:57:33.746492 ACC自动介入
+level:Info In DetailedTime 2023-08-13 16:57:33.746492 前方有车，开启跟车巡航

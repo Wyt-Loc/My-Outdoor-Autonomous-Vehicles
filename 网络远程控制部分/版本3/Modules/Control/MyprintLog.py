@@ -3,10 +3,10 @@
 # @Author  : Wyt
 # @File    : MyprintLog.py
 
-import Modules.Control.MyGetTime
+import 网络远程控制部分.版本3.Modules.Control.MyGetTime
 
 
-class PrintLog(Modules.Control.MyGetTime.GetTimeInfo):
+class PrintLog(网络远程控制部分.版本3.Modules.Control.MyGetTime.GetTimeInfo):
     """
     打印Log信息类
     """

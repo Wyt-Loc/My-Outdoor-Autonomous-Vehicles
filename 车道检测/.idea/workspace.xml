@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="aa2de4cf-610f-4732-8da6-53a7b2ede480" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../FILETRANSFER/.idea/artifacts/FILETRANSFER_jar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FILETRANSFER/.idea/description.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FILETRANSFER/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FILETRANSFER/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FILETRANSFER/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FILETRANSFER/.idea/project-template.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FILETRANSFER/.idea/runConfigurations.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FILETRANSFER/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FILETRANSFER/FILETRANSFER.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FILETRANSFER/src/META-INF/MANIFEST.MF" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FILETRANSFER/src/com/company/client.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FILETRANSFER/src/com/company/create512file.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FILETRANSFER/src/com/company/rece.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FILETRANSFER/src/com/company/server.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FILETRANSFER/src/com/company/test.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FILETRANSFER/src/com/sockerwindows/fileselect.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FILETRANSFER/src/com/sockerwindows/win.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/车道检测.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lane-detection-v1.0-main.zip" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lane-detection-v1.0-main/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lane-detection-v1.0-main/LICENSE" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lane-detection-v1.0-main/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lane-detection-v1.0-main/assets/1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lane-detection-v1.0-main/assets/2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lane-detection-v1.0-main/assets/project_video.mp4" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lane-detection-v1.0-main/lanedetection.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lane-detection-v1.0-main/mainwindow.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lane-detection-v1.0-main/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../网络远程控制部分/版本3/Modules/AutonomousDriving/AutonomousDrivingL1/data.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../网络远程控制部分/版本3/Modules/AutonomousDriving/AutonomousDrivingL1/data.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../网络远程控制部分/版本3/Modules/AutonomousDriving/AutonomousDrivingL1/自动驾驶L1级实现.py" beforeDir="false" afterPath="$PROJECT_DIR$/../网络远程控制部分/版本3/Modules/AutonomousDriving/AutonomousDrivingL1/自动驾驶L1级实现.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../网络远程控制部分/版本3/Modules/Control/MyLidar.py" beforeDir="false" afterPath="$PROJECT_DIR$/../网络远程控制部分/版本3/Modules/Control/MyLidar.py" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FlaskConsoleOptions" custom-start-script="import sys&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;from flask.cli import ScriptInfo&#10;locals().update(ScriptInfo(create_app=None).load_app().make_shell_context())&#10;print(&quot;Python %s on %s\nApp: %s [%s]\nInstance: %s&quot; % (sys.version, sys.platform, app.import_name, app.env, app.instance_path))">
+    <envs>
+      <env key="FLASK_APP" value="app" />
+    </envs>
+    <option name="myCustomStartScript" value="import sys&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;from flask.cli import ScriptInfo&#10;locals().update(ScriptInfo(create_app=None).load_app().make_shell_context())&#10;print(&quot;Python %s on %s\nApp: %s [%s]\nInstance: %s&quot; % (sys.version, sys.platform, app.import_name, app.env, app.instance_path))" />
+    <option name="myEnvs">
+      <map>
+        <entry key="FLASK_APP" value="app" />
+      </map>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2U4Zj4IBNouTEDIAGMUvXbjvZPR" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="settings.editor.selected.configurable" value="configurable.group.language" />
+  </component>
+  <component name="RunManager" selected="Python.mainwindow">
+    <configuration name="mainwindow" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="车道检测" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/lane-detection-v1.0-main" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/lane-detection-v1.0-main/mainwindow.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="sample_lane_detection" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="车道检测" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/lane-detect-opencv-master" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/lane-detect-opencv-master/sample_lane_detection.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.mainwindow" />
+        <item itemvalue="Python.sample_lane_detection" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="aa2de4cf-610f-4732-8da6-53a7b2ede480" name="Changes" comment="" />
+      <created>1692200947888</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1692200947888</updated>
+      <workItem from="1692200949548" duration="2301000" />
+      <workItem from="1692236710319" duration="1154000" />
+      <workItem from="1692271441009" duration="80000" />
+      <workItem from="1692271569545" duration="4000" />
+    </task>
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/$mainwindow.coverage" NAME="mainwindow Coverage Results" MODIFIED="1692203080849" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/lane-detection-v1.0-main" />
+    <SUITE FILE_PATH="coverage/$sample_lane_detection.coverage" NAME="sample_lane_detection Coverage Results" MODIFIED="1692201430738" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/lane-detect-opencv-master" />
+  </component>
+</project>

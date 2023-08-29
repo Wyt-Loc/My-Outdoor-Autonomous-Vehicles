@@ -29,7 +29,7 @@
 #define KEY1_PRES	  2	//KEY1按下
 #define WKUP_PRES   3	//KEY_UP按下(即WK_UP/KEY_UP)
 
-
+void StepperMotorDriver_IO(void);
 void KEY_Init(void);//IO初始化
 u8 KEY_Scan(u8);  	//按键扫描函数					    
 #endif

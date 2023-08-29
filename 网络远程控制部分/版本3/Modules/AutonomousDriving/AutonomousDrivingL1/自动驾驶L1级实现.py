@@ -6,11 +6,17 @@ import Modules.Control.MyprintLog
 import Modules.Control.MyLidar
 
 
-class L1LEVEL(Modules.Control.MyprintLog.PrintLog, Modules.Control.MyLidar):
+class L1LEVEL( Modules.Control.MyLidar.Lidar):
     flag = 1
 
     def getCarDistance(self):
         # 得到车距
+        self.parsingLidarData()
+        print(self.lidarData)
+        print(len(self.lidarDistance))
+        print(len(self.lidarAngle))
+        print(self.lidarDistance)
+        print(self.lidarAngle)
         dis = 1
         if dis > 50:
             self.flag = 0
@@ -41,4 +47,4 @@ class L1LEVEL(Modules.Control.MyprintLog.PrintLog, Modules.Control.MyLidar):
 
 if __name__ == '__main__':
     l1 = L1LEVEL()
-    l1.myAcc()
+    l1.getCarDistance()

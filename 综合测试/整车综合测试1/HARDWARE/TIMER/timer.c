@@ -80,6 +80,7 @@ void BaseTimer_Config(void)
 	//使能计数
 	TIM_Cmd(TIM6,ENABLE);
 }
+
 void BaseTimer_Init(void)
 {
 	

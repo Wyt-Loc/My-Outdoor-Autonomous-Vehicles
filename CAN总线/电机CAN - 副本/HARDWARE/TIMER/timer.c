@@ -27,7 +27,7 @@ void time3_initer(u16 arr,u16 psc)
 	 
 	 NVIC_InitTypeDST.NVIC_IRQChannelPreemptionPriority=2;
 	 NVIC_InitTypeDST.NVIC_IRQChannelSubPriority=0;
-	  
+	 
 	 NVIC_Init(&NVIC_InitTypeDST);
 	 
 	 TIM_OCInitTypeSTU.TIM_OCMode=TIM_OCMode_Toggle;

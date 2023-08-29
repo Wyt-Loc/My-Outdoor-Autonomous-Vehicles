@@ -155,6 +155,7 @@ uint8_t datam[9] = {0};  // 解析到的电机数据
 uint8_t datas[9] = {0};  // 解析到的舵机数据
 uint8_t datamflag = 0;
 uint8_t datasflag = 0;
+uint8_t stopflag = 0;
 
 /***************************************************************
 【函数名】 void find_cmd(ringbuffer_t *fifo)
@@ -186,6 +187,7 @@ void find_cmd(ringbuffer_t *fifo){
 						cmd_falg = 0;
 					}
 				break;
+					
 				case 1:
 					ringbuffer_out(&cmdqueue,val,1);
 					#if DEBUG
@@ -201,6 +203,7 @@ void find_cmd(ringbuffer_t *fifo){
 						cmd_falg = 0;
 					}
 				break;
+					
 				case 2:
 					ringbuffer_out(&cmdqueue,val,1);
 					#if DEBUG
@@ -216,6 +219,7 @@ void find_cmd(ringbuffer_t *fifo){
 						cmd_falg = 0;
 					}
 				break;
+					
 					//功能帧
 				case 3:
 					ringbuffer_out(&cmdqueue,val,1);
@@ -290,6 +294,11 @@ void find_cmd(ringbuffer_t *fifo){
 					}
 					printf("\r\n");
 					#endif
+					if(vall[0] == 's' && vall[1] == 't' && vall[2] == 'o' && vall[3] == 'p' )
+					{
+						printf("stop");
+					}
+					stopflag = 1;
 					cmd_falg = 0;
 				break;
 			}
@@ -306,30 +315,52 @@ volatile static float V = 0.0f;
 【参数值】 无
 【返回值】 无
 ****************************************************************/
+uint8_t stop[8] = {'s','t','o','p','0','0','0'};
 void control_CAN(void){
-	
+	u8 i = 0;
 	// 解析命令
 	find_cmd(&cmdqueue);
+
+	// CAN 停止
+	if (stopflag == 1){
+		sendMotorCommand('s','t','o',0x1300);
+		delay_ms(1);
+		sendMotorCommand('s','t','o',0x1100);
+		stopflag = 0;
+	}
+
 	// CAN电机
 	if(datamflag == 1)
 	{
 
+		for(i = 0; i < 8; i++){
+			printf("datam = %d \t ", datam[i]);
+		}
+
 		dir = datam[0];
 		dis = datam[1] * 10 + datam[2] + datam[3] * 0.1 + datam[4] * 0.01;
 		V   = datam[5] * 10 + datam[6] + datam[7] * 0.1 + datam[8] * 0.01;
-		
+
 		#if DEBUG
 		printf("dir = %d,dis = %f,V = %f \r\n",dir, dis, V);
 		printf("CAN电机发送\r\n");
 		#endif
-		sendMotorCommand(dir,dis,V,0xEE00); // 电机
+		printf("dir 方向 = %d",dir);
+		sendMotorCommand(dir,dis,V,0x1300); // 电机
+
 		datamflag = 0;
 		memset(datam,0,sizeof(datam));
+
 	}
 
 	//CAN舵机
 	if(datasflag == 1)
 	{
+		for(i = 0; i < 8; i++){
+			printf("datas = %d \t ", datas[i]);
+		}
+		printf("\r\n");
+		
 		dis = datas[0] * 100 + datas[1] * 10 + datas[2];
 		dir = datas[3]; // 代表几个255了
 		V = 1.1;
@@ -338,10 +369,11 @@ void control_CAN(void){
 		printf("dis = %f \r\n", dis);
 		printf("dir = %d\r\n",dir);
 		#endif
-		sendMotorCommand(dir,dis,V,0x1200);  // 舵机
+		sendMotorCommand(dir,dis,V,0x1100);  // 舵机
 		datasflag = 0;
 		memset(datas,0,sizeof(datas));
 	}
+	
 }
 
 

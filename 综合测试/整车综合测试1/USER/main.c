@@ -31,7 +31,7 @@ int main(void)
 	while(1)
 	{
 		
-		Control(usartRecvData());
+		//Control(usartRecvData());
 		
 		if(KEY_Scan(1) == 2){
 			//ServosLeftRightClick(1);

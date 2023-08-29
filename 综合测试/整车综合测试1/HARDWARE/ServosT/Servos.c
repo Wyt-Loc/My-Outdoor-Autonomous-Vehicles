@@ -10,7 +10,8 @@
 【返回值】 无
 ****************************************************************/
 void Servos_PWM_Init(u16 arr,u16 psc)
-{  
+{ 
+
 	GPIO_InitTypeDef GPIO_InitStructure;
 	TIM_TimeBaseInitTypeDef  TIM_TimeBaseStructure;
 	TIM_OCInitTypeDef  TIM_OCInitStructure;
@@ -30,15 +31,16 @@ void Servos_PWM_Init(u16 arr,u16 psc)
 	TIM_TimeBaseStructure.TIM_ClockDivision = 0; //设置时钟分割:TDTS = Tck_tim
 	TIM_TimeBaseStructure.TIM_CounterMode = TIM_CounterMode_Up;  //TIM向上计数模式
 	TIM_TimeBaseInit(TIM4, &TIM_TimeBaseStructure); //根据TIM_TimeBaseInitStruct中指定的参数初始化TIMx的时间基数单位
-	
+
 	//初始化TIM3 Channel2 PWM模式
 	TIM_OCInitStructure.TIM_OCMode = TIM_OCMode_PWM2; //选择定时器模式:TIM脉冲宽度调制模式2
  	TIM_OCInitStructure.TIM_OutputState = TIM_OutputState_Enable; //比较输出使能
 	TIM_OCInitStructure.TIM_OCPolarity = TIM_OCPolarity_Low; //输出极性:TIM输出比较极性高 TIM_OCPolarity_Low
 	TIM_OC1Init(TIM4, &TIM_OCInitStructure);  //根据T指定的参数初始化外设TIM3 OC2
 	TIM_OC1PreloadConfig(TIM4, TIM_OCPreload_Enable);  //使能TIM3在CCR2上的预装载寄存器
-	
+
 	TIM_Cmd(TIM4, ENABLE);  //使能TIM3
+
 }
 
 
@@ -107,7 +109,6 @@ void servosStop(u8 *clickorlongservos){
 		*clickorlongservos = 0;
 	
 }
-
 
 
 extern u8 clickorlongmotor;

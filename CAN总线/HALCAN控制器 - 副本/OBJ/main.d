@@ -60,12 +60,6 @@
 ..\obj\main.o: ..\SYSTEM\usart\usart.h
 ..\obj\main.o: F:\MDK\ARM\ARMCC\Bin\..\include\stdio.h
 ..\obj\main.o: ..\UART2ETH\USART3\usart3.h
-..\obj\main.o: ..\HARDWARE\LED\led.h
-..\obj\main.o: ..\HARDWARE\KEY\key.h
-..\obj\main.o: ..\HARDWARE\LCD\lcd.h
-..\obj\main.o: F:\MDK\ARM\ARMCC\Bin\..\include\stdlib.h
-..\obj\main.o: ..\USMART\usmart.h
-..\obj\main.o: ..\USMART\usmart_str.h
 ..\obj\main.o: ..\HARDWARE\CAN\can.h
 ..\obj\main.o: ..\HARDWARE\TIMER\timer.h
 ..\obj\main.o: ..\CANCONTROL\canControl.h

@@ -1,5 +1,5 @@
 Dependencies for Project 'CAN', Target 'CAN': (DO NOT MODIFY !)
-F (.\main.c)(0x64CBAC58)(-c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\CORE -I ..\USER -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\USMART -I ..\HALLIB\STM32F1xx_HAL_Driver\Inc -I ..\HARDWARE\LED -I ..\HARDWARE\LCD -I ..\HARDWARE\KEY -I ..\HARDWARE\CAN -I ..\CANCONTROL -I ..\HARDWARE\TIMER -I ..\UART2ETH\ATK-UART2ETH -I ..\UART2ETH\RINGBUFFER -I ..\UART2ETH\USART3 -I ..\HARDWARE\MyQueue -I ..\HARDWARE\QUEUE-I.\RTE\_CAN-IF:\MDK\packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include-IF:\MDK\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o ..\obj\main.o --omf_browse ..\obj\main.crf --depend ..\obj\main.d)
+F (.\main.c)(0x64EB2ACF)(-c --cpu Cortex-M3 -D__MICROLIB -g -O2 --apcs=interwork --split_sections -I ..\CORE -I ..\USER -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\USMART -I ..\HALLIB\STM32F1xx_HAL_Driver\Inc -I ..\HARDWARE\LED -I ..\HARDWARE\LCD -I ..\HARDWARE\KEY -I ..\HARDWARE\CAN -I ..\CANCONTROL -I ..\HARDWARE\TIMER -I ..\UART2ETH\ATK-UART2ETH -I ..\UART2ETH\RINGBUFFER -I ..\UART2ETH\USART3 -I ..\HARDWARE\MyQueue -I ..\HARDWARE\QUEUE-I.\RTE\_CAN-IF:\MDK\packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include-IF:\MDK\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o ..\obj\main.o --omf_browse ..\obj\main.crf --depend ..\obj\main.d)
 I (..\SYSTEM\sys\sys.h)(0x5D808F12)
 I (..\USER\stm32f1xx.h)(0x5D1623CA)
 I (..\USER\stm32f103xe.h)(0x5D1623CA)
@@ -60,12 +60,6 @@ I (..\SYSTEM\delay\delay.h)(0x5D808F12)
 I (..\SYSTEM\usart\usart.h)(0x5D808F12)
 I (F:\MDK\ARM\ARMCC\include\stdio.h)(0x60252374)
 I (..\UART2ETH\USART3\usart3.h)(0x649D7547)
-I (..\HARDWARE\LED\led.h)(0x5D819252)
-I (..\HARDWARE\KEY\key.h)(0x649D1325)
-I (..\HARDWARE\LCD\lcd.h)(0x5D81AEA3)
-I (F:\MDK\ARM\ARMCC\include\stdlib.h)(0x60252374)
-I (..\USMART\usmart.h)(0x575F7A44)
-I (..\USMART\usmart_str.h)(0x575F7A22)
 I (..\HARDWARE\CAN\can.h)(0x64C67243)
 I (..\HARDWARE\TIMER\timer.h)(0x649D32C1)
 I (..\CANCONTROL\canControl.h)(0x64C67279)
@@ -73,7 +67,7 @@ I (F:\MDK\ARM\ARMCC\include\string.h)(0x6025237E)
 I (..\UART2ETH\ATK-UART2ETH\atk_u2e.h)(0x64A424A1)
 I (..\CANCONTROL\MatchingCommands.h)(0x64A42463)
 I (..\UART2ETH\RINGBUFFER\ringbuffer.h)(0x64C63F13)
-F (.\stm32f1xx_hal_msp.c)(0x5CFE625F)(-c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\CORE -I ..\USER -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\USMART -I ..\HALLIB\STM32F1xx_HAL_Driver\Inc -I ..\HARDWARE\LED -I ..\HARDWARE\LCD -I ..\HARDWARE\KEY -I ..\HARDWARE\CAN -I ..\CANCONTROL -I ..\HARDWARE\TIMER -I ..\UART2ETH\ATK-UART2ETH -I ..\UART2ETH\RINGBUFFER -I ..\UART2ETH\USART3 -I ..\HARDWARE\MyQueue -I ..\HARDWARE\QUEUE-I.\RTE\_CAN-IF:\MDK\packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include-IF:\MDK\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o ..\obj\stm32f1xx_hal_msp.o --omf_browse ..\obj\stm32f1xx_hal_msp.crf --depend ..\obj\stm32f1xx_hal_msp.d)
+F (.\stm32f1xx_hal_msp.c)(0x5CFE625F)(-c --cpu Cortex-M3 -D__MICROLIB -g -O2 --apcs=interwork --split_sections -I ..\CORE -I ..\USER -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\USMART -I ..\HALLIB\STM32F1xx_HAL_Driver\Inc -I ..\HARDWARE\LED -I ..\HARDWARE\LCD -I ..\HARDWARE\KEY -I ..\HARDWARE\CAN -I ..\CANCONTROL -I ..\HARDWARE\TIMER -I ..\UART2ETH\ATK-UART2ETH -I ..\UART2ETH\RINGBUFFER -I ..\UART2ETH\USART3 -I ..\HARDWARE\MyQueue -I ..\HARDWARE\QUEUE-I.\RTE\_CAN-IF:\MDK\packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include-IF:\MDK\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o ..\obj\stm32f1xx_hal_msp.o --omf_browse ..\obj\stm32f1xx_hal_msp.crf --depend ..\obj\stm32f1xx_hal_msp.d)
 I (main.h)(0x5D808706)
 I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal.h)(0x5D10A069)
 I (..\USER\stm32f1xx_hal_conf.h)(0x5CFE625F)
@@ -130,7 +124,7 @@ I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_ll_usb.h)(0x5D138991)
 I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_pcd_ex.h)(0x5D10A084)
 I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_hcd.h)(0x5D10A084)
 I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_mmc.h)(0x5D10A076)
-F (.\stm32f1xx_it.c)(0x5CFE625F)(-c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\CORE -I ..\USER -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\USMART -I ..\HALLIB\STM32F1xx_HAL_Driver\Inc -I ..\HARDWARE\LED -I ..\HARDWARE\LCD -I ..\HARDWARE\KEY -I ..\HARDWARE\CAN -I ..\CANCONTROL -I ..\HARDWARE\TIMER -I ..\UART2ETH\ATK-UART2ETH -I ..\UART2ETH\RINGBUFFER -I ..\UART2ETH\USART3 -I ..\HARDWARE\MyQueue -I ..\HARDWARE\QUEUE-I.\RTE\_CAN-IF:\MDK\packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include-IF:\MDK\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o ..\obj\stm32f1xx_it.o --omf_browse ..\obj\stm32f1xx_it.crf --depend ..\obj\stm32f1xx_it.d)
+F (.\stm32f1xx_it.c)(0x5CFE625F)(-c --cpu Cortex-M3 -D__MICROLIB -g -O2 --apcs=interwork --split_sections -I ..\CORE -I ..\USER -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\USMART -I ..\HALLIB\STM32F1xx_HAL_Driver\Inc -I ..\HARDWARE\LED -I ..\HARDWARE\LCD -I ..\HARDWARE\KEY -I ..\HARDWARE\CAN -I ..\CANCONTROL -I ..\HARDWARE\TIMER -I ..\UART2ETH\ATK-UART2ETH -I ..\UART2ETH\RINGBUFFER -I ..\UART2ETH\USART3 -I ..\HARDWARE\MyQueue -I ..\HARDWARE\QUEUE-I.\RTE\_CAN-IF:\MDK\packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include-IF:\MDK\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o ..\obj\stm32f1xx_it.o --omf_browse ..\obj\stm32f1xx_it.crf --depend ..\obj\stm32f1xx_it.d)
 I (main.h)(0x5D808706)
 I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal.h)(0x5D10A069)
 I (..\USER\stm32f1xx_hal_conf.h)(0x5CFE625F)
@@ -188,7 +182,7 @@ I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_pcd_ex.h)(0x5D10A084)
 I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_hcd.h)(0x5D10A084)
 I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_mmc.h)(0x5D10A076)
 I (stm32f1xx_it.h)(0x5CFE625F)
-F (.\system_stm32f1xx.c)(0x5D0B5E6E)(-c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\CORE -I ..\USER -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\USMART -I ..\HALLIB\STM32F1xx_HAL_Driver\Inc -I ..\HARDWARE\LED -I ..\HARDWARE\LCD -I ..\HARDWARE\KEY -I ..\HARDWARE\CAN -I ..\CANCONTROL -I ..\HARDWARE\TIMER -I ..\UART2ETH\ATK-UART2ETH -I ..\UART2ETH\RINGBUFFER -I ..\UART2ETH\USART3 -I ..\HARDWARE\MyQueue -I ..\HARDWARE\QUEUE-I.\RTE\_CAN-IF:\MDK\packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include-IF:\MDK\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o ..\obj\system_stm32f1xx.o --omf_browse ..\obj\system_stm32f1xx.crf --depend ..\obj\system_stm32f1xx.d)
+F (.\system_stm32f1xx.c)(0x5D0B5E6E)(-c --cpu Cortex-M3 -D__MICROLIB -g -O2 --apcs=interwork --split_sections -I ..\CORE -I ..\USER -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\USMART -I ..\HALLIB\STM32F1xx_HAL_Driver\Inc -I ..\HARDWARE\LED -I ..\HARDWARE\LCD -I ..\HARDWARE\KEY -I ..\HARDWARE\CAN -I ..\CANCONTROL -I ..\HARDWARE\TIMER -I ..\UART2ETH\ATK-UART2ETH -I ..\UART2ETH\RINGBUFFER -I ..\UART2ETH\USART3 -I ..\HARDWARE\MyQueue -I ..\HARDWARE\QUEUE-I.\RTE\_CAN-IF:\MDK\packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include-IF:\MDK\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o ..\obj\system_stm32f1xx.o --omf_browse ..\obj\system_stm32f1xx.crf --depend ..\obj\system_stm32f1xx.d)
 I (stm32f1xx.h)(0x5D1623CA)
 I (stm32f103xe.h)(0x5D1623CA)
 I (..\CORE\core_cm3.h)(0x5D8085B0)
@@ -250,7 +244,7 @@ F (..\CORE\cmsis_armclang.h)(0x5D1623CA)()
 F (..\CORE\cmsis_compiler.h)(0x5D1623CA)()
 F (..\CORE\core_cm3.h)(0x5D8085B0)()
 F (..\CORE\startup_stm32f103xe.s)(0x5D1623CA)(--cpu Cortex-M3 -g --apcs=interwork --pd "__MICROLIB SETA 1"-I.\RTE\_CAN-IF:\MDK\packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include-IF:\MDK\ARM\CMSIS\Include--pd "__UVISION_VERSION SETA 525" --pd "STM32F10X_HD SETA 1"--list ..\obj\startup_stm32f103xe.lst --xref -o ..\obj\startup_stm32f103xe.o --depend ..\obj\startup_stm32f103xe.d)
-F (..\HALLIB\STM32F1xx_HAL_Driver\Src\stm32f1xx_hal.c)(0x5DA02A64)(-c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\CORE -I ..\USER -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\USMART -I ..\HALLIB\STM32F1xx_HAL_Driver\Inc -I ..\HARDWARE\LED -I ..\HARDWARE\LCD -I ..\HARDWARE\KEY -I ..\HARDWARE\CAN -I ..\CANCONTROL -I ..\HARDWARE\TIMER -I ..\UART2ETH\ATK-UART2ETH -I ..\UART2ETH\RINGBUFFER -I ..\UART2ETH\USART3 -I ..\HARDWARE\MyQueue -I ..\HARDWARE\QUEUE-I.\RTE\_CAN-IF:\MDK\packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include-IF:\MDK\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o ..\obj\stm32f1xx_hal.o --omf_browse ..\obj\stm32f1xx_hal.crf --depend ..\obj\stm32f1xx_hal.d)
+F (..\HALLIB\STM32F1xx_HAL_Driver\Src\stm32f1xx_hal.c)(0x5DA02A64)(-c --cpu Cortex-M3 -D__MICROLIB -g -O2 --apcs=interwork --split_sections -I ..\CORE -I ..\USER -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\USMART -I ..\HALLIB\STM32F1xx_HAL_Driver\Inc -I ..\HARDWARE\LED -I ..\HARDWARE\LCD -I ..\HARDWARE\KEY -I ..\HARDWARE\CAN -I ..\CANCONTROL -I ..\HARDWARE\TIMER -I ..\UART2ETH\ATK-UART2ETH -I ..\UART2ETH\RINGBUFFER -I ..\UART2ETH\USART3 -I ..\HARDWARE\MyQueue -I ..\HARDWARE\QUEUE-I.\RTE\_CAN-IF:\MDK\packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include-IF:\MDK\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o ..\obj\stm32f1xx_hal.o --omf_browse ..\obj\stm32f1xx_hal.crf --depend ..\obj\stm32f1xx_hal.d)
 I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal.h)(0x5D10A069)
 I (..\USER\stm32f1xx_hal_conf.h)(0x5CFE625F)
 I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_rcc.h)(0x5D10A074)
@@ -306,7 +300,7 @@ I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_ll_usb.h)(0x5D138991)
 I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_pcd_ex.h)(0x5D10A084)
 I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_hcd.h)(0x5D10A084)
 I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_mmc.h)(0x5D10A076)
-F (..\HALLIB\STM32F1xx_HAL_Driver\Src\stm32f1xx_hal_cortex.c)(0x5D10A05A)(-c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\CORE -I ..\USER -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\USMART -I ..\HALLIB\STM32F1xx_HAL_Driver\Inc -I ..\HARDWARE\LED -I ..\HARDWARE\LCD -I ..\HARDWARE\KEY -I ..\HARDWARE\CAN -I ..\CANCONTROL -I ..\HARDWARE\TIMER -I ..\UART2ETH\ATK-UART2ETH -I ..\UART2ETH\RINGBUFFER -I ..\UART2ETH\USART3 -I ..\HARDWARE\MyQueue -I ..\HARDWARE\QUEUE-I.\RTE\_CAN-IF:\MDK\packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include-IF:\MDK\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o ..\obj\stm32f1xx_hal_cortex.o --omf_browse ..\obj\stm32f1xx_hal_cortex.crf --depend ..\obj\stm32f1xx_hal_cortex.d)
+F (..\HALLIB\STM32F1xx_HAL_Driver\Src\stm32f1xx_hal_cortex.c)(0x5D10A05A)(-c --cpu Cortex-M3 -D__MICROLIB -g -O2 --apcs=interwork --split_sections -I ..\CORE -I ..\USER -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\USMART -I ..\HALLIB\STM32F1xx_HAL_Driver\Inc -I ..\HARDWARE\LED -I ..\HARDWARE\LCD -I ..\HARDWARE\KEY -I ..\HARDWARE\CAN -I ..\CANCONTROL -I ..\HARDWARE\TIMER -I ..\UART2ETH\ATK-UART2ETH -I ..\UART2ETH\RINGBUFFER -I ..\UART2ETH\USART3 -I ..\HARDWARE\MyQueue -I ..\HARDWARE\QUEUE-I.\RTE\_CAN-IF:\MDK\packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include-IF:\MDK\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o ..\obj\stm32f1xx_hal_cortex.o --omf_browse ..\obj\stm32f1xx_hal_cortex.crf --depend ..\obj\stm32f1xx_hal_cortex.d)
 I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal.h)(0x5D10A069)
 I (..\USER\stm32f1xx_hal_conf.h)(0x5CFE625F)
 I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_rcc.h)(0x5D10A074)
@@ -362,7 +356,7 @@ I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_ll_usb.h)(0x5D138991)
 I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_pcd_ex.h)(0x5D10A084)
 I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_hcd.h)(0x5D10A084)
 I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_mmc.h)(0x5D10A076)
-F (..\HALLIB\STM32F1xx_HAL_Driver\Src\stm32f1xx_hal_dma.c)(0x5D10A061)(-c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\CORE -I ..\USER -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\USMART -I ..\HALLIB\STM32F1xx_HAL_Driver\Inc -I ..\HARDWARE\LED -I ..\HARDWARE\LCD -I ..\HARDWARE\KEY -I ..\HARDWARE\CAN -I ..\CANCONTROL -I ..\HARDWARE\TIMER -I ..\UART2ETH\ATK-UART2ETH -I ..\UART2ETH\RINGBUFFER -I ..\UART2ETH\USART3 -I ..\HARDWARE\MyQueue -I ..\HARDWARE\QUEUE-I.\RTE\_CAN-IF:\MDK\packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include-IF:\MDK\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o ..\obj\stm32f1xx_hal_dma.o --omf_browse ..\obj\stm32f1xx_hal_dma.crf --depend ..\obj\stm32f1xx_hal_dma.d)
+F (..\HALLIB\STM32F1xx_HAL_Driver\Src\stm32f1xx_hal_dma.c)(0x5D10A061)(-c --cpu Cortex-M3 -D__MICROLIB -g -O2 --apcs=interwork --split_sections -I ..\CORE -I ..\USER -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\USMART -I ..\HALLIB\STM32F1xx_HAL_Driver\Inc -I ..\HARDWARE\LED -I ..\HARDWARE\LCD -I ..\HARDWARE\KEY -I ..\HARDWARE\CAN -I ..\CANCONTROL -I ..\HARDWARE\TIMER -I ..\UART2ETH\ATK-UART2ETH -I ..\UART2ETH\RINGBUFFER -I ..\UART2ETH\USART3 -I ..\HARDWARE\MyQueue -I ..\HARDWARE\QUEUE-I.\RTE\_CAN-IF:\MDK\packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include-IF:\MDK\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o ..\obj\stm32f1xx_hal_dma.o --omf_browse ..\obj\stm32f1xx_hal_dma.crf --depend ..\obj\stm32f1xx_hal_dma.d)
 I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal.h)(0x5D10A069)
 I (..\USER\stm32f1xx_hal_conf.h)(0x5CFE625F)
 I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_rcc.h)(0x5D10A074)
@@ -418,7 +412,7 @@ I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_ll_usb.h)(0x5D138991)
 I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_pcd_ex.h)(0x5D10A084)
 I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_hcd.h)(0x5D10A084)
 I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_mmc.h)(0x5D10A076)
-F (..\HALLIB\STM32F1xx_HAL_Driver\Src\stm32f1xx_hal_gpio.c)(0x5D10A06B)(-c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\CORE -I ..\USER -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\USMART -I ..\HALLIB\STM32F1xx_HAL_Driver\Inc -I ..\HARDWARE\LED -I ..\HARDWARE\LCD -I ..\HARDWARE\KEY -I ..\HARDWARE\CAN -I ..\CANCONTROL -I ..\HARDWARE\TIMER -I ..\UART2ETH\ATK-UART2ETH -I ..\UART2ETH\RINGBUFFER -I ..\UART2ETH\USART3 -I ..\HARDWARE\MyQueue -I ..\HARDWARE\QUEUE-I.\RTE\_CAN-IF:\MDK\packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include-IF:\MDK\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o ..\obj\stm32f1xx_hal_gpio.o --omf_browse ..\obj\stm32f1xx_hal_gpio.crf --depend ..\obj\stm32f1xx_hal_gpio.d)
+F (..\HALLIB\STM32F1xx_HAL_Driver\Src\stm32f1xx_hal_gpio.c)(0x5D10A06B)(-c --cpu Cortex-M3 -D__MICROLIB -g -O2 --apcs=interwork --split_sections -I ..\CORE -I ..\USER -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\USMART -I ..\HALLIB\STM32F1xx_HAL_Driver\Inc -I ..\HARDWARE\LED -I ..\HARDWARE\LCD -I ..\HARDWARE\KEY -I ..\HARDWARE\CAN -I ..\CANCONTROL -I ..\HARDWARE\TIMER -I ..\UART2ETH\ATK-UART2ETH -I ..\UART2ETH\RINGBUFFER -I ..\UART2ETH\USART3 -I ..\HARDWARE\MyQueue -I ..\HARDWARE\QUEUE-I.\RTE\_CAN-IF:\MDK\packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include-IF:\MDK\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o ..\obj\stm32f1xx_hal_gpio.o --omf_browse ..\obj\stm32f1xx_hal_gpio.crf --depend ..\obj\stm32f1xx_hal_gpio.d)
 I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal.h)(0x5D10A069)
 I (..\USER\stm32f1xx_hal_conf.h)(0x5CFE625F)
 I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_rcc.h)(0x5D10A074)
@@ -474,7 +468,7 @@ I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_ll_usb.h)(0x5D138991)
 I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_pcd_ex.h)(0x5D10A084)
 I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_hcd.h)(0x5D10A084)
 I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_mmc.h)(0x5D10A076)
-F (..\HALLIB\STM32F1xx_HAL_Driver\Src\stm32f1xx_hal_gpio_ex.c)(0x5D10A06B)(-c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\CORE -I ..\USER -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\USMART -I ..\HALLIB\STM32F1xx_HAL_Driver\Inc -I ..\HARDWARE\LED -I ..\HARDWARE\LCD -I ..\HARDWARE\KEY -I ..\HARDWARE\CAN -I ..\CANCONTROL -I ..\HARDWARE\TIMER -I ..\UART2ETH\ATK-UART2ETH -I ..\UART2ETH\RINGBUFFER -I ..\UART2ETH\USART3 -I ..\HARDWARE\MyQueue -I ..\HARDWARE\QUEUE-I.\RTE\_CAN-IF:\MDK\packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include-IF:\MDK\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o ..\obj\stm32f1xx_hal_gpio_ex.o --omf_browse ..\obj\stm32f1xx_hal_gpio_ex.crf --depend ..\obj\stm32f1xx_hal_gpio_ex.d)
+F (..\HALLIB\STM32F1xx_HAL_Driver\Src\stm32f1xx_hal_gpio_ex.c)(0x5D10A06B)(-c --cpu Cortex-M3 -D__MICROLIB -g -O2 --apcs=interwork --split_sections -I ..\CORE -I ..\USER -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\USMART -I ..\HALLIB\STM32F1xx_HAL_Driver\Inc -I ..\HARDWARE\LED -I ..\HARDWARE\LCD -I ..\HARDWARE\KEY -I ..\HARDWARE\CAN -I ..\CANCONTROL -I ..\HARDWARE\TIMER -I ..\UART2ETH\ATK-UART2ETH -I ..\UART2ETH\RINGBUFFER -I ..\UART2ETH\USART3 -I ..\HARDWARE\MyQueue -I ..\HARDWARE\QUEUE-I.\RTE\_CAN-IF:\MDK\packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include-IF:\MDK\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o ..\obj\stm32f1xx_hal_gpio_ex.o --omf_browse ..\obj\stm32f1xx_hal_gpio_ex.crf --depend ..\obj\stm32f1xx_hal_gpio_ex.d)
 I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal.h)(0x5D10A069)
 I (..\USER\stm32f1xx_hal_conf.h)(0x5CFE625F)
 I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_rcc.h)(0x5D10A074)
@@ -530,7 +524,7 @@ I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_ll_usb.h)(0x5D138991)
 I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_pcd_ex.h)(0x5D10A084)
 I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_hcd.h)(0x5D10A084)
 I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_mmc.h)(0x5D10A076)
-F (..\HALLIB\STM32F1xx_HAL_Driver\Src\stm32f1xx_hal_pwr.c)(0x5D10A072)(-c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\CORE -I ..\USER -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\USMART -I ..\HALLIB\STM32F1xx_HAL_Driver\Inc -I ..\HARDWARE\LED -I ..\HARDWARE\LCD -I ..\HARDWARE\KEY -I ..\HARDWARE\CAN -I ..\CANCONTROL -I ..\HARDWARE\TIMER -I ..\UART2ETH\ATK-UART2ETH -I ..\UART2ETH\RINGBUFFER -I ..\UART2ETH\USART3 -I ..\HARDWARE\MyQueue -I ..\HARDWARE\QUEUE-I.\RTE\_CAN-IF:\MDK\packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include-IF:\MDK\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o ..\obj\stm32f1xx_hal_pwr.o --omf_browse ..\obj\stm32f1xx_hal_pwr.crf --depend ..\obj\stm32f1xx_hal_pwr.d)
+F (..\HALLIB\STM32F1xx_HAL_Driver\Src\stm32f1xx_hal_pwr.c)(0x5D10A072)(-c --cpu Cortex-M3 -D__MICROLIB -g -O2 --apcs=interwork --split_sections -I ..\CORE -I ..\USER -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\USMART -I ..\HALLIB\STM32F1xx_HAL_Driver\Inc -I ..\HARDWARE\LED -I ..\HARDWARE\LCD -I ..\HARDWARE\KEY -I ..\HARDWARE\CAN -I ..\CANCONTROL -I ..\HARDWARE\TIMER -I ..\UART2ETH\ATK-UART2ETH -I ..\UART2ETH\RINGBUFFER -I ..\UART2ETH\USART3 -I ..\HARDWARE\MyQueue -I ..\HARDWARE\QUEUE-I.\RTE\_CAN-IF:\MDK\packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include-IF:\MDK\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o ..\obj\stm32f1xx_hal_pwr.o --omf_browse ..\obj\stm32f1xx_hal_pwr.crf --depend ..\obj\stm32f1xx_hal_pwr.d)
 I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal.h)(0x5D10A069)
 I (..\USER\stm32f1xx_hal_conf.h)(0x5CFE625F)
 I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_rcc.h)(0x5D10A074)
@@ -586,7 +580,7 @@ I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_ll_usb.h)(0x5D138991)
 I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_pcd_ex.h)(0x5D10A084)
 I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_hcd.h)(0x5D10A084)
 I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_mmc.h)(0x5D10A076)
-F (..\HALLIB\STM32F1xx_HAL_Driver\Src\stm32f1xx_hal_rcc.c)(0x5D10A074)(-c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\CORE -I ..\USER -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\USMART -I ..\HALLIB\STM32F1xx_HAL_Driver\Inc -I ..\HARDWARE\LED -I ..\HARDWARE\LCD -I ..\HARDWARE\KEY -I ..\HARDWARE\CAN -I ..\CANCONTROL -I ..\HARDWARE\TIMER -I ..\UART2ETH\ATK-UART2ETH -I ..\UART2ETH\RINGBUFFER -I ..\UART2ETH\USART3 -I ..\HARDWARE\MyQueue -I ..\HARDWARE\QUEUE-I.\RTE\_CAN-IF:\MDK\packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include-IF:\MDK\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o ..\obj\stm32f1xx_hal_rcc.o --omf_browse ..\obj\stm32f1xx_hal_rcc.crf --depend ..\obj\stm32f1xx_hal_rcc.d)
+F (..\HALLIB\STM32F1xx_HAL_Driver\Src\stm32f1xx_hal_rcc.c)(0x5D10A074)(-c --cpu Cortex-M3 -D__MICROLIB -g -O2 --apcs=interwork --split_sections -I ..\CORE -I ..\USER -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\USMART -I ..\HALLIB\STM32F1xx_HAL_Driver\Inc -I ..\HARDWARE\LED -I ..\HARDWARE\LCD -I ..\HARDWARE\KEY -I ..\HARDWARE\CAN -I ..\CANCONTROL -I ..\HARDWARE\TIMER -I ..\UART2ETH\ATK-UART2ETH -I ..\UART2ETH\RINGBUFFER -I ..\UART2ETH\USART3 -I ..\HARDWARE\MyQueue -I ..\HARDWARE\QUEUE-I.\RTE\_CAN-IF:\MDK\packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include-IF:\MDK\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o ..\obj\stm32f1xx_hal_rcc.o --omf_browse ..\obj\stm32f1xx_hal_rcc.crf --depend ..\obj\stm32f1xx_hal_rcc.d)
 I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal.h)(0x5D10A069)
 I (..\USER\stm32f1xx_hal_conf.h)(0x5CFE625F)
 I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_rcc.h)(0x5D10A074)
@@ -642,7 +636,7 @@ I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_ll_usb.h)(0x5D138991)
 I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_pcd_ex.h)(0x5D10A084)
 I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_hcd.h)(0x5D10A084)
 I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_mmc.h)(0x5D10A076)
-F (..\HALLIB\STM32F1xx_HAL_Driver\Src\stm32f1xx_hal_rcc_ex.c)(0x5D8088DE)(-c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\CORE -I ..\USER -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\USMART -I ..\HALLIB\STM32F1xx_HAL_Driver\Inc -I ..\HARDWARE\LED -I ..\HARDWARE\LCD -I ..\HARDWARE\KEY -I ..\HARDWARE\CAN -I ..\CANCONTROL -I ..\HARDWARE\TIMER -I ..\UART2ETH\ATK-UART2ETH -I ..\UART2ETH\RINGBUFFER -I ..\UART2ETH\USART3 -I ..\HARDWARE\MyQueue -I ..\HARDWARE\QUEUE-I.\RTE\_CAN-IF:\MDK\packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include-IF:\MDK\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o ..\obj\stm32f1xx_hal_rcc_ex.o --omf_browse ..\obj\stm32f1xx_hal_rcc_ex.crf --depend ..\obj\stm32f1xx_hal_rcc_ex.d)
+F (..\HALLIB\STM32F1xx_HAL_Driver\Src\stm32f1xx_hal_rcc_ex.c)(0x5D8088DE)(-c --cpu Cortex-M3 -D__MICROLIB -g -O2 --apcs=interwork --split_sections -I ..\CORE -I ..\USER -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\USMART -I ..\HALLIB\STM32F1xx_HAL_Driver\Inc -I ..\HARDWARE\LED -I ..\HARDWARE\LCD -I ..\HARDWARE\KEY -I ..\HARDWARE\CAN -I ..\CANCONTROL -I ..\HARDWARE\TIMER -I ..\UART2ETH\ATK-UART2ETH -I ..\UART2ETH\RINGBUFFER -I ..\UART2ETH\USART3 -I ..\HARDWARE\MyQueue -I ..\HARDWARE\QUEUE-I.\RTE\_CAN-IF:\MDK\packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include-IF:\MDK\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o ..\obj\stm32f1xx_hal_rcc_ex.o --omf_browse ..\obj\stm32f1xx_hal_rcc_ex.crf --depend ..\obj\stm32f1xx_hal_rcc_ex.d)
 I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal.h)(0x5D10A069)
 I (..\USER\stm32f1xx_hal_conf.h)(0x5CFE625F)
 I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_rcc.h)(0x5D10A074)
@@ -698,7 +692,7 @@ I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_ll_usb.h)(0x5D138991)
 I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_pcd_ex.h)(0x5D10A084)
 I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_hcd.h)(0x5D10A084)
 I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_mmc.h)(0x5D10A076)
-F (..\HALLIB\STM32F1xx_HAL_Driver\Src\stm32f1xx_hal_tim.c)(0x649D209D)(-c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\CORE -I ..\USER -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\USMART -I ..\HALLIB\STM32F1xx_HAL_Driver\Inc -I ..\HARDWARE\LED -I ..\HARDWARE\LCD -I ..\HARDWARE\KEY -I ..\HARDWARE\CAN -I ..\CANCONTROL -I ..\HARDWARE\TIMER -I ..\UART2ETH\ATK-UART2ETH -I ..\UART2ETH\RINGBUFFER -I ..\UART2ETH\USART3 -I ..\HARDWARE\MyQueue -I ..\HARDWARE\QUEUE-I.\RTE\_CAN-IF:\MDK\packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include-IF:\MDK\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o ..\obj\stm32f1xx_hal_tim.o --omf_browse ..\obj\stm32f1xx_hal_tim.crf --depend ..\obj\stm32f1xx_hal_tim.d)
+F (..\HALLIB\STM32F1xx_HAL_Driver\Src\stm32f1xx_hal_tim.c)(0x649D209D)(-c --cpu Cortex-M3 -D__MICROLIB -g -O2 --apcs=interwork --split_sections -I ..\CORE -I ..\USER -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\USMART -I ..\HALLIB\STM32F1xx_HAL_Driver\Inc -I ..\HARDWARE\LED -I ..\HARDWARE\LCD -I ..\HARDWARE\KEY -I ..\HARDWARE\CAN -I ..\CANCONTROL -I ..\HARDWARE\TIMER -I ..\UART2ETH\ATK-UART2ETH -I ..\UART2ETH\RINGBUFFER -I ..\UART2ETH\USART3 -I ..\HARDWARE\MyQueue -I ..\HARDWARE\QUEUE-I.\RTE\_CAN-IF:\MDK\packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include-IF:\MDK\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o ..\obj\stm32f1xx_hal_tim.o --omf_browse ..\obj\stm32f1xx_hal_tim.crf --depend ..\obj\stm32f1xx_hal_tim.d)
 I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal.h)(0x5D10A069)
 I (..\USER\stm32f1xx_hal_conf.h)(0x5CFE625F)
 I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_rcc.h)(0x5D10A074)
@@ -754,7 +748,7 @@ I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_ll_usb.h)(0x5D138991)
 I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_pcd_ex.h)(0x5D10A084)
 I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_hcd.h)(0x5D10A084)
 I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_mmc.h)(0x5D10A076)
-F (..\HALLIB\STM32F1xx_HAL_Driver\Src\stm32f1xx_hal_tim_ex.c)(0x5D10A07E)(-c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\CORE -I ..\USER -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\USMART -I ..\HALLIB\STM32F1xx_HAL_Driver\Inc -I ..\HARDWARE\LED -I ..\HARDWARE\LCD -I ..\HARDWARE\KEY -I ..\HARDWARE\CAN -I ..\CANCONTROL -I ..\HARDWARE\TIMER -I ..\UART2ETH\ATK-UART2ETH -I ..\UART2ETH\RINGBUFFER -I ..\UART2ETH\USART3 -I ..\HARDWARE\MyQueue -I ..\HARDWARE\QUEUE-I.\RTE\_CAN-IF:\MDK\packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include-IF:\MDK\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o ..\obj\stm32f1xx_hal_tim_ex.o --omf_browse ..\obj\stm32f1xx_hal_tim_ex.crf --depend ..\obj\stm32f1xx_hal_tim_ex.d)
+F (..\HALLIB\STM32F1xx_HAL_Driver\Src\stm32f1xx_hal_tim_ex.c)(0x5D10A07E)(-c --cpu Cortex-M3 -D__MICROLIB -g -O2 --apcs=interwork --split_sections -I ..\CORE -I ..\USER -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\USMART -I ..\HALLIB\STM32F1xx_HAL_Driver\Inc -I ..\HARDWARE\LED -I ..\HARDWARE\LCD -I ..\HARDWARE\KEY -I ..\HARDWARE\CAN -I ..\CANCONTROL -I ..\HARDWARE\TIMER -I ..\UART2ETH\ATK-UART2ETH -I ..\UART2ETH\RINGBUFFER -I ..\UART2ETH\USART3 -I ..\HARDWARE\MyQueue -I ..\HARDWARE\QUEUE-I.\RTE\_CAN-IF:\MDK\packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include-IF:\MDK\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o ..\obj\stm32f1xx_hal_tim_ex.o --omf_browse ..\obj\stm32f1xx_hal_tim_ex.crf --depend ..\obj\stm32f1xx_hal_tim_ex.d)
 I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal.h)(0x5D10A069)
 I (..\USER\stm32f1xx_hal_conf.h)(0x5CFE625F)
 I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_rcc.h)(0x5D10A074)
@@ -810,7 +804,7 @@ I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_ll_usb.h)(0x5D138991)
 I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_pcd_ex.h)(0x5D10A084)
 I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_hcd.h)(0x5D10A084)
 I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_mmc.h)(0x5D10A076)
-F (..\HALLIB\STM32F1xx_HAL_Driver\Src\stm32f1xx_hal_uart.c)(0x5D10A083)(-c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\CORE -I ..\USER -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\USMART -I ..\HALLIB\STM32F1xx_HAL_Driver\Inc -I ..\HARDWARE\LED -I ..\HARDWARE\LCD -I ..\HARDWARE\KEY -I ..\HARDWARE\CAN -I ..\CANCONTROL -I ..\HARDWARE\TIMER -I ..\UART2ETH\ATK-UART2ETH -I ..\UART2ETH\RINGBUFFER -I ..\UART2ETH\USART3 -I ..\HARDWARE\MyQueue -I ..\HARDWARE\QUEUE-I.\RTE\_CAN-IF:\MDK\packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include-IF:\MDK\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o ..\obj\stm32f1xx_hal_uart.o --omf_browse ..\obj\stm32f1xx_hal_uart.crf --depend ..\obj\stm32f1xx_hal_uart.d)
+F (..\HALLIB\STM32F1xx_HAL_Driver\Src\stm32f1xx_hal_uart.c)(0x5D10A083)(-c --cpu Cortex-M3 -D__MICROLIB -g -O2 --apcs=interwork --split_sections -I ..\CORE -I ..\USER -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\USMART -I ..\HALLIB\STM32F1xx_HAL_Driver\Inc -I ..\HARDWARE\LED -I ..\HARDWARE\LCD -I ..\HARDWARE\KEY -I ..\HARDWARE\CAN -I ..\CANCONTROL -I ..\HARDWARE\TIMER -I ..\UART2ETH\ATK-UART2ETH -I ..\UART2ETH\RINGBUFFER -I ..\UART2ETH\USART3 -I ..\HARDWARE\MyQueue -I ..\HARDWARE\QUEUE-I.\RTE\_CAN-IF:\MDK\packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include-IF:\MDK\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o ..\obj\stm32f1xx_hal_uart.o --omf_browse ..\obj\stm32f1xx_hal_uart.crf --depend ..\obj\stm32f1xx_hal_uart.d)
 I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal.h)(0x5D10A069)
 I (..\USER\stm32f1xx_hal_conf.h)(0x5CFE625F)
 I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_rcc.h)(0x5D10A074)
@@ -866,7 +860,7 @@ I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_ll_usb.h)(0x5D138991)
 I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_pcd_ex.h)(0x5D10A084)
 I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_hcd.h)(0x5D10A084)
 I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_mmc.h)(0x5D10A076)
-F (..\HALLIB\STM32F1xx_HAL_Driver\Src\stm32f1xx_hal_usart.c)(0x5D10A083)(-c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\CORE -I ..\USER -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\USMART -I ..\HALLIB\STM32F1xx_HAL_Driver\Inc -I ..\HARDWARE\LED -I ..\HARDWARE\LCD -I ..\HARDWARE\KEY -I ..\HARDWARE\CAN -I ..\CANCONTROL -I ..\HARDWARE\TIMER -I ..\UART2ETH\ATK-UART2ETH -I ..\UART2ETH\RINGBUFFER -I ..\UART2ETH\USART3 -I ..\HARDWARE\MyQueue -I ..\HARDWARE\QUEUE-I.\RTE\_CAN-IF:\MDK\packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include-IF:\MDK\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o ..\obj\stm32f1xx_hal_usart.o --omf_browse ..\obj\stm32f1xx_hal_usart.crf --depend ..\obj\stm32f1xx_hal_usart.d)
+F (..\HALLIB\STM32F1xx_HAL_Driver\Src\stm32f1xx_hal_usart.c)(0x5D10A083)(-c --cpu Cortex-M3 -D__MICROLIB -g -O2 --apcs=interwork --split_sections -I ..\CORE -I ..\USER -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\USMART -I ..\HALLIB\STM32F1xx_HAL_Driver\Inc -I ..\HARDWARE\LED -I ..\HARDWARE\LCD -I ..\HARDWARE\KEY -I ..\HARDWARE\CAN -I ..\CANCONTROL -I ..\HARDWARE\TIMER -I ..\UART2ETH\ATK-UART2ETH -I ..\UART2ETH\RINGBUFFER -I ..\UART2ETH\USART3 -I ..\HARDWARE\MyQueue -I ..\HARDWARE\QUEUE-I.\RTE\_CAN-IF:\MDK\packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include-IF:\MDK\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o ..\obj\stm32f1xx_hal_usart.o --omf_browse ..\obj\stm32f1xx_hal_usart.crf --depend ..\obj\stm32f1xx_hal_usart.d)
 I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal.h)(0x5D10A069)
 I (..\USER\stm32f1xx_hal_conf.h)(0x5CFE625F)
 I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_rcc.h)(0x5D10A074)
@@ -922,7 +916,7 @@ I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_ll_usb.h)(0x5D138991)
 I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_pcd_ex.h)(0x5D10A084)
 I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_hcd.h)(0x5D10A084)
 I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_mmc.h)(0x5D10A076)
-F (..\HALLIB\STM32F1xx_HAL_Driver\Src\stm32f1xx_hal_sram.c)(0x5D10A066)(-c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\CORE -I ..\USER -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\USMART -I ..\HALLIB\STM32F1xx_HAL_Driver\Inc -I ..\HARDWARE\LED -I ..\HARDWARE\LCD -I ..\HARDWARE\KEY -I ..\HARDWARE\CAN -I ..\CANCONTROL -I ..\HARDWARE\TIMER -I ..\UART2ETH\ATK-UART2ETH -I ..\UART2ETH\RINGBUFFER -I ..\UART2ETH\USART3 -I ..\HARDWARE\MyQueue -I ..\HARDWARE\QUEUE-I.\RTE\_CAN-IF:\MDK\packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include-IF:\MDK\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o ..\obj\stm32f1xx_hal_sram.o --omf_browse ..\obj\stm32f1xx_hal_sram.crf --depend ..\obj\stm32f1xx_hal_sram.d)
+F (..\HALLIB\STM32F1xx_HAL_Driver\Src\stm32f1xx_hal_sram.c)(0x5D10A066)(-c --cpu Cortex-M3 -D__MICROLIB -g -O2 --apcs=interwork --split_sections -I ..\CORE -I ..\USER -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\USMART -I ..\HALLIB\STM32F1xx_HAL_Driver\Inc -I ..\HARDWARE\LED -I ..\HARDWARE\LCD -I ..\HARDWARE\KEY -I ..\HARDWARE\CAN -I ..\CANCONTROL -I ..\HARDWARE\TIMER -I ..\UART2ETH\ATK-UART2ETH -I ..\UART2ETH\RINGBUFFER -I ..\UART2ETH\USART3 -I ..\HARDWARE\MyQueue -I ..\HARDWARE\QUEUE-I.\RTE\_CAN-IF:\MDK\packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include-IF:\MDK\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o ..\obj\stm32f1xx_hal_sram.o --omf_browse ..\obj\stm32f1xx_hal_sram.crf --depend ..\obj\stm32f1xx_hal_sram.d)
 I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal.h)(0x5D10A069)
 I (..\USER\stm32f1xx_hal_conf.h)(0x5CFE625F)
 I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_rcc.h)(0x5D10A074)
@@ -978,7 +972,7 @@ I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_ll_usb.h)(0x5D138991)
 I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_pcd_ex.h)(0x5D10A084)
 I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_hcd.h)(0x5D10A084)
 I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_mmc.h)(0x5D10A076)
-F (..\HALLIB\STM32F1xx_HAL_Driver\Src\stm32f1xx_ll_fsmc.c)(0x5D10A066)(-c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\CORE -I ..\USER -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\USMART -I ..\HALLIB\STM32F1xx_HAL_Driver\Inc -I ..\HARDWARE\LED -I ..\HARDWARE\LCD -I ..\HARDWARE\KEY -I ..\HARDWARE\CAN -I ..\CANCONTROL -I ..\HARDWARE\TIMER -I ..\UART2ETH\ATK-UART2ETH -I ..\UART2ETH\RINGBUFFER -I ..\UART2ETH\USART3 -I ..\HARDWARE\MyQueue -I ..\HARDWARE\QUEUE-I.\RTE\_CAN-IF:\MDK\packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include-IF:\MDK\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o ..\obj\stm32f1xx_ll_fsmc.o --omf_browse ..\obj\stm32f1xx_ll_fsmc.crf --depend ..\obj\stm32f1xx_ll_fsmc.d)
+F (..\HALLIB\STM32F1xx_HAL_Driver\Src\stm32f1xx_ll_fsmc.c)(0x5D10A066)(-c --cpu Cortex-M3 -D__MICROLIB -g -O2 --apcs=interwork --split_sections -I ..\CORE -I ..\USER -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\USMART -I ..\HALLIB\STM32F1xx_HAL_Driver\Inc -I ..\HARDWARE\LED -I ..\HARDWARE\LCD -I ..\HARDWARE\KEY -I ..\HARDWARE\CAN -I ..\CANCONTROL -I ..\HARDWARE\TIMER -I ..\UART2ETH\ATK-UART2ETH -I ..\UART2ETH\RINGBUFFER -I ..\UART2ETH\USART3 -I ..\HARDWARE\MyQueue -I ..\HARDWARE\QUEUE-I.\RTE\_CAN-IF:\MDK\packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include-IF:\MDK\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o ..\obj\stm32f1xx_ll_fsmc.o --omf_browse ..\obj\stm32f1xx_ll_fsmc.crf --depend ..\obj\stm32f1xx_ll_fsmc.d)
 I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal.h)(0x5D10A069)
 I (..\USER\stm32f1xx_hal_conf.h)(0x5CFE625F)
 I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_rcc.h)(0x5D10A074)
@@ -1034,7 +1028,7 @@ I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_ll_usb.h)(0x5D138991)
 I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_pcd_ex.h)(0x5D10A084)
 I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_hcd.h)(0x5D10A084)
 I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_mmc.h)(0x5D10A076)
-F (..\HALLIB\STM32F1xx_HAL_Driver\Src\stm32f1xx_hal_spi.c)(0x5D10A07A)(-c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\CORE -I ..\USER -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\USMART -I ..\HALLIB\STM32F1xx_HAL_Driver\Inc -I ..\HARDWARE\LED -I ..\HARDWARE\LCD -I ..\HARDWARE\KEY -I ..\HARDWARE\CAN -I ..\CANCONTROL -I ..\HARDWARE\TIMER -I ..\UART2ETH\ATK-UART2ETH -I ..\UART2ETH\RINGBUFFER -I ..\UART2ETH\USART3 -I ..\HARDWARE\MyQueue -I ..\HARDWARE\QUEUE-I.\RTE\_CAN-IF:\MDK\packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include-IF:\MDK\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o ..\obj\stm32f1xx_hal_spi.o --omf_browse ..\obj\stm32f1xx_hal_spi.crf --depend ..\obj\stm32f1xx_hal_spi.d)
+F (..\HALLIB\STM32F1xx_HAL_Driver\Src\stm32f1xx_hal_spi.c)(0x5D10A07A)(-c --cpu Cortex-M3 -D__MICROLIB -g -O2 --apcs=interwork --split_sections -I ..\CORE -I ..\USER -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\USMART -I ..\HALLIB\STM32F1xx_HAL_Driver\Inc -I ..\HARDWARE\LED -I ..\HARDWARE\LCD -I ..\HARDWARE\KEY -I ..\HARDWARE\CAN -I ..\CANCONTROL -I ..\HARDWARE\TIMER -I ..\UART2ETH\ATK-UART2ETH -I ..\UART2ETH\RINGBUFFER -I ..\UART2ETH\USART3 -I ..\HARDWARE\MyQueue -I ..\HARDWARE\QUEUE-I.\RTE\_CAN-IF:\MDK\packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include-IF:\MDK\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o ..\obj\stm32f1xx_hal_spi.o --omf_browse ..\obj\stm32f1xx_hal_spi.crf --depend ..\obj\stm32f1xx_hal_spi.d)
 I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal.h)(0x5D10A069)
 I (..\USER\stm32f1xx_hal_conf.h)(0x5CFE625F)
 I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_rcc.h)(0x5D10A074)
@@ -1090,7 +1084,7 @@ I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_ll_usb.h)(0x5D138991)
 I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_pcd_ex.h)(0x5D10A084)
 I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_hcd.h)(0x5D10A084)
 I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_mmc.h)(0x5D10A076)
-F (..\HALLIB\STM32F1xx_HAL_Driver\Src\stm32f1xx_hal_can.c)(0x5D10A056)(-c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\CORE -I ..\USER -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\USMART -I ..\HALLIB\STM32F1xx_HAL_Driver\Inc -I ..\HARDWARE\LED -I ..\HARDWARE\LCD -I ..\HARDWARE\KEY -I ..\HARDWARE\CAN -I ..\CANCONTROL -I ..\HARDWARE\TIMER -I ..\UART2ETH\ATK-UART2ETH -I ..\UART2ETH\RINGBUFFER -I ..\UART2ETH\USART3 -I ..\HARDWARE\MyQueue -I ..\HARDWARE\QUEUE-I.\RTE\_CAN-IF:\MDK\packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include-IF:\MDK\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o ..\obj\stm32f1xx_hal_can.o --omf_browse ..\obj\stm32f1xx_hal_can.crf --depend ..\obj\stm32f1xx_hal_can.d)
+F (..\HALLIB\STM32F1xx_HAL_Driver\Src\stm32f1xx_hal_can.c)(0x5D10A056)(-c --cpu Cortex-M3 -D__MICROLIB -g -O2 --apcs=interwork --split_sections -I ..\CORE -I ..\USER -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\USMART -I ..\HALLIB\STM32F1xx_HAL_Driver\Inc -I ..\HARDWARE\LED -I ..\HARDWARE\LCD -I ..\HARDWARE\KEY -I ..\HARDWARE\CAN -I ..\CANCONTROL -I ..\HARDWARE\TIMER -I ..\UART2ETH\ATK-UART2ETH -I ..\UART2ETH\RINGBUFFER -I ..\UART2ETH\USART3 -I ..\HARDWARE\MyQueue -I ..\HARDWARE\QUEUE-I.\RTE\_CAN-IF:\MDK\packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include-IF:\MDK\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o ..\obj\stm32f1xx_hal_can.o --omf_browse ..\obj\stm32f1xx_hal_can.crf --depend ..\obj\stm32f1xx_hal_can.d)
 I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal.h)(0x5D10A069)
 I (..\USER\stm32f1xx_hal_conf.h)(0x5CFE625F)
 I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_rcc.h)(0x5D10A074)
@@ -1146,7 +1140,7 @@ I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_ll_usb.h)(0x5D138991)
 I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_pcd_ex.h)(0x5D10A084)
 I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_hcd.h)(0x5D10A084)
 I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_mmc.h)(0x5D10A076)
-F (..\SYSTEM\delay\delay.c)(0x5D808F12)(-c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\CORE -I ..\USER -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\USMART -I ..\HALLIB\STM32F1xx_HAL_Driver\Inc -I ..\HARDWARE\LED -I ..\HARDWARE\LCD -I ..\HARDWARE\KEY -I ..\HARDWARE\CAN -I ..\CANCONTROL -I ..\HARDWARE\TIMER -I ..\UART2ETH\ATK-UART2ETH -I ..\UART2ETH\RINGBUFFER -I ..\UART2ETH\USART3 -I ..\HARDWARE\MyQueue -I ..\HARDWARE\QUEUE-I.\RTE\_CAN-IF:\MDK\packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include-IF:\MDK\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o ..\obj\delay.o --omf_browse ..\obj\delay.crf --depend ..\obj\delay.d)
+F (..\SYSTEM\delay\delay.c)(0x5D808F12)(-c --cpu Cortex-M3 -D__MICROLIB -g -O2 --apcs=interwork --split_sections -I ..\CORE -I ..\USER -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\USMART -I ..\HALLIB\STM32F1xx_HAL_Driver\Inc -I ..\HARDWARE\LED -I ..\HARDWARE\LCD -I ..\HARDWARE\KEY -I ..\HARDWARE\CAN -I ..\CANCONTROL -I ..\HARDWARE\TIMER -I ..\UART2ETH\ATK-UART2ETH -I ..\UART2ETH\RINGBUFFER -I ..\UART2ETH\USART3 -I ..\HARDWARE\MyQueue -I ..\HARDWARE\QUEUE-I.\RTE\_CAN-IF:\MDK\packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include-IF:\MDK\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o ..\obj\delay.o --omf_browse ..\obj\delay.crf --depend ..\obj\delay.d)
 I (..\SYSTEM\delay\delay.h)(0x5D808F12)
 I (..\SYSTEM\sys\sys.h)(0x5D808F12)
 I (..\USER\stm32f1xx.h)(0x5D1623CA)
@@ -1204,7 +1198,7 @@ I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_ll_usb.h)(0x5D138991)
 I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_pcd_ex.h)(0x5D10A084)
 I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_hcd.h)(0x5D10A084)
 I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_mmc.h)(0x5D10A076)
-F (..\SYSTEM\sys\sys.c)(0x5D819D33)(-c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\CORE -I ..\USER -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\USMART -I ..\HALLIB\STM32F1xx_HAL_Driver\Inc -I ..\HARDWARE\LED -I ..\HARDWARE\LCD -I ..\HARDWARE\KEY -I ..\HARDWARE\CAN -I ..\CANCONTROL -I ..\HARDWARE\TIMER -I ..\UART2ETH\ATK-UART2ETH -I ..\UART2ETH\RINGBUFFER -I ..\UART2ETH\USART3 -I ..\HARDWARE\MyQueue -I ..\HARDWARE\QUEUE-I.\RTE\_CAN-IF:\MDK\packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include-IF:\MDK\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o ..\obj\sys.o --omf_browse ..\obj\sys.crf --depend ..\obj\sys.d)
+F (..\SYSTEM\sys\sys.c)(0x5D819D33)(-c --cpu Cortex-M3 -D__MICROLIB -g -O2 --apcs=interwork --split_sections -I ..\CORE -I ..\USER -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\USMART -I ..\HALLIB\STM32F1xx_HAL_Driver\Inc -I ..\HARDWARE\LED -I ..\HARDWARE\LCD -I ..\HARDWARE\KEY -I ..\HARDWARE\CAN -I ..\CANCONTROL -I ..\HARDWARE\TIMER -I ..\UART2ETH\ATK-UART2ETH -I ..\UART2ETH\RINGBUFFER -I ..\UART2ETH\USART3 -I ..\HARDWARE\MyQueue -I ..\HARDWARE\QUEUE-I.\RTE\_CAN-IF:\MDK\packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include-IF:\MDK\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o ..\obj\sys.o --omf_browse ..\obj\sys.crf --depend ..\obj\sys.d)
 I (..\SYSTEM\sys\sys.h)(0x5D808F12)
 I (..\USER\stm32f1xx.h)(0x5D1623CA)
 I (..\USER\stm32f103xe.h)(0x5D1623CA)
@@ -1261,7 +1255,7 @@ I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_ll_usb.h)(0x5D138991)
 I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_pcd_ex.h)(0x5D10A084)
 I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_hcd.h)(0x5D10A084)
 I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_mmc.h)(0x5D10A076)
-F (..\SYSTEM\usart\usart.c)(0x5D808F12)(-c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\CORE -I ..\USER -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\USMART -I ..\HALLIB\STM32F1xx_HAL_Driver\Inc -I ..\HARDWARE\LED -I ..\HARDWARE\LCD -I ..\HARDWARE\KEY -I ..\HARDWARE\CAN -I ..\CANCONTROL -I ..\HARDWARE\TIMER -I ..\UART2ETH\ATK-UART2ETH -I ..\UART2ETH\RINGBUFFER -I ..\UART2ETH\USART3 -I ..\HARDWARE\MyQueue -I ..\HARDWARE\QUEUE-I.\RTE\_CAN-IF:\MDK\packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include-IF:\MDK\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o ..\obj\usart.o --omf_browse ..\obj\usart.crf --depend ..\obj\usart.d)
+F (..\SYSTEM\usart\usart.c)(0x5D808F12)(-c --cpu Cortex-M3 -D__MICROLIB -g -O2 --apcs=interwork --split_sections -I ..\CORE -I ..\USER -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\USMART -I ..\HALLIB\STM32F1xx_HAL_Driver\Inc -I ..\HARDWARE\LED -I ..\HARDWARE\LCD -I ..\HARDWARE\KEY -I ..\HARDWARE\CAN -I ..\CANCONTROL -I ..\HARDWARE\TIMER -I ..\UART2ETH\ATK-UART2ETH -I ..\UART2ETH\RINGBUFFER -I ..\UART2ETH\USART3 -I ..\HARDWARE\MyQueue -I ..\HARDWARE\QUEUE-I.\RTE\_CAN-IF:\MDK\packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include-IF:\MDK\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o ..\obj\usart.o --omf_browse ..\obj\usart.crf --depend ..\obj\usart.d)
 I (..\SYSTEM\sys\sys.h)(0x5D808F12)
 I (..\USER\stm32f1xx.h)(0x5D1623CA)
 I (..\USER\stm32f103xe.h)(0x5D1623CA)
@@ -1320,187 +1314,7 @@ I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_hcd.h)(0x5D10A084)
 I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_mmc.h)(0x5D10A076)
 I (..\SYSTEM\usart\usart.h)(0x5D808F12)
 I (F:\MDK\ARM\ARMCC\include\stdio.h)(0x60252374)
-F (..\HARDWARE\LED\led.c)(0x5D80919D)(-c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\CORE -I ..\USER -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\USMART -I ..\HALLIB\STM32F1xx_HAL_Driver\Inc -I ..\HARDWARE\LED -I ..\HARDWARE\LCD -I ..\HARDWARE\KEY -I ..\HARDWARE\CAN -I ..\CANCONTROL -I ..\HARDWARE\TIMER -I ..\UART2ETH\ATK-UART2ETH -I ..\UART2ETH\RINGBUFFER -I ..\UART2ETH\USART3 -I ..\HARDWARE\MyQueue -I ..\HARDWARE\QUEUE-I.\RTE\_CAN-IF:\MDK\packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include-IF:\MDK\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o ..\obj\led.o --omf_browse ..\obj\led.crf --depend ..\obj\led.d)
-I (..\HARDWARE\LED\led.h)(0x5D819252)
-I (..\SYSTEM\sys\sys.h)(0x5D808F12)
-I (..\USER\stm32f1xx.h)(0x5D1623CA)
-I (..\USER\stm32f103xe.h)(0x5D1623CA)
-I (..\CORE\core_cm3.h)(0x5D8085B0)
-I (F:\MDK\ARM\ARMCC\include\stdint.h)(0x6025237E)
-I (..\CORE\cmsis_compiler.h)(0x5D1623CA)
-I (..\CORE\cmsis_armcc.h)(0x5D1623CA)
-I (..\USER\system_stm32f1xx.h)(0x5D1623CA)
-I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal.h)(0x5D10A069)
-I (..\USER\stm32f1xx_hal_conf.h)(0x5CFE625F)
-I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_rcc.h)(0x5D10A074)
-I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_def.h)(0x5D10A069)
-I (F:\MDK\ARM\ARMCC\include\stddef.h)(0x6025237E)
-I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_rcc_ex.h)(0x5D10A074)
-I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_gpio.h)(0x5D10A06B)
-I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_gpio_ex.h)(0x5D10A06B)
-I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_exti.h)(0x5D10A063)
-I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_dma.h)(0x5D10A061)
-I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_dma_ex.h)(0x5D10A061)
-I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_eth.h)(0x5D10A061)
-I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_can.h)(0x5D10A056)
-I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_cec.h)(0x5D10A058)
-I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_cortex.h)(0x5D10A05A)
-I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_adc.h)(0x5D10A054)
-I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_adc_ex.h)(0x5D10A054)
-I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_crc.h)(0x5D10A05C)
-I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_dac.h)(0x5D10A05F)
-I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_dac_ex.h)(0x5D10A05F)
-I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_flash.h)(0x5D10A064)
-I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_flash_ex.h)(0x5D10A064)
-I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_sram.h)(0x5D10A066)
-I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_ll_fsmc.h)(0x5D10A066)
-I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_nor.h)(0x5D10A066)
-I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_i2c.h)(0x5D10A06D)
-I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_i2s.h)(0x5D10A07A)
-I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_iwdg.h)(0x5D10A071)
-I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_pwr.h)(0x5D10A072)
-I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_rtc.h)(0x5D10A074)
-I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_rtc_ex.h)(0x5D10A074)
-I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_pccard.h)(0x5D10A066)
-I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_sd.h)(0x5D10A076)
-I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_ll_sdmmc.h)(0x5D10A076)
-I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_nand.h)(0x5D10A066)
-I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_spi.h)(0x5D10A07A)
-I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_tim.h)(0x649D32BF)
-I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_tim_ex.h)(0x5D10A07E)
-I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_uart.h)(0x5D10A083)
-I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_usart.h)(0x5D10A083)
-I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_irda.h)(0x5D10A06F)
-I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_smartcard.h)(0x5D10A078)
-I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_wwdg.h)(0x5D10A08A)
-I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_pcd.h)(0x5D138991)
-I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_ll_usb.h)(0x5D138991)
-I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_pcd_ex.h)(0x5D10A084)
-I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_hcd.h)(0x5D10A084)
-I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_mmc.h)(0x5D10A076)
-F (..\HARDWARE\LCD\lcd.c)(0x5D81AED1)(-c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\CORE -I ..\USER -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\USMART -I ..\HALLIB\STM32F1xx_HAL_Driver\Inc -I ..\HARDWARE\LED -I ..\HARDWARE\LCD -I ..\HARDWARE\KEY -I ..\HARDWARE\CAN -I ..\CANCONTROL -I ..\HARDWARE\TIMER -I ..\UART2ETH\ATK-UART2ETH -I ..\UART2ETH\RINGBUFFER -I ..\UART2ETH\USART3 -I ..\HARDWARE\MyQueue -I ..\HARDWARE\QUEUE-I.\RTE\_CAN-IF:\MDK\packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include-IF:\MDK\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o ..\obj\lcd.o --omf_browse ..\obj\lcd.crf --depend ..\obj\lcd.d)
-I (..\HARDWARE\LCD\lcd.h)(0x5D81AEA3)
-I (..\SYSTEM\sys\sys.h)(0x5D808F12)
-I (..\USER\stm32f1xx.h)(0x5D1623CA)
-I (..\USER\stm32f103xe.h)(0x5D1623CA)
-I (..\CORE\core_cm3.h)(0x5D8085B0)
-I (F:\MDK\ARM\ARMCC\include\stdint.h)(0x6025237E)
-I (..\CORE\cmsis_compiler.h)(0x5D1623CA)
-I (..\CORE\cmsis_armcc.h)(0x5D1623CA)
-I (..\USER\system_stm32f1xx.h)(0x5D1623CA)
-I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal.h)(0x5D10A069)
-I (..\USER\stm32f1xx_hal_conf.h)(0x5CFE625F)
-I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_rcc.h)(0x5D10A074)
-I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_def.h)(0x5D10A069)
-I (F:\MDK\ARM\ARMCC\include\stddef.h)(0x6025237E)
-I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_rcc_ex.h)(0x5D10A074)
-I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_gpio.h)(0x5D10A06B)
-I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_gpio_ex.h)(0x5D10A06B)
-I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_exti.h)(0x5D10A063)
-I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_dma.h)(0x5D10A061)
-I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_dma_ex.h)(0x5D10A061)
-I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_eth.h)(0x5D10A061)
-I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_can.h)(0x5D10A056)
-I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_cec.h)(0x5D10A058)
-I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_cortex.h)(0x5D10A05A)
-I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_adc.h)(0x5D10A054)
-I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_adc_ex.h)(0x5D10A054)
-I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_crc.h)(0x5D10A05C)
-I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_dac.h)(0x5D10A05F)
-I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_dac_ex.h)(0x5D10A05F)
-I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_flash.h)(0x5D10A064)
-I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_flash_ex.h)(0x5D10A064)
-I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_sram.h)(0x5D10A066)
-I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_ll_fsmc.h)(0x5D10A066)
-I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_nor.h)(0x5D10A066)
-I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_i2c.h)(0x5D10A06D)
-I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_i2s.h)(0x5D10A07A)
-I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_iwdg.h)(0x5D10A071)
-I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_pwr.h)(0x5D10A072)
-I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_rtc.h)(0x5D10A074)
-I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_rtc_ex.h)(0x5D10A074)
-I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_pccard.h)(0x5D10A066)
-I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_sd.h)(0x5D10A076)
-I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_ll_sdmmc.h)(0x5D10A076)
-I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_nand.h)(0x5D10A066)
-I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_spi.h)(0x5D10A07A)
-I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_tim.h)(0x649D32BF)
-I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_tim_ex.h)(0x5D10A07E)
-I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_uart.h)(0x5D10A083)
-I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_usart.h)(0x5D10A083)
-I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_irda.h)(0x5D10A06F)
-I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_smartcard.h)(0x5D10A078)
-I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_wwdg.h)(0x5D10A08A)
-I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_pcd.h)(0x5D138991)
-I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_ll_usb.h)(0x5D138991)
-I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_pcd_ex.h)(0x5D10A084)
-I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_hcd.h)(0x5D10A084)
-I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_mmc.h)(0x5D10A076)
-I (F:\MDK\ARM\ARMCC\include\stdlib.h)(0x60252374)
-I (..\HARDWARE\LCD\font.h)(0x574DA4B3)
-I (..\SYSTEM\usart\usart.h)(0x5D808F12)
-I (F:\MDK\ARM\ARMCC\include\stdio.h)(0x60252374)
-I (..\SYSTEM\delay\delay.h)(0x5D808F12)
-F (..\HARDWARE\KEY\key.c)(0x5DCA6A32)(-c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\CORE -I ..\USER -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\USMART -I ..\HALLIB\STM32F1xx_HAL_Driver\Inc -I ..\HARDWARE\LED -I ..\HARDWARE\LCD -I ..\HARDWARE\KEY -I ..\HARDWARE\CAN -I ..\CANCONTROL -I ..\HARDWARE\TIMER -I ..\UART2ETH\ATK-UART2ETH -I ..\UART2ETH\RINGBUFFER -I ..\UART2ETH\USART3 -I ..\HARDWARE\MyQueue -I ..\HARDWARE\QUEUE-I.\RTE\_CAN-IF:\MDK\packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include-IF:\MDK\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o ..\obj\key.o --omf_browse ..\obj\key.crf --depend ..\obj\key.d)
-I (..\HARDWARE\KEY\key.h)(0x649D1325)
-I (..\SYSTEM\sys\sys.h)(0x5D808F12)
-I (..\USER\stm32f1xx.h)(0x5D1623CA)
-I (..\USER\stm32f103xe.h)(0x5D1623CA)
-I (..\CORE\core_cm3.h)(0x5D8085B0)
-I (F:\MDK\ARM\ARMCC\include\stdint.h)(0x6025237E)
-I (..\CORE\cmsis_compiler.h)(0x5D1623CA)
-I (..\CORE\cmsis_armcc.h)(0x5D1623CA)
-I (..\USER\system_stm32f1xx.h)(0x5D1623CA)
-I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal.h)(0x5D10A069)
-I (..\USER\stm32f1xx_hal_conf.h)(0x5CFE625F)
-I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_rcc.h)(0x5D10A074)
-I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_def.h)(0x5D10A069)
-I (F:\MDK\ARM\ARMCC\include\stddef.h)(0x6025237E)
-I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_rcc_ex.h)(0x5D10A074)
-I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_gpio.h)(0x5D10A06B)
-I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_gpio_ex.h)(0x5D10A06B)
-I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_exti.h)(0x5D10A063)
-I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_dma.h)(0x5D10A061)
-I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_dma_ex.h)(0x5D10A061)
-I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_eth.h)(0x5D10A061)
-I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_can.h)(0x5D10A056)
-I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_cec.h)(0x5D10A058)
-I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_cortex.h)(0x5D10A05A)
-I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_adc.h)(0x5D10A054)
-I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_adc_ex.h)(0x5D10A054)
-I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_crc.h)(0x5D10A05C)
-I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_dac.h)(0x5D10A05F)
-I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_dac_ex.h)(0x5D10A05F)
-I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_flash.h)(0x5D10A064)
-I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_flash_ex.h)(0x5D10A064)
-I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_sram.h)(0x5D10A066)
-I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_ll_fsmc.h)(0x5D10A066)
-I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_nor.h)(0x5D10A066)
-I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_i2c.h)(0x5D10A06D)
-I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_i2s.h)(0x5D10A07A)
-I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_iwdg.h)(0x5D10A071)
-I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_pwr.h)(0x5D10A072)
-I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_rtc.h)(0x5D10A074)
-I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_rtc_ex.h)(0x5D10A074)
-I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_pccard.h)(0x5D10A066)
-I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_sd.h)(0x5D10A076)
-I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_ll_sdmmc.h)(0x5D10A076)
-I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_nand.h)(0x5D10A066)
-I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_spi.h)(0x5D10A07A)
-I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_tim.h)(0x649D32BF)
-I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_tim_ex.h)(0x5D10A07E)
-I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_uart.h)(0x5D10A083)
-I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_usart.h)(0x5D10A083)
-I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_irda.h)(0x5D10A06F)
-I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_smartcard.h)(0x5D10A078)
-I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_wwdg.h)(0x5D10A08A)
-I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_pcd.h)(0x5D138991)
-I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_ll_usb.h)(0x5D138991)
-I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_pcd_ex.h)(0x5D10A084)
-I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_hcd.h)(0x5D10A084)
-I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_mmc.h)(0x5D10A076)
-I (..\SYSTEM\delay\delay.h)(0x5D808F12)
-F (..\HARDWARE\CAN\can.c)(0x64CBAB7B)(-c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\CORE -I ..\USER -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\USMART -I ..\HALLIB\STM32F1xx_HAL_Driver\Inc -I ..\HARDWARE\LED -I ..\HARDWARE\LCD -I ..\HARDWARE\KEY -I ..\HARDWARE\CAN -I ..\CANCONTROL -I ..\HARDWARE\TIMER -I ..\UART2ETH\ATK-UART2ETH -I ..\UART2ETH\RINGBUFFER -I ..\UART2ETH\USART3 -I ..\HARDWARE\MyQueue -I ..\HARDWARE\QUEUE-I.\RTE\_CAN-IF:\MDK\packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include-IF:\MDK\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o ..\obj\can.o --omf_browse ..\obj\can.crf --depend ..\obj\can.d)
+F (..\HARDWARE\CAN\can.c)(0x64EC1B66)(-c --cpu Cortex-M3 -D__MICROLIB -g -O2 --apcs=interwork --split_sections -I ..\CORE -I ..\USER -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\USMART -I ..\HALLIB\STM32F1xx_HAL_Driver\Inc -I ..\HARDWARE\LED -I ..\HARDWARE\LCD -I ..\HARDWARE\KEY -I ..\HARDWARE\CAN -I ..\CANCONTROL -I ..\HARDWARE\TIMER -I ..\UART2ETH\ATK-UART2ETH -I ..\UART2ETH\RINGBUFFER -I ..\UART2ETH\USART3 -I ..\HARDWARE\MyQueue -I ..\HARDWARE\QUEUE-I.\RTE\_CAN-IF:\MDK\packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include-IF:\MDK\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o ..\obj\can.o --omf_browse ..\obj\can.crf --depend ..\obj\can.d)
 I (..\HARDWARE\CAN\can.h)(0x64C67243)
 I (..\SYSTEM\sys\sys.h)(0x5D808F12)
 I (..\USER\stm32f1xx.h)(0x5D1623CA)
@@ -1562,7 +1376,7 @@ I (..\SYSTEM\usart\usart.h)(0x5D808F12)
 I (F:\MDK\ARM\ARMCC\include\stdio.h)(0x60252374)
 I (..\SYSTEM\delay\delay.h)(0x5D808F12)
 I (..\HARDWARE\LED\led.h)(0x5D819252)
-F (..\CANCONTROL\canControl.c)(0x64C7BC9F)(-c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\CORE -I ..\USER -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\USMART -I ..\HALLIB\STM32F1xx_HAL_Driver\Inc -I ..\HARDWARE\LED -I ..\HARDWARE\LCD -I ..\HARDWARE\KEY -I ..\HARDWARE\CAN -I ..\CANCONTROL -I ..\HARDWARE\TIMER -I ..\UART2ETH\ATK-UART2ETH -I ..\UART2ETH\RINGBUFFER -I ..\UART2ETH\USART3 -I ..\HARDWARE\MyQueue -I ..\HARDWARE\QUEUE-I.\RTE\_CAN-IF:\MDK\packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include-IF:\MDK\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o ..\obj\cancontrol.o --omf_browse ..\obj\cancontrol.crf --depend ..\obj\cancontrol.d)
+F (..\CANCONTROL\canControl.c)(0x64EC2063)(-c --cpu Cortex-M3 -D__MICROLIB -g -O2 --apcs=interwork --split_sections -I ..\CORE -I ..\USER -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\USMART -I ..\HALLIB\STM32F1xx_HAL_Driver\Inc -I ..\HARDWARE\LED -I ..\HARDWARE\LCD -I ..\HARDWARE\KEY -I ..\HARDWARE\CAN -I ..\CANCONTROL -I ..\HARDWARE\TIMER -I ..\UART2ETH\ATK-UART2ETH -I ..\UART2ETH\RINGBUFFER -I ..\UART2ETH\USART3 -I ..\HARDWARE\MyQueue -I ..\HARDWARE\QUEUE-I.\RTE\_CAN-IF:\MDK\packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include-IF:\MDK\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o ..\obj\cancontrol.o --omf_browse ..\obj\cancontrol.crf --depend ..\obj\cancontrol.d)
 I (F:\MDK\ARM\ARMCC\include\math.h)(0x60252378)
 I (F:\MDK\ARM\ARMCC\include\stdio.h)(0x60252374)
 I (F:\MDK\ARM\ARMCC\include\string.h)(0x6025237E)
@@ -1625,7 +1439,7 @@ I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_hcd.h)(0x5D10A084)
 I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_mmc.h)(0x5D10A076)
 I (..\CANCONTROL\canControl.h)(0x64C67279)
 I (..\HARDWARE\CAN\can.h)(0x64C67243)
-F (..\HARDWARE\TIMER\timer.c)(0x64C28115)(-c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\CORE -I ..\USER -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\USMART -I ..\HALLIB\STM32F1xx_HAL_Driver\Inc -I ..\HARDWARE\LED -I ..\HARDWARE\LCD -I ..\HARDWARE\KEY -I ..\HARDWARE\CAN -I ..\CANCONTROL -I ..\HARDWARE\TIMER -I ..\UART2ETH\ATK-UART2ETH -I ..\UART2ETH\RINGBUFFER -I ..\UART2ETH\USART3 -I ..\HARDWARE\MyQueue -I ..\HARDWARE\QUEUE-I.\RTE\_CAN-IF:\MDK\packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include-IF:\MDK\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o ..\obj\timer.o --omf_browse ..\obj\timer.crf --depend ..\obj\timer.d)
+F (..\HARDWARE\TIMER\timer.c)(0x64EC1385)(-c --cpu Cortex-M3 -D__MICROLIB -g -O2 --apcs=interwork --split_sections -I ..\CORE -I ..\USER -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\USMART -I ..\HALLIB\STM32F1xx_HAL_Driver\Inc -I ..\HARDWARE\LED -I ..\HARDWARE\LCD -I ..\HARDWARE\KEY -I ..\HARDWARE\CAN -I ..\CANCONTROL -I ..\HARDWARE\TIMER -I ..\UART2ETH\ATK-UART2ETH -I ..\UART2ETH\RINGBUFFER -I ..\UART2ETH\USART3 -I ..\HARDWARE\MyQueue -I ..\HARDWARE\QUEUE-I.\RTE\_CAN-IF:\MDK\packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include-IF:\MDK\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o ..\obj\timer.o --omf_browse ..\obj\timer.crf --depend ..\obj\timer.d)
 I (..\HARDWARE\TIMER\timer.h)(0x649D32C1)
 I (..\SYSTEM\sys\sys.h)(0x5D808F12)
 I (..\USER\stm32f1xx.h)(0x5D1623CA)
@@ -1684,7 +1498,7 @@ I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_pcd_ex.h)(0x5D10A084)
 I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_hcd.h)(0x5D10A084)
 I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_mmc.h)(0x5D10A076)
 I (..\HARDWARE\LED\led.h)(0x5D819252)
-F (..\UART2ETH\USART3\usart3.c)(0x64BB3DA8)(-c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\CORE -I ..\USER -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\USMART -I ..\HALLIB\STM32F1xx_HAL_Driver\Inc -I ..\HARDWARE\LED -I ..\HARDWARE\LCD -I ..\HARDWARE\KEY -I ..\HARDWARE\CAN -I ..\CANCONTROL -I ..\HARDWARE\TIMER -I ..\UART2ETH\ATK-UART2ETH -I ..\UART2ETH\RINGBUFFER -I ..\UART2ETH\USART3 -I ..\HARDWARE\MyQueue -I ..\HARDWARE\QUEUE-I.\RTE\_CAN-IF:\MDK\packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include-IF:\MDK\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o ..\obj\usart3.o --omf_browse ..\obj\usart3.crf --depend ..\obj\usart3.d)
+F (..\UART2ETH\USART3\usart3.c)(0x64BB3DA8)(-c --cpu Cortex-M3 -D__MICROLIB -g -O2 --apcs=interwork --split_sections -I ..\CORE -I ..\USER -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\USMART -I ..\HALLIB\STM32F1xx_HAL_Driver\Inc -I ..\HARDWARE\LED -I ..\HARDWARE\LCD -I ..\HARDWARE\KEY -I ..\HARDWARE\CAN -I ..\CANCONTROL -I ..\HARDWARE\TIMER -I ..\UART2ETH\ATK-UART2ETH -I ..\UART2ETH\RINGBUFFER -I ..\UART2ETH\USART3 -I ..\HARDWARE\MyQueue -I ..\HARDWARE\QUEUE-I.\RTE\_CAN-IF:\MDK\packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include-IF:\MDK\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o ..\obj\usart3.o --omf_browse ..\obj\usart3.crf --depend ..\obj\usart3.d)
 I (..\UART2ETH\USART3\usart3.h)(0x649D7547)
 I (..\SYSTEM\sys\sys.h)(0x5D808F12)
 I (..\USER\stm32f1xx.h)(0x5D1623CA)
@@ -1744,7 +1558,7 @@ I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_hcd.h)(0x5D10A084)
 I (..\HALLIB\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_mmc.h)(0x5D10A076)
 I (..\SYSTEM\delay\delay.h)(0x5D808F12)
 I (..\UART2ETH\RINGBUFFER\ringbuffer.h)(0x64C63F13)
-F (..\UART2ETH\RINGBUFFER\ringbuffer.c)(0x64CBAD0F)(-c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\CORE -I ..\USER -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\USMART -I ..\HALLIB\STM32F1xx_HAL_Driver\Inc -I ..\HARDWARE\LED -I ..\HARDWARE\LCD -I ..\HARDWARE\KEY -I ..\HARDWARE\CAN -I ..\CANCONTROL -I ..\HARDWARE\TIMER -I ..\UART2ETH\ATK-UART2ETH -I ..\UART2ETH\RINGBUFFER -I ..\UART2ETH\USART3 -I ..\HARDWARE\MyQueue -I ..\HARDWARE\QUEUE-I.\RTE\_CAN-IF:\MDK\packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include-IF:\MDK\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o ..\obj\ringbuffer.o --omf_browse ..\obj\ringbuffer.crf --depend ..\obj\ringbuffer.d)
+F (..\UART2ETH\RINGBUFFER\ringbuffer.c)(0x64EC1B2E)(-c --cpu Cortex-M3 -D__MICROLIB -g -O2 --apcs=interwork --split_sections -I ..\CORE -I ..\USER -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\USMART -I ..\HALLIB\STM32F1xx_HAL_Driver\Inc -I ..\HARDWARE\LED -I ..\HARDWARE\LCD -I ..\HARDWARE\KEY -I ..\HARDWARE\CAN -I ..\CANCONTROL -I ..\HARDWARE\TIMER -I ..\UART2ETH\ATK-UART2ETH -I ..\UART2ETH\RINGBUFFER -I ..\UART2ETH\USART3 -I ..\HARDWARE\MyQueue -I ..\HARDWARE\QUEUE-I.\RTE\_CAN-IF:\MDK\packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include-IF:\MDK\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o ..\obj\ringbuffer.o --omf_browse ..\obj\ringbuffer.crf --depend ..\obj\ringbuffer.d)
 I (..\UART2ETH\RINGBUFFER\ringbuffer.h)(0x64C63F13)
 I (..\SYSTEM\sys\sys.h)(0x5D808F12)
 I (..\USER\stm32f1xx.h)(0x5D1623CA)
@@ -1807,7 +1621,7 @@ I (F:\MDK\ARM\ARMCC\include\stdio.h)(0x60252374)
 I (F:\MDK\ARM\ARMCC\include\string.h)(0x6025237E)
 I (..\CANCONTROL\canControl.h)(0x64C67279)
 I (..\HARDWARE\CAN\can.h)(0x64C67243)
-F (..\UART2ETH\ATK-UART2ETH\atk_u2e.c)(0x64CFABC6)(-c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\CORE -I ..\USER -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\USMART -I ..\HALLIB\STM32F1xx_HAL_Driver\Inc -I ..\HARDWARE\LED -I ..\HARDWARE\LCD -I ..\HARDWARE\KEY -I ..\HARDWARE\CAN -I ..\CANCONTROL -I ..\HARDWARE\TIMER -I ..\UART2ETH\ATK-UART2ETH -I ..\UART2ETH\RINGBUFFER -I ..\UART2ETH\USART3 -I ..\HARDWARE\MyQueue -I ..\HARDWARE\QUEUE-I.\RTE\_CAN-IF:\MDK\packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include-IF:\MDK\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o ..\obj\atk_u2e.o --omf_browse ..\obj\atk_u2e.crf --depend ..\obj\atk_u2e.d)
+F (..\UART2ETH\ATK-UART2ETH\atk_u2e.c)(0x64EB3070)(-c --cpu Cortex-M3 -D__MICROLIB -g -O2 --apcs=interwork --split_sections -I ..\CORE -I ..\USER -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\USMART -I ..\HALLIB\STM32F1xx_HAL_Driver\Inc -I ..\HARDWARE\LED -I ..\HARDWARE\LCD -I ..\HARDWARE\KEY -I ..\HARDWARE\CAN -I ..\CANCONTROL -I ..\HARDWARE\TIMER -I ..\UART2ETH\ATK-UART2ETH -I ..\UART2ETH\RINGBUFFER -I ..\UART2ETH\USART3 -I ..\HARDWARE\MyQueue -I ..\HARDWARE\QUEUE-I.\RTE\_CAN-IF:\MDK\packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include-IF:\MDK\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o ..\obj\atk_u2e.o --omf_browse ..\obj\atk_u2e.crf --depend ..\obj\atk_u2e.d)
 I (..\UART2ETH\ATK-UART2ETH\atk_u2e.h)(0x64A424A1)
 I (..\SYSTEM\sys\sys.h)(0x5D808F12)
 I (..\USER\stm32f1xx.h)(0x5D1623CA)
@@ -1870,7 +1684,7 @@ I (..\UART2ETH\USART3\usart3.h)(0x649D7547)
 I (..\SYSTEM\delay\delay.h)(0x5D808F12)
 I (F:\MDK\ARM\ARMCC\include\stdio.h)(0x60252374)
 I (F:\MDK\ARM\ARMCC\include\string.h)(0x6025237E)
-F (..\CANCONTROL\MatchingCommands.c)(0x64BB89B8)(-c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\CORE -I ..\USER -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\USMART -I ..\HALLIB\STM32F1xx_HAL_Driver\Inc -I ..\HARDWARE\LED -I ..\HARDWARE\LCD -I ..\HARDWARE\KEY -I ..\HARDWARE\CAN -I ..\CANCONTROL -I ..\HARDWARE\TIMER -I ..\UART2ETH\ATK-UART2ETH -I ..\UART2ETH\RINGBUFFER -I ..\UART2ETH\USART3 -I ..\HARDWARE\MyQueue -I ..\HARDWARE\QUEUE-I.\RTE\_CAN-IF:\MDK\packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include-IF:\MDK\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o ..\obj\matchingcommands.o --omf_browse ..\obj\matchingcommands.crf --depend ..\obj\matchingcommands.d)
+F (..\CANCONTROL\MatchingCommands.c)(0x64BB89B8)(-c --cpu Cortex-M3 -D__MICROLIB -g -O2 --apcs=interwork --split_sections -I ..\CORE -I ..\USER -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\USMART -I ..\HALLIB\STM32F1xx_HAL_Driver\Inc -I ..\HARDWARE\LED -I ..\HARDWARE\LCD -I ..\HARDWARE\KEY -I ..\HARDWARE\CAN -I ..\CANCONTROL -I ..\HARDWARE\TIMER -I ..\UART2ETH\ATK-UART2ETH -I ..\UART2ETH\RINGBUFFER -I ..\UART2ETH\USART3 -I ..\HARDWARE\MyQueue -I ..\HARDWARE\QUEUE-I.\RTE\_CAN-IF:\MDK\packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include-IF:\MDK\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o ..\obj\matchingcommands.o --omf_browse ..\obj\matchingcommands.crf --depend ..\obj\matchingcommands.d)
 I (..\CANCONTROL\MatchingCommands.h)(0x64A42463)
 I (..\SYSTEM\sys\sys.h)(0x5D808F12)
 I (..\USER\stm32f1xx.h)(0x5D1623CA)

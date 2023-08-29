@@ -150,7 +150,8 @@ static int u2e_enter_configmode(void)
 
     /* 1。准备进入配置状态 */
     res = send_cmd_to_u2e("AT+SEARCH?\r\n", "\r\nOK\r\n", 5);       /* 如果用恢复模块出厂设置的方法来设置模块，则需要等待模块恢复参数成功，这里用死循环查询 */
-		if(res != 0)
+			printf("%d",res);
+	if(res != 0)
     {
         return -1;
     }
@@ -434,8 +435,6 @@ int u2e_config_init(_u2e_work_mode_eu work_mode)
 	
 	int res;
 	
-		
-    
     GPIO_InitTypeDef gpio_initure;    /*GPIO端口设置参数存放位置*/
     U2E_MODULE_DF_CLK_ENABLE();
     U2E_MODULE_ST_CLK_ENABLE();
@@ -458,16 +457,18 @@ int u2e_config_init(_u2e_work_mode_eu work_mode)
 
 //    /* 1.复位模块进入出厂设置参数：默认，串口参数为：115200，8数据位，无校验(选用) */
 //    U2E_MODULE_DF(0);
-//    delay_ms(1000);
-    //U2E_MODULE_DF(1);
-    //while(U2E_MODULE_ST != 1);      /* 模块进入空闲状态 */
-   // delay_ms(3000);
-
+//		printf("2");
+//		delay_ms(1000);
+//    U2E_MODULE_DF(1);
+//		printf("3");
+//    while(U2E_MODULE_ST != 1);      /* 模块进入空闲状态 */
+//		delay_ms(200);
+//		
 	printf("0");
     /*2.模块进入配置状态*/
     while ( u2e_enter_configmode() != 0 );
 	printf("1");
-
+	delay_ms(500);
     /*3.配置模块的工作参数*/
     switch (work_mode)
     {
@@ -511,10 +512,10 @@ int u2e_config_init(_u2e_work_mode_eu work_mode)
     {
         return -2;
     }
-    
+
     /* 等待模块配置成功，如果上一步配置更改了串口的波特率，则需要这里重新初始化STM32串口3的波特率 */
-//    usart3_init(36, 921600);        /* 重新初始化串口3初始化为921600 */
-    //u2e_enter_transfermode();
+//    usart3_init(115200);       /* 重新初始化串口3初始化为921600 */
+ //   u2e_enter_transfermode();
 
     return 0;
 }

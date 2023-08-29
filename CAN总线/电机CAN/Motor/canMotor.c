@@ -25,7 +25,7 @@ u8 receData(void){
 			printf("接收到了");
 			for(i=0;i<isRece;i++)
 			{
-						printf(" %d ",ReceBuf[i]);
+					printf(" %d ",ReceBuf[i]);
 			}
 			for(i = 0; i < isRece / 2; i++)
 			{

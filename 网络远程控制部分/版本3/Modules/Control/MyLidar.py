@@ -20,10 +20,10 @@ class Lidar:
     x1 = []
     y1 = []
     path = []
+    s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
     def __init__(self):
         # 连接激光雷达
-        self.s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         RECV_BUF_SIZE = 4096
         self.s.setsockopt(  # 加入 此配置 解决TCP数据延迟问题，在因为默认缓冲区大小维65535 那么第一次可能是要接满
             # 才会有下一次，所以之后数据会一直延迟5秒，加入此项解决这个问题。
@@ -90,27 +90,30 @@ class Lidar:
                 return list(reversed(path))
             # 将当前节点标记为关闭状态
             closed_list.add(current_pos)
-            # 遍历可行动的方向
-            for direction in directions:
-                next_pos = (current_pos[0] + direction[0], current_pos[1] + direction[1])
-                # 检查下一个节点是否越界或为障碍物
-                if next_pos[0] < 0 or next_pos[0] >= len(self.lidarmap) or next_pos[1] < 0 or \
-                        next_pos[1] >= len(self.lidarmap[0]) or \
-                        self.lidarmap[next_pos[0]][next_pos[1]] == 1:
-                    continue
-                # 计算下一个节点的代价和预估总代价
-                cost = current_node[2] + 1
-                next_node = (cost + self.heuristic(next_pos, goal), next_pos, cost, current_node)
-                # 如果下一个节点已经在关闭列表中，则跳过
-                if next_pos in closed_list:
-                    continue
-                # 如果下一个节点已经在开放列表中且代价更高，则跳过
-                for node in open_list:
-                    if next_pos == node[1] and cost >= node[2]:
-                        break
-                else:
-                    # 将下一个节点加入开放列表
-                    heapq.heappush(open_list, next_node)
+            try:
+                # 遍历可行动的方向
+                for direction in directions:
+                    next_pos = (current_pos[0] + direction[0], current_pos[1] + direction[1])
+                    # 检查下一个节点是否越界或为障碍物
+                    if next_pos[0] < 0 or next_pos[0] >= len(self.lidarmap) or next_pos[1] < 0 or \
+                            next_pos[1] >= len(self.lidarmap[0]) or \
+                            self.lidarmap[next_pos[0]][next_pos[1]] == 1:
+                        continue
+                    # 计算下一个节点的代价和预估总代价
+                    cost = current_node[2] + 1
+                    next_node = (cost + self.heuristic(next_pos, goal), next_pos, cost, current_node)
+                    # 如果下一个节点已经在关闭列表中，则跳过
+                    if next_pos in closed_list:
+                        continue
+                    # 如果下一个节点已经在开放列表中且代价更高，则跳过
+                    for node in open_list:
+                        if next_pos == node[1] and cost >= node[2]:
+                            break
+                    else:
+                        # 将下一个节点加入开放列表
+                        heapq.heappush(open_list, next_node)
+            except:
+                pass
         # 如果开放列表为空，表示无法到达目标节点
         return []
 
@@ -133,8 +136,8 @@ class Lidar:
                     and self.lidarData[i + 2] & 0x80 == 0 \
                     and self.lidarData[i + 3] & 0x80 == 0x80:
                 # 校验 BCD
-                if lidar.getCrcPackage4Byte(self.lidarData[i], self.lidarData[i + 1], self.lidarData[i + 2],
-                                            self.lidarData[i + 3]):
+                if self.getCrcPackage4Byte(self.lidarData[i], self.lidarData[i + 1], self.lidarData[i + 2],
+                                           self.lidarData[i + 3]):
                     distancef = (self.lidarData[i] & 0x0F)
                     distancef <<= 7
                     distancef += self.lidarData[i + 1] & 0x7F
@@ -155,7 +158,7 @@ class Lidar:
         # 生成地图
         for i in range(len(self.lidarAngle)):
             self.lidarAngle[i] = self.lidarAngle[i] * (np.pi / 180)  # 极坐标
-        self.x1, self.y1 = lidar.polar_to_cartesian(self.lidarDistance, self.lidarAngle)
+        self.x1, self.y1 = self.polar_to_cartesian(self.lidarDistance, self.lidarAngle)
         for i in range(len(self.x1)):
             self.x1[i] = self.x1[i]
             self.y1[i] = self.y1[i]
@@ -198,6 +201,7 @@ class Lidar:
             self.findRoad(start1, goal1)  # 显示
             xx = []
             yy = []
+            print(len(self.path))
             for i in range(len(self.path)):
                 xx.append(self.path[i][0])
                 yy.append(self.path[i][1])

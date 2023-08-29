@@ -56,8 +56,8 @@ u8 CAN_Mode_Init(u8 tsjw,u8 tbs2,u8 tbs1,u16 brp,u8 mode)
    	CAN_FilterInitStructure.CAN_FilterMode=CAN_FilterMode_IdMask; 
   	CAN_FilterInitStructure.CAN_FilterScale=CAN_FilterScale_32bit; //32位 
 		
-  	CAN_FilterInitStructure.CAN_FilterIdHigh=((((u32)0x1200<<3)|CAN_ID_EXT|CAN_RTR_DATA)&0xFFFF0000)>>16;////32位ID
-  	CAN_FilterInitStructure.CAN_FilterIdLow= ((((u32)0x1200<<3)|CAN_ID_EXT|CAN_RTR_DATA)&0xFFFF);
+  	CAN_FilterInitStructure.CAN_FilterIdHigh=((((u32)0x1300<<3)|CAN_ID_EXT|CAN_RTR_DATA)&0xFFFF0000)>>16;////32位ID
+  	CAN_FilterInitStructure.CAN_FilterIdLow=((((u32)0x1300<<3)|CAN_ID_EXT|CAN_RTR_DATA)&0xFFFF);
   	CAN_FilterInitStructure.CAN_FilterMaskIdHigh=0xFFFF; //32位MASK
   	CAN_FilterInitStructure.CAN_FilterMaskIdLow=0xFFFF;
 		
@@ -119,7 +119,7 @@ u8 Can_Send_Msg(u8* msg,u8 len)
 //返回值:0,无数据被收到;
 //		 其他,接收的数据长度;
 u8 Can_Receive_Msg(u8 *buf)
-{		   		   
+{
  	u32 i;
 	CanRxMsg RxMessage;
     if( CAN_MessagePending(CAN1,CAN_FIFO0)==0)return 0;		//没有接收到数据,直接退出 

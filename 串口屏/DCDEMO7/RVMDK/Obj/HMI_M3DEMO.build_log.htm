@@ -1,0 +1,78 @@
+<html>
+<body>
+<pre>
+<h1>礦ision Build Log</h1>
+<h2>Tool Versions:</h2>
+IDE-Version: μVision V5.25.3.0
+Copyright (C) 2018 ARM Ltd and ARM Germany GmbH. All rights reserved.
+License Information: 王 永泰, 123, LIC=47GU5-G2MF7-306NC-7214A-XMR39-7I9G4
+ 
+Tool Versions:
+Toolchain:       MDK-ARM Plus  Version: 5.36.0.0
+Toolchain Path:  F:\MDK\ARM\ARMCC\Bin
+C Compiler:      Armcc.exe V5.06 update 7 (build 960)
+Assembler:       Armasm.exe V5.06 update 7 (build 960)
+Linker/Locator:  ArmLink.exe V5.06 update 7 (build 960)
+Library Manager: ArmAr.exe V5.06 update 7 (build 960)
+Hex Converter:   FromElf.exe V5.06 update 7 (build 960)
+CPU DLL:         SARMCM3.DLL V5.36.0.0
+Dialog DLL:      DARMSTM.DLL V1.68.0.0
+Target DLL:      STLink\ST-LINKIII-KEIL_SWO.dll V3.0.9.0
+Dialog DLL:      TCM.DLL V1.53.0.0
+ 
+<h2>Project:</h2>
+F:\CreatCar\串口屏\keil5_STM32\STM32\DCDEMO7\RVMDK\DCDEMO7.uvprojx
+Project File Date:  07/16/2023
+
+<h2>Output:</h2>
+*** Using Compiler 'V5.06 update 7 (build 960)', folder: 'F:\MDK\ARM\ARMCC\Bin'
+Build target 'DCDEMO'
+compiling main.c...
+..\inc\hmi_driver.h(73): warning:  #1295-D: Deprecated declaration GUI_CleanScreen - give arg types
+  void GUI_CleanScreen();
+..\inc\hmi_driver.h(270): warning:  #1295-D: Deprecated declaration CalibrateTouchPane - give arg types
+  void	CalibrateTouchPane();
+..\inc\hmi_driver.h(275): warning:  #1295-D: Deprecated declaration TestTouchPane - give arg types
+  void TestTouchPane();
+..\inc\hmi_driver.h(624): warning:  #1295-D: Deprecated declaration BatchEnd - give arg types
+  void BatchEnd();
+..\inc\hmi_driver.h(720): warning:  #1295-D: Deprecated declaration FlashEndSaveControl - give arg types
+  void FlashEndSaveControl();
+..\inc\cmd_queue.h(36): warning:  #1-D: last line of file ends without a newline
+  #endif
+..\inc\cmd_process.h(74): warning:  #1295-D: Deprecated declaration NOTIFYHandShake - give arg types
+  void NOTIFYHandShake();
+..\src\main.c(81): warning:  #177-D: variable "i"  was declared but never referenced
+  		u8 i = 0;
+..\src\main.c(82): warning:  #177-D: variable "test_value"  was declared but never referenced
+      static int32 test_value = 0;                                                     //测试值
+..\src\main.c(592): warning:  #186-D: pointless comparison of unsigned integer with zero
+           if(Select_H>=0&&Select_H<=6)                                                       //0~6小时，凌晨  
+..\src\main.c(633): warning:  #167-D: argument of type "unsigned char *" is incompatible with parameter of type "const char *restrict"
+          sscanf(str,"%ld",&value);                                                    //把字符串转换为整数 
+..\src\main.c(26): warning:  #177-D: variable "progress_value"  was declared but never referenced
+  static int32 progress_value = 0;                                                     //进度条测试值
+..\src\main.c: 12 warnings, 0 errors
+linking...
+.\Obj\HMI_M3DEMO.axf: Warning: L6096W: String merge section main.o(.conststring) is not null-terminated.
+Program Size: Code=7460 RO-data=1068 RW-data=92 ZI-data=1604  
+Finished: 0 information, 1 warning and 0 error messages.
+FromELF: creating hex file...
+".\Obj\HMI_M3DEMO.axf" - 0 Error(s), 13 Warning(s).
+
+<h2>Software Packages used:</h2>
+
+Package Vendor: Keil
+                http://www.keil.com/pack/Keil.STM32F1xx_DFP.2.3.0.pack
+                Keil.STM32F1xx_DFP.2.3.0
+                STMicroelectronics STM32F1 Series Device Support, Drivers and Examples
+
+<h2>Collection of Component include folders:</h2>
+  .\RTE\_DCDEMO
+  F:\MDK\packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include
+
+<h2>Collection of Component Files used:</h2>
+Build Time Elapsed:  00:00:01
+</pre>
+</body>
+</html>

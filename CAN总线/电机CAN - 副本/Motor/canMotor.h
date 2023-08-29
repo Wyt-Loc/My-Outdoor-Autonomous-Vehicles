@@ -5,6 +5,7 @@
 
 u8 receData(void);
 void motorExecute(u8* arr);
+void motor(void);
 
 		 				    
 #endif

@@ -3,11 +3,11 @@
 # @Author  : Wyt
 # @File    : MyControl.py
 import time
-import Modules.Control.MyTcpServer
+import 网络远程控制部分.版本3.Modules.Control.MyTcpServer
 import keyboard
 
 
-class Mykey(Modules.Control.MyTcpServer.TcpServer):
+class Mykey(网络远程控制部分.版本3.Modules.Control.MyTcpServer.TcpServer):
     upd = keyboard.KeyboardEvent('upd', 28, 'up')
     downd = keyboard.KeyboardEvent('downd', 29, 'down')
     leftd = keyboard.KeyboardEvent('leftd', 30, 'left')
@@ -34,7 +34,7 @@ class Mykey(Modules.Control.MyTcpServer.TcpServer):
     # 帧尾
     tail = 0XBB  # 17
 
-    Medianvalue = 0  # 舵机中值 范围 0 - 100   0° - 200°  每差0.5对应一个角度。
+    Medianvalue = 10  # 舵机中值 范围 0 - 100   0° - 200°  每差0.5对应一个角度。 中值为100 左右各100各灵敏度。
 
     flag = 0
     bit = 0
@@ -52,39 +52,39 @@ class Mykey(Modules.Control.MyTcpServer.TcpServer):
 
     def dataGo(self):
         #  前进
-        return str(self.head) + self.fun1 + "109320821"  # 方向 向前 速度9.32m/s  距离8.21m
+        return str(self.head) + self.fun1 + "108210932"  # 方向 向前 速度9.32m/s  距离8.21m
+
+        #  后退000300100
 
     def dataBack(self):
-        #  后退000300100
-        return str(self.head) + self.fun1 + "109320821"  # 方向 向前 速度0.3m/s  距离1m
+        return str(self.head) + self.fun1 + "008210932"  # 方向 向前 速度0.3m/s  距离1m
 
     def dataLeft(self):
-        #  左转
-        if self.Medianvalue <= 995:
-            self.Medianvalue = self.Medianvalue + 5
-        self.bit = self.Medianvalue // 255
+        #  右转
+        if self.Medianvalue <= 199:
+            self.Medianvalue = self.Medianvalue + 1
         print(self.bit)
         if 0 <= self.Medianvalue < 10:
             return str(self.head) + self.fun2 + "00" + str(self.Medianvalue) + str(self.bit)  # 舵机角度+1°
-        elif 10 <= self.Medianvalue < 99:
+        elif 10 <= self.Medianvalue <= 99:
             return str(self.head) + self.fun2 + "0" + str(self.Medianvalue) + str(self.bit)  # 舵机角度+1°
         else:
             return str(self.head) + self.fun2 + str(self.Medianvalue) + str(self.bit)  # 舵机角度+1°
 
     def dataRight(self):
-        #  右转
-        if self.Medianvalue >= 5:  # 对应角度计算为 5 / 1000 * 200
-            self.Medianvalue = self.Medianvalue - 5
-        self.bit = self.Medianvalue // 255
+        #  左转
+        if self.Medianvalue >= 1:  # 对应角度计算为 5 / 1000 * 200
+            self.Medianvalue = self.Medianvalue - 1
         print(self.bit)
         if 0 <= self.Medianvalue < 10:
             return str(self.head) + self.fun2 + "00" + str(self.Medianvalue) + str(self.bit)  # 舵机角度+1°
-        elif 10 <= self.Medianvalue < 99:
+        elif 10 <= self.Medianvalue <= 99:
             return str(self.head) + self.fun2 + "0" + str(self.Medianvalue) + str(self.bit)  # 舵机角度+1°
         else:
             return str(self.head) + self.fun2 + str(self.Medianvalue) + str(self.bit)  # 舵机角度+1°
 
     def dataStop(self):
+        print("发送急停信号")
         return str(self.head) + self.fun3 + "stop"  # 舵机角度-1°
 
     # 共 8 + 8 + 5 + 10 = 31个字节
@@ -184,20 +184,21 @@ def aaa():
         # 接收数据 并 转发到单片机
         mykey.dataToCommand()
 
-# if __name__ == '__main__':
-#     mykey = Mykey()
-#     if mykey.debug_dpj == 0:  # 单片机调试模式
-#         # 直到有一个客户端连接  暂不考虑多用户情况
-#         while True:
-#             if mykey.getConnObj():
-#                 break
-#         mykey.getKeyValue()
-#
-#     elif mykey.debug_dpj == 1:  # 整体测试
-#         # 建立连接
-#         mykey.tcpConnSendFlag()
-#         while True:
-#             if mykey.getConnObj():
-#                 break
-#         # 接收数据 并 转发到单片机
-#         mykey.dataToCommand()
+
+if __name__ == '__main__':
+    mykey = Mykey()
+    if mykey.debug_dpj == 0:  # 单片机调试模式
+        # 直到有一个客户端连接  暂不考虑多用户情况
+        while True:
+            if mykey.getConnObj():
+                break
+        mykey.getKeyValue()
+
+    elif mykey.debug_dpj == 1:  # 整体测试
+        # 建立连接
+        mykey.tcpConnSendFlag()
+        while True:
+            if mykey.getConnObj():
+                break
+            # 接收数据 并 转发到单片机
+        mykey.dataToCommand()
