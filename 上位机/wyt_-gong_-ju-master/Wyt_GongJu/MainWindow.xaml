@@ -7,8 +7,11 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <Button Content="Button" HorizontalAlignment="Left" Height="68" Margin="196,93,0,0" VerticalAlignment="Top" Width="115"/>
-        <TextBlock x:Name="one" HorizontalAlignment="Left" Height="93" Margin="460,107,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Width="187"/>
+
+        <Button Content="前进" HorizontalAlignment="Center" Height="54" Margin="0,175,0,0" VerticalAlignment="Top" Width="100" RenderTransformOrigin="0.506,0.035"/>
+        <Button Content="后退" HorizontalAlignment="Center" Height="54" Margin="0,275,0,0" VerticalAlignment="Top" Width="100" RenderTransformOrigin="0.506,0.035"/>
+        <Button Content="左转" HorizontalAlignment="Left" Height="54" Margin="150,225,0,0" VerticalAlignment="Top" Width="100" RenderTransformOrigin="0.506,0.035"/>
+        <Button Content="右转" HorizontalAlignment="Left" Height="54" Margin="550,225,0,0" VerticalAlignment="Top" Width="100" RenderTransformOrigin="0.506,0.035"/>
 
     </Grid>
 </Window>

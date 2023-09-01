@@ -13,3 +13,18 @@ D:\工具\Wyt_GongJu\obj\Debug\Wyt_GongJu.csproj.GenerateResource.cache
 D:\工具\Wyt_GongJu\obj\Debug\Wyt_GongJu.csproj.CoreCompileInputs.cache
 D:\工具\Wyt_GongJu\obj\Debug\Wyt_GongJu.exe
 D:\工具\Wyt_GongJu\obj\Debug\Wyt_GongJu.pdb
+F:\CreatCar\Outdoor autonomous vehicles\上位机\wyt_-gong_-ju-master\Wyt_GongJu\bin\Debug\Wyt_GongJu.exe.config
+F:\CreatCar\Outdoor autonomous vehicles\上位机\wyt_-gong_-ju-master\Wyt_GongJu\bin\Debug\Wyt_GongJu.exe
+F:\CreatCar\Outdoor autonomous vehicles\上位机\wyt_-gong_-ju-master\Wyt_GongJu\bin\Debug\Wyt_GongJu.pdb
+F:\CreatCar\Outdoor autonomous vehicles\上位机\wyt_-gong_-ju-master\Wyt_GongJu\obj\Debug\Wyt_GongJu.csproj.AssemblyReference.cache
+F:\CreatCar\Outdoor autonomous vehicles\上位机\wyt_-gong_-ju-master\Wyt_GongJu\obj\Debug\MainWindow.g.cs
+F:\CreatCar\Outdoor autonomous vehicles\上位机\wyt_-gong_-ju-master\Wyt_GongJu\obj\Debug\App.g.cs
+F:\CreatCar\Outdoor autonomous vehicles\上位机\wyt_-gong_-ju-master\Wyt_GongJu\obj\Debug\Wyt_GongJu_MarkupCompile.cache
+F:\CreatCar\Outdoor autonomous vehicles\上位机\wyt_-gong_-ju-master\Wyt_GongJu\obj\Debug\Wyt_GongJu_MarkupCompile.lref
+F:\CreatCar\Outdoor autonomous vehicles\上位机\wyt_-gong_-ju-master\Wyt_GongJu\obj\Debug\MainWindow.baml
+F:\CreatCar\Outdoor autonomous vehicles\上位机\wyt_-gong_-ju-master\Wyt_GongJu\obj\Debug\Wyt_GongJu.g.resources
+F:\CreatCar\Outdoor autonomous vehicles\上位机\wyt_-gong_-ju-master\Wyt_GongJu\obj\Debug\Wyt_GongJu.Properties.Resources.resources
+F:\CreatCar\Outdoor autonomous vehicles\上位机\wyt_-gong_-ju-master\Wyt_GongJu\obj\Debug\Wyt_GongJu.csproj.GenerateResource.cache
+F:\CreatCar\Outdoor autonomous vehicles\上位机\wyt_-gong_-ju-master\Wyt_GongJu\obj\Debug\Wyt_GongJu.csproj.CoreCompileInputs.cache
+F:\CreatCar\Outdoor autonomous vehicles\上位机\wyt_-gong_-ju-master\Wyt_GongJu\obj\Debug\Wyt_GongJu.exe
+F:\CreatCar\Outdoor autonomous vehicles\上位机\wyt_-gong_-ju-master\Wyt_GongJu\obj\Debug\Wyt_GongJu.pdb

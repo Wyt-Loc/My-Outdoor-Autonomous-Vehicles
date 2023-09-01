@@ -6,13 +6,14 @@ import heapq
 import socket
 import numpy as np
 from matplotlib import pyplot as plt
+import 网络远程控制部分.版本3.Modules.Control.MyControl
 
 
 # 地址 192.168.0.100
 # 端口 8487
 
 
-class Lidar:
+class Lidar(网络远程控制部分.版本3.Modules.Control.MyControl.Mykey):
     lidarData = []
     lidarmap = []
     lidarDistance = []
@@ -23,6 +24,7 @@ class Lidar:
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
     def __init__(self):
+        print("正在连接雷达.....")
         # 连接激光雷达
         RECV_BUF_SIZE = 4096
         self.s.setsockopt(  # 加入 此配置 解决TCP数据延迟问题，在因为默认缓冲区大小维65535 那么第一次可能是要接满
@@ -37,14 +39,13 @@ class Lidar:
         # 接收TCP数据
         self.lidarData = self.s.recv(4096)
 
-    @staticmethod
-    def getDistance(data1: int, data2: int, data3: int) -> int:
+    def getDistance(self, data1: int, data2: int, data3: int) -> int:
         # 得到距离
         return ((data1 & 0x1) << 14) + ((data2 & 0x7F) << 7) + (data3 & 0x7F)
 
     # cbit 为对应 0~255 的 1 的个数表
-    @staticmethod
-    def getCrcPackage4Byte(a, b, c, d) -> bool:
+
+    def getCrcPackage4Byte(self, a, b, c, d) -> bool:
         cbit = [
             0, 1, 1, 2, 1, 2, 2, 3, 1, 2, 2, 3, 2, 3, 3, 4, 1, 2, 2, 3, 2, 3, 3, 4, 2, 3, 3, 4, 3, 4, 4, 5,
             1, 2, 2, 3, 2, 3, 3, 4, 2, 3, 3, 4, 3, 4, 4, 5, 2, 3, 3, 4, 3, 4, 4, 5, 3, 4, 4, 5, 4, 5, 5, 6,
@@ -60,8 +61,7 @@ class Lidar:
         else:
             return False
 
-    @staticmethod
-    def heuristic(a, b):
+    def heuristic(self, a, b):
         # 计算启发式函数（曼哈顿距离）
         return abs(b[0] - a[0]) + abs(b[1] - a[1])
 
@@ -118,8 +118,8 @@ class Lidar:
         return []
 
     # 转到笛卡尔坐标系
-    @staticmethod
-    def polar_to_cartesian(r, theta):
+
+    def polar_to_cartesian(self, r, theta):
         x = r * np.cos(theta)
         y = r * np.sin(theta)
         return x, y
@@ -214,7 +214,6 @@ class Lidar:
             plt.grid(True)
             plt.pause(0.01)  # 暂停一段时间，不然画的太快会卡住显示不出来
 
-
-if __name__ == '__main__':
-    lidar = Lidar()
-    lidar.displayImg()
+# if __name__ == '__main__':
+#     lidar = Lidar()
+#     lidar.displayImg()
