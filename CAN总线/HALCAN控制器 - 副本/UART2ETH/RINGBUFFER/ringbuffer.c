@@ -156,6 +156,8 @@ uint8_t datas[9] = {0};  // 解析到的舵机数据
 uint8_t datamflag = 0;
 uint8_t datasflag = 0;
 uint8_t stopflag = 0;
+uint8_t golongflag = 0;
+uint8_t backlongflag = 0;
 
 /***************************************************************
 【函数名】 void find_cmd(ringbuffer_t *fifo)
@@ -247,23 +249,32 @@ void find_cmd(ringbuffer_t *fifo){
 					else 
 						cmd_falg = 0;
 				break;
-					
+
 					//电机
 				case 4:
 					ringbuffer_out(&cmdqueue,vall,9);
-					
-					for(i=0;i<9;i++){
-						#if DEBUG
-						printf("val5 =  %d \t",vall[i]);
-						#endif
-						datam[i] = vall[i]-48;
+				for(i=0;i<9;i++){
+					printf("data =  %d \t",vall[i]);
+				}
+				
+				
+					if(vall[0] == 103 && vall[1] == 111 && vall[2] ==  108){
+						golongflag = 1;
+						printf("电机长按 go。。。");
 					}
-					#if DEBUG
-					for(i=0;i<9;i++)
-					printf("得到电机数据%d /t",datam[i]);
-					printf("\r\n");
-					#endif
-					datamflag = 1;
+					else if(vall[0] == 98 && vall[1] == 97 && vall[2] == 99 && vall[3] == 107){
+						backlongflag = 1;
+						printf("电机长按 back。。。");
+					}
+					else{
+						for(i=0;i<9;i++){
+							#if DEBUG
+							printf("val5 =  %d \t",vall[i]);
+							#endif
+							datam[i] = vall[i]-48;
+						}
+						datamflag = 1;
+					}
 					cmd_falg = 0;
 				break;
 					
@@ -315,7 +326,10 @@ volatile static float V = 0.0f;
 【参数值】 无
 【返回值】 无
 ****************************************************************/
-uint8_t stop[8] = {'s','t','o','p','0','0','0'};
+u8 golong[8] = {'g','o','l'};
+u8 backlong[8] = {'b','a','c','k'};
+u8 stop[8] = {'s','t','o','p'};
+u8 swp[8] ={'0'};
 void control_CAN(void){
 	u8 i = 0;
 	// 解析命令
@@ -323,10 +337,36 @@ void control_CAN(void){
 
 	// CAN 停止
 	if (stopflag == 1){
+		CAN1_Send_Msg(stop,8,0x1300);
+		CAN1_Receive_Msg(swp);
+		delay_ms(1);
+		CAN1_Send_Msg(stop,8,0x1100);
+		CAN1_Receive_Msg(swp);
+		stopflag = 0;
+		/*
 		sendMotorCommand('s','t','o',0x1300);
 		delay_ms(1);
 		sendMotorCommand('s','t','o',0x1100);
 		stopflag = 0;
+		*/
+	}
+	
+	
+		//  CAN  电机BACKLONG
+	if(backlongflag == 1){
+		backlongflag = 0;
+		CAN1_Send_Msg(backlong,8,0x1300);
+		CAN1_Receive_Msg(swp); //没用 为了和下位机 配对
+		//sendMotorCommand('g','l','o',0x1300);
+	}
+	
+
+	//  CAN  电机GOLONG
+	if(golongflag == 1){
+		golongflag = 0;
+		CAN1_Send_Msg(golong,8,0x1300);
+		CAN1_Receive_Msg(swp);
+		//sendMotorCommand('g','l','o',0x1300);
 	}
 
 	// CAN电机

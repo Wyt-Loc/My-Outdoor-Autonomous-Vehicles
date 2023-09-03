@@ -122,7 +122,7 @@ __IO uint32_t g_add_pulse_count   = 0;                    /* 脉冲个数累计 */
 
 
 //电机长短按控制
-u8 clickorlongmotor = 0;
+volatile u8 clickorlongmotor = 0;
 
 
 /*

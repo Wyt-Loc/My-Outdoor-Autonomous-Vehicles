@@ -127,6 +127,7 @@ u8 CAN1_Send_Msg(u8* msg,u8 len,uint32_t id)
     for(i=0;i<len;i++)
     {
 		message[i]=msg[i];
+			printf("message = %d", message[i]);
 	  }
     if(HAL_CAN_AddTxMessage(&CAN1_Handler, &TxHeader, message, &TxMailbox) != HAL_OK)//·¢ËÍ
 		{

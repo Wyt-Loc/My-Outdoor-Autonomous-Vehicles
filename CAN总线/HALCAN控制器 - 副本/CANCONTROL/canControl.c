@@ -125,9 +125,8 @@ u8 sendMotorCommand(u8 dir, float distance, float speed, uint32_t id){
 	u8 issucess = 0;
 	u8 timecnt = 0;
 	u8 *commandBuf = motorCommandGenerate(dir,distance,speed);
+	
 //	printf("Can\r\n");
-//	for(i=0;i<8;i++)
-//	printf("数据为%d ",*commandBuf++);
 	//printf("my\r\n");
 	_q1:
 	issucess = Can_Send_Msg(commandBuf,8,id);//发送8个字节

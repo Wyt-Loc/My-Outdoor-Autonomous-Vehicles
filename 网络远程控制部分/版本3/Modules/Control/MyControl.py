@@ -13,6 +13,8 @@ class Mykey(网络远程控制部分.版本3.Modules.Control.MyTcpServer.TcpServ
     leftd = keyboard.KeyboardEvent('leftd', 30, 'left')
     rightd = keyboard.KeyboardEvent('rightd', 31, 'right')
     spaced = keyboard.KeyboardEvent('spaced', 32, 'space')
+    w = keyboard.KeyboardEvent('w', 33, 'w')
+    ss = keyboard.KeyboardEvent('s', 34, 's')
     # 数据格式 电机走的方向角度距离 + 舵机方向
     # 帧头
     head = 0xAA  # 1
@@ -54,10 +56,15 @@ class Mykey(网络远程控制部分.版本3.Modules.Control.MyTcpServer.TcpServ
         #  前进
         return str(self.head) + self.fun1 + "108210932"  # 方向 向前 速度9.32m/s  距离8.21m
 
-        #  后退000300100
+    def dataGol(self):
+        #  长前进
+        return str(self.head) + self.fun1 + "gol"  # 方向 向前 速度9.32m/s  距离8.21m
 
     def dataBack(self):
         return str(self.head) + self.fun1 + "008210932"  # 方向 向前 速度0.3m/s  距离1m
+
+    def dataBackl(self):
+        return str(self.head) + self.fun1 + "backl"  # 方向 向前 速度0.3m/s  距离1m
 
     def dataLeft(self):
         #  右转
@@ -95,6 +102,18 @@ class Mykey(网络远程控制部分.版本3.Modules.Control.MyTcpServer.TcpServ
             self.sendMessages(self.dataGo())  # 发送数据帧
             if self.flag == 1:
                 self.isReceOk(self.dataGo())
+
+        if keyval.event_type == 'down' and keyval.name == self.w.name:
+            print("短按W键1111")
+            self.sendMessages(self.dataGol())  # 发送数据帧
+            if self.flag == 1:
+                self.isReceOk(self.dataGol())
+
+        if keyval.event_type == 'down' and keyval.name == self.ss.name:
+            print("短按S键1111")
+            self.sendMessages(self.dataBackl())  # 发送数据帧
+            if self.flag == 1:
+                self.isReceOk(self.dataBackl())
 
         if keyval.event_type == 'down' and keyval.name == self.downd.name:
             print("短按down键")
@@ -156,9 +175,17 @@ class Mykey(网络远程控制部分.版本3.Modules.Control.MyTcpServer.TcpServ
                 print("执行{}短按命令".format(self.info))
 
             if self.info == "advancesl":
-                print("执行{}短按命令".format(self.info))
+                self.sendMessages(self.dataGol())  # 发送数据帧
+                if self.flag == 1:
+                    self.isReceOk(self.dataGol())
+                print("执行{}长按命令".format(self.info))
+
             if self.info == "backl":
-                print("执行{}短按命令".format(self.info))
+                self.sendMessages(self.dataBackl())  # 发送数据帧
+                if self.flag == 1:
+                    self.isReceOk(self.dataBackl())
+                print("执行{}长按命令".format(self.info))
+
             if self.info == "leftl":
                 print("执行{}短按命令".format(self.info))
             if self.info == "rightl":
