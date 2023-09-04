@@ -63,6 +63,8 @@ void test(){
 float R = 0.25; //???
 float cir = 1.57075f; //???
 
+extern u8 clickorlongmotor;
+
 extern speedRampData g_srd;
 void motorExecute(u8* arr){
 	
@@ -76,15 +78,20 @@ void motorExecute(u8* arr){
 	
 	if(dir == 115 && arr[1] == 116 && arr[2] == 111 && arr[3] == 112){
 		 printf("??? stop\r\n");
+		 motorStopLong(&clickorlongmotor);
 		 g_srd.run_state = STOP;
 	 }
+	
 	else if(dir == 103 && arr[1] == 111 && arr[2] == 108){
 		printf("motor long  go \r\n");
-		create_t_ctrl_param( step*3,  10,  10,  80);
+		clickorlongmotor = 1;
+		create_t_ctrl_param( step*8,  20,  20,  50);
 	}
+	
 	else if(arr[1] == 97 && arr[2] == 99 && arr[3] == 107){
 		printf("motor long back \r\n");
-		create_t_ctrl_param( step*3,  10,  10,  80);
+		clickorlongmotor = 1;
+		create_t_ctrl_param( -step*3,  10,  10,  40);
 	}
 	
 	else{
@@ -120,7 +127,7 @@ void motorExecute(u8* arr){
 		}
 	
 		//?????????? ?????? ??????????????????
-		create_t_ctrl_param( step*3,  10,  10,  50);
+		create_t_ctrl_param( step*3,  10,  10,  40);
 		printf("step = %d, speed = %f\r\n", step, speed );
 		
 	}

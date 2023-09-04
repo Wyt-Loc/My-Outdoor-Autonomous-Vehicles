@@ -20,7 +20,7 @@ class TcpServer(网络远程控制部分.版本3.Modules.Control.MyprintLog.Prin
     us_flag = 0
     info = b''
     flag = 1
-    debug_dpj = 0  # 单片机调试模式 0   整体调试 1
+    debug_dpj = 1  # 单片机调试模式 0   整体调试 1
 
     def __init__(self) -> None:
         # 1. 创建Tcp服务，等待连接
@@ -46,9 +46,9 @@ class TcpServer(网络远程控制部分.版本3.Modules.Control.MyprintLog.Prin
         self.tcp_socket.send(send_data.encode("utf-8"))
 
     def tcpReceData(self):
-        self.info = self.tcp_socket.recv(1024)
+        self.info = self.tcp_socket.recv(1024).decode("gbk")
         if self.info:
-            print("得到数据", self.info.decode('gbk'))
+            print("得到数据", self.info)
 
     def getConnObj(self) -> bool:
         # 3. 得到连接对象
@@ -78,5 +78,5 @@ class TcpServer(网络远程控制部分.版本3.Modules.Control.MyprintLog.Prin
 # if __name__ == '__main__':
 #     mytcp = TcpServer()
 #     mytcp.getConnObj()
-    # mytcp.tcpConnSendFlag()
-    # mytcp.tcpReceData()
+# mytcp.tcpConnSendFlag()
+# mytcp.tcpReceData()

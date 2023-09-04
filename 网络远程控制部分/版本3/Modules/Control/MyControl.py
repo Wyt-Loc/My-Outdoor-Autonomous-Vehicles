@@ -147,7 +147,6 @@ class Mykey(网络远程控制部分.版本3.Modules.Control.MyTcpServer.TcpServ
     def dataToCommand(self):
         while True:
             self.tcpReceData()
-            self.info = self.info.decode('gbk')
 
             # 接收到的信息转换为指令发送到单片机
             if self.info == "advancess":
@@ -190,6 +189,13 @@ class Mykey(网络远程控制部分.版本3.Modules.Control.MyTcpServer.TcpServ
                 print("执行{}短按命令".format(self.info))
             if self.info == "rightl":
                 print("执行{}短按命令".format(self.info))
+
+            if self.info == "stop":
+                self.sendMessages(self.dataStop())  # 发送数据帧
+                if self.flag == 1:
+                    self.isReceOk(self.dataStop())
+                print("执行{}长按命令".format(self.info))
+
             self.info = b''
 
 
@@ -212,7 +218,8 @@ def aaa():
         mykey.dataToCommand()
 
 
-if __name__ == '__main__':
+def Control_start():
+    print("远程控制服务开启")
     mykey = Mykey()
     if mykey.debug_dpj == 0:  # 单片机调试模式
         # 直到有一个客户端连接  暂不考虑多用户情况
@@ -229,3 +236,21 @@ if __name__ == '__main__':
                 break
             # 接收数据 并 转发到单片机
         mykey.dataToCommand()
+
+# if __name__ == '__main__':
+#     mykey = Mykey()
+#     if mykey.debug_dpj == 0:  # 单片机调试模式
+#         # 直到有一个客户端连接  暂不考虑多用户情况
+#         while True:
+#             if mykey.getConnObj():
+#                 break
+#         mykey.getKeyValue()
+#
+#     elif mykey.debug_dpj == 1:  # 整体测试
+#         # 建立连接
+#         mykey.tcpConnSendFlag()
+#         while True:
+#             if mykey.getConnObj():
+#                 break
+#             # 接收数据 并 转发到单片机
+#         mykey.dataToCommand()

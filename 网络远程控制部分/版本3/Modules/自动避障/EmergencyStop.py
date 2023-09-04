@@ -23,7 +23,7 @@ class EmergencyStop(网络远程控制部分.版本3.Modules.Control.MyLidar.Lid
                 #     self.isReceOk(self.dataStop())
                 # self.MyprintLogInfos("DetailedTime", "执行急停操作")
 
-    def run(self):
+    def run111(self):
         while True:
             self.Getdata()
             self.Judgment()
@@ -31,4 +31,4 @@ class EmergencyStop(网络远程控制部分.版本3.Modules.Control.MyLidar.Lid
 
 if __name__ == '__main__':
     em = EmergencyStop()
-    em.run()
+    em.run111()
