@@ -4,8 +4,16 @@
 # @File    : MyLidar.py
 import heapq
 import socket
+import threading
+import time
+
 import numpy as np
-from matplotlib import pyplot as plt
+import matplotlib
+from multiprocessing import Process, Lock
+import 网络远程控制部分.版本3.Modules.yolo.yolov5.detect as detect
+
+matplotlib.use("Qt5Agg")
+import matplotlib.pyplot as plt
 import 网络远程控制部分.版本3.Modules.Control.MyControl
 
 
@@ -13,7 +21,7 @@ import 网络远程控制部分.版本3.Modules.Control.MyControl
 # 端口 8487
 
 
-class Lidar(网络远程控制部分.版本3.Modules.Control.MyControl.Mykey):
+class Lidar:
     lidarData = []
     lidarmap = []
     lidarDistance = []
@@ -32,7 +40,7 @@ class Lidar(网络远程控制部分.版本3.Modules.Control.MyControl.Mykey):
             socket.SOL_SOCKET,
             socket.SO_RCVBUF,
             RECV_BUF_SIZE)
-        self.s.connect(('192.168.0.100', 8487))
+        self.s.connect_ex(('192.168.0.100', 8487))
         print("激光雷达连接成功")
 
     def receLidarData(self):
@@ -118,7 +126,6 @@ class Lidar(网络远程控制部分.版本3.Modules.Control.MyControl.Mykey):
         return []
 
     # 转到笛卡尔坐标系
-
     def polar_to_cartesian(self, r, theta):
         x = r * np.cos(theta)
         y = r * np.sin(theta)
@@ -186,34 +193,45 @@ class Lidar(网络远程控制部分.版本3.Modules.Control.MyControl.Mykey):
         else:
             print("无法到达目标节点")
 
-    def displayImg(self):
+    def displayImg(self, info):  # 参数为： 物体的坐标和标签
         plt.figure(figsize=(10.8, 9.6), dpi=100)  # 设置画布大小 1080 * 960 的画布
         ax = plt.subplot(projection='polar')
+        plt.autoscale(False)
         ax.set_thetagrids(np.arange(0.0, 360.0, 30.0))
         ax.set_thetamin(0.0)  # 设置极坐标图开始角度为0°
         ax.set_thetamax(360.0)  # 设置极坐标结束角度为360°
         plt.autoscale(enable=False, tight=False)
+        plt.plot(0, 0)
+        plt.xlabel('x')
+        plt.ylabel('y')
+        plt.xlim(-100, 100)
+        plt.ylim(-100, 100)
+        # 寻路的坐标点，之后应该是一个栈来存储。
         start1 = (0, 0)
         goal1 = (100, 300)
         while True:
+            while info.qsize() != 0:
+                print("data = ", info.get())
+
             self.parsingLidarData()  # 解析数据
             self.generationMap()  # 生成地图
-            self.findRoad(start1, goal1)  # 显示
+            # self.findRoad(start1, goal1)  # 显示
             xx = []
             yy = []
-            print(len(self.path))
-            for i in range(len(self.path)):
-                xx.append(self.path[i][0])
-                yy.append(self.path[i][1])
+            # print(len(self.path))
+            # for i in range(len(self.path)):
+            #     xx.append(self.path[i][0])
+            #     yy.append(self.path[i][1])
             plt.clf()  # 清图
-            plt.scatter(self.x1, self.y1, s=1)
-            plt.scatter(xx, yy, s=1)
-            plt.xlabel('x')
-            plt.ylabel('y')
+            plt.scatter(self.x1, self.y1, s=1)  # 地图
+            # plt.scatter(xx, yy, s=1)  # 路径
+            plt.xlim((-800, 800))
+            plt.ylim((-100, 800))
             plt.title('Cartesian Coordinate System')
             plt.grid(True)
-            plt.pause(0.01)  # 暂停一段时间，不然画的太快会卡住显示不出来
+            plt.pause(0.001)  # 暂停一段时间，不然画的太快会卡住显示不出来
 
 # if __name__ == '__main__':
 #     lidar = Lidar()
+#     # lidar.parsingLidarData()
 #     lidar.displayImg()

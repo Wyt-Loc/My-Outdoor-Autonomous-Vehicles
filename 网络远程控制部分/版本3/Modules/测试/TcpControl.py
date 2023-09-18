@@ -44,6 +44,6 @@ def main_usart():
     thing2.join()
 
 
-# # 函数入口
-# if __name__ == '__main__':
-#     main_usart()
+# 函数入口
+if __name__ == '__main__':
+    main_usart()

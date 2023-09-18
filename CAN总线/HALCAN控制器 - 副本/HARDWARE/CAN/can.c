@@ -22,11 +22,11 @@ CAN_RxHeaderTypeDef	RxHeader;      //接收
 //    其他,初始化失败; 
 u8 CAN1_Mode_Init(u32 tsjw,u32 tbs2,u32 tbs1,u16 brp,u32 mode)
 {
-	CAN_InitTypeDef		CAN1_InitConf;
+		CAN_InitTypeDef		CAN1_InitConf;
     
     CAN1_Handler.Instance=CAN1;
 	
-	CAN1_Handler.Init = CAN1_InitConf;
+		CAN1_Handler.Init = CAN1_InitConf;
 	
     CAN1_Handler.Init.Prescaler=brp;				//分频系数(Fdiv)为brp+1
     CAN1_Handler.Init.Mode=mode;					//模式设置 

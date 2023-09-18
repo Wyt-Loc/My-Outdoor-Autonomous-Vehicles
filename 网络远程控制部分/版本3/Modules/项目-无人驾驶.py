@@ -187,7 +187,7 @@ class myThread_zitai(threading.Thread):
     def run(self):
         self.print("线程启动")
         try:
-            self.ser = serial.Serial("COM11", 921600)  # 位置1
+            self.ser = serial.Serial("COM4", 921600)  # 位置1
             self.ser.flushInput()  # 位置2
             self.print("串口初始化完成")
         except:
@@ -201,7 +201,7 @@ class myThread_zitai(threading.Thread):
                 self.ser.flushInput()  # 清空缓冲区
                 if len(recv) > 200:
                     try:
-                        print("rece = ", recv)
+                        # print("rece = ", recv)
                         recv = self.jiexi(recv)  # 解析数据
                         self.updata_weizhi()  # 将所有得到的数据进行计算，得到位置信息到全局变量中
                     except BaseException as e:

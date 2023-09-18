@@ -237,6 +237,8 @@ def Control_start():
             # 接收数据 并 转发到单片机
         mykey.dataToCommand()
 
+if __name__ == '__main__':
+    Control_start()
 # if __name__ == '__main__':
 #     mykey = Mykey()
 #     if mykey.debug_dpj == 0:  # 单片机调试模式

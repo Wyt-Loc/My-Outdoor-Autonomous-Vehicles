@@ -6,13 +6,10 @@
 import yolov5.camera_configs
 import cv2
 
-AUTO = False  # 自动拍照，或手动按s键拍照
-INTERVAL = 2  # 自动拍照间隔
-
 cv2.namedWindow("left")
 cv2.namedWindow("right")
 
-camera = cv2.VideoCapture(1, cv2.CAP_DSHOW)
+camera = cv2.VideoCapture(0, cv2.CAP_DSHOW)
 
 # 设置分辨率左右摄像机同一频率，同一设备ID；左右摄像机总分辨率2560x720；分割为两个1280x720
 camera.set(cv2.CAP_PROP_FRAME_WIDTH, 1280)
@@ -32,7 +29,6 @@ def shot(pos, frame):
 
 while True:
     ret, frame = camera.read()
-    print("ret:", ret)
     # 裁剪坐标为[y0:y1, x0:x1]    HEIGHT * WIDTH
     left_frame = frame[0:480, 0:640]
     right_frame = frame[0:480, 640:1280]

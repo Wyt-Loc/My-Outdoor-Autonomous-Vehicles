@@ -6,7 +6,15 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9d40b7d4-4c24-42eb-b4d1-f981f6d64a61" name="Changes" comment="" />
+    <list default="true" id="9d40b7d4-4c24-42eb-b4d1-f981f6d64a61" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../CAN总线/电机CAN - 副本/USER/CAN.uvguix.dell" beforeDir="false" afterPath="$PROJECT_DIR$/../CAN总线/电机CAN - 副本/USER/CAN.uvguix.dell" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../网络远程控制部分/版本3/Modules/Control/MyControl.py" beforeDir="false" afterPath="$PROJECT_DIR$/../网络远程控制部分/版本3/Modules/Control/MyControl.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../网络远程控制部分/版本3/Modules/Control/MyTcpServer.py" beforeDir="false" afterPath="$PROJECT_DIR$/../网络远程控制部分/版本3/Modules/Control/MyTcpServer.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../网络远程控制部分/版本3/Modules/Control/data.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../网络远程控制部分/版本3/Modules/Control/data.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../网络远程控制部分/版本3/Modules/yolo/yolov5/detect.py" beforeDir="false" afterPath="$PROJECT_DIR$/../网络远程控制部分/版本3/Modules/yolo/yolov5/detect.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../网络远程控制部分/版本3/Modules/测试/TcpControl.py" beforeDir="false" afterPath="$PROJECT_DIR$/../网络远程控制部分/版本3/Modules/测试/TcpControl.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../网络远程控制部分/版本3/Modules/测试/data.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../网络远程控制部分/版本3/Modules/测试/data.txt" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -203,6 +211,7 @@
       <workItem from="1692284648786" duration="64000" />
       <workItem from="1692694063873" duration="889000" />
       <workItem from="1693033211974" duration="71000" />
+      <workItem from="1693959930465" duration="115000" />
     </task>
     <servers />
   </component>

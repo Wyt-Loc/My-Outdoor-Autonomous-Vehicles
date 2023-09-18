@@ -26,7 +26,8 @@ class TcpServer(网络远程控制部分.版本3.Modules.Control.MyprintLog.Prin
         # 1. 创建Tcp服务，等待连接
         super().__init__()
         self.server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)  # 参数可以不加
-        self.server.bind(('192.168.1.104', 10006))  # 绑定要监听的端口  此IP为 本机IP
+        self.server.bind(('127.0.0.1', 10006))  # 绑定要监听的端口  此IP为 本机IP
+        # self.server.bind(('192.168.1.104', 10006))  # 绑定要监听的端口  此IP为 本机IP
         self.server.listen(5)  # 开始监听 表示可以使用五个链接排队
 
         if self.debug_dpj == 1:

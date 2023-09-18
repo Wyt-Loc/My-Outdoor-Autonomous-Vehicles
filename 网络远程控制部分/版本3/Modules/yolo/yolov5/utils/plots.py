@@ -118,14 +118,8 @@ class Annotator:
                             lineType=cv2.LINE_AA)
         # ---------------------------------------------------------------------------------------------------#
         # 在预测图中绘制一个中心坐标红点
-        cv2.circle(self.im, ((p1[0] + p2[0]) // 2, (p1[1] + p2[1]) // 2), self.lw, (0, 0, 255), self.lw)
         # 创建了个中心点坐标变量
-        Center = (((p2[0] - p1[0]) / 2 + p1[0]), ((p2[1] - p1[1]) / 2 + p1[1]))
-        cv2.putText(self.im, str(Center), ((p1[0] + p2[0]) // 2, (p1[1] + p2[1]) // 2), 0, self.lw / 3, txt_color,
-                    thickness=4, lineType=cv2.LINE_AA)
-        print(label)
-        # 打印坐标信息
-        print("中心点的坐标为：(" + str((p2[0] - p1[0]) / 2 + p1[0]) + "," + str((p2[1] - p1[1]) / 2 + p1[1]) + ")")
+
         # ---------------------------------------------------------------------------------------------------#
 
     def masks(self, masks, colors, im_gpu, alpha=0.5, retina_masks=False):
@@ -553,6 +547,7 @@ def profile_idetection(start=0, stop=0, labels=(), save_dir=''):
             print(f'Warning: Plotting error for {f}; {e}')
     ax[1].legend()
     plt.savefig(Path(save_dir) / 'idetection_profile.png', dpi=200)
+
 
 
 def save_one_box(xyxy, im, file=Path('im.jpg'), gain=1.02, pad=10, square=False, BGR=False, save=True):

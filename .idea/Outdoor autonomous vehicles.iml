@@ -1,7 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module type="PYTHON_MODULE" version="4">
   <component name="NewModuleRootManager">
-    <content url="file://$MODULE_DIR$" />
+    <content url="file://$MODULE_DIR$">
+      <excludeFolder url="file://$MODULE_DIR$/Android" />
+      <excludeFolder url="file://$MODULE_DIR$/c++" />
+      <excludeFolder url="file://$MODULE_DIR$/CAN总线" />
+      <excludeFolder url="file://$MODULE_DIR$/FILETRANSFER" />
+      <excludeFolder url="file://$MODULE_DIR$/PCB" />
+      <excludeFolder url="file://$MODULE_DIR$/Stm32定时器规划" />
+      <excludeFolder url="file://$MODULE_DIR$/上位机" />
+      <excludeFolder url="file://$MODULE_DIR$/串口屏" />
+      <excludeFolder url="file://$MODULE_DIR$/以太网部分" />
+      <excludeFolder url="file://$MODULE_DIR$/参考资料" />
+      <excludeFolder url="file://$MODULE_DIR$/综合测试" />
+      <excludeFolder url="file://$MODULE_DIR$/远程升级" />
+      <excludeFolder url="file://$MODULE_DIR$/项目架构图" />
+      <excludeFolder url="file://$MODULE_DIR$/项目记录" />
+      <excludeFolder url="file://$MODULE_DIR$/网络视频通信部分" />
+      <excludeFolder url="file://$MODULE_DIR$/选材" />
+      <excludeFolder url="file://$MODULE_DIR$/阿里云端代码" />
+      <excludeFolder url="file://$MODULE_DIR$/音频传输" />
+      <excludeFolder url="file://$MODULE_DIR$/各模块测试使用用代码" />
+      <excludeFolder url="file://$MODULE_DIR$/实验数据" />
+      <excludeFolder url="file://$MODULE_DIR$/开发流程--极简版" />
+      <excludeFolder url="file://$MODULE_DIR$/GUI部分" />
+    </content>
     <orderEntry type="jdk" jdkName="Python 3.8 (yolo) (2)" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
